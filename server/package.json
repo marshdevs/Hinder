@@ -24,7 +24,9 @@
   "homepage": "https://github.com/marshdevs/Hinder#readme",
   "dependencies": {
     "aws-sdk": "^2.144.0",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "hashids": "^1.1.2",
     "request": "^2.83.0"
   }
 }

@@ -1,4 +1,4 @@
-// Events: /createEvent, /editEvent, /deleteEvent
+/* Events: POST=/createEvent, PUT=/editEvent, DELETE=/deleteEvent */
 {
     "eventId": "",
     "name": "",
@@ -11,7 +11,7 @@
     "users": []
 }
 
-// Users: /createUser, /editUser, /deleteUser
+/* Users: POST=/createUser, PUT=/editUser, DELETE=/deleteUser */
 {
     "userId": "",
     "name": "",
@@ -21,7 +21,7 @@
     "skills": {}
 }
 
-// Projects: /createProject, editProject, /deleteProject
+/* Projects: POST=/createProject, PUT=/editProject, DELETE=/deleteProject */
 {
     "projectId": "",
     "eventId": "",
@@ -33,8 +33,8 @@
     "users": []
 }
 
-// Matches: /
+/* Matches: PUT=/match */
 {
     "matchId": "projectId&userId",
-    "matched": "boolena"
+    "matched": "boolean"
 }
