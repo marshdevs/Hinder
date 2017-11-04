@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
+		C55671671FAD4553009A194B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671661FAD4553009A194B /* AppDelegate.swift */; };
+		C55671691FAD4553009A194B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671681FAD4553009A194B /* ViewController.swift */; };
+		C556716C1FAD4553009A194B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C556716A1FAD4553009A194B /* Main.storyboard */; };
+		C556716E1FAD4553009A194B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C556716D1FAD4553009A194B /* Assets.xcassets */; };
+		C55671711FAD4553009A194B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C556716F1FAD4553009A194B /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C55671631FAD4553009A194B /* HinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C55671661FAD4553009A194B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C55671681FAD4553009A194B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C556716B1FAD4553009A194B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C556716D1FAD4553009A194B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C55671701FAD4553009A194B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C55671721FAD4553009A194B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HinderApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB0788E19595C0B9866F5DE3 /* Pods-HinderApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C55671601FAD4553009A194B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23ACEF23AFA11B2176F7C8AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1569A637C58B1FCE043482E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */,
+				DB0788E19595C0B9866F5DE3 /* Pods-HinderApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C556715A1FAD4553009A194B = {
+			isa = PBXGroup;
+			children = (
+				C55671651FAD4553009A194B /* HinderApp */,
+				C55671641FAD4553009A194B /* Products */,
+				A1569A637C58B1FCE043482E /* Pods */,
+				23ACEF23AFA11B2176F7C8AA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C55671641FAD4553009A194B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C55671631FAD4553009A194B /* HinderApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C55671651FAD4553009A194B /* HinderApp */ = {
+			isa = PBXGroup;
+			children = (
+				C55671661FAD4553009A194B /* AppDelegate.swift */,
+				C55671681FAD4553009A194B /* ViewController.swift */,
+				C556716A1FAD4553009A194B /* Main.storyboard */,
+				C556716D1FAD4553009A194B /* Assets.xcassets */,
+				C556716F1FAD4553009A194B /* LaunchScreen.storyboard */,
+				C55671721FAD4553009A194B /* Info.plist */,
+			);
+			path = HinderApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C55671621FAD4553009A194B /* HinderApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C55671751FAD4553009A194B /* Build configuration list for PBXNativeTarget "HinderApp" */;
+			buildPhases = (
+				D1C63B9E8BF979DF889FAEBC /* [CP] Check Pods Manifest.lock */,
+				C556715F1FAD4553009A194B /* Sources */,
+				C55671601FAD4553009A194B /* Frameworks */,
+				C55671611FAD4553009A194B /* Resources */,
+				A2D3BCE69577426C44AE4C73 /* [CP] Embed Pods Frameworks */,
+				2CE9604F9244D5B0D07F81E3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HinderApp;
+			productName = HinderApp;
+			productReference = C55671631FAD4553009A194B /* HinderApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C556715B1FAD4553009A194B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = TBD;
+				TargetAttributes = {
+					C55671621FAD4553009A194B = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = C556715E1FAD4553009A194B /* Build configuration list for PBXProject "HinderApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C556715A1FAD4553009A194B;
+			productRefGroup = C55671641FAD4553009A194B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C55671621FAD4553009A194B /* HinderApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C55671611FAD4553009A194B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C55671711FAD4553009A194B /* LaunchScreen.storyboard in Resources */,
+				C556716E1FAD4553009A194B /* Assets.xcassets in Resources */,
+				C556716C1FAD4553009A194B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CE9604F9244D5B0D07F81E3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2D3BCE69577426C44AE4C73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Yoga/yoga.framework",
+				"${BUILT_PRODUCTS_DIR}/YogaKit/YogaKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YogaKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1C63B9E8BF979DF889FAEBC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HinderApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C556715F1FAD4553009A194B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C55671691FAD4553009A194B /* ViewController.swift in Sources */,
+				C55671671FAD4553009A194B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C556716A1FAD4553009A194B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C556716B1FAD4553009A194B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C556716F1FAD4553009A194B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C55671701FAD4553009A194B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C55671731FAD4553009A194B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C55671741FAD4553009A194B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C55671761FAD4553009A194B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HinderApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TBD.HinderApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C55671771FAD4553009A194B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0788E19595C0B9866F5DE3 /* Pods-HinderApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HinderApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TBD.HinderApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C556715E1FAD4553009A194B /* Build configuration list for PBXProject "HinderApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C55671731FAD4553009A194B /* Debug */,
+				C55671741FAD4553009A194B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C55671751FAD4553009A194B /* Build configuration list for PBXNativeTarget "HinderApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C55671761FAD4553009A194B /* Debug */,
+				C55671771FAD4553009A194B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C556715B1FAD4553009A194B /* Project object */;
+}
