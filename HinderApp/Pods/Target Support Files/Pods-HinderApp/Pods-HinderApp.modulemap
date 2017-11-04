@@ -1,0 +1,6 @@
+framework module Pods_HinderApp {
+  umbrella header "Pods-HinderApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
