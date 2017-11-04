@@ -1,26 +1,19 @@
-//
-//  AppDelegate.swift
-//  Hinder
-//
-//  Created by Kim Svatos on 11/3/17.
-//  Copyright © 2017 TBD. All rights reserved.
-//
 
-import Cocoa
+import UIKit
 
-@NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
-    }
-
-    func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
-    }
-
-
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  
+  var window: UIWindow?
+  
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.backgroundColor = UIColor.white
+    let nav = UINavigationController(navigationBarClass: CustomNavigationBar.self, toolbarClass: nil)
+    nav.pushViewController(FeedViewController(), animated: false)
+    window?.rootViewController = nav
+    window?.makeKeyAndVisible()
+    return true
+  }
 }
 
