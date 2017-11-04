@@ -1,0 +1,40 @@
+// Events: /createEvent, /editEvent, /deleteEvent
+{
+    "eventId": "",
+    "name": "",
+    "date": "",
+    "location": "",
+    "description": "",
+    "photo": "",
+    "thumbnail": "",
+    "projects": [],
+    "users": []
+}
+
+// Users: /createUser, /editUser, /deleteUser
+{
+    "userId": "",
+    "name": "",
+    "occupation": "",
+    "photo": "",
+    "events": [],
+    "skills": {}
+}
+
+// Projects: /createProject, editProject, /deleteProject
+{
+    "projectId": "",
+    "eventId": "",
+    "name": "",
+    "description": "",
+    "size": "",
+    "photo": "",
+    "skills": [],
+    "users": []
+}
+
+// Matches: /
+{
+    "matchId": "projectId&userId",
+    "matched": "boolena"
+}
