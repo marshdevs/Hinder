@@ -18,7 +18,7 @@
     "occupation": "",
     "photo": "",
     "events": [],
-    "skills": {}
+    "skillset": {}
 }
 
 /* Projects: POST=/createProject, PUT=/editProject, DELETE=/deleteProject */
@@ -29,7 +29,7 @@
     "description": "",
     "size": "",
     "photo": "",
-    "skills": [],
+    "skillset": {},
     "users": []
 }
 
