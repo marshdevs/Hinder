@@ -1,0 +1,30 @@
+{
+  "name": "hinder-server",
+  "version": "1.0.0",
+  "description": "Backend Node.js server for Hinder hackathon/project finder",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marshdevs/Hinder.git"
+  },
+  "keywords": [
+    "Node",
+    "backend",
+    "server",
+    "DynamoDB"
+  ],
+  "author": "Hinder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marshdevs/Hinder/issues"
+  },
+  "homepage": "https://github.com/marshdevs/Hinder#readme",
+  "dependencies": {
+    "aws-sdk": "^2.144.0",
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  }
+}
