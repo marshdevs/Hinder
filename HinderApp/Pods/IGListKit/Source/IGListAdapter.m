@@ -18,6 +18,9 @@
 
 @implementation IGListAdapter {
     NSMapTable<UICollectionReusableView *, IGListSectionController *> *_viewSectionControllerMap;
+    // An array of blocks to execute once batch updates are finished
+    NSMutableArray<void (^)(void)> *_queuedCompletionBlocks;
+    NSHashTable<id<IGListAdapterUpdateListener>> *_updateListeners;
 }
 
 - (void)dealloc {
@@ -48,6 +51,7 @@
 
         _displayHandler = [IGListDisplayHandler new];
         _workingRangeHandler = [[IGListWorkingRangeHandler alloc] initWithWorkingRangeSize:workingRangeSize];
+        _updateListeners = [NSHashTable weakObjectsHashTable];
 
         _viewSectionControllerMap = [NSMapTable mapTableWithKeyOptions:NSMapTableObjectPointerPersonality | NSMapTableStrongMemory
                                                           valueOptions:NSMapTableStrongMemory];
@@ -273,7 +277,7 @@
         case UICollectionViewScrollDirectionVertical: {
             switch (scrollPosition) {
                 case UICollectionViewScrollPositionBottom:
-                    contentOffset.y = offsetMax - collectionViewHeight - contentInset.top;
+                    contentOffset.y = offsetMax - collectionViewHeight;
                     break;
                 case UICollectionViewScrollPositionCenteredVertically: {
                     const CGFloat insets = (contentInset.top - contentInset.bottom) / 2.0;
@@ -317,6 +321,8 @@
     NSArray *fromObjects = self.sectionMap.objects;
     NSArray *newObjects = [dataSource objectsForListAdapter:self];
 
+    [self enterBatchUpdates];
+
     __weak __typeof__(self) weakSelf = self;
     [self.updater performUpdateWithCollectionView:collectionView
                                       fromObjects:fromObjects
@@ -332,9 +338,11 @@
                                 // release the previous items
                                 weakSelf.previousSectionMap = nil;
 
+                                [weakSelf notifyDidUpdate:IGListAdapterUpdateTypePerformUpdates animated:animated];
                                 if (completion) {
                                     completion(finished);
                                 }
+                                [weakSelf exitBatchUpdates];
                             }];
 }
 
@@ -358,7 +366,12 @@
         // purge all section controllers from the item map so that they are regenerated
         [weakSelf.sectionMap reset];
         [weakSelf updateObjects:newItems dataSource:dataSource];
-    } completion:completion];
+    } completion:^(BOOL finished) {
+        [weakSelf notifyDidUpdate:IGListAdapterUpdateTypeReloadData animated:NO];
+        if (completion) {
+            completion(finished);
+        }
+    }];
 }
 
 - (void)reloadObjects:(NSArray *)objects {
@@ -390,6 +403,26 @@
     IGAssert(collectionView != nil, @"Tried to reload the adapter without a collection view");
 
     [self.updater reloadCollectionView:collectionView sections:sections];
+}
+
+- (void)addUpdateListener:(id<IGListAdapterUpdateListener>)updateListener {
+    IGAssertMainThread();
+    IGParameterAssert(updateListener != nil);
+
+    [_updateListeners addObject:updateListener];
+}
+
+- (void)removeUpdateListener:(id<IGListAdapterUpdateListener>)updateListener {
+    IGAssertMainThread();
+    IGParameterAssert(updateListener != nil);
+
+    [_updateListeners removeObject:updateListener];
+}
+
+- (void)notifyDidUpdate:(IGListAdapterUpdateType)update animated:(BOOL)animated {
+    for (id<IGListAdapterUpdateListener> listener in _updateListeners) {
+        [listener listAdapter:self didFinishUpdate:update animated:animated];
+    }
 }
 
 
@@ -702,6 +735,27 @@
     [_viewSectionControllerMap removeObjectForKey:view];
 }
 
+- (void)deferBlockBetweenBatchUpdates:(void (^)(void))block {
+    IGAssertMainThread();
+    if (_queuedCompletionBlocks == nil) {
+        block();
+    } else {
+        [_queuedCompletionBlocks addObject:block];
+    }
+}
+
+- (void)enterBatchUpdates {
+    _queuedCompletionBlocks = [NSMutableArray new];
+}
+
+- (void)exitBatchUpdates {
+    NSArray *blocks = [_queuedCompletionBlocks copy];
+    _queuedCompletionBlocks = nil;
+    for (void (^block)(void) in blocks) {
+        block();
+    }
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -964,6 +1018,8 @@
     IGParameterAssert(updates != nil);
     UICollectionView *collectionView = self.collectionView;
     IGAssert(collectionView != nil, @"Performing batch updates without a collection view.");
+
+    [self enterBatchUpdates];
     
     __weak __typeof__(self) weakSelf = self;
     [self.updater performUpdateWithCollectionView:collectionView animated:animated itemUpdates:^{
@@ -973,9 +1029,11 @@
         weakSelf.isInUpdateBlock = NO;
     } completion: ^(BOOL finished) {
         [weakSelf updateBackgroundViewShouldHide:![weakSelf itemCountIsZero]];
+        [weakSelf notifyDidUpdate:IGListAdapterUpdateTypeItemUpdates animated:animated];
         if (completion) {
             completion(finished);
         }
+        [weakSelf exitBatchUpdates];
     }];
 }
 
@@ -1004,11 +1062,14 @@
     UICollectionViewLayoutInvalidationContext *context = [[[layout.class invalidationContextClass] alloc] init];
     [context invalidateItemsAtIndexPaths:indexPaths];
     
-    void (^block)() = ^{
-        [layout invalidateLayoutWithContext:context];
-    };
-    
-    [_collectionView performBatchUpdates:block completion:completion];
+    __weak __typeof__(_collectionView) weakCollectionView = _collectionView;
+
+    // do not call -[UICollectionView performBatchUpdates:completion:] while already updating. defer it until completed.
+    [self deferBlockBetweenBatchUpdates:^{
+        [weakCollectionView performBatchUpdates:^{
+            [layout invalidateLayoutWithContext:context];
+        } completion:completion];
+    }];
 }
 
 #pragma mark - IGListBatchContext

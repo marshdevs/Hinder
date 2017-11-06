@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C90D5E52C377A8BFD0FA7008CBF87AE3'
+               BlueprintIdentifier = 'D448C42F9B550742F18B41A6568213ED'
                BlueprintName = 'IGListKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'IGListKit.framework'>
