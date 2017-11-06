@@ -10,6 +10,7 @@
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
 		C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */; };
 		C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */; };
+		C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */; };
 		C55671671FAD4553009A194B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671661FAD4553009A194B /* AppDelegate.swift */; };
 		C55671691FAD4553009A194B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671681FAD4553009A194B /* HomeViewController.swift */; };
 		C556716C1FAD4553009A194B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C556716A1FAD4553009A194B /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HinderNavigationBar.swift; sourceTree = "<group>"; };
 		C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsAndTheme.swift; sourceTree = "<group>"; };
+		C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSectionController.swift; sourceTree = "<group>"; };
 		C55671631FAD4553009A194B /* HinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C55671661FAD4553009A194B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C55671681FAD4553009A194B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +66,7 @@
 		C52030191FAD4732009DFCBA /* SectionControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C520301C1FAD4768009DFCBA /* Views */,
+				C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */,
 			);
 			name = SectionControllers;
 			sourceTree = "<group>";
@@ -74,13 +76,6 @@
 			children = (
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		C520301C1FAD4768009DFCBA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 		C555F6B91FB0EA2A009106E8 /* Views */ = {
@@ -267,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */,
+				C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */,
 				C55671691FAD4553009A194B /* HomeViewController.swift in Sources */,
 				C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */,
 				C55671671FAD4553009A194B /* AppDelegate.swift in Sources */,

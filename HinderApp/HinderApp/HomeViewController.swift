@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IGListKit
 
 class HomeViewController: UIViewController {
 
@@ -19,7 +20,31 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
+// MARK: - IGListAdapterDataSource
+extension HomeViewController: ListAdapterDataSource {
+    
+    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+        var items: [ListDiffable]? = [ListDiffable]();
+        //TODO: here we would want Events
+        /*
+         append to items array: first, events we are attending, 
+         next, other events we CAN join.
+         
+         REQUEST TO DB NEEDED HERE, what events we're attending
+         */
+        return items!
+    }
+    
+    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+        /*if object is TypeofObject {
+            return thatKindOfSectionController()
+        }
+         else if object is TypeOfObject {....
+         TODO:
+        }*/
+        return FeedSectionController(); //placeholder to prevent compilation errors rn
+    }
+    func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
+}
