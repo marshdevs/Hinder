@@ -47,17 +47,18 @@ extension HomeViewController: ListAdapterDataSource {
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
         
-        guard error == nil else {
-            return
-        }                                                                    
-        guard let data = data else {
-            return
-        }                                                                     
-        do {
-            for event in data {
-                items.append(event)
+            guard error == nil else {
+                return
+            }                                                                    
+            guard let data = data else {
+                return
+            }                                                                     
+            do {
+                for event in data {
+                    items.append(event)
+                }
             }
-        }                                                                  
+        })
         task.resume()
                 
         return items!
