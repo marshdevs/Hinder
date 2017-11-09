@@ -37,8 +37,9 @@ extension HomeViewController: ListAdapterDataSource {
          REQUEST TO DB NEEDED HERE, what events we're attending
         
         Events look like:
-        { "eventId": "", "name": "", "date": "", "location": "", "description": "", "photo": "", "thumbnail": "",
-         "projects": [], "users": [] }
+        { "eventId": string, "name": string, "date": string (stored as ISO-8601 formatted string), "location": ???, 
+          "description": string, "photo": string url, "thumbnail": string url, "projects": array of string project ids, 
+          "users": array of string userids }
         
         Need some way to grab user's location, if we're querying events by location
          */
