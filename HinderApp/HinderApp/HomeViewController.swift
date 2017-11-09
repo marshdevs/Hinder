@@ -8,6 +8,7 @@
 
 import UIKit
 import IGListKit
+import URLSession
 
 class HomeViewController: UIViewController {
 
@@ -33,7 +34,32 @@ extension HomeViewController: ListAdapterDataSource {
          next, other events we CAN join.
          
          REQUEST TO DB NEEDED HERE, what events we're attending
+        
+        Events look like:
+        { "eventId": "", "name": "", "date": "", "location": "", "description": "", "photo": "", "thumbnail": "",
+         "projects": [], "users": [] }
+        
+        Need some way to grab user's location, if we're querying events by location
          */
+        
+        let url = URL(string: "http://ec2-184-72-191-21.compute-1.amazonaws.com:8080/queryEvents/<userLocation>")!
+        let session = URLSession.shared
+        let request = URLRequest(url: url)
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+        
+        guard error == nil else {
+            return
+        }                                                                    
+        guard let data = data else {
+            return
+        }                                                                     
+        do {
+            for event in data {
+                items.append(event)
+            }
+        }                                                                  
+        task.resume()
+                
         return items!
     }
     
