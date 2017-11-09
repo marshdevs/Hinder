@@ -24,6 +24,31 @@ var dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 // Event operations -----------------------------------
 
+app.get('/queryEvents/:location', function(req, res){
+    console.log("GET: Received a queryEvents request...");
+
+    var params = {
+        TableName: "hinder-events",
+        KeyConditionExpression: "#loc = :userLocation",
+        ExpressionAttributeNames: {
+            "#loc": "eventLocation"
+        },
+        ExpressionAttributeValues: {
+            ":userLocation": req.params.location
+        }
+    };
+    dynamoDB.query(params, function(err, data){
+        if (err) {
+            console.log(err);
+            console.log("GET: Error querying events by location: " + req.params.location);
+            res.status(404).send({"ERROR": "Failed to query events by location: " + req.params.location});
+        } else {
+            console.log("GET: Successfully queried events by location: " + req.params.location);
+            res.status(200).send(data.Items);
+        }
+    });
+});
+
 app.post('/createEvent', function(req, res){
     console.log("POST: Received a createEvent request...");
 
