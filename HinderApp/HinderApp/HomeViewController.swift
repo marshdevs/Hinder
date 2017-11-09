@@ -8,7 +8,8 @@
 
 import UIKit
 import IGListKit
-import URLSession
+import Foundation
+//import URLSession
 
 class HomeViewController: UIViewController {
 
@@ -27,7 +28,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        var items: [ListDiffable]? = [ListDiffable]();
+        var items: [ListDiffable] = [ListDiffable]();
         //TODO: here we would want Events
         /*
          append to items array: first, events we are attending, 
@@ -54,14 +55,19 @@ extension HomeViewController: ListAdapterDataSource {
                 return
             }                                                                     
             do {
+                var eventArray = [Event]()
                 for event in data {
-                    items.append(event)
+                    eventArray.append(Event(name: "TestName", location:"UCLA"))
+                    // TO DO: be able to access event data to actually initialize new Event object
+                    //items += event as [IGListDiffable]
+                    //items.append(event)
                 }
+                items += eventArray as [ListDiffable]
             }
         })
         task.resume()
                 
-        return items!
+        return items
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
