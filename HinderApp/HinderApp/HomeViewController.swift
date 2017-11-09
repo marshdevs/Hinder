@@ -37,9 +37,9 @@ extension HomeViewController: ListAdapterDataSource {
          REQUEST TO DB NEEDED HERE, what events we're attending
         
         Events look like:
-        { "eventId": string, "name": string, "date": string (stored as ISO-8601 formatted string), "location": ???, 
-          "description": string, "photo": string url, "thumbnail": string url, "projects": array of string project ids, 
-          "users": array of string userids }
+        { "eventId": string, "eventName": string, "eventDate": string (stored as ISO-8601 formatted string), "eventLocation": ???, 
+          "eventDescription": string, "eventPhoto": string url, "eventThumbnail": string url, "eventProjects": array of string project ids, 
+          "eventUsers": array of string userids }
         
         Need some way to grab user's location, if we're querying events by location
          */
@@ -56,14 +56,16 @@ extension HomeViewController: ListAdapterDataSource {
                 return
             }                                                                     
             do {
-                var eventArray = [Event]()
-                for event in data {
-                    eventArray.append(Event(name: "TestName", location:"UCLA"))
-                    // TO DO: be able to access event data to actually initialize new Event object
-                    //items += event as [IGListDiffable]
-                    //items.append(event)
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    var eventArray = [Event]()
+                    for event in data {
+                        eventArray.append(Event(name: "TestName", location:"UCLA"))
+                        // TO DO: be able to access event data to actually initialize new Event object
+                        //items += event as [IGListDiffable]
+                        //items.append(event)
+                    }
+                    items += eventArray as [ListDiffable]
                 }
-                items += eventArray as [ListDiffable]
             }
         })
         task.resume()
