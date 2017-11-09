@@ -12,6 +12,9 @@
 		C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */; };
 		C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */; };
 		C555F6BE1FB41E9D009106E8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6BD1FB41E9D009106E8 /* Event.swift */; };
+		C555F6C01FB42D87009106E8 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6BF1FB42D87009106E8 /* Project.swift */; };
+		C555F6C21FB43293009106E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6C11FB43293009106E8 /* User.swift */; };
+		C555F6C41FB4334D009106E8 /* Skillset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6C31FB4334D009106E8 /* Skillset.swift */; };
 		C55671671FAD4553009A194B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671661FAD4553009A194B /* AppDelegate.swift */; };
 		C55671691FAD4553009A194B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671681FAD4553009A194B /* HomeViewController.swift */; };
 		C556716C1FAD4553009A194B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C556716A1FAD4553009A194B /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 		C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsAndTheme.swift; sourceTree = "<group>"; };
 		C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSectionController.swift; sourceTree = "<group>"; };
 		C555F6BD1FB41E9D009106E8 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		C555F6BF1FB42D87009106E8 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		C555F6C11FB43293009106E8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C555F6C31FB4334D009106E8 /* Skillset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skillset.swift; sourceTree = "<group>"; };
 		C55671631FAD4553009A194B /* HinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C55671661FAD4553009A194B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C55671681FAD4553009A194B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				C555F6BD1FB41E9D009106E8 /* Event.swift */,
+				C555F6BF1FB42D87009106E8 /* Project.swift */,
+				C555F6C11FB43293009106E8 /* User.swift */,
+				C555F6C31FB4334D009106E8 /* Skillset.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -268,7 +277,10 @@
 				C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */,
 				C55671691FAD4553009A194B /* HomeViewController.swift in Sources */,
 				C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */,
+				C555F6C41FB4334D009106E8 /* Skillset.swift in Sources */,
+				C555F6C21FB43293009106E8 /* User.swift in Sources */,
 				C555F6BE1FB41E9D009106E8 /* Event.swift in Sources */,
+				C555F6C01FB42D87009106E8 /* Project.swift in Sources */,
 				C55671671FAD4553009A194B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -44,7 +44,7 @@ extension HomeViewController: ListAdapterDataSource {
         Need some way to grab user's location, if we're querying events by location
          */
         
-        let url = URL(string: "http://ec2-184-72-191-21.compute-1.amazonaws.com:8080/queryEvents/<userLocation>")!
+        let url = URL(string: "http://ec2-184-72-191-21.compute-1.amazonaws.com:8080/queryEvents/los_angeles")!
         let session = URLSession.shared
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
