@@ -29,7 +29,7 @@ app.get('/queryEvents/:location', function(req, res){
 
     var params = {
         TableName: "hinder-events",
-        KeyConditionExpression: "#loc = :userLocation",
+        FilterExpression: "#loc = :userLocation",
         ExpressionAttributeNames: {
             "#loc": "eventLocation"
         },
@@ -37,13 +37,13 @@ app.get('/queryEvents/:location', function(req, res){
             ":userLocation": req.params.location
         }
     };
-    dynamoDB.query(params, function(err, data){
+    dynamoDB.scan(params, function(err, data){
         if (err) {
             console.log(err);
-            console.log("GET: Error querying events by location: " + req.params.location);
-            res.status(404).send({"ERROR": "Failed to query events by location: " + req.params.location});
+            console.log("GET: Error scanning events by location: " + req.params.location);
+            res.status(404).send({"ERROR": "Failed to scan events by location: " + req.params.location});
         } else {
-            console.log("GET: Successfully queried events by location: " + req.params.location);
+            console.log("GET: Successfully scanned events by location: " + req.params.location);
             res.status(200).send(data.Items);
         }
     });
@@ -72,7 +72,7 @@ app.post('/createEvent', function(req, res){
         if (err) {
             console.log(err);
             console.log("POST: Error creating event: " + eventId + " - " + event.name);
-            res.status(503).send("ERROR": "Failed to create event with ID: " + eventId);
+            res.status(503).send({"ERROR": "Failed to create event with ID: " + eventId});
         } else {
             console.log("POST: Successfully created event: " + eventId + " - " + event.name);
             res.status(200).send(data.Item);
@@ -148,7 +148,7 @@ app.delete('/deleteEvent', function(req, res){
         if (err) {
             console.log(err);
             console.log("DELETE: Error deleting event by ID: " + event.eventId);
-            res.status(404).send("ERROR": "Failed to delete event with ID: " + event.eventId);
+            res.status(404).send({"ERROR": "Failed to delete event with ID: " + event.eventId});
         } else {
             console.log("DELETE: Successfully deleted event by ID: " + event.eventId);
             res.status(200).send({"SUCCESS": "Successfully deleted event by ID: " + event.eventId});
@@ -381,7 +381,7 @@ app.put('/match', function(req, res){
         if (err) {
             console.log(err);
             console.log("PUT: Error creating match: " + matchId);
-            res.status(503).send("ERROR": "Error creating match: " + matchId);
+            res.status(503).send({"ERROR": "Error creating match: " + matchId});
         } else {
             console.log("PUT: Successfully created match: " + projectId + " - " + match.matched);
             res.status(200).send(data.Item);
