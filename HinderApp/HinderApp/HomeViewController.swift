@@ -57,15 +57,17 @@ extension HomeViewController: ListAdapterDataSource {
             }                                                                     
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    var eventArray = [Event]()
-                    for event in data {
-                        eventArray.append(Event(name: "TestName", location:"UCLA"))
+                    for event in json {
                         // TO DO: be able to access event data to actually initialize new Event object
-                        //items += event as [IGListDiffable]
+                        //items += event as [ListDiffable]
                         //items.append(event)
                     }
+                    var eventArray = [Event]()
+                    eventArray.append(Event(name: "TestName", location:"UCLA"))
                     items += eventArray as [ListDiffable]
                 }
+            } catch let error {
+                print(error.localizedDescription)
             }
         })
         task.resume()
