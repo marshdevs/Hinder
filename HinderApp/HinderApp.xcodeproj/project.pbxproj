@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
+		C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */; };
+		C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */; };
+		C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */; };
 		C55671671FAD4553009A194B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671661FAD4553009A194B /* AppDelegate.swift */; };
-		C55671691FAD4553009A194B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671681FAD4553009A194B /* ViewController.swift */; };
+		C55671691FAD4553009A194B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671681FAD4553009A194B /* HomeViewController.swift */; };
 		C556716C1FAD4553009A194B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C556716A1FAD4553009A194B /* Main.storyboard */; };
 		C556716E1FAD4553009A194B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C556716D1FAD4553009A194B /* Assets.xcassets */; };
 		C55671711FAD4553009A194B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C556716F1FAD4553009A194B /* LaunchScreen.storyboard */; };
@@ -17,9 +20,12 @@
 
 /* Begin PBXFileReference section */
 		391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HinderNavigationBar.swift; sourceTree = "<group>"; };
+		C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsAndTheme.swift; sourceTree = "<group>"; };
+		C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSectionController.swift; sourceTree = "<group>"; };
 		C55671631FAD4553009A194B /* HinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C55671661FAD4553009A194B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C55671681FAD4553009A194B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C55671681FAD4553009A194B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C556716B1FAD4553009A194B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C556716D1FAD4553009A194B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C55671701FAD4553009A194B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +63,37 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C52030191FAD4732009DFCBA /* SectionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */,
+			);
+			name = SectionControllers;
+			sourceTree = "<group>";
+		};
+		C520301B1FAD4760009DFCBA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C555F6B91FB0EA2A009106E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C555F6BA1FB0EA51009106E8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C55671681FAD4553009A194B /* HomeViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		C556715A1FAD4553009A194B = {
 			isa = PBXGroup;
 			children = (
@@ -78,12 +115,16 @@
 		C55671651FAD4553009A194B /* HinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				C555F6BA1FB0EA51009106E8 /* ViewControllers */,
+				C555F6B91FB0EA2A009106E8 /* Views */,
+				C520301B1FAD4760009DFCBA /* Models */,
 				C55671661FAD4553009A194B /* AppDelegate.swift */,
-				C55671681FAD4553009A194B /* ViewController.swift */,
+				C52030191FAD4732009DFCBA /* SectionControllers */,
 				C556716A1FAD4553009A194B /* Main.storyboard */,
 				C556716D1FAD4553009A194B /* Assets.xcassets */,
 				C556716F1FAD4553009A194B /* LaunchScreen.storyboard */,
 				C55671721FAD4553009A194B /* Info.plist */,
+				C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */,
 			);
 			path = HinderApp;
 			sourceTree = "<group>";
@@ -122,6 +163,7 @@
 				TargetAttributes = {
 					C55671621FAD4553009A194B = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -219,7 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C55671691FAD4553009A194B /* ViewController.swift in Sources */,
+				C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */,
+				C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */,
+				C55671691FAD4553009A194B /* HomeViewController.swift in Sources */,
+				C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */,
 				C55671671FAD4553009A194B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +383,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TBD.HinderApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -350,6 +396,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TBD.HinderApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -372,6 +419,7 @@
 				C55671771FAD4553009A194B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
