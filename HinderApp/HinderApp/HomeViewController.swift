@@ -11,11 +11,28 @@ import IGListKit
 import Foundation
 //import URLSession
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,ListAdapterDataSource {
+
+    let collectionView: UICollectionView = {
+        let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.backgroundColor = UIColor.white
+        return view
+    }()
+    lazy var adapter: ListAdapter = {
+        return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        view.addSubview(collectionView)
+        adapter.collectionView = collectionView
+        adapter.dataSource = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.frame = view.bounds
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,25 +42,11 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: - IGListAdapterDataSource
-extension HomeViewController: ListAdapterDataSource {
+extension HomeViewController {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         var items: [ListDiffable] = [ListDiffable]();
-        //TODO: here we would want Events
-        /*
-         append to items array: first, events we are attending, 
-         next, other events we CAN join.
-         
-         REQUEST TO DB NEEDED HERE, what events we're attending
-        
-        Events look like:
-        { "eventId": string, "eventName": string, "eventDate": string (stored as ISO-8601 formatted string), "eventLocation": ???, 
-          "eventDescription": string, "eventPhoto": string url, "eventThumbnail": string url, "eventProjects": array of string project ids, 
-          "eventUsers": array of string userids }
-        
-        Need some way to grab user's location, if we're querying events by location
-         */
-        
+
         let url = URL(string: "http://ec2-184-72-191-21.compute-1.amazonaws.com:8080/queryEvents/los_angeles")!
         let session = URLSession.shared
         let request = URLRequest(url: url)
@@ -59,10 +62,8 @@ extension HomeViewController: ListAdapterDataSource {
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
                     var eventArray = [Event]()
                     for event in json {
-                        // TO DO: be able to access event data to actually initialize new Event object
-                        eventArray.append(Event(name: event["eventName"] as! String, location: event["eventLocation"] as! String))
+                        eventArray.append(Event(json: event))
                     }
-                    eventArray.append(Event(name: "TestName", location:"UCLA"))
                     items += eventArray as [ListDiffable]
                 }
             } catch let error {
@@ -70,7 +71,21 @@ extension HomeViewController: ListAdapterDataSource {
             }
         })
         task.resume()
-                
+        if items.isEmpty {
+            var testIntArray = [Int]()
+            testIntArray.append(3)
+            testIntArray.append(5)
+            testIntArray.append(6)
+            testIntArray.append(7)
+            testIntArray.append(8)
+            testIntArray.append(9)
+            testIntArray.append(0)
+            testIntArray.append(1)
+            testIntArray.append(2)
+            testIntArray.append(14)
+            items = testIntArray as [ListDiffable]
+        }
+        
         return items
     }
     

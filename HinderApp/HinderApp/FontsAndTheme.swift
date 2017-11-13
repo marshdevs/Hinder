@@ -21,3 +21,8 @@ func TitleFont(size: CGFloat = 18) -> UIFont {
     return UIFont(name:"Arial-BoldMT", size: 28.0)!
 }
 
+func EventFeedFont(size: CGFloat = 18) -> UIFont {
+    return UIFont(name:"Arial-BoldMT", size: 20.0)!
+}
+
+let FeedCellHeight = CGFloat(integerLiteral: 140)
