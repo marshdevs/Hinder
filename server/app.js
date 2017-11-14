@@ -366,24 +366,44 @@ app.delete('/deleteProject', function(req, res){
 
 // Matching operations -----------------------------------
 
-app.put('/match', function(req, res){
+// Returns false if one of the user/project pair has swiped left, or if no entry exists yet
+app.put('/match/:direction/:key', function(req, res){
     console.log("PUT: Received a match request...");
 
-    var match = req.body;
+    var direction = true
+    if (req.params.direction == "left") {
+        direction = false
+    }
+    var matchId = req.params.key;
     var params = {
         TableName: "hinder-matches",
-        Item: {
-            "matchId": match.matchId,
-            "matched": match.matched
+        Key: {
+            "matchId": matchId
         }
     };
-    dynamoDB.put(params, function(err, data){
+    dynamoDB.get(params, function(err, data){
         if (err) {
             console.log(err);
-            console.log("PUT: Error creating match: " + matchId);
-            res.status(503).send({"ERROR": "Error creating match: " + matchId});
+            console.log("PUT: Error getting match: " + match);
+            var params = {
+                TableName: "hinder-matches",
+                Item: {
+                    "matchId": matchId,
+                    "matched": direction
+                }
+            };
+            dynamoDB.put(params, function(err, data){
+                if (err) {
+                    console.log(err);
+                    console.log("PUT: Error creating match: " + matchId + " - " + direction);
+                    res.status(503).send({"ERROR": "Failed to create match: " + matchId + " - " + direction});
+                } else {
+                    console.log("PUT: Successfully created match: " + matchId + " - " + diredtion);
+                    res.status(200).send(false);
+                }
+            });
         } else {
-            console.log("PUT: Successfully created match: " + projectId + " - " + match.matched);
+            console.log("PUT: Successfully returned match: " + match + " - " + data.Item.matched);
             res.status(200).send(data.Item);
         }
     });

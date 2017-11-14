@@ -1,6 +1,6 @@
 /* Events: POST=/createEvent, PUT=/editEvent, DELETE=/deleteEvent */
 {
-    "eventId": "",
+    "eventId": "", 
     "name": "",
     "date": "",
     "location": "",
