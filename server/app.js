@@ -367,44 +367,87 @@ app.delete('/deleteProject', function(req, res){
 // Matching operations -----------------------------------
 
 // Returns false if one of the user/project pair has swiped left, or if no entry exists yet
-app.put('/match/:direction/:key', function(req, res){
+app.put('/match/:event/:direction/:key', function(req, res){
     console.log("PUT: Received a match request...");
 
     var direction = true
     if (req.params.direction == "left") {
         direction = false
     }
+    var eventId = req.params.event;
     var matchId = req.params.key;
     var params = {
         TableName: "hinder-matches",
         Key: {
-            "matchId": matchId
+            "eventId": eventId
         }
     };
     dynamoDB.get(params, function(err, data){
         if (err) {
             console.log(err);
-            console.log("PUT: Error getting match: " + matchId);
-            var params = {
-                TableName: "hinder-matches",
-                Item: {
-                    "matchId": matchId,
-                    "matched": direction
-                }
-            };
-            dynamoDB.put(params, function(err, data){
-                if (err) {
-                    console.log(err);
-                    console.log("PUT: Error creating match: " + matchId + " - " + direction);
-                    res.status(503).send({"ERROR": "Failed to create match: " + matchId + " - " + direction});
-                } else {
-                    console.log("PUT: Successfully created match: " + matchId + " - " + diredtion);
-                    res.status(200).send(false);
-                }
-            });
+            console.log("PUT: Error returning matches for eventId: " + eventId);
+            res.status(503).send({"ERROR": "Error returning matches for eventId: " + eventId});
         } else {
-            console.log("PUT: Successfully returned match: " + matchId + " - " + data.Item.matched);
-            res.status(200).send(data.Item);
+            console.log(data.Item);
+            if (data.Item == undefined) {
+                console.log("PUT: Error getting matches for event: " + eventId);
+                console.log("Creating matches entry for eventId...");
+                var params = {
+                    TableName: "hinder-matches",
+                    Item: {
+                        "eventId": eventId,
+                        "matches": {
+                            "matchId": matchId,
+                            "approve": direction
+                        }
+                    }
+                };
+                dynamoDB.put(params, function(err, data){
+                    if (err) {
+                        console.log(err);
+                        console.log("PUT: Error creating entry for event: " + eventId);
+                        res.status(503).send({"ERROR": "Error creating entry for event: " + eventId});
+                    } else {
+                        console.log("Successfully created entry for event: " + eventId);
+                        res.status(200).send(false);
+                    }
+                });
+            } else {
+                // Check if pair match exists
+                for (var i = 0; i < data.Item.matches.length; i++) {
+                    if (data.Item.matches[i].matchId == matchId) {
+                        console.log("PUT: Successfully returned match: " + matchId + " - " + data.Item.matches);
+                        res.status(200).send(data.Item.matches[i].approve);
+                        return
+                    }
+                }
+                // Match doesn't exist, create it
+                var project = req.body;
+                var params = {
+                    TableName: "hinder-matches",
+                    Key: {
+                        "eventId": eventId
+                    },
+                    UpdateExpression: "SET #matches = list_append(#matches, :newmatch)",
+                    ExpressionAttributeNames: {
+                        "#matches" : "matches"
+                    },
+                    ExpressionAttributeValues: {
+                        ":newmatch": [{"matchId": matchId, "approve": direction}]
+                    },
+                    ReturnValues: "UPDATED_NEW"
+                };
+                dynamoDB.update(params, function(err, data){
+                    if (err) {
+                        console.log(err);
+                        console.log("PUT: Error creating match: " + matchId + " - " + direction);
+                        res.status(404).send({"ERROR": "Failed to update match with ID: " + matchId})
+                    } else {
+                        console.log("PUT: Successfully created match: " + matchId + " - " + direction);
+                        res.status(200).send(false);
+                    }
+                });
+            }
         }
     });
 });
