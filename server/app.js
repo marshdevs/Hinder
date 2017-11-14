@@ -384,7 +384,7 @@ app.put('/match/:direction/:key', function(req, res){
     dynamoDB.get(params, function(err, data){
         if (err) {
             console.log(err);
-            console.log("PUT: Error getting match: " + match);
+            console.log("PUT: Error getting match: " + matchId);
             var params = {
                 TableName: "hinder-matches",
                 Item: {
@@ -403,7 +403,7 @@ app.put('/match/:direction/:key', function(req, res){
                 }
             });
         } else {
-            console.log("PUT: Successfully returned match: " + match + " - " + data.Item.matched);
+            console.log("PUT: Successfully returned match: " + matchId + " - " + data.Item.matched);
             res.status(200).send(data.Item);
         }
     });
