@@ -10,20 +10,30 @@ import Foundation
 
 class Mediator: NSObject {
     
-    func swipe(approve: Bool, key: String) -> Bool {
-        let direction = approve ? "right/" : "left/"
-        return Request.get(params: "match/" + direction + key)
+    func swipe(approve: Bool, key: String, eventId: String) -> Bool {
+        let direction = approve ? "/right/" : "/left/"
+        return Request.getMatch(params: "match/" + eventId + direction + key)
     }
     
     func userInitSwipe(user: User, project: Project, approve: Bool) -> Bool {
         let key = user.id + "&" + project.projectId
-        return swipe(approve: approve, key: key)
-        // add user to project
+        let eventId = project.event.eventId
+        let match = swipe(approve: approve, key: key, eventId: eventId)
+        if (match) {
+            project.addUserToProject(userId: user.id)
+            return true
+        }
+        return false
     }
     
     func projectInitSwipe(project: Project, user: User, approve: Bool) -> Bool {
         let key = user.id + "&" + project.projectId
-        return swipe(approve: approve, key: key)
-        // add user to project
+        let eventId = project.event.eventId
+        let match = swipe(approve: approve, key: key, eventId: eventId)
+        if (match) {
+            project.addUserToProject(userId: user.id)
+            return true
+        }
+        return false
     }
 }
