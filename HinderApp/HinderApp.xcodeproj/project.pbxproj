@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31BE76131FBAA31300154730 /* Mediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE76121FBAA31300154730 /* Mediator.swift */; };
+		31BE76151FBAA55100154730 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE76141FBAA55100154730 /* Request.swift */; };
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
 		C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */; };
 		C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31BE76121FBAA31300154730 /* Mediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mediator.swift; sourceTree = "<group>"; };
+		31BE76141FBAA55100154730 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HinderNavigationBar.swift; sourceTree = "<group>"; };
 		C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsAndTheme.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				C555F6BF1FB42D87009106E8 /* Project.swift */,
 				C555F6C11FB43293009106E8 /* User.swift */,
 				C555F6C31FB4334D009106E8 /* Skillset.swift */,
+				31BE76121FBAA31300154730 /* Mediator.swift */,
+				31BE76141FBAA55100154730 /* Request.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -284,6 +290,8 @@
 				C55671691FAD4553009A194B /* HomeViewController.swift in Sources */,
 				C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */,
 				C555F6C81FB7C2AE009106E8 /* FeedEventCellWithHeader.swift in Sources */,
+				31BE76151FBAA55100154730 /* Request.swift in Sources */,
+				31BE76131FBAA31300154730 /* Mediator.swift in Sources */,
 				C555F6C41FB4334D009106E8 /* Skillset.swift in Sources */,
 				C555F6C21FB43293009106E8 /* User.swift in Sources */,
 				C555F6C61FB647AF009106E8 /* FeedEventCell.swift in Sources */,
