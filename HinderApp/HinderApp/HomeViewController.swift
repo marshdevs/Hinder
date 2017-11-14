@@ -9,7 +9,6 @@
 import UIKit
 import IGListKit
 import Foundation
-//import URLSession
 
 class HomeViewController: UIViewController,ListAdapterDataSource {
 
@@ -47,30 +46,23 @@ extension HomeViewController {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         var items: [ListDiffable] = [ListDiffable]();
 
-        let url = URL(string: "http://ec2-184-72-191-21.compute-1.amazonaws.com:8080/queryEvents/los_angeles")!
-        let session = URLSession.shared
-        let request = URLRequest(url: url)
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+        //TODO: here we would want Events
+        /*
+         append to items array: first, events we are attending, 
+         next, other events we CAN join.
+         
+         REQUEST TO DB NEEDED HERE, what events we're attending
         
-            guard error == nil else {
-                return
-            }                                                                    
-            guard let data = data else {
-                return
-            }                                                                     
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
-                    var eventArray = [Event]()
-                    for event in json {
-                        eventArray.append(Event(json: event))
-                    }
-                    items += eventArray as [ListDiffable]
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        })
-        task.resume()
+        Events look like:
+        { "eventId": string, "eventName": string, "eventDate": string (stored as ISO-8601 formatted string), "eventLocation": ???, 
+          "eventDescription": string, "eventPhoto": string url, "eventThumbnail": string url, "eventProjects": array of string project ids, 
+          "eventUsers": array of string userids }
+        
+        Need some way to grab user's location, if we're querying events by location
+         */
+        let eventArray = Request.getEvent(params: "queryEvents/los_angeles")
+        items += eventArray as [ListDiffable]
+
         if items.isEmpty {
             var testIntArray = [Int]()
             testIntArray.append(3)
@@ -85,7 +77,6 @@ extension HomeViewController {
             testIntArray.append(14)
             items = testIntArray as [ListDiffable]
         }
-        
         return items
     }
     

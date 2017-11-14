@@ -32,4 +32,8 @@ class Project: NSObject, ListDiffable {
     public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         return isEqual(object)
     }
+    
+    public func addUserToProject(userId: String) {
+        return
+    }
 }

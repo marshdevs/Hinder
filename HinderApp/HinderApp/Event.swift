@@ -12,22 +12,26 @@ import IGListKit
 class Event: NSObject, ListDiffable {
     let eventId: String
     let name: String
-    let date: Date
+    let date: String
     let location: String
     let desc: String
-    let photo: URL
-    let thumbnail: URL
+    let photo: String
+    let thumbnail: String
     let projects: [String]
     let users: [String]
 
     init(json: Dictionary<String, Any>) {
+        dump(json)
         self.eventId = json["eventId"] as! String
         self.name = json["eventName"] as! String
-        self.date = json["eventDate"] as! Date
+        // date type should be Date
+        self.date = json["eventDate"] as! String
         self.location = json["eventLocation"] as! String
         self.desc = json["eventDescription"] as! String
-        self.photo = json["eventPhoto"] as! URL
-        self.thumbnail = json["eventThumbnail"] as! URL
+        // photo type should be URL
+        self.photo = json["eventPhoto"] as! String
+        // thumbnail type should be URL
+        self.thumbnail = json["eventThumbnail"] as! String
         self.projects = json["eventProjects"] as! [String]
         self.users = json["eventUsers"] as! [String]
     }
