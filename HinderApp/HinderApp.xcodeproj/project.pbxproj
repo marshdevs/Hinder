@@ -17,6 +17,7 @@
 		C555F6C41FB4334D009106E8 /* Skillset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6C31FB4334D009106E8 /* Skillset.swift */; };
 		C555F6C61FB647AF009106E8 /* FeedEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6C51FB647AF009106E8 /* FeedEventCell.swift */; };
 		C555F6C81FB7C2AE009106E8 /* FeedEventCellWithHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6C71FB7C2AE009106E8 /* FeedEventCellWithHeader.swift */; };
+		C555F6CA1FBA44E7009106E8 /* EventPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6C91FBA44E6009106E8 /* EventPageViewController.swift */; };
 		C55671671FAD4553009A194B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671661FAD4553009A194B /* AppDelegate.swift */; };
 		C55671691FAD4553009A194B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671681FAD4553009A194B /* HomeViewController.swift */; };
 		C556716C1FAD4553009A194B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C556716A1FAD4553009A194B /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		C555F6C31FB4334D009106E8 /* Skillset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skillset.swift; sourceTree = "<group>"; };
 		C555F6C51FB647AF009106E8 /* FeedEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEventCell.swift; sourceTree = "<group>"; };
 		C555F6C71FB7C2AE009106E8 /* FeedEventCellWithHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEventCellWithHeader.swift; sourceTree = "<group>"; };
+		C555F6C91FBA44E6009106E8 /* EventPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPageViewController.swift; sourceTree = "<group>"; };
 		C55671631FAD4553009A194B /* HinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C55671661FAD4553009A194B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C55671681FAD4553009A194B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				C55671681FAD4553009A194B /* HomeViewController.swift */,
+				C555F6C91FBA44E6009106E8 /* EventPageViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				C555F6C61FB647AF009106E8 /* FeedEventCell.swift in Sources */,
 				C555F6BE1FB41E9D009106E8 /* Event.swift in Sources */,
 				C555F6C01FB42D87009106E8 /* Project.swift in Sources */,
+				C555F6CA1FBA44E7009106E8 /* EventPageViewController.swift in Sources */,
 				C55671671FAD4553009A194B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
