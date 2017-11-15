@@ -15,13 +15,14 @@ class Request {
         case success([Any]), failure(Error)
     }
     
-    // Get/Query event request
-    static func getEvents(params: String, completion: @escaping (RequestResult) -> ()){
+    //Get/Query events request: Synchronous version (maybe switch to Async later)
+    static func getEvents(params: String) -> [Event] {
         var resArray = [Event]()
         
         let url = URL(string: root + params)!
         let session = URLSession.shared
         let request = URLRequest(url: url)
+        let semaphore = DispatchSemaphore(value: 0)
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -36,14 +37,15 @@ class Request {
                         // TO DO: be able to access event data to actually initialize new Event object
                         resArray.append(Event(json: item))
                     }
-                    completion(.success(resArray))
+                    semaphore.signal()
                 }
             } catch let error {
                 print(error.localizedDescription)
-                completion(.failure(error))
             }
         })
         task.resume()
+        _ = semaphore.wait(timeout: .distantFuture)
+        return resArray
     }
     
     // Get/query project request
