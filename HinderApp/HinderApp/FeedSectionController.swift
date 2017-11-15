@@ -43,6 +43,10 @@ class FeedSectionController: ListSectionController {
        // message = object as? Message
     }
     
-    override func didSelectItem(at index: Int) {}
+    override func didSelectItem(at index: Int) {
+       //self.section is the index of our click, starting at 0
+    // need to populate new view controller, event view, with this info
+        //TODO: have EventPageViewController present with Event we clicked on
+    }
 }
 
