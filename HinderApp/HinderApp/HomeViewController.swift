@@ -24,9 +24,24 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        let settingsButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(HomeViewController.settingsClicked))
+        
+        let hamburgerMenu = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(HomeViewController.menuClicked))
+
+        navigationItem.leftBarButtonItem = settingsButton
+        navigationItem.rightBarButtonItem = hamburgerMenu
         view.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.dataSource = self
+    }
+    
+    func settingsClicked() {
+        print("Clicked settings")
+    }
+    
+    func menuClicked() {
+        print("Clicked menu")
     }
     
     override func viewDidLayoutSubviews() {
