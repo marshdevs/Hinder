@@ -36,11 +36,15 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
         adapter.dataSource = self
     }
     
+    // When the settings icon is selected
     func settingsClicked() {
+        // TODO: Go to settings view
         print("Clicked settings")
     }
     
+    // When the menu icon is selected
     func menuClicked() {
+        // TODO: Go to menu view
         print("Clicked menu")
     }
     
