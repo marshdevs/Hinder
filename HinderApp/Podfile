@@ -8,5 +8,7 @@ target 'HinderApp' do
   # Pods for HinderApp
   pod 'IGListKit', :git => 'https://github.com/Instagram/IGListKit.git', :branch => 'master'
   pod 'YogaKit', '~> 1.6'
-
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 end

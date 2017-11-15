@@ -24,9 +24,28 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(HomeViewController.settingsClicked))
+        
+        let hamburgerMenu = UIBarButtonItem(image:UIImage(named: "hamburger"), style: .plain, target: self, action: #selector(HomeViewController.menuClicked))
+        
+        navigationItem.leftBarButtonItem = settingsButton
+        navigationItem.rightBarButtonItem = hamburgerMenu
         view.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.dataSource = self
+    }
+    
+    // When the settings icon is selected
+    func settingsClicked() {
+        // TODO: Go to settings view
+        print("Clicked settings")
+    }
+    
+    // When the menu icon is selected
+    func menuClicked() {
+        // TODO: Go to menu view
+        print("Clicked menu")
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,6 +57,7 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }
 
 // MARK: - IGListAdapterDataSource
@@ -60,22 +80,20 @@ extension HomeViewController {
         
         Need some way to grab user's location, if we're querying events by location
          */
-        let eventArray = Request.getEvent(params: "queryEvents/los_angeles")
-        items += eventArray as [ListDiffable]
+        
+        Request.getEvents(params: "queryEvents/los_angeles", completion:  { result in
+            switch result {
+            case .success(let eventArray) :
+                DispatchQueue.main.async {
+                    items += eventArray as! [ListDiffable]
+                    self.adapter.reloadObjects(items)
+                }
+            case .failure(let error): print(error)
+            }
+        })
+        print("Dumping items")
+        dump(items)
 
-       if items.isEmpty {
-            var testIntArray = [Int]()
-            testIntArray.append(3)
-        testIntArray.append(13)
-        testIntArray.append(23)
-        testIntArray.append(33)
-        testIntArray.append(43)
-        testIntArray.append(53)
-        testIntArray.append(63)
-        testIntArray.append(73)
-        testIntArray.append(83)
-            items = testIntArray as [ListDiffable]
-        }
         return items
     }
     
