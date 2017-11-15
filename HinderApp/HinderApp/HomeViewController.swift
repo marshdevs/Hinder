@@ -81,16 +81,8 @@ extension HomeViewController {
         Need some way to grab user's location, if we're querying events by location
          */
         
-        Request.getEvents(params: "queryEvents/los_angeles", completion:  { result in
-            switch result {
-            case .success(let eventArray) :
-                DispatchQueue.main.async {
-                    items += eventArray as! [ListDiffable]
-                    self.adapter.reloadObjects(items)
-                }
-            case .failure(let error): print(error)
-            }
-        })
+        let eventArray = Request.getEvents(params: "queryEvents/los_angeles")
+        items += eventArray as [ListDiffable]
         print("Dumping items")
         dump(items)
 
