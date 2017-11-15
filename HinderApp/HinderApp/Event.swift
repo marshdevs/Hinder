@@ -21,8 +21,6 @@ class Event: NSObject, ListDiffable {
     let users: [String]
 
     init(json: Dictionary<String, Any>) {
-        print("Dumping json")
-        dump(json)
         self.eventId = json["eventId"] as! String
         self.name = json["eventName"] as! String
         // date type should be Date
