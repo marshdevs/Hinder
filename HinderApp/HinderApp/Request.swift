@@ -105,7 +105,23 @@ class Request {
         return resArray
     }
     
-    // Match request
+    /**
+     	Handles user project swipe logic
+     
+     	This function is called any time that a swipe is
+     	made from either a user or a project and it first
+     	checks the nature of the swipe (a right or left)
+     	and then searches the data base for an existing
+     	represented by a pair matching IDs and returns
+      	the result
+     
+     	- Parameters:
+            - approve: swipe direction
+            - key: The corresponding ID
+            - eventId: The ID to identify the swiper
+     
+     	- Returns: A bool value returned by getMatch function call
+     */
     static func getMatch(params: String) -> Bool {
         var res = Bool()
         let url = URL(string: root + params)!
