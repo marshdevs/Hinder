@@ -10,10 +10,13 @@ import Foundation
 
 class Request {
     static let root = "http://ec2-184-72-191-21.compute-1.amazonaws.com:8080/"
-    // Returns an array of responses
+    
+    enum RequestResult {
+        case success([Any]), failure(Error)
+    }
     
     // Get/Query event request
-    static func getEvent(params: String) -> [Event] {
+    static func getEvents(params: String, completion: @escaping (RequestResult) -> ()){
         var resArray = [Event]()
         
         let url = URL(string: root + params)!
@@ -33,18 +36,19 @@ class Request {
                         // TO DO: be able to access event data to actually initialize new Event object
                         resArray.append(Event(json: item))
                     }
+                    completion(.success(resArray))
                 }
             } catch let error {
                 print(error.localizedDescription)
+                completion(.failure(error))
             }
         })
         task.resume()
-        return resArray
     }
     
     // Get/query project request
     // Current project schema below is wrong
-    static func getProject(params: String) -> [Project] {
+    static func getProjects(params: String) -> [Project] {
         var resArray = [Project]()
         let url = URL(string: root + params)!
         let session = URLSession.shared
@@ -65,6 +69,7 @@ class Request {
                 }
             } catch let error {
                 print(error.localizedDescription)
+                
             }
         })
         task.resume()
@@ -73,7 +78,7 @@ class Request {
     
     // Get/query user request
     // Current user schema below is wrong
-    static func getUser(params: String) -> [User] {
+    static func getUsers(params: String) -> [User] {
         var resArray = [User]()
         let url = URL(string: root + params)!
         let session = URLSession.shared
