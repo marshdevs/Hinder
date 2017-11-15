@@ -25,9 +25,13 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        let settingsButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(HomeViewController.settingsClicked))
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(HomeViewController.settingsClicked))
         
-        let hamburgerMenu = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(HomeViewController.menuClicked))
+        //let settingsButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(HomeViewController.settingsClicked))
+        
+        let hamburgerMenu = UIBarButtonItem(image:UIImage(named: "hamburger"), style: .plain, target: self, action: #selector(HomeViewController.menuClicked))
+        
+        //let hamburgerMenu = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(HomeViewController.menuClicked))
 
         navigationItem.leftBarButtonItem = settingsButton
         navigationItem.rightBarButtonItem = hamburgerMenu
