@@ -1,15 +1,14 @@
 /*
- This file declares the nav bar at the top, which consists of 
- a settings button on the left, hamburger menu on right, 
+ This file declares the nav bar at the top, which consists of
+ a settings button on the left, hamburger menu on right,
  and title in the center.
  
- TODO: hamburger and settings button 
  */
 
 import UIKit
 
 class HinderNavigationBar: UINavigationBar {
-
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = UIColor.clear
@@ -36,5 +35,5 @@ class HinderNavigationBar: UINavigationBar {
         let titleWidth: CGFloat = 120
         titleLabel.frame = CGRect(x: (bounds.width/2 - titleWidth/2), y: 0, width: titleWidth, height: bounds.height)
     }
-
+    
 }

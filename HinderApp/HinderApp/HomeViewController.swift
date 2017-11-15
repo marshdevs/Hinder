@@ -9,26 +9,63 @@
 import UIKit
 import IGListKit
 import Foundation
-//import URLSession
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,ListAdapterDataSource {
+
+    let collectionView: UICollectionView = {
+        let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.backgroundColor = UIColor.white
+        return view
+    }()
+    lazy var adapter: ListAdapter = {
+        return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(HomeViewController.settingsClicked))
+        
+        let hamburgerMenu = UIBarButtonItem(image:UIImage(named: "hamburger"), style: .plain, target: self, action: #selector(HomeViewController.menuClicked))
+        
+        navigationItem.leftBarButtonItem = settingsButton
+        navigationItem.rightBarButtonItem = hamburgerMenu
+        view.addSubview(collectionView)
+        adapter.collectionView = collectionView
+        adapter.dataSource = self
+    }
+    
+    // When the settings icon is selected
+    func settingsClicked() {
+        // TODO: Go to settings view
+        print("Clicked settings")
+    }
+    
+    // When the menu icon is selected
+    func menuClicked() {
+        // TODO: Go to menu view
+        print("Clicked menu")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.frame = view.bounds
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }
 
 // MARK: - IGListAdapterDataSource
-extension HomeViewController: ListAdapterDataSource {
+extension HomeViewController {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         var items: [ListDiffable] = [ListDiffable]();
+
         //TODO: here we would want Events
         /*
          append to items array: first, events we are attending, 
@@ -44,33 +81,33 @@ extension HomeViewController: ListAdapterDataSource {
         Need some way to grab user's location, if we're querying events by location
          */
         
-        let url = URL(string: "http://ec2-184-72-191-21.compute-1.amazonaws.com:8080/queryEvents/los_angeles")!
-        let session = URLSession.shared
-        let request = URLRequest(url: url)
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-        
-            guard error == nil else {
-                return
-            }                                                                    
-            guard let data = data else {
-                return
-            }                                                                     
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
-                    var eventArray = [Event]()
-                    for event in json {
-                        // TO DO: be able to access event data to actually initialize new Event object
-                        eventArray.append(Event(name: event["eventName"] as! String, location: event["eventLocation"] as! String))
-                    }
-                    eventArray.append(Event(name: "TestName", location:"UCLA"))
-                    items += eventArray as [ListDiffable]
+        Request.getEvents(params: "queryEvents/los_angeles") { result in
+            switch result {
+            case .success(let eventArray) :
+                DispatchQueue.main.async {
+                    items += eventArray as! [ListDiffable]
+                    self.adapter.reloadObjects(items)
                 }
-            } catch let error {
-                print(error.localizedDescription)
+            case .failure(let error): print(error)
             }
-        })
-        task.resume()
-                
+        }
+        print("Dumping items")
+        dump(items)
+
+//        if items.isEmpty {
+//            var testIntArray = [Int]()
+//            testIntArray.append(3)
+//            testIntArray.append(5)
+//            testIntArray.append(6)
+//            testIntArray.append(7)
+//            testIntArray.append(8)
+//            testIntArray.append(9)
+//            testIntArray.append(0)
+//            testIntArray.append(1)
+//            testIntArray.append(2)
+//            testIntArray.append(14)
+//            items = testIntArray as [ListDiffable]
+//        }
         return items
     }
     
