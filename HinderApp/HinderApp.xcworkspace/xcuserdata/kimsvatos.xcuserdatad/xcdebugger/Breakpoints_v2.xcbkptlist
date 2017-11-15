@@ -10,22 +10,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HinderApp/HomeViewController.swift"
-            timestampString = "531941129.821928"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "objects(for:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HinderApp/HomeViewController.swift"
             timestampString = "531941178.021289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -42,28 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HinderApp/HomeViewController.swift"
-            timestampString = "532136156.14987"
+            timestampString = "532470522.872913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "objects(for:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HinderApp/HomeViewController.swift"
-            timestampString = "532135551.633878"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "objects(for:)"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "listAdapter(_:sectionControllerFor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -113,6 +81,54 @@
             endingLineNumber = "49"
             landmarkName = "objects(for:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HinderApp/Request.swift"
+            timestampString = "532390135.42144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "getEvent(params:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static HinderApp.Request.getEvent (params : Swift.String) -&gt; Swift.Array&lt;HinderApp.Event&gt;"
+                  moduleName = "HinderApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimsvatos/Desktop/4th_year/Fall/Hinder/HinderApp/HinderApp/Request.swift"
+                  timestampString = "532470468.872679"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "89">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static HinderApp.Request.(getEvent (params : Swift.String) -&gt; Swift.Array&lt;HinderApp.Event&gt;).(closure #1)"
+                  moduleName = "HinderApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimsvatos/Desktop/4th_year/Fall/Hinder/HinderApp/HinderApp/Request.swift"
+                  timestampString = "532470468.873884"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

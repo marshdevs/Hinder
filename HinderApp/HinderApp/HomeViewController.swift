@@ -63,18 +63,17 @@ extension HomeViewController {
         let eventArray = Request.getEvent(params: "queryEvents/los_angeles")
         items += eventArray as [ListDiffable]
 
-        if items.isEmpty {
+       if items.isEmpty {
             var testIntArray = [Int]()
             testIntArray.append(3)
-            testIntArray.append(5)
-            testIntArray.append(6)
-            testIntArray.append(7)
-            testIntArray.append(8)
-            testIntArray.append(9)
-            testIntArray.append(0)
-            testIntArray.append(1)
-            testIntArray.append(2)
-            testIntArray.append(14)
+        testIntArray.append(13)
+        testIntArray.append(23)
+        testIntArray.append(33)
+        testIntArray.append(43)
+        testIntArray.append(53)
+        testIntArray.append(63)
+        testIntArray.append(73)
+        testIntArray.append(83)
             items = testIntArray as [ListDiffable]
         }
         return items
