@@ -24,7 +24,7 @@ class Request {
      relevant Events and populate the
      HomeView with all Events
      
-     - Parameters:
+     - Parameter:
      - String: Event identifier
      
      - Returns: A instance of resArray containing the User
