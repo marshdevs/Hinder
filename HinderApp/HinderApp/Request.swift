@@ -17,17 +17,16 @@ class Request {
     
     //Get/Query events request: Synchronous version (maybe switch to Async later)
     /**
-     Query all Events to populate CollectionView
+     Query all Events to populate CollectionView.
      
      This function is called int the
      HomeViewController to lookup all
      relevant Events and populate the
-     HomeView with all Events
+     HomeView with all Events.
      
-     - Parameter:
-     - String: Event identifier
+     - parameter params: Event identifier
      
-     - Returns: A instance of resArray containing the User
+     - returns: A instance of resArray containing the User
      */
     static func getEvents(params: String) -> [Event] {
         var resArray = [Event]()
@@ -64,17 +63,16 @@ class Request {
     // Current project schema below is wrong
 
     /**
-     Query Project request
+     Query Project request.
      
      This function is called any time to
      lookup a Project in the server database
-     by a string indentifier
+     by a string indentifier.
      
-     - Parameters:
-     - String: User identifier
-     - User: Project object
+     - parameter params: User identifier
+     - parameter user: Project object
      
-     - Returns: A instance of resArray containing the Project
+     - returns: A instance of resArray containing the Project
      */
     static func getProjects(params: String) -> [Project] {
         var resArray = [Project]()
@@ -106,17 +104,16 @@ class Request {
     
     // Current user schema below is wrong
     /**
-     Query User request
+     Query User request.
      
      This function is called any time to 
      lookup a User in the server database 
-     by a string indentifier
+     by a string indentifier.
      
-     - Parameters:
-     - String: User identifier
-     - User: User object
+     - parameter params: User identifier
+     - parameter user: User object
      
-     - Returns: A instance of resArray containing the User
+     - returns: A instance of resArray containing the User
      */
     static func getUsers(params: String) -> [User] {
         var resArray = [User]()
@@ -146,21 +143,21 @@ class Request {
     }
     
     /**
-     	Handles user project swipe logic
+     	Handles user project swipe logic.
      
      	This function is called any time that a swipe is
      	made from either a user or a project and it first
      	checks the nature of the swipe (a right or left)
      	and then searches the data base for an existing
      	represented by a pair matching IDs and returns
-      	the result
+      	the result.
      
-     	- Parameters:
+     	- parameters:
             - approve: swipe direction
             - key: The corresponding ID
             - eventId: The ID to identify the swiper
      
-     	- Returns: A bool value returned by getMatch function call
+     	- returns: A bool value returned by getMatch function call
      */
     static func getMatch(params: String) -> Bool {
         var res = Bool()
