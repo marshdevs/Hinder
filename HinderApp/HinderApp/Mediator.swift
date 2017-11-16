@@ -11,18 +11,17 @@ import Foundation
 class Mediator: NSObject {
     
     /**
-     A swipe action
+     A swipe action.
      
      This function takes in swipe parameters
      and queries the database to see if a pair
-     of matching User/Project IDs exists
+     of matching User/Project IDs exists.
      
-     - Parameter:
-     - approve: left or right swipe
-     - key: the ID to search the database
-     - eventID: the corresponding ID of a previous swipe
+     - parameter approve: Left (false) or right (true) swipe
+     - parameter key: The ID to search the database
+     - parameter eventId: The corresponding ID of a previous swipe
      
-     - Returns: A true or false indicating existence of the match
+     - returns: A true or false indicating existence of the match
      */
     func swipe(approve: Bool, key: String, eventId: String) -> Bool {
         let direction = approve ? "/right/" : "/left/"
@@ -30,19 +29,18 @@ class Mediator: NSObject {
     }
     
     /**
-     Function for a swipe executed by a user
+     Function for a swipe executed by a user.
      
      This function is called when a user swipes
      on a project and then queries the database for a match
      and if one exists it adds the user to the project
-     group
+     group.
      
-     - Parameter:
-     - Project: The project swiped on
-     - User: The user that initiated the swipe
-     - Approve: left or right swipe
+     - parameter project: The project swiped on
+     - parameter user: The user that initiated the swipe
+     - parameter approve: Left (false) or right (true) swipe
      
-     - Returns: A true or false
+     - returns: A true (user added to group) or false (not a match)
      */
     func userInitSwipe(user: User, project: Project, approve: Bool) -> Bool {
         let key = user.id + "&" + project.projectId
@@ -56,19 +54,18 @@ class Mediator: NSObject {
     }
     
     /**
-     Function for a swipe executed by a project
+     Function for a swipe executed by a project.
      
      This function is called when a project swipes 
      on a user and then queries the database for a match 
      and if one exists it adds the user to the project
-     group
+     group.
      
-     - Parameter:
-     - Project: The project that initiated the swipe
-     - User: The user swiped on
-     - Approve: left or right swipe
+     - parameter project: The project that initiated the swipe
+     - parameter user: The user swiped on
+     - parameter approve: Left (false) or right (true) swipe
      
-     - Returns: A true or false
+     - returns: A true (user added to group) or false (not a match)
      */
     func projectInitSwipe(project: Project, user: User, approve: Bool) -> Bool {
         let key = user.id + "&" + project.projectId
