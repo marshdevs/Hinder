@@ -12,6 +12,8 @@ import FacebookCore
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
+import AWSS3
+import AWSCognito
 
 class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -29,6 +31,25 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
         profilePic.addTarget(self, action: #selector(HinderCreateProfile.pressed), for: .touchUpInside)
         self.view.addSubview(profilePic)
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        //intialize Amazon cognito credentials
+        let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USWest2, identityPoolId: "us-west-2:9943a2f4-758f-40ff-b5c5-9d8ad1b8d5dc")
+        let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+        
+        
+        credentialProvider.getIdentityId().continueWith(block: { (task) -> AnyObject? in
+            if (task.error != nil) {
+                print("Error: " + task.error!.localizedDescription)
+            }
+            else {
+                // the task result will contain the identity id
+                let cognitoId = task.result!
+                print("Cognito id: \(cognitoId)")
+            }
+            return task;
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,7 +65,6 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
     {
         if (FBSDKAccessToken.current() != nil)
         {
-            // User is already logged in, do work such as go to next view controller.
             return
         }
         let faceBookLoginManger = FBSDKLoginManager()
@@ -52,13 +72,16 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
             //result is FBSDKLoginManagerLoginResult
             if (error != nil)
             {
+                print(error as Any)
             }
-            if (result?.isCancelled)!
+            else if (result?.isCancelled)!
             {
-                //handle cancelations
+                print("Fuck you")
             }
-            if (result?.grantedPermissions.contains("email"))!
+            else if (result?.grantedPermissions.contains("email"))!
             {
+                print ("this makes no sense")
+                
                 let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"])
                 let _ = request?.start(completionHandler: { (connection, result, error) in
                     guard let userInfo = result as? [String: Any] else { return } //handle the error
@@ -68,11 +91,60 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
 
                         let url = URL(string: imageURL)
                         let data = try? Data(contentsOf: url!)
-                        self.profilePic.setImage(UIImage(data: data!), for: .normal)
+                        let image = UIImage(data: data!)
+                        self.profilePic.setImage(image, for: .normal)
+                        
+                        self.uploadToS3(image: image!)
                     }
                 })
             }
+            
+            else {
+                print("Fuck off")
+            }
         })
+    }
+    
+    func uploadToS3(image : UIImage) {
+        
+        let transferManager = AWSS3TransferManager.default()
+        let uploadRequest = AWSS3TransferManagerUploadRequest()
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileURL = documentsURL.appendingPathComponent("filename.png")
+        
+        //save file locally
+        do{
+            if let pngImageData = UIImagePNGRepresentation(image) {
+                try pngImageData.write(to: fileURL, options: .atomic)
+            }
+        }
+        catch{}
+        
+        uploadRequest?.bucket = "finalhinderbucket"
+        uploadRequest?.key = "uniqueId.txt"
+        uploadRequest?.body = fileURL
+        
+        transferManager.upload(uploadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
+            
+            if let error = task.error as NSError? {
+                if error.domain == AWSS3TransferManagerErrorDomain, let code = AWSS3TransferManagerErrorType(rawValue: error.code) {
+                    switch code {
+                    case .cancelled, .paused:
+                        break
+                    default:
+                        print("Error uploading: \(String(describing: uploadRequest?.key)) Error: \(error)")
+                    }
+                } else {
+                    print("Error uploading: \(String(describing: uploadRequest?.key)) Error: \(error)")
+                }
+                return nil
+            }
+            
+            _ = task.result
+            print("Upload complete for: \(String(describing: uploadRequest?.key))")
+            return nil
+        })
+        
     }
 }
     
