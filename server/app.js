@@ -1,10 +1,5 @@
 // Callback URL: http://ec2-184-72-191-21.compute-1.amazonaws.com:portno/endpoint
 
-// Todo:
-// - modify projects[] and users[] fields of events
-// - modify events[] and skillset[] fields of users
-// - modify skillset[] and users[] fields of projects
-
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
