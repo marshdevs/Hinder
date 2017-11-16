@@ -1,5 +1,10 @@
 // Callback URL: http://ec2-184-72-191-21.compute-1.amazonaws.com:portno/endpoint
 
+// Todo:
+// - modify projects[] and users[] fields of events
+// - modify events[] and skillset[] fields of users
+// - modify skillset[] and users[] fields of projects
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
@@ -41,7 +46,7 @@ app.get('/queryEvents/:location', function(req, res){
         if (err) {
             console.log(err);
             console.log("GET: Error scanning events by location: " + req.params.location);
-            res.status(404).send({"ERROR": "Failed to scan events by location: " + req.params.location});
+            res.status(404).send({status:"Error", description: "Failed to scan events by location.", field: "location", value: req.params.location});
         } else {
             console.log("GET: Successfully scanned events by location: " + req.params.location);
             res.status(200).send(data.Items);
@@ -72,10 +77,10 @@ app.post('/createEvent', function(req, res){
         if (err) {
             console.log(err);
             console.log("POST: Error creating event: " + eventId + " - " + event.name);
-            res.status(503).send({"ERROR": "Failed to create event with ID: " + eventId});
+            res.status(503).send({status: "Error", description: "Failed to create event with ID.", field: "eventId", value: eventId});
         } else {
             console.log("POST: Successfully created event: " + eventId + " - " + event.name);
-            res.status(200).send(data.Item);
+            res.status(200).send({status: "Success", eventId: eventId, description: "Successfully created event."});
         }
     });
 });
@@ -93,7 +98,7 @@ app.get('/getEvent', function(req, res){
         if (err) {
             console.log(err);
             console.log("GET: Error getting event by ID: " + req.query.eventId);
-            res.status(404).send({"ERROR": "Failed to retrieve event by ID: " + req.query.eventId});
+            res.status(404).send({status: "Error", description: "Failed to retrieve event by ID.", field: "eventId", value: req.query.eventId});
         } else {
             console.log("GET: Successfully queried event by ID: " + req.query.eventId);
             res.status(200).send(data.Item);
@@ -111,14 +116,17 @@ app.put('/updateEvent', function(req, res){
             "eventId": event.eventId
         },
         UpdateExpression: "set eventName = :n, eventDate = :d, eventLocation = :l, \
-            eventDescription = :e, eventPhoto = :p, eventThumbnail = :t",
+            eventDescription = :e, eventPhoto = :p, eventThumbnail = :t,\
+            eventProjects = :j, eventUsers = :u",
         ExpressionAttributeValues: {
             ":n": event.name,
             ":d": event.date,
             ":l": event.location,
             ":e": event.description,
             ":p": event.photo,
-            ":t": event.thumbnail
+            ":t": event.thumbnail,
+            ":j": event.projects,
+            ":u": event.users
         },
         ReturnValues: "UPDATED_NEW"
     };
@@ -126,10 +134,10 @@ app.put('/updateEvent', function(req, res){
         if (err) {
             console.log(err);
             console.log("PUT: Error updating event: " + event.eventId + " - " + event.name);
-            res.status(404).send({"ERROR": "Failed to update event with ID: " + event.eventId});
+            res.status(404).send({status: "Error", description: "Failed to update event by ID.", field: "eventId", value: event.eventId});
         } else {
             console.log("PUT: Successfully updated event: " + event.eventId);
-            res.status(200).send(data.Item);
+            res.status(200).send({status: "Success", eventId: event.eventId, description: "Successfully updated event."});
         }
     });
 });
@@ -148,10 +156,10 @@ app.delete('/deleteEvent', function(req, res){
         if (err) {
             console.log(err);
             console.log("DELETE: Error deleting event by ID: " + event.eventId);
-            res.status(404).send({"ERROR": "Failed to delete event with ID: " + event.eventId});
+            res.status(404).send({status: "Error", description: "Failed to delete event by ID.", field: "eventId", value: event.eventId});
         } else {
             console.log("DELETE: Successfully deleted event by ID: " + event.eventId);
-            res.status(200).send({"SUCCESS": "Successfully deleted event by ID: " + event.eventId});
+            res.status(200).send({status: "Success", eventId: event.eventId, description: "Successfully deleted event."});
         }
     });
 });
@@ -178,10 +186,10 @@ app.post('/createUser', function(req, res){
         if (err) {
             console.log(err);
             console.log("POST: Error creating user: " + userId + " - " + user.name);
-            res.status(503).send({"ERROR": "Failed to create user with ID: " + userId});
+            res.status(503).send({status: "Error", description: "Failed to create user with ID.", field: "userId", value: userId});
         } else {
             console.log("POST: Successfully created user: " + userId + " - " + user.name);
-            res.status(200).send(data.Item);
+            res.status(200).send({status: "Success", userId: userId, description: "Successfully created user."});
         }
     });
 });
@@ -199,7 +207,7 @@ app.get('/getUser', function(req, res){
         if (err) {
             console.log(err);
             console.log("GET: Error getting user by ID: " + req.query.userId);
-            res.status(404).send({"ERROR": "Failed to get user with ID: " + req.query.userId});
+            res.status(404).send({status: "Error", description: "Failed to get user by ID.", field: "userId", value: req.query.userId});
         } else {
             console.log("GET: Successfully queried user by ID: " + req.query.userId);
             res.status(200).send(data.Item);
@@ -216,11 +224,14 @@ app.put('/updateUser', function(req, res){
         Key: {
             "userId": user.userId
         },
-        UpdateExpression: "set userName = :n, userOccupation = :o, userPhoto = :p",
+        UpdateExpression: "set userName = :n, userOccupation = :o, userPhoto = :p,\
+            userEvents = :e, userSkillset = :s",
         ExpressionAttributeValues: {
             ":n": user.name,
             ":o": user.occupation,
-            ":p": user.photo
+            ":p": user.photo,
+            ":e": user.events,
+            ":s": user.skillset
         },
         ReturnValues: "UPDATED_NEW"
     };
@@ -228,10 +239,10 @@ app.put('/updateUser', function(req, res){
         if (err) {
             console.log(err);
             console.log("PUT: Error updating event: " + user.userId + " - " + user.name);
-            res.status(404).send({"ERROR": "Failed to update event with ID: " + user.userId});
+            res.status(404).send({status: "Error", description: "Failed to update event by ID.", field: "userId", value: user.userId});
         } else {
             console.log("PUT: Successfully updated event: " + user.userId);
-            res.status(200).send(data.Item);
+            res.status(200).send({status: "Success", userId: user.userId, description: "Successfully updated user."});
         }
     });
 });
@@ -250,10 +261,10 @@ app.delete('/deleteUser', function(req, res){
         if (err) {
             console.log(err);
             console.log("DELETE: Error deleting user by ID: " + user.userId);
-            res.status(404).send({"ERROR": "Failed to delete user with ID: " + user.userId});
+            res.status(404).send({status: "Error", description: "Failed to delete user by ID.", field: "userId", value: user.userId});
         } else {
             console.log("DELETE: Successfully deleted user by ID: " + user.userId);
-            res.status(200).send({"SUCCESS": "Successfully deleted user with ID" + user.userId});
+            res.status(200).send({status: "Success", userId: user.userId, description: "Successfully deleted user."});
         }
     });
 });
@@ -282,10 +293,10 @@ app.post('/createProject', function(req, res){
         if (err) {
             console.log(err);
             console.log("POST: Error creating project: " + projectId + " - " + project.name);
-            res.status(503).send({"ERROR": "Failed to create project: " + projectId + " - " + project.name});
+            res.status(503).send({status: "Error", description: "Failed to create project with ID.", field: "projectId", value: projectId});
         } else {
             console.log("POST: Successfully created project: " + projectId + " - " + project.name);
-            res.status(200).send(data.Item);
+            res.status(200).send({status: "Success", projectId: projectId, description: "Successfully created project."});
         }
     });
 });
@@ -303,7 +314,7 @@ app.get('/getProject', function(req, res){
         if (err) {
             console.log(err);
             console.log("GET: Error getting project by ID: " + req.query.projectId);
-            res.status(404).send({"ERROR": "Failed to get project with ID: " + req.query.projectId});
+            res.status(404).send({status: "Error", description: "Failed to get project by ID.", field: "projectId", value: req.query.projectId});
         } else {
             console.log("GET: Successfully queried project by ID: " + req.query.projectId);
             res.status(200).send(data.Item);
@@ -321,12 +332,14 @@ app.put('/updateProject', function(req, res){
             "projectId": project.projectId
         },
         UpdateExpression: "set projectName = :n, projectDescription = :d, projectSize = :s, \
-            projectPhoto = :p",
+            projectPhoto = :p, projectSkillset = :t, projectUsers = :u",
         ExpressionAttributeValues: {
             ":n": project.name,
             ":d": project.description,
             ":s": project.size,
-            ":p": project.photo
+            ":p": project.photo,
+            ":t": project.skillset,
+            ":u": project.users
         },
         ReturnValues: "UPDATED_NEW"
     };
@@ -334,10 +347,10 @@ app.put('/updateProject', function(req, res){
         if (err) {
             console.log(err);
             console.log("PUT: Error updating project: " + project.projectId + " - " + project.name);
-            res.status(404).send({"ERROR": "Failed to update project with ID: " + project.projectId})
+            res.status(404).send({status: "Error", description: "Failed to update project by ID.", field: "projectId", value: project.projectId})
         } else {
             console.log("PUT: Successfully updated project: " + project.projectId);
-            res.status(200).send(data.Item);
+            res.status(200).send({status: "Success", projectId: project.projectId, description: "Successfully updated project."});
         }
     });
 });
@@ -356,10 +369,10 @@ app.delete('/deleteProject', function(req, res){
         if (err) {
             console.log(err);
             console.log("DELETE: Error deleting project by ID: " + project.projectId);
-            res.status(404).send({"ERROR": "Failed to delete project with ID: " + project.projectId});
+            res.status(404).send({status: "Error", description: "Failed to delete project by ID.", field: "projectId", value: project.projectId});
         } else {
             console.log("DELETE: Successfully deleted project by ID: " + project.projectId);
-            res.status(200).send({"SUCCESS": "Successfully deleted project with ID: " + project.projectId});
+            res.status(200).send({status: "Success", projectId: project.projectId, description: "Successfully created project."});
         }
     });
 });
@@ -386,7 +399,7 @@ app.put('/match/:event/:direction/:key', function(req, res){
         if (err) {
             console.log(err);
             console.log("PUT: Error returning matches for eventId: " + eventId);
-            res.status(503).send({"ERROR": "Error returning matches for eventId: " + eventId});
+            res.status(503).send({status: "Error", description: "Could not return matches for eventId. Probably does not exist yet.", field: "eventId", value: eventId});
         } else {
             console.log(data.Item);
             if (data.Item == undefined) {
@@ -396,17 +409,17 @@ app.put('/match/:event/:direction/:key', function(req, res){
                     TableName: "hinder-matches",
                     Item: {
                         "eventId": eventId,
-                        "matches": {
+                        "matches": [{
                             "matchId": matchId,
                             "approve": direction
-                        }
+                        }]
                     }
                 };
                 dynamoDB.put(params, function(err, data){
                     if (err) {
                         console.log(err);
                         console.log("PUT: Error creating entry for event: " + eventId);
-                        res.status(503).send({"ERROR": "Error creating entry for event: " + eventId});
+                        res.status(503).send({status: "Error", description: "Could create new match element for eventId.", field: "eventId", value: eventId});
                     } else {
                         console.log("Successfully created entry for event: " + eventId);
                         res.status(200).send(false);
@@ -441,7 +454,7 @@ app.put('/match/:event/:direction/:key', function(req, res){
                     if (err) {
                         console.log(err);
                         console.log("PUT: Error creating match: " + matchId + " - " + direction);
-                        res.status(404).send({"ERROR": "Failed to update match with ID: " + matchId})
+                        res.status(404).send({status: "Error", description: "Failed to update match with ID.", field: "matchId", value: matchId})
                     } else {
                         console.log("PUT: Successfully created match: " + matchId + " - " + direction);
                         res.status(200).send(false);
