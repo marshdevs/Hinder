@@ -15,13 +15,27 @@ class Request {
         case success([Any]), failure(Error)
     }
     
-    // Get/Query event request
-    static func getEvents(params: String, completion: @escaping (RequestResult) -> ()){
+    //Get/Query events request: Synchronous version (maybe switch to Async later)
+    /**
+     Query all Events to populate CollectionView
+     
+     This function is called int the
+     HomeViewController to lookup all
+     relevant Events and populate the
+     HomeView with all Events
+     
+     - Parameter:
+     - String: Event identifier
+     
+     - Returns: A instance of resArray containing the User
+     */
+    static func getEvents(params: String) -> [Event] {
         var resArray = [Event]()
         
         let url = URL(string: root + params)!
         let session = URLSession.shared
         let request = URLRequest(url: url)
+        let semaphore = DispatchSemaphore(value: 0)
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -36,18 +50,32 @@ class Request {
                         // TO DO: be able to access event data to actually initialize new Event object
                         resArray.append(Event(json: item))
                     }
-                    completion(.success(resArray))
+                    semaphore.signal()
                 }
             } catch let error {
                 print(error.localizedDescription)
-                completion(.failure(error))
             }
         })
         task.resume()
+        _ = semaphore.wait(timeout: .distantFuture)
+        return resArray
     }
     
-    // Get/query project request
     // Current project schema below is wrong
+
+    /**
+     Query Project request
+     
+     This function is called any time to
+     lookup a Project in the server database
+     by a string indentifier
+     
+     - Parameters:
+     - String: User identifier
+     - User: Project object
+     
+     - Returns: A instance of resArray containing the Project
+     */
     static func getProjects(params: String) -> [Project] {
         var resArray = [Project]()
         let url = URL(string: root + params)!
@@ -76,8 +104,20 @@ class Request {
         return resArray
     }
     
-    // Get/query user request
     // Current user schema below is wrong
+    /**
+     Query User request
+     
+     This function is called any time to 
+     lookup a User in the server database 
+     by a string indentifier
+     
+     - Parameters:
+     - String: User identifier
+     - User: User object
+     
+     - Returns: A instance of resArray containing the User
+     */
     static func getUsers(params: String) -> [User] {
         var resArray = [User]()
         let url = URL(string: root + params)!
@@ -105,7 +145,23 @@ class Request {
         return resArray
     }
     
-    // Match request
+    /**
+     	Handles user project swipe logic
+     
+     	This function is called any time that a swipe is
+     	made from either a user or a project and it first
+     	checks the nature of the swipe (a right or left)
+     	and then searches the data base for an existing
+     	represented by a pair matching IDs and returns
+      	the result
+     
+     	- Parameters:
+            - approve: swipe direction
+            - key: The corresponding ID
+            - eventId: The ID to identify the swiper
+     
+     	- Returns: A bool value returned by getMatch function call
+     */
     static func getMatch(params: String) -> Bool {
         var res = Bool()
         let url = URL(string: root + params)!
