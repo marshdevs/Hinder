@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Handle requests to backend.
+ */
 class Request {
     static let root = "http://ec2-184-72-191-21.compute-1.amazonaws.com:8080/"
     

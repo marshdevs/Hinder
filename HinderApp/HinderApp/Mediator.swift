@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ The app matchmaker.
+ */
 class Mediator: NSObject {
     
     /**
