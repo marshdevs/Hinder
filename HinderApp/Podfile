@@ -11,4 +11,7 @@ target 'HinderApp' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'AWSS3'
+  pod 'AWSCognito'
+  pod 'AWSCognitoIdentityProvider'
 end
