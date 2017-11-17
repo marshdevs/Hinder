@@ -1,15 +1,51 @@
-/* Events: POST=/createEvent, PUT=/editEvent, DELETE=/deleteEvent */
+/* Error schema */
 {
-    "eventId": "",
-    "name": "",
-    "date": "",
-    "location": "",
-    "description": "",
-    "photo": "",
-    "thumbnail": "",
-    "projects": [],
-    "users": []
+    "status": String,
+    "description": String,
+    "field": String,
+    "value": Any
 }
+
+/* Event schema */
+{
+    "eventId": String,
+    "name": String,
+    "date": Date,
+    "location": String,
+    "description": String,
+    "photo": URL,
+    "thumbnail": URL,
+    "projects": String[],
+    "users": String[]
+}
+
+/* Event Requests */
+
+/* GET: /getEvent */
+/* INPUT: A single query parameter in the url, eventId */
+/* ex: http://localhost:8080/getEvent/<eventId> */
+/* OUTPUT: Event */
+
+/* GET: /queryEvents/:location */
+/* INPUT: A single parameter in the url */
+/* ex: http://localhost:8080/queryEvents/los_angeles */
+/* OUTPUT: Event[] */
+
+/* POST: /createEvent */
+/* INPUT: In the body of the request, a */
+/* ex: */
+/* OUTPUT: */
+
+/* PUT: /updateEvent */
+/* INPUT: In the body of the request, a */
+/* ex: */
+/* OUTPUT: */
+
+/* POST: /deleteEvent */
+/* INPUT: In the body of the request, a */
+/* ex: */
+/* OUTPUT: */
+
 
 /* Users: POST=/createUser, PUT=/editUser, DELETE=/deleteUser */
 {
@@ -36,5 +72,5 @@
 /* Matches: PUT=/match */
 {
     "matchId": "projectId&userId",
-    "matched": "boolean"
+    "approve": "boolean"
 }
