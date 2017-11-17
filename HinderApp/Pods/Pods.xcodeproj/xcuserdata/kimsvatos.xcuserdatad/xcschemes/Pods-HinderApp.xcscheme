@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A65E820F13B14622ABE43E28A1E0B2AB"
+               BlueprintIdentifier = "E559A266DD7D22EAE96780FE208C7486"
                BuildableName = "Pods_HinderApp.framework"
                BlueprintName = "Pods-HinderApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A65E820F13B14622ABE43E28A1E0B2AB"
+            BlueprintIdentifier = "E559A266DD7D22EAE96780FE208C7486"
             BuildableName = "Pods_HinderApp.framework"
             BlueprintName = "Pods-HinderApp"
             ReferencedContainer = "container:Pods.xcodeproj">

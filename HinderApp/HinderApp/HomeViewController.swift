@@ -39,6 +39,10 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
     // When the settings icon is selected
     func settingsClicked() {
         // TODO: Go to settings view
+        var kimSkills = Skillset()
+        var kimUser = User(name: "kim", id: "9999", skillset: kimSkills)
+        let newViewController = EditProfileViewController(user: kimUser)
+        self.navigationController?.pushViewController(newViewController, animated: true)
         print("Clicked settings")
     }
     

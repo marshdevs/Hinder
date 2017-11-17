@@ -56,5 +56,7 @@ extension EventPageViewController {
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         return FeedSectionController(); //placeholder to prevent compilation errors rn
     }
+    
+    
     func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
 }

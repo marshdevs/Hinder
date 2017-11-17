@@ -17,7 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         
+        
+        //TODO: we need to have a USER that we can PASS among all viewcontrollers/have a constant within the program
+        //var kimSkills = Skillset()
+        //var kimUser = User(name: "kim", id: "9999", skillset: kimSkills)
+        
         let nav = UINavigationController(navigationBarClass: HinderNavigationBar.self, toolbarClass: nil)
+        //nav.pushViewController(EditProfileViewController(user: kimUser), animated: false)
         nav.pushViewController(HomeViewController(), animated: false)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
