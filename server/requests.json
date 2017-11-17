@@ -1,4 +1,4 @@
-/* Error schema */
+/* Message schema */
 {
     "status": String,
     "description": String,
@@ -32,45 +32,171 @@
 /* OUTPUT: Event[] */
 
 /* POST: /createEvent */
-/* INPUT: In the body of the request, a */
-/* ex: */
-/* OUTPUT: */
+/* INPUT: In the body of the request, an event object (no eventId field) */
+/* ex: 
+    req.body = {
+        "name": String,
+        "date": Date,
+        "location": String,
+        "description": String,
+        "photo": URL,
+        "thumbnail": URL,
+        "projects": String[],
+        "users": String[]
+    }
+*/
+/* OUTPUT: Message */
 
 /* PUT: /updateEvent */
-/* INPUT: In the body of the request, a */
-/* ex: */
-/* OUTPUT: */
+/* INPUT: In the body of the request, an Event object */
+/* ex: 
+    req.body = {
+        "eventId": String,
+        "name": String,
+        "date": Date,
+        "location": String,
+        "description": String,
+        "photo": URL,
+        "thumbnail": URL,
+        "projects": String[],
+        "users": String[]
+    }
+*/
+/* OUTPUT: Message */
 
-/* POST: /deleteEvent */
-/* INPUT: In the body of the request, a */
-/* ex: */
-/* OUTPUT: */
+/* DELETE: /deleteEvent */
+/* INPUT: In the body of the request, an eventId */
+/* ex: 
+    req.body = {
+        "eventId": String
+    }
+*/
+/* OUTPUT: Message */
 
 
-/* Users: POST=/createUser, PUT=/editUser, DELETE=/deleteUser */
+/* User schema */
 {
-    "userId": "",
-    "name": "",
-    "occupation": "",
-    "photo": "",
-    "events": [],
-    "skillset": {}
+    "userId": String,
+    "name": String,
+    "occupation": String,
+    "photo": URL,
+    "events": String[],
+    "skillset": Skillset
 }
 
-/* Projects: POST=/createProject, PUT=/editProject, DELETE=/deleteProject */
+/* User requests */
+
+/* GET: /getUser */
+/* INPUT: A single query parameter, userId */
+/* ex: http://localhost:8080/getUser/<userId> */
+/* OUTPUT: User */
+
+/* POST: /createUser */
+/* INPUT: In the body of the request, a User object (no userId field) */
+/* ex: 
+    req.body = {
+        "name": String,
+        "occupation": String,
+        "photo": URL,
+        "events": String[],
+        "skillset": Skillset
+    }
+*/
+/* OUTPUT: Message */
+
+/* PUT: /updateUser */
+/* INPUT: In the body of the request, a User object */
+/* ex: 
+    req.body = {
+        "userId": String,
+        "name": String,
+        "occupation": String,
+        "photo": URL,
+        "events": String[],
+        "skillset": Skillset
+    }
+*/
+/* OUTPUT: Message */
+
+/* DELETE: /deleteUser */
+/* INPUT: In the body of the request, userId */
+/* ex: 
+    req.body = {
+        "userId": String
+    }
+*/
+/* OUTPUT: Message */
+
+
+/* Project schema */
 {
-    "projectId": "",
-    "eventId": "",
-    "name": "",
-    "description": "",
-    "size": "",
-    "photo": "",
-    "skillset": {},
-    "users": []
+    "projectId": String,
+    "eventId": String,
+    "name": String,
+    "description": String,
+    "size": Int[],
+    "photo": URL,
+    "skillset": Skillset,
+    "users": String[]
 }
 
-/* Matches: PUT=/match */
+/* Project Requests */
+
+/* GET: /getProject */
+/* INPUT: A single query parameter, projectId */
+/* ex: http://localhost:8080/getProject/<projectId> */
+/* OUTPUT: Project */
+
+/* POST: /createProject */
+/* INPUT: In the body of the request, a Project object (no projectId field) */
+/* ex: 
+    req.body = {
+        "eventId": String,
+        "name": String,
+        "description": String,
+        "size": Int[],
+        "photo": URL,
+        "skillset": Skillset,
+        "users": String[]
+    }
+*/
+/* OUTPUT: Message */
+
+/* PUT: /updateProject */
+/* INPUT: In the body of the request, a Project object */
+/* ex: 
+    req.body = {
+        "projectId": String,
+        "eventId": String,
+        "name": String,
+        "description": String,
+        "size": Int[],
+        "photo": URL,
+        "skillset": Skillset,
+        "users": String[]
+    }
+*/
+/* OUTPUT: Message */
+
+/* DELETE: /deleteProject */
+/* INPUT: In the body of the request, projectId */
+/* ex: 
+    req.body = {
+        "projectId": String
+    }
+*/
+/* OUTPUT: Message */
+
+
+/* Match schema */
 {
-    "matchId": "projectId&userId",
-    "approve": "boolean"
+    "matchId": String,
+    "approve": Boolean
 }
+
+/* Match requests */
+
+/* PUT: /match/:event/:direction/:key */
+/* INPUT: Three parameters in the url, eventId, direction {'left' or 'right'}, key {userId&projectId} */
+/* ex: http://localhost:8080/match/<eventId>/left/<userId>&<projectId> */
+/* OUTPUT: Boolean */
