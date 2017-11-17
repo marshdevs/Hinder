@@ -25,4 +25,12 @@ func EventFeedFont(size: CGFloat = 18) -> UIFont {
     return UIFont(name:"Arial-BoldMT", size: 20.0)!
 }
 
+func SkillSetFont(size: CGFloat = 14) -> UIFont {
+    return UIFont(name:"Arial-BoldMT", size: 14.0)!
+}
+
 let FeedCellHeight = CGFloat(integerLiteral: 140)
+
+let ProfilePicHeight = CGFloat(integerLiteral: 140)
+
+let ToggleHeight = CGFloat(integerLiteral: 60)
