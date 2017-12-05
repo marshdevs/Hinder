@@ -33,7 +33,7 @@
 
 /* POST: /createEvent */
 /* INPUT: In the body of the request, an event object (no eventId field) */
-/* ex: 
+/* ex:
     req.body = {
         "name": String,
         "date": Date,
@@ -49,7 +49,7 @@
 
 /* PUT: /updateEvent */
 /* INPUT: In the body of the request, an Event object */
-/* ex: 
+/* ex:
     req.body = {
         "eventId": String,
         "name": String,
@@ -66,7 +66,7 @@
 
 /* DELETE: /deleteEvent */
 /* INPUT: In the body of the request, an eventId */
-/* ex: 
+/* ex:
     req.body = {
         "eventId": String
     }
@@ -91,9 +91,18 @@
 /* ex: http://localhost:8080/getUser/<userId> */
 /* OUTPUT: User */
 
+/* POST: /batchGetUsers */
+/* INPUT: In the body, a userIds element with a list of userIds */
+/* ex: http://localhost:8080/batchGetUsers
+    req.body = {
+        "userIds": String[]
+    }
+*/
+/* OUTPUT: User[] */
+
 /* POST: /createUser */
 /* INPUT: In the body of the request, a User object (no userId field) */
-/* ex: 
+/* ex:
     req.body = {
         "name": String,
         "occupation": String,
@@ -106,7 +115,7 @@
 
 /* PUT: /updateUser */
 /* INPUT: In the body of the request, a User object */
-/* ex: 
+/* ex:
     req.body = {
         "userId": String,
         "name": String,
@@ -120,7 +129,7 @@
 
 /* DELETE: /deleteUser */
 /* INPUT: In the body of the request, userId */
-/* ex: 
+/* ex:
     req.body = {
         "userId": String
     }
@@ -147,9 +156,18 @@
 /* ex: http://localhost:8080/getProject/<projectId> */
 /* OUTPUT: Project */
 
+/* POST: /batchGetProjects */
+/* INPUT: In the body, a projectIds element with a list of userIds */
+/* ex: http://localhost:8080/batchGetProjects
+    req.body = {
+        "projectIds": String[]
+    }
+*/
+/* OUTPUT: Project[] */
+
 /* POST: /createProject */
 /* INPUT: In the body of the request, a Project object (no projectId field) */
-/* ex: 
+/* ex:
     req.body = {
         "eventId": String,
         "name": String,
@@ -164,7 +182,7 @@
 
 /* PUT: /updateProject */
 /* INPUT: In the body of the request, a Project object */
-/* ex: 
+/* ex:
     req.body = {
         "projectId": String,
         "eventId": String,
@@ -180,7 +198,7 @@
 
 /* DELETE: /deleteProject */
 /* INPUT: In the body of the request, projectId */
-/* ex: 
+/* ex:
     req.body = {
         "projectId": String
     }

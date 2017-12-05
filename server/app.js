@@ -210,6 +210,36 @@ app.get('/getUser', function(req, res){
     });
 });
 
+app.post('/batchGetUsers', function(req, res){
+    console.log("POST: Received a batchGetUser request...");
+
+    var userIds = req.body.userIds;
+    var keys = []
+    for (var i = 0; i < userIds.length; i++) {
+        keys.push({
+            userId: userIds[i]
+        });
+    }
+
+    var params = {
+        RequestItems: {
+            "hinder-users": {
+                Keys: keys
+            }
+        }
+    };
+    dynamoDB.batchGet(params, function(err, data){
+        if (err) {
+            console.log(err);
+            console.log("POST: Error in batchGetUser request.");
+            res.status(404).send({status: "Error", description: "Failed to execute batchGet request.", field: "None", value: ""});
+        } else {
+            console.log("POST: Successfully queried batch of userIds.");
+            res.status(200).send(data["Responses"]["hinder-users"]);
+        }
+    });
+});
+
 app.put('/updateUser', function(req, res){
     console.log("PUT: Received an updateUser request...");
 
@@ -313,6 +343,36 @@ app.get('/getProject', function(req, res){
         } else {
             console.log("GET: Successfully queried project by ID: " + req.query.projectId);
             res.status(200).send(data.Item);
+        }
+    });
+});
+
+app.post('/batchGetProjects', function(req, res){
+    console.log("POST: Received a batchGetProjects request...");
+
+    var projectIds = req.body.projectIds;
+    var keys = []
+    for (var i = 0; i < projectIds.length; i++) {
+        keys.push({
+            projectId: projectIds[i]
+        });
+    }
+
+    var params = {
+        RequestItems: {
+            "hinder-projects": {
+                Keys: keys
+            }
+        }
+    };
+    dynamoDB.batchGet(params, function(err, data){
+        if (err) {
+            console.log(err);
+            console.log("POST: Error in batchGetProjects request.");
+            res.status(404).send({status: "Error", description: "Failed to execute batchGet request.", field: "None", value: ""});
+        } else {
+            console.log("POST: Successfully queried batch of projectIds.");
+            res.status(200).send(data["Responses"]["hinder-projects"]);
         }
     });
 });
