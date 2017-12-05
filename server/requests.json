@@ -9,14 +9,14 @@
 /* Event schema */
 {
     "eventId": String,
-    "name": String,
-    "date": Date,
-    "location": String,
-    "description": String,
-    "photo": URL,
-    "thumbnail": URL,
-    "projects": String[],
-    "users": String[]
+    "eventName": String,
+    "eventDate": Date,
+    "eventLocation": String,
+    "eventDescription": String,
+    "eventPhoto": URL,
+    "eventThumbnail": URL,
+    "eventProjects": String[],
+    "eventUsers": String[]
 }
 
 /* Event Requests */
@@ -77,11 +77,11 @@
 /* User schema */
 {
     "userId": String,
-    "name": String,
-    "occupation": String,
-    "photo": URL,
-    "events": String[],
-    "skillset": Skillset
+    "userName": String,
+    "userOccupation": String,
+    "userPhoto": URL,
+    "userEvents": String[],
+    "userSkillset": Skillset
 }
 
 /* User requests */
@@ -141,12 +141,12 @@
 {
     "projectId": String,
     "eventId": String,
-    "name": String,
-    "description": String,
-    "size": Int[],
-    "photo": URL,
-    "skillset": Skillset,
-    "users": String[]
+    "projectName": String,
+    "projectDescription": String,
+    "projectSize": Int[],
+    "projectPhoto": URL,
+    "projectSkillset": Skillset,
+    "projectUsers": String[]
 }
 
 /* Project Requests */
