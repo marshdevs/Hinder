@@ -39,6 +39,11 @@ class Project: NSObject, ListDiffable {
         return isEqual(object)
     }
     
+    public func toDict() -> Dictionary<String, Any> {
+        let resDict = ["name": self.name, "eventId": self.eventId, "description": self.desc, "size": self.size, "photo": self.photo, "skillset": self.skillset, "users": self.users] as! Dictionary<String, Any>
+        return resDict
+    }
+    
     public func addUserToProject(userId: String) {
         return
     }

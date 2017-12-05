@@ -33,4 +33,10 @@ class User: NSObject, ListDiffable {
     public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         return isEqual(object)
     }
+    
+    public func toDict() -> Dictionary<String, Any> {
+        let resDict = ["userId": self.userId, "name": self.name, "occupation": self.occupation, "events": self.events,
+                       "photo": self.photo, "skillset": self.skillset] as! Dictionary<String, Any>
+        return resDict
+    }
 }

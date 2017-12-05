@@ -42,4 +42,10 @@ class Event: NSObject, ListDiffable {
     public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         return isEqual(object)
     }
+    
+    public func toDict() -> Dictionary<String, Any> {
+        let resDict = ["name": self.name, "date": self.date, "location": self.location, "description": self.desc,
+                       "photo": self.photo, "thumbnail": self.thumbnail, "projects": self.projects, "users": self.users] as Dictionary<String, Any>
+        return resDict
+    }
 }

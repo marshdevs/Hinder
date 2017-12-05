@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B661FD66AD10054B73D /* EventRequest.swift */; };
+		318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B681FD66AE00054B73D /* ProjectRequest.swift */; };
+		318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B6A1FD66AFC0054B73D /* UserRequest.swift */; };
+		318A4B6D1FD66C110054B73D /* MatchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B6C1FD66C110054B73D /* MatchRequest.swift */; };
 		31BE76131FBAA31300154730 /* Mediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE76121FBAA31300154730 /* Mediator.swift */; };
 		31BE76151FBAA55100154730 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE76141FBAA55100154730 /* Request.swift */; };
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
@@ -32,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		318A4B661FD66AD10054B73D /* EventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRequest.swift; sourceTree = "<group>"; };
+		318A4B681FD66AE00054B73D /* ProjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectRequest.swift; path = /Users/marsh/Desktop/Hinder/HinderApp/HinderApp/Requests/ProjectRequest.swift; sourceTree = "<absolute>"; };
+		318A4B6A1FD66AFC0054B73D /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		318A4B6C1FD66C110054B73D /* MatchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchRequest.swift; sourceTree = "<group>"; };
 		31BE76121FBAA31300154730 /* Mediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mediator.swift; sourceTree = "<group>"; };
 		31BE76141FBAA55100154730 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +92,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		318A4B651FD66AB00054B73D /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				31BE76141FBAA55100154730 /* Request.swift */,
+				318A4B661FD66AD10054B73D /* EventRequest.swift */,
+				318A4B681FD66AE00054B73D /* ProjectRequest.swift */,
+				318A4B6A1FD66AFC0054B73D /* UserRequest.swift */,
+				318A4B6C1FD66C110054B73D /* MatchRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		A1569A637C58B1FCE043482E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,12 +125,12 @@
 		C520301B1FAD4760009DFCBA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				318A4B651FD66AB00054B73D /* Requests */,
 				C555F6BD1FB41E9D009106E8 /* Event.swift */,
 				C555F6BF1FB42D87009106E8 /* Project.swift */,
 				C555F6C11FB43293009106E8 /* User.swift */,
 				C555F6C31FB4334D009106E8 /* Skillset.swift */,
 				31BE76121FBAA31300154730 /* Mediator.swift */,
-				31BE76141FBAA55100154730 /* Request.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -327,8 +347,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */,
 				C557317A1FBE5BE700EBCF96 /* EditProfileViewController.swift in Sources */,
 				C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */,
+				318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */,
 				C557317C1FBE69E400EBCF96 /* EditProfileSectionController.swift in Sources */,
 				C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */,
 				C55671691FAD4553009A194B /* HomeViewController.swift in Sources */,
@@ -342,9 +364,11 @@
 				C557317E1FBE6D1900EBCF96 /* SkillSetEditCell.swift in Sources */,
 				C555F6C61FB647AF009106E8 /* FeedEventCell.swift in Sources */,
 				C555F6BE1FB41E9D009106E8 /* Event.swift in Sources */,
+				318A4B6D1FD66C110054B73D /* MatchRequest.swift in Sources */,
 				C555F6C01FB42D87009106E8 /* Project.swift in Sources */,
 				C555F6CA1FBA44E7009106E8 /* EventPageViewController.swift in Sources */,
 				C55671671FAD4553009A194B /* AppDelegate.swift in Sources */,
+				318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
