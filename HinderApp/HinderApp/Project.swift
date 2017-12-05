@@ -12,17 +12,23 @@ import IGListKit
 
 class Project: NSObject, ListDiffable {
     let projectId: String
-    let manager: User
-    let event: Event
-    let location: String
-    let isOpen: Bool
+    let eventId: String
+    let name: String
+    let desc: String
+    let size: [Int]
+    let photo: String
+    let skillset: Skillset
+    let users: [String]
     
-    init(id: String, manager: User, event: Event, location: String) {
-        self.projectId = id
-        self.manager = manager
-        self.event = event
-        self.location = location
-        self.isOpen = true
+    init(json: Dictionary<String, Any>) {
+        self.projectId = json["projectId"] as! String
+        self.eventId = json["eventId"] as! String
+        self.name = json["projectName"] as! String
+        self.desc = json["projectDescription"] as! String
+        self.size = json["projectSize"] as! [Int]
+        self.photo = json["projectPhoto"] as! String
+        self.skillset = Skillset(json: json["projectSkillset"] as! Dictionary<String, Any>)
+        self.users = json["projectUsers"] as! [String]
     }
     
     public func diffIdentifier() -> NSObjectProtocol {

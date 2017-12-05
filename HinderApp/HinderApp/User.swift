@@ -10,14 +10,20 @@ import UIKit
 import IGListKit
 
 class User: NSObject, ListDiffable {
+    let userId: String
     let name: String
-    let id: String
+    let occupation: String
+    let photo: String
+    let events: [String]
     let skillset: Skillset
     
-    init(name: String, id: String, skillset: Skillset) {
-        self.name = name
-        self.id = id
-        self.skillset = skillset
+    init(json: Dictionary<String, Any>) {
+        self.userId = json["userId"] as! String
+        self.name = json["userName"] as! String
+        self.occupation = json["userOccupation"] as! String
+        self.photo = json["userPhoto"] as! String
+        self.events = json["userEvents"] as! [String]
+        self.skillset = Skillset(json: json["userSkillset"] as! Dictionary<String, Any>)
     }
     
     public func diffIdentifier() -> NSObjectProtocol {

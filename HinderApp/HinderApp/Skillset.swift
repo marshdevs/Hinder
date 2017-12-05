@@ -23,10 +23,37 @@ class Skillset: NSObject, ListDiffable {
     var javascript: Bool
     var html: Bool
     
-    override init() {
+//    override init() {
+//        arraySkills = [Bool]()
+//        skillNames = [String]()
+//        for _ in 0...7 {
+//            arraySkills.append(false)
+//        }
+//        skillNames.append("C++");
+//        skillNames.append("C");
+//        skillNames.append("Obj-C");
+//        skillNames.append("Swift");
+//        skillNames.append("Python");
+//        skillNames.append("Java");
+//        skillNames.append("Javascript");
+//        skillNames.append("Html");
+//        cpp = false
+//        c = false
+//        objc = false
+//        swift = false
+//        python = false
+//        java = false
+//        javascript = false
+//        html = false
+//
+//        super.init()
+//    }
+    
+    init(json: Dictionary<String, Any>) {
+        //TODO
         arraySkills = [Bool]()
         skillNames = [String]()
-        for i in 0...7 {
+        for _ in 0...7 {
             arraySkills.append(false)
         }
         skillNames.append("C++");

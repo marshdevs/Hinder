@@ -39,8 +39,11 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
     // When the settings icon is selected
     func settingsClicked() {
         // TODO: Go to settings view
-        var kimSkills = Skillset()
-        var kimUser = User(name: "kim", id: "9999", skillset: kimSkills)
+        let jsonSkills = [String : Any]()
+        let jsonUser = ["userId": "abc123", "userName": "Kim", "userOccupation": "Student", "userPhoto": "photo.jpg",
+        "userEvents": ["l1231", "dsfce", "dsc324"], "userSkillset": [String : Any]()] as Dictionary<String, Any>
+        var kimSkills = Skillset(json: jsonSkills)
+        var kimUser = User(json: jsonUser)
         let newViewController = EditProfileViewController(user: kimUser)
         self.navigationController?.pushViewController(newViewController, animated: true)
         print("Clicked settings")
@@ -85,7 +88,7 @@ extension HomeViewController {
         Need some way to grab user's location, if we're querying events by location
          */
         
-        let eventArray = Request.getEvents(params: "queryEvents/los_angeles")
+        let eventArray = Request.getEvents(params: "los_angeles")
         items += eventArray as [ListDiffable]
         print("Dumping items")
         dump(items)

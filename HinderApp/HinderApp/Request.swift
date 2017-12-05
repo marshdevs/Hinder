@@ -34,7 +34,8 @@ class Request {
     static func getEvents(params: String) -> [Event] {
         var resArray = [Event]()
         
-        let url = URL(string: root + params)!
+        let endpoint = "queryEvents/"
+        let url = URL(string: root + endpoint + params)!
         let session = URLSession.shared
         let request = URLRequest(url: url)
         let semaphore = DispatchSemaphore(value: 0)
@@ -62,26 +63,31 @@ class Request {
         _ = semaphore.wait(timeout: .distantFuture)
         return resArray
     }
-    
-    // Current project schema below is wrong
 
     /**
-     Query Project request.
+     Query Projects request.
      
      This function is called any time to
-     lookup a Project in the server database
-     by a string indentifier.
+     lookup a list of Projects in the server database
+     given a list of string indentifiers.
      
-     - parameter params: User identifier
-     - parameter user: Project object
+     - parameter projectIds: List of projectIds to return information for
      
-     - returns: A instance of resArray containing the Project
+     - returns: A instance of resArray containing the Projects
      */
-    static func getProjects(params: String) -> [Project] {
+    static func getProjects(projectIds: [String]) -> [Project] {
         var resArray = [Project]()
-        let url = URL(string: root + params)!
+        
+        let requestData: [String: Any] = ["projectIds": projectIds]
+        let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
+        
+        let endpoint = "batchGetProjects"
+        let url = URL(string: root + endpoint)!
         let session = URLSession.shared
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = requestJsonData
+        
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -93,7 +99,7 @@ class Request {
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
                     for item in json {
-                        resArray.append(Project(id: item["projectId"] as! String, manager: item["projectManager"] as! User, event: item["projectEvent"] as! Event, location: item["projectLocation"] as! String))
+                        resArray.append(Project(json: item))
                     }
                 }
             } catch let error {
@@ -105,24 +111,30 @@ class Request {
         return resArray
     }
     
-    // Current user schema below is wrong
     /**
      Query User request.
      
      This function is called any time to 
-     lookup a User in the server database 
-     by a string indentifier.
+     lookup a list of Users in the server database
+     by a list of string indentifiers.
      
-     - parameter params: User identifier
-     - parameter user: User object
+     - parameter userIds: List of String userIds
      
-     - returns: A instance of resArray containing the User
+     - returns: A instance of resArray containing the Users
      */
-    static func getUsers(params: String) -> [User] {
+    static func getUsers(userIds: [String]) -> [User] {
         var resArray = [User]()
-        let url = URL(string: root + params)!
+        
+        let requestData: [String: Any] = ["userIds": userIds]
+        let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
+        
+        let endpoint = "batchGetUsers"
+        let url = URL(string: root + endpoint)!
         let session = URLSession.shared
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = requestJsonData
+        
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -134,7 +146,7 @@ class Request {
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
                     for item in json {
-                        resArray.append(User(name: item["userName"] as! String, id: item["userId"] as! String, skillset: item["userSkillset"] as! Skillset))
+                        resArray.append(User(json: item))
                     }
                 }
             } catch let error {

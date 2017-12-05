@@ -47,7 +47,7 @@ class Mediator: NSObject {
      */
     func userInitSwipe(user: User, project: Project, approve: Bool) -> Bool {
         let key = user.id + "&" + project.projectId
-        let eventId = project.event.eventId
+        let eventId = project.eventId
         let match = swipe(approve: approve, key: key, eventId: eventId)
         if (match) {
             project.addUserToProject(userId: user.id)
@@ -72,7 +72,7 @@ class Mediator: NSObject {
      */
     func projectInitSwipe(project: Project, user: User, approve: Bool) -> Bool {
         let key = user.id + "&" + project.projectId
-        let eventId = project.event.eventId
+        let eventId = project.eventId
         let match = swipe(approve: approve, key: key, eventId: eventId)
         if (match) {
             project.addUserToProject(userId: user.id)
