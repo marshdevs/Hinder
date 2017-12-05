@@ -46,11 +46,11 @@ class Mediator: NSObject {
      - returns: A true (user added to group) or false (not a match)
      */
     func userInitSwipe(user: User, project: Project, approve: Bool) -> Bool {
-        let key = user.id + "&" + project.projectId
+        let key = user.userId + "&" + project.projectId
         let eventId = project.eventId
         let match = swipe(approve: approve, key: key, eventId: eventId)
         if (match) {
-            project.addUserToProject(userId: user.id)
+            project.addUserToProject(userId: user.userId)
             return true
         }
         return false
@@ -71,11 +71,11 @@ class Mediator: NSObject {
      - returns: A true (user added to group) or false (not a match)
      */
     func projectInitSwipe(project: Project, user: User, approve: Bool) -> Bool {
-        let key = user.id + "&" + project.projectId
+        let key = user.userId + "&" + project.projectId
         let eventId = project.eventId
         let match = swipe(approve: approve, key: key, eventId: eventId)
         if (match) {
-            project.addUserToProject(userId: user.id)
+            project.addUserToProject(userId: user.userId)
             return true
         }
         return false
