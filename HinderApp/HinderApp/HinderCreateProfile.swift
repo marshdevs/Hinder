@@ -21,8 +21,23 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
     
     let profilePic: UIButton = {
         let image = UIButton()
-        image.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+        image.frame = CGRect(x:0 , y: 0, width: 100, height: 200)
         return image
+    }()
+    
+    let firstName : UITextField = {
+        let field = UITextField()
+        field.frame = CGRect(x: 100, y: 200, width: 100, height: 200)
+        field.borderStyle = .line
+        field.text = "First Name"
+        return field
+    }()
+    
+    let lastName : UILabel = {
+        let field = UILabel()
+        field.frame = CGRect(x: 200, y: 550, width: 50, height: 50)
+        field.text = "Last Name"
+        return field
     }()
     
     
@@ -30,7 +45,12 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         profilePic.addTarget(self, action: #selector(HinderCreateProfile.pressed), for: .touchUpInside)
         self.view.addSubview(profilePic)
+        self.view.addSubview(firstName)
+        self.view.addSubview(lastName)
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        //set the objects in the view
         
         
         //intialize Amazon cognito credentials
@@ -76,11 +96,10 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
             }
             else if (result?.isCancelled)!
             {
-                print("Fuck you")
+                
             }
             else if (result?.grantedPermissions.contains("email"))!
             {
-                print ("this makes no sense")
                 
                 let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"])
                 let _ = request?.start(completionHandler: { (connection, result, error) in
@@ -92,17 +111,63 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
                         let url = URL(string: imageURL)
                         let data = try? Data(contentsOf: url!)
                         let image = UIImage(data: data!)
-                        self.profilePic.setImage(image, for: .normal)
                         
-                        self.uploadToS3(image: image!)
+                        //downloadFromS3 and set image to that
+                        self.firstName.text = userInfo["first_name"] as? String
+                        self.lastName.text = userInfo["last_name"] as? String
+                        self.profilePic.setImage(self.downloadFromS3(id: "asdfasdf"), for: .normal)
+                        
+                        //uploadToS3 and set image
+                        //self.profilePic.setImage(image, for: .normal)
+                        //self.uploadToS3(image: image!)
                     }
                 })
             }
             
             else {
-                print("Fuck off")
+                
             }
         })
+    }
+    
+    func downloadFromS3(id : String) -> UIImage {
+        
+        let transferManager = AWSS3TransferManager.default()
+
+        let downloadingFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("filenameFromS3.png")
+        
+        let downloadRequest = AWSS3TransferManagerDownloadRequest()
+        downloadRequest?.bucket = "finalhinderbucket"
+        downloadRequest?.key = "uniqueId.png"
+        downloadRequest?.downloadingFileURL = downloadingFileURL
+        
+        transferManager.download(downloadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
+            
+            if let error = task.error as NSError? {
+                if error.domain == AWSS3TransferManagerErrorDomain, let code = AWSS3TransferManagerErrorType(rawValue: error.code) {
+                    switch code {
+                    case .cancelled, .paused:
+                        break
+                    default:
+                        print("Error downloading: \(downloadRequest?.key) Error: \(error)")
+                    }
+                } else {
+                    print("Error downloading: \(downloadRequest?.key) Error: \(error)")
+                }
+                return nil
+            }
+            print("Download complete for: \(downloadRequest?.key)")
+            let downloadOutput = task.result
+            return nil
+        })
+        
+        downloadRequest?.downloadProgress = {(bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) -> Void in
+            DispatchQueue.main.async(execute: {() -> Void in
+            })
+        }
+        
+        return UIImage(contentsOfFile: downloadingFileURL.path)!
+
     }
     
     func uploadToS3(image : UIImage) {
@@ -121,7 +186,7 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
         catch{}
         
         uploadRequest?.bucket = "finalhinderbucket"
-        uploadRequest?.key = "uniqueId.txt"
+        uploadRequest?.key = "uniqueId.png"
         uploadRequest?.body = fileURL
         
         transferManager.upload(uploadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
