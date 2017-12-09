@@ -15,6 +15,8 @@
 		31BE76151FBAA55100154730 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE76141FBAA55100154730 /* Request.swift */; };
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
 		9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */; };
+		BAC034741FDBB12D00ED14B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC034731FDBB12D00ED14B3 /* Assets.xcassets */; };
+		BAC0347E1FDBC4D400ED14B3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0347D1FDBC4D400ED14B3 /* LoginViewController.swift */; };
 		C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */; };
 		C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */; };
 		C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */; };
@@ -28,7 +30,6 @@
 		C55671671FAD4553009A194B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671661FAD4553009A194B /* AppDelegate.swift */; };
 		C55671691FAD4553009A194B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55671681FAD4553009A194B /* HomeViewController.swift */; };
 		C556716C1FAD4553009A194B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C556716A1FAD4553009A194B /* Main.storyboard */; };
-		C556716E1FAD4553009A194B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C556716D1FAD4553009A194B /* Assets.xcassets */; };
 		C55671711FAD4553009A194B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C556716F1FAD4553009A194B /* LaunchScreen.storyboard */; };
 		C557317A1FBE5BE700EBCF96 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55731791FBE5BE700EBCF96 /* EditProfileViewController.swift */; };
 		C557317C1FBE69E400EBCF96 /* EditProfileSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557317B1FBE69E400EBCF96 /* EditProfileSectionController.swift */; };
@@ -37,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		318A4B661FD66AD10054B73D /* EventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRequest.swift; sourceTree = "<group>"; };
-		318A4B681FD66AE00054B73D /* ProjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectRequest.swift; path = /Users/marsh/Desktop/Hinder/HinderApp/HinderApp/Requests/ProjectRequest.swift; sourceTree = "<absolute>"; };
+		318A4B681FD66AE00054B73D /* ProjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRequest.swift; sourceTree = "<group>"; };
 		318A4B6A1FD66AFC0054B73D /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		318A4B6C1FD66C110054B73D /* MatchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchRequest.swift; sourceTree = "<group>"; };
 		31BE76121FBAA31300154730 /* Mediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mediator.swift; sourceTree = "<group>"; };
@@ -46,6 +47,8 @@
 		9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderCreateProfile.swift; sourceTree = "<group>"; };
 		9FC6A0641FBB98E000176134 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		9FC6A0651FBB98E000176134 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		BAC034731FDBB12D00ED14B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BAC0347D1FDBC4D400ED14B3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HinderNavigationBar.swift; sourceTree = "<group>"; };
 		C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsAndTheme.swift; sourceTree = "<group>"; };
 		C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSectionController.swift; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		C55671661FAD4553009A194B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C55671681FAD4553009A194B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C556716B1FAD4553009A194B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C556716D1FAD4553009A194B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C55671701FAD4553009A194B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C55671721FAD4553009A194B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C55731791FBE5BE700EBCF96 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		C555F6BA1FB0EA51009106E8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BAC0347D1FDBC4D400ED14B3 /* LoginViewController.swift */,
 				C55671681FAD4553009A194B /* HomeViewController.swift */,
 				C555F6C91FBA44E6009106E8 /* EventPageViewController.swift */,
 				C55731791FBE5BE700EBCF96 /* EditProfileViewController.swift */,
@@ -184,7 +187,7 @@
 				C55671661FAD4553009A194B /* AppDelegate.swift */,
 				C52030191FAD4732009DFCBA /* SectionControllers */,
 				C556716A1FAD4553009A194B /* Main.storyboard */,
-				C556716D1FAD4553009A194B /* Assets.xcassets */,
+				BAC034731FDBB12D00ED14B3 /* Assets.xcassets */,
 				C556716F1FAD4553009A194B /* LaunchScreen.storyboard */,
 				C55671721FAD4553009A194B /* Info.plist */,
 				C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */,
@@ -255,7 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C55671711FAD4553009A194B /* LaunchScreen.storyboard in Resources */,
-				C556716E1FAD4553009A194B /* Assets.xcassets in Resources */,
+				BAC034741FDBB12D00ED14B3 /* Assets.xcassets in Resources */,
 				C556716C1FAD4553009A194B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +353,7 @@
 				318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */,
 				C557317A1FBE5BE700EBCF96 /* EditProfileViewController.swift in Sources */,
 				C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */,
+				BAC0347E1FDBC4D400ED14B3 /* LoginViewController.swift in Sources */,
 				318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */,
 				C557317C1FBE69E400EBCF96 /* EditProfileSectionController.swift in Sources */,
 				C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */,

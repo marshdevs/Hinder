@@ -4,6 +4,26 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AWSCognito.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>AWSCognitoIdentityProvider.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
+		<key>AWSCore.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+		<key>AWSS3.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -62,12 +82,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>162CAD95CC0F402AED98F345659DC633</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>332F91393FB1DE033D370B4CEDDD5FCF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>53C6112213829CB147F47E473C93F271</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,6 +127,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8393868F14AB07BE6A65D86E9124150A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F7098779713B711F6C591B62A41F242</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A7FEAA14E89971698ACA148F7F7202F2</key>
 		<dict>
 			<key>primary</key>
@@ -107,12 +147,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C83B0F8778708382BFD09745CBCD1CBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D448C42F9B550742F18B41A6568213ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>DDBCFDE490CDFDABF6F16A26F346932D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E559A266DD7D22EAE96780FE208C7486</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F969FAA5ACA774F0BFC92FEE5EBE0094</key>
 		<dict>
 			<key>primary</key>
 			<true/>
