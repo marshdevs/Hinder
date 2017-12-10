@@ -18,7 +18,6 @@ class HamburgerMenuViewController: UITableViewController {
     }
     
     func menuClicked() {
-        print("Clicked menu")
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -26,4 +25,7 @@ class HamburgerMenuViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: Actions
+    
 }

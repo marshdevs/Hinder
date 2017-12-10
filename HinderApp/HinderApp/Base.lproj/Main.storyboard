@@ -84,7 +84,7 @@
         <scene sceneID="b6G-1m-Zqr">
             <objects>
                 <navigationController id="znh-mW-K7f" customClass="NavigationController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WsI-Bq-d5o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WsI-Bq-d5o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,6 +93,8 @@
                     <connections>
                         <segue destination="siA-bE-SIP" kind="show" id="LlD-aT-yTP"/>
                         <segue destination="bQV-sp-h6v" kind="relationship" relationship="rootViewController" id="bPE-Zp-8Ds"/>
+                        <segue destination="haD-zw-LcH" kind="show" id="TfO-hI-t6H"/>
+                        <segue destination="Huu-Y3-PQu" kind="show" id="sM0-BL-5fx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swd-3j-Rvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,30 +124,71 @@
         <!--Hamburger Menu View Controller-->
         <scene sceneID="JVt-Qd-bUc">
             <objects>
-                <tableViewController id="siA-bE-SIP" customClass="HamburgerMenuViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SQi-Fr-8qp">
+                <tableViewController storyboardIdentifier="HamburgerMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="siA-bE-SIP" customClass="HamburgerMenuViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SQi-Fr-8qp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="JdC-V0-VSi" style="IBUITableViewCellStyleDefault" id="WMq-2N-ZaT">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WMq-2N-ZaT" id="uno-Df-L4U">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JdC-V0-VSi">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                        <sections>
+                            <tableViewSection id="SG5-DC-bp4">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="JdC-V0-VSi" imageView="au8-WA-DjA" style="IBUITableViewCellStyleDefault" id="WMq-2N-ZaT">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WMq-2N-ZaT" id="uno-Df-L4U">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JdC-V0-VSi">
+                                                    <rect key="frame" x="73" y="0.0" width="287" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="laptop" id="au8-WA-DjA">
+                                                    <rect key="frame" x="15" y="0.0" width="43" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <segue destination="haD-zw-LcH" kind="show" id="2Q0-a5-iaK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="5DV-HZ-lL4" imageView="fVD-sf-BU0" style="IBUITableViewCellStyleDefault" id="DZR-r4-FrD">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DZR-r4-FrD" id="PIE-2g-oze">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5DV-HZ-lL4">
+                                                    <rect key="frame" x="77" y="0.0" width="283" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="group" id="fVD-sf-BU0">
+                                                    <rect key="frame" x="15" y="0.0" width="47" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <segue destination="Huu-Y3-PQu" kind="show" id="Hg2-mL-tVP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="siA-bE-SIP" id="Mvo-4g-8TX"/>
                             <outlet property="delegate" destination="siA-bE-SIP" id="kd3-8R-l7m"/>
@@ -155,11 +198,53 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tr4-sR-77C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="1612"/>
+            <point key="canvasLocation" x="826" y="1675"/>
+        </scene>
+        <!--My Events View Controller-->
+        <scene sceneID="ZWB-6P-72F">
+            <objects>
+                <viewController id="haD-zw-LcH" customClass="MyEventsViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C6y-PR-STp"/>
+                        <viewControllerLayoutGuide type="bottom" id="sSt-VY-pCN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nBG-mm-2OH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jKs-nT-iTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2170" y="1675"/>
+        </scene>
+        <!--My Groups View Controller-->
+        <scene sceneID="FA2-w1-JpI">
+            <objects>
+                <viewController id="Huu-Y3-PQu" customClass="MyGroupsViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dZK-uP-N1L"/>
+                        <viewControllerLayoutGuide type="bottom" id="LdV-1K-8na"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fp5-BZ-XZX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4X6-Ti-mPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2169" y="2438"/>
         </scene>
     </scenes>
     <resources>
         <image name="Hinder" width="224" height="196"/>
+        <image name="group" width="132" height="123"/>
+        <image name="laptop" width="86" height="87"/>
         <image name="rounded-button" width="196" height="62"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="TfO-hI-t6H"/>
+        <segue reference="sM0-BL-5fx"/>
+    </inferredMetricsTieBreakers>
 </document>

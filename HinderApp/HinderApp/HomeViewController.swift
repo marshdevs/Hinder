@@ -49,7 +49,10 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
     
     // When the menu icon is selected
     func menuClicked() {
-        let newViewController = HamburgerMenuViewController()
+        /*let newViewController = HamburgerMenuViewController()
+        self.navigationController?.pushViewController(newViewController, animated: true)*/
+
+        let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "HamburgerMenuViewController") as! HamburgerMenuViewController
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
     

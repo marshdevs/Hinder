@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        window = UIWindow(frame: UIScreen.main.bounds)
+        /*window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         
         
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //nav.pushViewController(EditProfileViewController(user: kimUser), animated: false)
         nav.pushViewController(HomeViewController(), animated: false)
         window?.rootViewController = nav
-        window?.makeKeyAndVisible()
+        window?.makeKeyAndVisible()*/
         return true
     }
     

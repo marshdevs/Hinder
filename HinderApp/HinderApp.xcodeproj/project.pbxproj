@@ -17,6 +17,8 @@
 		9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */; };
 		BA907B721FDC989E005BD3E8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B711FDC989E005BD3E8 /* NavigationController.swift */; };
 		BA907B7A1FDCB152005BD3E8 /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B791FDCB152005BD3E8 /* HamburgerMenuViewController.swift */; };
+		BA907B821FDDE85E005BD3E8 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B811FDDE85E005BD3E8 /* MyEventsViewController.swift */; };
+		BA907B841FDDE8D3005BD3E8 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B831FDDE8D3005BD3E8 /* MyGroupsViewController.swift */; };
 		BAC034741FDBB12D00ED14B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC034731FDBB12D00ED14B3 /* Assets.xcassets */; };
 		BAC0347E1FDBC4D400ED14B3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0347D1FDBC4D400ED14B3 /* LoginViewController.swift */; };
 		C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */; };
@@ -51,6 +53,8 @@
 		9FC6A0651FBB98E000176134 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		BA907B711FDC989E005BD3E8 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		BA907B791FDCB152005BD3E8 /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
+		BA907B811FDDE85E005BD3E8 /* MyEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventsViewController.swift; sourceTree = "<group>"; };
+		BA907B831FDDE8D3005BD3E8 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		BAC034731FDBB12D00ED14B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAC0347D1FDBC4D400ED14B3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HinderNavigationBar.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				BAC0347D1FDBC4D400ED14B3 /* LoginViewController.swift */,
 				BA907B711FDC989E005BD3E8 /* NavigationController.swift */,
 				C55671681FAD4553009A194B /* HomeViewController.swift */,
+				BA907B811FDDE85E005BD3E8 /* MyEventsViewController.swift */,
+				BA907B831FDDE8D3005BD3E8 /* MyGroupsViewController.swift */,
 				C555F6C91FBA44E6009106E8 /* EventPageViewController.swift */,
 				C55731791FBE5BE700EBCF96 /* EditProfileViewController.swift */,
 			);
@@ -362,6 +368,7 @@
 				C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */,
 				BAC0347E1FDBC4D400ED14B3 /* LoginViewController.swift in Sources */,
 				318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */,
+				BA907B841FDDE8D3005BD3E8 /* MyGroupsViewController.swift in Sources */,
 				C557317C1FBE69E400EBCF96 /* EditProfileSectionController.swift in Sources */,
 				C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */,
 				C55671691FAD4553009A194B /* HomeViewController.swift in Sources */,
@@ -381,6 +388,7 @@
 				C555F6CA1FBA44E7009106E8 /* EventPageViewController.swift in Sources */,
 				C55671671FAD4553009A194B /* AppDelegate.swift in Sources */,
 				318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */,
+				BA907B821FDDE85E005BD3E8 /* MyEventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
