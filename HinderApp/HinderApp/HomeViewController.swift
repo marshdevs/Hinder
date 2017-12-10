@@ -38,7 +38,6 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
     
     // When the settings icon is selected
     func settingsClicked() {
-        // TODO: Go to settings view
         let jsonSkills = [String : Any]()
         let jsonUser = ["userId": "abc123", "userName": "Kim", "userOccupation": "Student", "userPhoto": "photo.jpg",
         "userEvents": ["l1231", "dsfce", "dsc324"], "userSkillset": [String : Any]()] as Dictionary<String, Any>
@@ -46,13 +45,12 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
         var kimUser = User(json: jsonUser)
         let newViewController = EditProfileViewController(user: kimUser)
         self.navigationController?.pushViewController(newViewController, animated: true)
-        print("Clicked settings")
     }
     
     // When the menu icon is selected
     func menuClicked() {
-        // TODO: Go to menu view
-        print("Clicked menu")
+        let newViewController = HamburgerMenuViewController()
+        self.navigationController?.pushViewController(newViewController, animated: true)
     }
     
     override func viewDidLayoutSubviews() {

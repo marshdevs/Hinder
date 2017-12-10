@@ -44,6 +44,7 @@
                                 </state>
                                 <connections>
                                     <action selector="userLogin:" destination="VBZ-xY-nPc" eventType="touchUpInside" id="7yZ-Nf-BfX"/>
+                                    <segue destination="znh-mW-K7f" kind="show" animates="NO" id="Cts-8t-iQH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgr-Og-BIJ">
@@ -79,23 +80,82 @@
             </objects>
             <point key="canvasLocation" x="137" y="854"/>
         </scene>
-        <!--Home View Controller-->
-        <scene sceneID="50N-x6-Hke">
+        <!--Navigation Controller-->
+        <scene sceneID="b6G-1m-Zqr">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="okg-bg-Cm9" customClass="HomeViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="znh-mW-K7f" customClass="NavigationController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WsI-Bq-d5o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.36993187820000001" green="0.75383233110000003" blue="0.9786067034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="siA-bE-SIP" kind="show" id="LlD-aT-yTP"/>
+                        <segue destination="bQV-sp-h6v" kind="relationship" relationship="rootViewController" id="bPE-Zp-8Ds"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="swd-3j-Rvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1183" y="853"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="T7F-CR-3Gm">
+            <objects>
+                <viewController id="bQV-sp-h6v" customClass="HomeViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Hdd-c4-dCE"/>
-                        <viewControllerLayoutGuide type="bottom" id="xkM-7e-WfZ"/>
+                        <viewControllerLayoutGuide type="top" id="YXf-57-fR1"/>
+                        <viewControllerLayoutGuide type="bottom" id="tmI-G6-40M"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kKP-wT-6UQ">
+                    <view key="view" contentMode="scaleToFill" id="Rwg-PS-mYi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Pk5-ZR-xwA"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ggi-VU-2De" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WG1-GH-PCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="946" y="853"/>
+            <point key="canvasLocation" x="2145" y="852"/>
+        </scene>
+        <!--Hamburger Menu View Controller-->
+        <scene sceneID="JVt-Qd-bUc">
+            <objects>
+                <tableViewController id="siA-bE-SIP" customClass="HamburgerMenuViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SQi-Fr-8qp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="JdC-V0-VSi" style="IBUITableViewCellStyleDefault" id="WMq-2N-ZaT">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WMq-2N-ZaT" id="uno-Df-L4U">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JdC-V0-VSi">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="siA-bE-SIP" id="Mvo-4g-8TX"/>
+                            <outlet property="delegate" destination="siA-bE-SIP" id="kd3-8R-l7m"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Gbv-wE-kri"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tr4-sR-77C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2145" y="1612"/>
         </scene>
     </scenes>
     <resources>
