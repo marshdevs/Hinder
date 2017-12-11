@@ -19,6 +19,7 @@
 		31FEEA461FDDFB68007C4532 /* HostLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA451FDDFB68007C4532 /* HostLoginViewController.swift */; };
 		31FEEA481FDE118F007C4532 /* SessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA471FDE118F007C4532 /* SessionUser.swift */; };
 		31FEEA4A1FDE338D007C4532 /* CreateEventViewControllerP1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA491FDE338D007C4532 /* CreateEventViewControllerP1.swift */; };
+		5ED2FC6E1FDF433A00F20274 /* MyKolodaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */; };
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
 		9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */; };
 		BA907B721FDC989E005BD3E8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B711FDC989E005BD3E8 /* NavigationController.swift */; };
@@ -60,6 +61,7 @@
 		31FEEA471FDE118F007C4532 /* SessionUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUser.swift; sourceTree = "<group>"; };
 		31FEEA491FDE338D007C4532 /* CreateEventViewControllerP1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewControllerP1.swift; sourceTree = "<group>"; };
 		391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKolodaViewController.swift; sourceTree = "<group>"; };
 		9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderCreateProfile.swift; sourceTree = "<group>"; };
 		9FC6A0641FBB98E000176134 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		9FC6A0651FBB98E000176134 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -194,6 +196,7 @@
 				31FEEA431FDDF40C007C4532 /* UserTypeViewController.swift */,
 				31FEEA451FDDFB68007C4532 /* HostLoginViewController.swift */,
 				310F3F201FDE3DAF009FF85C /* ViewProfileViewController.swift */,
+				5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -378,7 +381,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -410,6 +413,7 @@
 				9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */,
 				C555F6C21FB43293009106E8 /* User.swift in Sources */,
 				C557317E1FBE6D1900EBCF96 /* SkillSetEditCell.swift in Sources */,
+				5ED2FC6E1FDF433A00F20274 /* MyKolodaViewController.swift in Sources */,
 				C555F6C61FB647AF009106E8 /* FeedEventCell.swift in Sources */,
 				BA907B7A1FDCB152005BD3E8 /* HamburgerMenuViewController.swift in Sources */,
 				C555F6BE1FB41E9D009106E8 /* Event.swift in Sources */,
