@@ -54,7 +54,7 @@ class Skillset: NSObject, ListDiffable {
         arraySkills = [Bool]()
         skillNames = [String]()
         for _ in 0...7 {
-            arraySkills.append(false)
+            arraySkills.append(true)
         }
         skillNames.append("C++");
         skillNames.append("C");
@@ -65,7 +65,7 @@ class Skillset: NSObject, ListDiffable {
         skillNames.append("Javascript");
         skillNames.append("Html");
         cpp = false
-        c = false
+        c = true
         objc = false
         swift = false
         python = false

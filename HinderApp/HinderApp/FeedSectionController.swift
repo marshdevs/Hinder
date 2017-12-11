@@ -6,11 +6,13 @@
 import UIKit
 import IGListKit
 
+
 class FeedSectionController: ListSectionController {
     override init() {
         super.init()
         inset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
     }
+
     
     override func numberOfItems() -> Int {
         return 1

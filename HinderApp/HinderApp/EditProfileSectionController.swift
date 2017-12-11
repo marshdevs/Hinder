@@ -9,7 +9,11 @@
 import UIKit
 import IGListKit
 
-class EditProfileSectionController: ListSectionController {
+protocol editDelegate: class {
+    func didFinishTask(sender: SkillSetEditCell, turnedOn: Bool)
+}
+
+class EditProfileSectionController: ListSectionController, editDelegate {
     
     var skills: Skillset!
     
@@ -18,7 +22,28 @@ class EditProfileSectionController: ListSectionController {
         inset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
     }
     
-
+    func didFinishTask(sender: SkillSetEditCell, turnedOn: Bool) {
+        // turnedOn bool will indicate TRUE if we need to newly
+        // save as true, FALSE if we need to newly save FALSE
+        let text = sender.label.text
+        if text == "C++" {
+            //TODO: send/save that C++ is now true
+        } else if text == "C" {
+            //TODO: send/save that C++ is now true
+        } else if text == "Obj-C" {
+            //TODO: send/save that C++ is now true
+        }else if text == "Swift" {
+            //TODO: send/save that C++ is now true
+        }else if text == "Python" {
+            //TODO: send/save that C++ is now true
+        }else if text == "Java" {
+            //TODO: send/save that C++ is now true
+        }else if text == "Javascript" {
+            //TODO: send/save that C++ is now true
+        }else if text == "Html" {
+            //TODO: send/save that C++ is now true
+        }
+    }
     override func numberOfItems() -> Int {
         return 8
     }
@@ -41,7 +66,8 @@ class EditProfileSectionController: ListSectionController {
         let cell = collectionContext!.dequeueReusableCell(of: cellClass, for: self, at: index)
         
         if let cell = cell as? SkillSetEditCell {
-            
+            cell.delegate = self
+            cell.toggleButton.setOn(skills.arraySkills[index], animated: false)
             cell.label.text = skills.skillNames[index]//"event cell"
         }
         return cell

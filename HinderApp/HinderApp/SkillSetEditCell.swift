@@ -12,6 +12,8 @@ import IGListKit
 class SkillSetEditCell: UICollectionViewCell {
     static let font = EventFeedFont()
     static let inset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+    let toggleButton = UISwitch()
+    weak var delegate:editDelegate?
     
     let label: UILabel = {
         let label = UILabel()
@@ -28,8 +30,26 @@ class SkillSetEditCell: UICollectionViewCell {
         return label
     }()
     
+    func doToggle(_ sender: UISwitch) {
+        if sender.isOn && !sender.isSelected {
+            sender.isSelected = true
+            // SWITCH ACTUALLY CHANGED -- DO SOMETHING HERE
+            //TODO: save as true - request to network?
+            // MARSHALL
+            delegate?.didFinishTask(sender: self, turnedOn: true)
+        } else {
+            sender.isSelected = false
+            delegate?.didFinishTask(sender: self, turnedOn: true)
+        }
+    }
+    func setDelegate(delegate: editDelegate) {
+        self.delegate = delegate
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        toggleButton.addTarget(self, action:#selector(doToggle(_:)), for: .valueChanged)
+        
         contentView.backgroundColor = UIColor.gray
         contentView.configureLayout { (layout) in
             layout.isEnabled = true
@@ -59,7 +79,6 @@ class SkillSetEditCell: UICollectionViewCell {
             layout.marginEnd = 15
         }*/
         
-        let toggleButton = UISwitch()
 
         toggleButton.configureLayout { (layout) in
             layout.isEnabled = true
