@@ -13,7 +13,7 @@ import Foundation
  */
 class ProjectRequest: Request {
     
-    let emptyProjectHandler = ["name": "empty", "eventId": "empty", "description": "If you're seeing this, something went wrong.", "size": [], "photo": "", "skillset": Skillset(json: ["empty": true] as Dictionary<String, Any>), "users": []] as [String : Any]
+    let emptyProjectHandler = ["projectName": "empty", "eventId": "empty", "projectDescription": "If you're seeing this, something went wrong.", "projectSize": [1, 1], "projectPhoto": "empty", "projectSkillset": ["empty": true] as Dictionary<String, Any>, "projectUsers": []] as [String : Any]
     
     override init(endpoint: String) {
         super.init(endpoint: endpoint)
@@ -32,6 +32,7 @@ class ProjectRequest: Request {
         
         self.request.httpMethod = "POST"
         self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -65,6 +66,7 @@ class ProjectRequest: Request {
         
         self.url = URL(string: super.root + self.endpoint + projectId)!
         self.request = URLRequest(url: self.url)
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -110,6 +112,7 @@ class ProjectRequest: Request {
         
         self.request.httpMethod = "POST"
         self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -148,6 +151,7 @@ class ProjectRequest: Request {
         
         self.request.httpMethod = "PUT"
         self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -182,6 +186,7 @@ class ProjectRequest: Request {
         
         self.request.httpMethod = "DELETE"
         self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {

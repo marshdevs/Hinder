@@ -13,7 +13,7 @@ import Foundation
  */
 class UserRequest: Request {
     
-    let emptyUserHandler = ["userId": "empty", "name": "empty", "occupation": "", "events": [], "photo": "", "skillset": Skillset(json: ["empty": true] as Dictionary<String, Any>)] as [String : Any]
+    let emptyUserHandler = ["userId": "empty", "userName": "empty", "userOccupation": "empty", "userEvents": ["a", "b", "c"], "userPhoto": "empty", "userSkillset": ["C++": false, "C": false, "Obj-C": false, "Swift": false, "Python": false, "Java": false, "Javascript": false, "Html": false] as Dictionary<String, Any>] as [String : Any]
     
     override init(endpoint: String) {
         super.init(endpoint: endpoint)
@@ -32,6 +32,7 @@ class UserRequest: Request {
         
         self.request.httpMethod = "POST"
         self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -61,6 +62,7 @@ class UserRequest: Request {
      - returns: The requested User object
      */
     func getUser(userId: String) -> User {
+        print("Received a getUser request...")
         var res = User(json: self.emptyUserHandler)
         
         self.url = URL(string: super.root + self.endpoint + userId)!
@@ -74,11 +76,8 @@ class UserRequest: Request {
                 return
             }
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
-                    for item in json {
-                        // TO DO: be able to access event data to actually initialize new Event object
-                        res = (User(json: item))
-                    }
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    res = User(json: json)
                     self.semaphore.signal()
                 }
             } catch let error {
@@ -110,7 +109,7 @@ class UserRequest: Request {
         
         self.request.httpMethod = "POST"
         self.request.httpBody = requestJsonData
-        
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -149,6 +148,7 @@ class UserRequest: Request {
         
         self.request.httpMethod = "PUT"
         self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -183,6 +183,7 @@ class UserRequest: Request {
         
         self.request.httpMethod = "DELETE"
         self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {

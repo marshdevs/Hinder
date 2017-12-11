@@ -12,6 +12,8 @@ import Foundation
 
 
 class HomeViewController: UIViewController,ListAdapterDataSource {
+    
+    var sessionUser: User?
 
     let collectionView: UICollectionView = {
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -26,6 +28,8 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        print(SessionUser.shared())
+        
         let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(HomeViewController.settingsClicked))
         
         let hamburgerMenu = UIBarButtonItem(image:UIImage(named: "hamburger"), style: .plain, target: self, action: #selector(HomeViewController.menuClicked))
@@ -39,12 +43,12 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
     
     // When the settings icon is selected
     func settingsClicked() {
-        let jsonSkills = [String : Any]()
-        let jsonUser = ["userId": "abc123", "userName": "Kim", "userOccupation": "Student", "userPhoto": "photo.jpg",
-        "userEvents": ["l1231", "dsfce", "dsc324"], "userSkillset": [String : Any]()] as Dictionary<String, Any>
-        var kimSkills = Skillset(json: jsonSkills)
-        var kimUser = User(json: jsonUser)
-        let newViewController = EditProfileViewController(user: kimUser)
+//        let jsonSkills = [String : Any]()
+//        let jsonUser = ["userId": "abc123", "userName": "Kim", "userOccupation": "Student", "userPhoto": "photo.jpg",
+//        "userEvents": ["l1231", "dsfce", "dsc324"], "userSkillset": [String : Any]()] as Dictionary<String, Any>
+//        var kimSkills = Skillset(json: jsonSkills)
+//        var kimUser = User(json: jsonUser)
+        let newViewController = EditProfileViewController()
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
     
@@ -89,8 +93,8 @@ extension HomeViewController {
         
         Need some way to grab user's location, if we're querying events by location
          */
-        let request = EventRequest(endpoint: "queryEvents/")
-        let eventArray = request.queryEvents(params: "los_angeles")
+        let request = EventRequest(endpoint: "batchGetEvents/")
+        let eventArray = request.batchGetEvents(eventIds: SessionUser.shared().events)
         items += eventArray as [ListDiffable]
         print("Dumping items")
         dump(items)

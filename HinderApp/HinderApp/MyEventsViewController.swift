@@ -10,6 +10,8 @@ import UIKit
 
 class MyEventsViewController: UIViewController {
 
+    var sessionUser: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

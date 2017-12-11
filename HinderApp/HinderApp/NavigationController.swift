@@ -14,6 +14,7 @@ class NavigationController: UINavigationController {
         super.viewDidLoad()
         self.navigationItem.title = "Hinder"
         // Do any additional setup after loading the view.
+    
     }
 
     override func didReceiveMemoryWarning() {

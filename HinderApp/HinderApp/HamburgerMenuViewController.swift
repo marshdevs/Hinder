@@ -9,12 +9,13 @@
 import UIKit
 
 class HamburgerMenuViewController: UITableViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let hamburgerMenu = UIBarButtonItem(image:UIImage(named: "hamburger"), style: .plain, target: self, action: #selector(HamburgerMenuViewController.menuClicked))
         navigationItem.rightBarButtonItem = hamburgerMenu
         navigationItem.setHidesBackButton(true, animated: true)
+        
     }
     
     func menuClicked() {

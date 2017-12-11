@@ -20,11 +20,8 @@ class EditProfileViewController: UIViewController, ListAdapterDataSource  {
     lazy var adapter: ListAdapter = {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
-
-    var user: User;
     
-    init(user: User) {
-        self.user = user
+    init() {
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -41,6 +38,7 @@ class EditProfileViewController: UIViewController, ListAdapterDataSource  {
         adapter.dataSource = self
 
         // Do any additional setup after loading the view.
+        
     }
 
     override func viewDidLayoutSubviews() {
@@ -73,7 +71,7 @@ extension EditProfileViewController {
         //get a user's Skillset here
         var items: [ListDiffable] = [ListDiffable]();
         var holderArray = [Skillset]()
-        holderArray.append(self.user.skillset)
+        holderArray.append((SessionUser.shared().skillset))
         //todo, make this a skillset
         items = holderArray as [ListDiffable]
         return items

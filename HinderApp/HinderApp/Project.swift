@@ -27,7 +27,7 @@ class Project: NSObject, ListDiffable {
         self.desc = json["projectDescription"] as! String
         self.size = json["projectSize"] as! [Int]
         self.photo = json["projectPhoto"] as! String
-        self.skillset = Skillset(json: json["projectSkillset"] as! Dictionary<String, Any>)
+        self.skillset = Skillset(json: json["projectSkillset"] as! Dictionary<String, Bool>)
         self.users = json["projectUsers"] as! [String]
     }
     

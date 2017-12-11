@@ -101,6 +101,37 @@ app.get('/getEvent', function(req, res){
     });
 });
 
+app.post('/batchGetEvents', function(req, res){
+    console.log("POST: Received a batchGetEvents request...");
+
+    var eventIds = req.body.eventIds;
+
+    var keys = []
+    for (var i = 0; i < eventIds.length; i++) {
+        keys.push({
+            eventId: eventIds[i]
+        });
+    }
+
+    var params = {
+        RequestItems: {
+            "hinder-events": {
+                Keys: keys
+            }
+        }
+    };
+    dynamoDB.batchGet(params, function(err, data){
+        if (err) {
+            console.log(err);
+            console.log("POST: Error in batchGetEvents request.");
+            res.status(404).send({status: "Error", description: "Failed to execute batchGet request.", field: "None", value: ""});
+        } else {
+            console.log("POST: Successfully queried batch of eventIds.");
+            res.status(200).send(data["Responses"]["hinder-events"]);
+        }
+    });
+});
+
 app.put('/updateEvent', function(req, res){
     console.log("PUT: Received an updateEvent request...");
 

@@ -49,13 +49,11 @@ class Skillset: NSObject, ListDiffable {
 //        super.init()
 //    }
     
-    init(json: Dictionary<String, Any>) {
+    init(json: Dictionary<String, Bool>) {
         //TODO
         arraySkills = [Bool]()
         skillNames = [String]()
-        for _ in 0...7 {
-            arraySkills.append(true)
-        }
+
         skillNames.append("C++");
         skillNames.append("C");
         skillNames.append("Obj-C");
@@ -64,14 +62,19 @@ class Skillset: NSObject, ListDiffable {
         skillNames.append("Java");
         skillNames.append("Javascript");
         skillNames.append("Html");
-        cpp = false
-        c = true
-        objc = false
-        swift = false
-        python = false
-        java = false
-        javascript = false
-        html = false
+        
+        for index in 0...7 {
+            arraySkills.append(json[skillNames[index]]!)
+        }
+        
+        cpp = arraySkills[0]
+        c = arraySkills[1]
+        objc = arraySkills[2]
+        swift = arraySkills[3]
+        python = arraySkills[4]
+        java = arraySkills[5]
+        javascript = arraySkills[6]
+        html = arraySkills[7]
         
         super.init()
     }
@@ -84,5 +87,15 @@ class Skillset: NSObject, ListDiffable {
     
     public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         return isEqual(object)
+    }
+    
+    public func toDict() -> Dictionary<String, Any> {
+        var resDict = Dictionary<String, Any>()
+        
+        for index in 0...7 {
+            resDict[skillNames[index]] = arraySkills[index]
+        }
+        
+        return resDict
     }
 }

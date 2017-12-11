@@ -13,6 +13,9 @@
 		318A4B6D1FD66C110054B73D /* MatchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B6C1FD66C110054B73D /* MatchRequest.swift */; };
 		31BE76131FBAA31300154730 /* Mediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE76121FBAA31300154730 /* Mediator.swift */; };
 		31BE76151FBAA55100154730 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE76141FBAA55100154730 /* Request.swift */; };
+		31FEEA441FDDF40C007C4532 /* UserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA431FDDF40C007C4532 /* UserTypeViewController.swift */; };
+		31FEEA461FDDFB68007C4532 /* HostLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA451FDDFB68007C4532 /* HostLoginViewController.swift */; };
+		31FEEA481FDE118F007C4532 /* SessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA471FDE118F007C4532 /* SessionUser.swift */; };
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
 		9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */; };
 		BA907B721FDC989E005BD3E8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B711FDC989E005BD3E8 /* NavigationController.swift */; };
@@ -47,6 +50,9 @@
 		318A4B6C1FD66C110054B73D /* MatchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchRequest.swift; sourceTree = "<group>"; };
 		31BE76121FBAA31300154730 /* Mediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mediator.swift; sourceTree = "<group>"; };
 		31BE76141FBAA55100154730 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		31FEEA431FDDF40C007C4532 /* UserTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeViewController.swift; sourceTree = "<group>"; };
+		31FEEA451FDDFB68007C4532 /* HostLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostLoginViewController.swift; sourceTree = "<group>"; };
+		31FEEA471FDE118F007C4532 /* SessionUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUser.swift; sourceTree = "<group>"; };
 		391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderCreateProfile.swift; sourceTree = "<group>"; };
 		9FC6A0641FBB98E000176134 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
@@ -141,6 +147,7 @@
 				C555F6C11FB43293009106E8 /* User.swift */,
 				C555F6C31FB4334D009106E8 /* Skillset.swift */,
 				31BE76121FBAA31300154730 /* Mediator.swift */,
+				31FEEA471FDE118F007C4532 /* SessionUser.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -168,6 +175,8 @@
 				BA907B831FDDE8D3005BD3E8 /* MyGroupsViewController.swift */,
 				C555F6C91FBA44E6009106E8 /* EventPageViewController.swift */,
 				C55731791FBE5BE700EBCF96 /* EditProfileViewController.swift */,
+				31FEEA431FDDF40C007C4532 /* UserTypeViewController.swift */,
+				31FEEA451FDDFB68007C4532 /* HostLoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -365,6 +374,7 @@
 				318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */,
 				BA907B721FDC989E005BD3E8 /* NavigationController.swift in Sources */,
 				C557317A1FBE5BE700EBCF96 /* EditProfileViewController.swift in Sources */,
+				31FEEA461FDDFB68007C4532 /* HostLoginViewController.swift in Sources */,
 				C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */,
 				BAC0347E1FDBC4D400ED14B3 /* LoginViewController.swift in Sources */,
 				318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */,
@@ -388,7 +398,9 @@
 				C555F6CA1FBA44E7009106E8 /* EventPageViewController.swift in Sources */,
 				C55671671FAD4553009A194B /* AppDelegate.swift in Sources */,
 				318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */,
+				31FEEA481FDE118F007C4532 /* SessionUser.swift in Sources */,
 				BA907B821FDDE85E005BD3E8 /* MyEventsViewController.swift in Sources */,
+				31FEEA441FDDF40C007C4532 /* UserTypeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

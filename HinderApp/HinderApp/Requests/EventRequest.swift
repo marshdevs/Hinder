@@ -13,7 +13,7 @@ import Foundation
  */
 class EventRequest: Request {
     
-    let emptyEventHandler = ["name": "empty", "date": "00/00/0000", "location": "", "description": "If you're seeing this, something went wrong.", "photo": "", "thumbnail": "", "projects": [], "users": []] as [String : Any]
+    let emptyEventHandler = ["eventName": "empty", "eventDate": "00/00/0000", "eventLocation": "empty", "eventDescription": "If you're seeing this, something went wrong.", "eventPhoto": "empty", "eventThumbnail": "empty", "eventProjects": ["a", "b", "c"], "eventUsers": ["a", "b", "c"]] as [String : Any]
     
     override init(endpoint: String) {
         super.init(endpoint: endpoint)
@@ -32,6 +32,7 @@ class EventRequest: Request {
         
         self.request.httpMethod = "POST"
         self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -136,6 +137,52 @@ class EventRequest: Request {
     }
     
     /**
+     Batch get Events request.
+     
+     This function is called any time to
+     lookup a list of Events in the server database
+     given a list of string indentifiers.
+     
+     - parameter eventIds: List of eventIds to return information for
+     
+     - returns: A instance of resArray containing the Events
+     */
+    func batchGetEvents(eventIds: [String]) -> [Event] {
+        var resArray = [Event]()
+        
+        let requestData = ["eventIds": eventIds]
+        let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
+        
+        self.request.httpMethod = "POST"
+        self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        
+        let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            guard let data = data else {
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
+                    for item in json {
+                        resArray.append(Event(json: item))
+                    }
+                    self.semaphore.signal()
+                }
+            } catch let error {
+                print(error.localizedDescription)
+                self.semaphore.signal()
+            }
+        })
+        task.resume()
+        _ = self.semaphore.wait(timeout: .distantFuture)
+        return resArray
+    }
+    
+    /**
      Update fields of an Event
      
      - parameter event: Updated event object
@@ -148,6 +195,7 @@ class EventRequest: Request {
         
         self.request.httpMethod = "PUT"
         self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
@@ -182,6 +230,7 @@ class EventRequest: Request {
         
         self.request.httpMethod = "DELETE"
         self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {

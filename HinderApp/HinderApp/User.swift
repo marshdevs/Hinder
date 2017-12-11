@@ -23,7 +23,7 @@ class User: NSObject, ListDiffable {
         self.occupation = json["userOccupation"] as! String
         self.photo = json["userPhoto"] as! String
         self.events = json["userEvents"] as! [String]
-        self.skillset = Skillset(json: json["userSkillset"] as! Dictionary<String, Any>)
+        self.skillset = Skillset(json: json["userSkillset"] as! Dictionary<String, Bool>)
     }
     
     public func diffIdentifier() -> NSObjectProtocol {
