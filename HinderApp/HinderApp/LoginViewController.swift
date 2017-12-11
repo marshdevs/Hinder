@@ -20,6 +20,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         password.delegate = self
 
         // Do any additional setup after loading the view.
+        
+        let backItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(LoginViewController.back(sender:)))
+        self.navigationItem.backBarButtonItem = backItem
+        navigationItem.setHidesBackButton(false, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,12 +49,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let loginRequest = UserRequest(endpoint: "getUser?userId=")
         SessionUser.setupSharedInstance(user: loginRequest.getUser(userId: "xR1KLg9gN"))
         
-        print("User logged in")
+        print("Hacker logged in")
     }
     
     @IBAction func userRegister(_ sender: UIButton) {
         // TODO: Need to transition to Profile Creation
-        print("User register")
+        print("Hacker register")
+    }
+    
+    func back(sender: UIBarButtonItem) {
+        let newViewController = UserTypeViewController()
+        self.navigationController?.pushViewController(newViewController, animated: true)
     }
 
     /*

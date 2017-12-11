@@ -27,21 +27,23 @@ class EditProfileSectionController: ListSectionController, editDelegate {
         // save as true, FALSE if we need to newly save FALSE
         let text = sender.label.text
         if text == "C++" {
-            //TODO: send/save that C++ is now true
+            print(SessionUser.shared().skillset.arraySkills[0])
+            print(turnedOn)
+            SessionUser.shared().skillset.arraySkills[0] = turnedOn
         } else if text == "C" {
-            //TODO: send/save that C++ is now true
+            SessionUser.shared().skillset.arraySkills[1] = turnedOn
         } else if text == "Obj-C" {
-            //TODO: send/save that C++ is now true
+            SessionUser.shared().skillset.arraySkills[2] = turnedOn
         }else if text == "Swift" {
-            //TODO: send/save that C++ is now true
+            SessionUser.shared().skillset.arraySkills[3] = turnedOn
         }else if text == "Python" {
-            //TODO: send/save that C++ is now true
+            SessionUser.shared().skillset.arraySkills[4] = turnedOn
         }else if text == "Java" {
-            //TODO: send/save that C++ is now true
+            SessionUser.shared().skillset.arraySkills[5] = turnedOn
         }else if text == "Javascript" {
-            //TODO: send/save that C++ is now true
+            SessionUser.shared().skillset.arraySkills[6] = turnedOn
         }else if text == "Html" {
-            //TODO: send/save that C++ is now true
+            SessionUser.shared().skillset.arraySkills[7] = turnedOn
         }
     }
     override func numberOfItems() -> Int {

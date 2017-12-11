@@ -22,21 +22,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hinder" translatesAutoresizingMaskIntoConstraints="NO" id="A2M-rm-QVd">
-                                <rect key="frame" x="67" y="109" width="240" height="188"/>
+                                <rect key="frame" x="79" y="108" width="216" height="188"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="A2M-rm-QVd" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="89" id="PsW-8T-8TH"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="A2M-rm-QVd" secondAttribute="bottom" constant="370" id="TGf-MN-AqN"/>
-                            <constraint firstItem="A2M-rm-QVd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="67" id="c69-Nh-dOY"/>
-                            <constraint firstAttribute="trailing" secondItem="A2M-rm-QVd" secondAttribute="trailing" constant="68" id="sn7-0e-3R9"/>
+                            <constraint firstItem="A2M-rm-QVd" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="88" id="PsW-8T-8TH"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="A2M-rm-QVd" secondAttribute="bottom" constant="371" id="TGf-MN-AqN"/>
+                            <constraint firstItem="A2M-rm-QVd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="79" id="c69-Nh-dOY"/>
+                            <constraint firstAttribute="trailing" secondItem="A2M-rm-QVd" secondAttribute="trailing" constant="80" id="sn7-0e-3R9"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="354" y="375"/>
+            <point key="canvasLocation" x="352.80000000000001" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>

@@ -19,34 +19,33 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
     
     static let storyboardIdentifier = "HinderCreateProfileController"
     
-    let profilePic: UIButton = {
-        let image = UIButton()
-        image.frame = CGRect(x:0 , y: 0, width: 100, height: 200)
-        return image
-    }()
+    @IBOutlet weak var profilePic: UIButton!
     
-    let firstName : UITextField = {
-        let field = UITextField()
-        field.frame = CGRect(x: 100, y: 200, width: 100, height: 200)
-        field.borderStyle = .line
-        field.text = "First Name"
-        return field
-    }()
+    @IBOutlet weak var firstName: UILabel!
+    @IBOutlet weak var lastName: UILabel!
     
-    let lastName : UILabel = {
-        let field = UILabel()
-        field.frame = CGRect(x: 200, y: 550, width: 50, height: 50)
-        field.text = "Last Name"
-        return field
-    }()
+//    let firstName : UITextField = {
+//        let field = UITextField()
+//        field.frame = CGRect(x: 100, y: 200, width: 100, height: 200)
+//        field.borderStyle = .line
+//        field.text = "First Name"
+//        return field
+//    }()
+//
+//    let lastName : UILabel = {
+//        let field = UILabel()
+//        field.frame = CGRect(x: 200, y: 550, width: 50, height: 50)
+//        field.text = "Last Name"
+//        return field
+//    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         profilePic.addTarget(self, action: #selector(HinderCreateProfile.pressed), for: .touchUpInside)
-        self.view.addSubview(profilePic)
-        self.view.addSubview(firstName)
-        self.view.addSubview(lastName)
+//        self.view.addSubview(profilePic)
+//        self.view.addSubview(firstName)
+//        self.view.addSubview(lastName)
         // Do any additional setup after loading the view, typically from a nib.
         
         
@@ -87,8 +86,8 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
         {
             return
         }
-        let faceBookLoginManger = FBSDKLoginManager()
-        faceBookLoginManger.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: self, handler: { (result, error)-> Void in
+        let faceBookLoginManager = FBSDKLoginManager()
+        faceBookLoginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: self, handler: { (result, error)-> Void in
             //result is FBSDKLoginManagerLoginResult
             if (error != nil)
             {

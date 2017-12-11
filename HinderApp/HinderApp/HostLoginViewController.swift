@@ -19,8 +19,11 @@ class HostLoginViewController: UIViewController, UITextFieldDelegate {
         email.delegate = self
         password.delegate = self
         
-        
         // Do any additional setup after loading the view.
+        
+        let backItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(LoginViewController.back(sender:)))
+        self.navigationItem.backBarButtonItem = backItem
+        navigationItem.setHidesBackButton(false, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,19 +46,18 @@ class HostLoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func userLogin(_ sender: UIButton) {
         // TODO: Need to authenticate, transition to HomeViewController
-        print("User logged in")
+        print("Host logged in")
     }
     
     @IBAction func userRegister(_ sender: UIButton) {
         // TODO: Need to transition to Profile Creation
-        print("User register")
+        print("Host register")
     }
     
-    
-    
-    
-    
-    
+    func back(sender: UIBarButtonItem) {
+        let newViewController = UserTypeViewController()
+        self.navigationController?.pushViewController(newViewController, animated: true)
+    }
     
     /*
      // MARK: - Navigation

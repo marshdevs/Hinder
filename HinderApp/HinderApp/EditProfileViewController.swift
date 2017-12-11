@@ -39,6 +39,8 @@ class EditProfileViewController: UIViewController, ListAdapterDataSource  {
 
         // Do any additional setup after loading the view.
         
+        let backItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(EditProfileViewController.back(sender:)))
+        self.navigationItem.leftBarButtonItem = backItem
     }
 
     override func viewDidLayoutSubviews() {
@@ -48,6 +50,13 @@ class EditProfileViewController: UIViewController, ListAdapterDataSource  {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func back(sender: UIBarButtonItem) {
+        print("Back button pressed.")
+        let updateUserRequest = UserRequest(endpoint: "updateUser/")
+        updateUserRequest.updateUser(user: SessionUser.shared())
+        self.navigationController?.popViewController(animated: true)
     }
     
 

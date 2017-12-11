@@ -39,7 +39,7 @@ class SkillSetEditCell: UICollectionViewCell {
             delegate?.didFinishTask(sender: self, turnedOn: true)
         } else {
             sender.isSelected = false
-            delegate?.didFinishTask(sender: self, turnedOn: true)
+            delegate?.didFinishTask(sender: self, turnedOn: false)
         }
     }
     func setDelegate(delegate: editDelegate) {
