@@ -46,7 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func userLogin(_ sender: UIButton) {
         // TODO: Need to authenticate, transition to HomeViewController
-        let loginRequest = UserRequest(endpoint: "getUser?userId=")
+        let loginRequest = UserRequest()
         SessionUser.setupSharedInstance(user: loginRequest.getUser(userId: "xR1KLg9gN"))
         
         print("Hacker logged in")

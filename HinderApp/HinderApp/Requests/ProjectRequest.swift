@@ -15,8 +15,8 @@ class ProjectRequest: Request {
     
     let emptyProjectHandler = ["projectName": "empty", "eventId": "empty", "projectDescription": "If you're seeing this, something went wrong.", "projectSize": [1, 1], "projectPhoto": "empty", "projectSkillset": ["empty": true] as Dictionary<String, Any>, "projectUsers": []] as [String : Any]
     
-    override init(endpoint: String) {
-        super.init(endpoint: endpoint)
+    override init() {
+        super.init()
     }
 
     /**
@@ -30,6 +30,9 @@ class ProjectRequest: Request {
         let requestData: [String: Any] = project.toDict()
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "createProject/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "POST"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -64,6 +67,7 @@ class ProjectRequest: Request {
     func getProject(projectId: String) -> Project {
         var res = Project(json: self.emptyProjectHandler)
         
+        self.endpoint = "getProject?projectId="
         self.url = URL(string: super.root + self.endpoint + projectId)!
         self.request = URLRequest(url: self.url)
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -107,6 +111,9 @@ class ProjectRequest: Request {
     func batchGetProjects(projectIds: [String]) -> [Project] {
         var resArray = [Project]()
         
+        self.endpoint = "batchGetProjects/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         let requestData: [String: Any] = ["projectIds": projectIds]
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
@@ -149,6 +156,9 @@ class ProjectRequest: Request {
         let requestData: [String: Any] = project.toDict()
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "updateProject/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "PUT"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -184,6 +194,9 @@ class ProjectRequest: Request {
         let requestData: [String: Any] = ["projectId": projectId]
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "deleteProject/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "DELETE"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
