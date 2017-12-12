@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXN-qA-QQl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXN-qA-QQl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +14,7 @@
         <scene sceneID="8GN-HP-0q6">
             <objects>
                 <navigationController id="vXN-qA-QQl" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M4C-GC-dhR" customClass="HinderNavigationBar" customModule="HinderApp" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M4C-GC-dhR" customClass="HinderNavigationBar" customModule="HinderApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -460,7 +460,7 @@
         <scene sceneID="b6G-1m-Zqr">
             <objects>
                 <navigationController id="znh-mW-K7f" customClass="NavigationController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WsI-Bq-d5o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WsI-Bq-d5o">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -516,14 +516,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JdC-V0-VSi">
-                                                    <rect key="frame" x="74" y="0.0" width="285" height="43.5"/>
+                                                    <rect key="frame" x="73" y="0.0" width="287" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="laptop" id="au8-WA-DjA">
-                                                    <rect key="frame" x="16" y="0.0" width="43" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="43" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -543,14 +543,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5DV-HZ-lL4">
-                                                    <rect key="frame" x="78" y="0.0" width="281" height="43.5"/>
+                                                    <rect key="frame" x="77" y="0.0" width="283" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="group" id="fVD-sf-BU0">
-                                                    <rect key="frame" x="16" y="0.0" width="47" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="47" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -612,6 +612,24 @@
             </objects>
             <point key="canvasLocation" x="2169" y="2438"/>
         </scene>
+        <!--My Kolada View Controller-->
+        <scene sceneID="Tgu-Et-b6Q">
+            <objects>
+                <viewController id="ds1-SF-u1p" customClass="MyKoladaViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Yd-Ef-ggQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="eeq-6h-sZB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NMj-Ri-gSL" customClass="SwipeCardView" customModule="HinderApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uNV-sU-a4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3372" y="2463"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Hinder" width="224" height="196"/>
@@ -622,7 +640,7 @@
         <image name="rounded-button" width="196" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hg2-mL-tVP"/>
-        <segue reference="2Q0-a5-iaK"/>
+        <segue reference="TfO-hI-t6H"/>
+        <segue reference="sM0-BL-5fx"/>
     </inferredMetricsTieBreakers>
 </document>

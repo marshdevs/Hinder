@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A65E820F13B14622ABE43E28A1E0B2AB"
+               BlueprintIdentifier = "B1CFDE8AE1F9201DD61FF6BD8183F5A7"
                BuildableName = "Pods_HinderApp.framework"
                BlueprintName = "Pods-HinderApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A65E820F13B14622ABE43E28A1E0B2AB"
+            BlueprintIdentifier = "B1CFDE8AE1F9201DD61FF6BD8183F5A7"
             BuildableName = "Pods_HinderApp.framework"
             BlueprintName = "Pods-HinderApp"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A65E820F13B14622ABE43E28A1E0B2AB"
-            BuildableName = "Pods_HinderApp.framework"
-            BlueprintName = "Pods-HinderApp"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
