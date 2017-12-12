@@ -14,4 +14,5 @@ target 'HinderApp' do
   pod 'AWSS3'
   pod 'AWSCognito'
   pod 'AWSCognitoIdentityProvider'
+  pod 'Koloda', '~> 4.3.1'
 end
