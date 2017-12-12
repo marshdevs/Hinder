@@ -28,7 +28,7 @@ class Mediator: NSObject {
      */
     func swipe(approve: Bool, key: String, eventId: String) -> Bool {
         let direction = approve ? "right/" : "left/"
-        let request = MatchRequest(endpoint: "match/")
+        let request = MatchRequest()
         return request.getMatch(params: eventId + direction + key)
     }
     

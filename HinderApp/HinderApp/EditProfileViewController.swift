@@ -54,7 +54,7 @@ class EditProfileViewController: UIViewController, ListAdapterDataSource  {
     
     func back(sender: UIBarButtonItem) {
         print("Back button pressed.")
-        let updateUserRequest = UserRequest(endpoint: "updateUser/")
+        let updateUserRequest = UserRequest()
         updateUserRequest.updateUser(user: SessionUser.shared())
         self.navigationController?.popViewController(animated: true)
     }

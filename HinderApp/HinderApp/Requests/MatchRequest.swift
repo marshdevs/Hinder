@@ -13,8 +13,8 @@ import Foundation
  */
 class MatchRequest: Request {
     
-    override init(endpoint: String) {
-        super.init(endpoint: endpoint)
+    override init() {
+        super.init()
     }
     
     /**
@@ -37,6 +37,7 @@ class MatchRequest: Request {
     func getMatch(params: String) -> Bool {
         var res = Bool()
         
+        self.endpoint = "match/"
         self.url = URL(string: super.root + super.endpoint + params)!
         self.request = URLRequest(url: self.url)
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in

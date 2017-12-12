@@ -15,8 +15,8 @@ class UserRequest: Request {
     
     let emptyUserHandler = ["userId": "empty", "userName": "empty", "userOccupation": "empty", "userEvents": ["a", "b", "c"], "userPhoto": "empty", "userSkillset": ["C++": false, "C": false, "Obj-C": false, "Swift": false, "Python": false, "Java": false, "Javascript": false, "Html": false] as Dictionary<String, Any>] as [String : Any]
     
-    override init(endpoint: String) {
-        super.init(endpoint: endpoint)
+    override init() {
+        super.init()
     }
     
     /**
@@ -30,6 +30,9 @@ class UserRequest: Request {
         let requestData: [String: Any] = user.toDict()
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "createUser/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "POST"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -65,6 +68,7 @@ class UserRequest: Request {
         print("Received a getUser request...")
         var res = User(json: self.emptyUserHandler)
         
+        self.endpoint = "getUser?userId="
         self.url = URL(string: super.root + self.endpoint + userId)!
         self.request = URLRequest(url: self.url)
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
@@ -107,6 +111,9 @@ class UserRequest: Request {
         let requestData: [String: Any] = ["userIds": userIds]
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "batchGetUsers/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "POST"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -146,6 +153,9 @@ class UserRequest: Request {
         let requestData: [String: Any] = user.toDict()
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "updateUser/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "PUT"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -181,6 +191,9 @@ class UserRequest: Request {
         let requestData: [String: Any] = ["userId": userId]
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "deleteUser/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "DELETE"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")

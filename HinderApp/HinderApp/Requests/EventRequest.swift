@@ -15,8 +15,8 @@ class EventRequest: Request {
     
     let emptyEventHandler = ["eventName": "empty", "eventDate": "00/00/0000", "eventLocation": "empty", "eventDescription": "If you're seeing this, something went wrong.", "eventPhoto": "empty", "eventThumbnail": "empty", "eventProjects": ["a", "b", "c"], "eventUsers": ["a", "b", "c"]] as [String : Any]
     
-    override init(endpoint: String) {
-        super.init(endpoint: endpoint)
+    override init() {
+        super.init()
     }
     
     /**
@@ -30,6 +30,9 @@ class EventRequest: Request {
         let requestData: [String: Any] = event.toDict()
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "createEvent/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "POST"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -64,6 +67,7 @@ class EventRequest: Request {
     func getEvent(eventId: String) -> Event {
         var res = Event(json: self.emptyEventHandler)
         
+        self.endpoint = "getEvent?eventId="
         self.url = URL(string: super.root + self.endpoint + eventId)!
         self.request = URLRequest(url: self.url)
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
@@ -108,6 +112,7 @@ class EventRequest: Request {
     func queryEvents(params: String) -> [Event] {
         var resArray = [Event]()
         
+        self.endpoint = "queryEvents/"
         self.url = URL(string: super.root + self.endpoint + params)!
         self.request = URLRequest(url: self.url)
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
@@ -153,6 +158,9 @@ class EventRequest: Request {
         let requestData = ["eventIds": eventIds]
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "batchGetEvents/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "POST"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -193,6 +201,9 @@ class EventRequest: Request {
         let requestData: [String: Any] = event.toDict()
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "updateEvent/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "PUT"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -228,6 +239,9 @@ class EventRequest: Request {
         let requestData: [String: Any] = ["eventId": eventId]
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
+        self.endpoint = "deleteEvent/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
         self.request.httpMethod = "DELETE"
         self.request.httpBody = requestJsonData
         self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
