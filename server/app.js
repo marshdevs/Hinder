@@ -205,6 +205,7 @@ app.post('/createUser', function(req, res){
             "userOccupation": user.occupation,
             "userPhoto": user.photo,
             "userEvents": user.events,
+            "userProjects": user.projects,
             "userSkillset": user.skillset
         }
     };
@@ -281,12 +282,13 @@ app.put('/updateUser', function(req, res){
             "userId": user.userId
         },
         UpdateExpression: "set userName = :n, userOccupation = :o, userPhoto = :p,\
-            userEvents = :e, userSkillset = :s",
+            userEvents = :e, userProjects = :u, userSkillset = :s",
         ExpressionAttributeValues: {
             ":n": user.name,
             ":o": user.occupation,
             ":p": user.photo,
             ":e": user.events,
+            ":u": user.projects,
             ":s": user.skillset
         },
         ReturnValues: "UPDATED_NEW"

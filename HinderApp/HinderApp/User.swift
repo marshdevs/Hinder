@@ -15,6 +15,7 @@ class User: NSObject, ListDiffable {
     let occupation: String
     let photo: String
     let events: [String]
+    let projects: [String]
     let skillset: Skillset
     
     init(json: Dictionary<String, Any>) {
@@ -23,6 +24,7 @@ class User: NSObject, ListDiffable {
         self.occupation = json["userOccupation"] as! String
         self.photo = json["userPhoto"] as! String
         self.events = json["userEvents"] as! [String]
+        self.projects = json["userProjects"] as! [String]
         self.skillset = Skillset(json: json["userSkillset"] as! Dictionary<String, Bool>)
     }
     
@@ -36,7 +38,7 @@ class User: NSObject, ListDiffable {
     
     public func toDict() -> Dictionary<String, Any> {
         let resDict = ["userId": self.userId, "name": self.name, "occupation": self.occupation, "events": self.events,
-                       "photo": self.photo, "skillset": self.skillset.toDict()] as! Dictionary<String, Any>
+                       "projects": self.projects, "photo": self.photo, "skillset": self.skillset.toDict()] as! Dictionary<String, Any>
         return resDict
     }
 }

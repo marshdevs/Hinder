@@ -35,7 +35,7 @@ class SessionUser: User {
     
     static func extractModel(user: User) -> Dictionary<String, Any> {
         let resDict = ["userId": user.userId, "userName": user.name, "userOccupation": user.occupation, "userEvents": user.events,
-                       "userPhoto": user.photo, "userSkillset": user.skillset.toDict()] as! Dictionary<String, Any>
+                       "userProjects": user.projects, "userPhoto": user.photo, "userSkillset": user.skillset.toDict()] as! Dictionary<String, Any>
         return resDict
     }
 }

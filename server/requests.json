@@ -81,6 +81,7 @@
     "userOccupation": String,
     "userPhoto": URL,
     "userEvents": String[],
+    "userProjects": String[],
     "userSkillset": Skillset
 }
 
@@ -108,6 +109,7 @@
         "occupation": String,
         "photo": URL,
         "events": String[],
+        "projects": String[],
         "skillset": Skillset
     }
 */
@@ -122,6 +124,7 @@
         "occupation": String,
         "photo": URL,
         "events": String[],
+        "projects": String[],
         "skillset": Skillset
     }
 */

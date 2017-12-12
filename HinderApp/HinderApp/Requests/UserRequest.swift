@@ -13,7 +13,7 @@ import Foundation
  */
 class UserRequest: Request {
     
-    let emptyUserHandler = ["userId": "empty", "userName": "empty", "userOccupation": "empty", "userEvents": ["a", "b", "c"], "userPhoto": "empty", "userSkillset": ["C++": false, "C": false, "Obj-C": false, "Swift": false, "Python": false, "Java": false, "Javascript": false, "Html": false] as Dictionary<String, Any>] as [String : Any]
+    let emptyUserHandler = ["userId": "empty", "userName": "empty", "userOccupation": "empty", "userEvents": ["a", "b", "c"], "userPhoto": "empty", "userProjects": ["a", "b", "c"], "userSkillset": ["C++": false, "C": false, "Obj-C": false, "Swift": false, "Python": false, "Java": false, "Javascript": false, "Html": false] as Dictionary<String, Any>] as [String : Any]
     
     override init() {
         super.init()
