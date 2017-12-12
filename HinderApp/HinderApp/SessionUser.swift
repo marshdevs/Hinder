@@ -12,7 +12,7 @@ class SessionUser: User {
     
     private static var sharedInstance: SessionUser!
     
-    private static var userModel: User!
+    static var userModel: User!
     
     private init(user: User) {
         super.init(json: SessionUser.extractModel(user: user))

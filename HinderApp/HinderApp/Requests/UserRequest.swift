@@ -13,8 +13,6 @@ import Foundation
  */
 class UserRequest: Request {
     
-    let emptyUserHandler = ["userId": "empty", "userName": "empty", "userOccupation": "empty", "userEvents": ["a", "b", "c"], "userPhoto": "empty", "userProjects": ["a", "b", "c"], "userSkillset": ["C++": false, "C": false, "Obj-C": false, "Swift": false, "Python": false, "Java": false, "Javascript": false, "Html": false] as Dictionary<String, Any>] as [String : Any]
-    
     override init() {
         super.init()
     }
@@ -26,7 +24,9 @@ class UserRequest: Request {
      
      - returns: void, async
      */
-    func createUser(user: User) {
+    func createUser(user: User) -> String {
+        var res: String?
+        
         let requestData: [String: Any] = user.toDict()
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
@@ -39,22 +39,26 @@ class UserRequest: Request {
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
+                self.semaphore.signal()
                 return
             }
             guard let data = data else {
+                self.semaphore.signal()
                 return
             }
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
-                    for item in json {
-                        dump(item)
-                    }
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    res = json["userId"] as! String
                 }
+                self.semaphore.signal()
             } catch let error {
                 print(error.localizedDescription)
+                self.semaphore.signal()
             }
         })
         task.resume()
+        _ = self.semaphore.wait(timeout: .distantFuture)
+        return res!
     }
     
     /**
@@ -65,8 +69,7 @@ class UserRequest: Request {
      - returns: The requested User object
      */
     func getUser(userId: String) -> User {
-        print("Received a getUser request...")
-        var res = User(json: self.emptyUserHandler)
+        var res = User(json: User.emptyUserHandler)
         
         self.endpoint = "getUser?userId="
         self.url = URL(string: super.root + self.endpoint + userId)!
@@ -74,16 +77,18 @@ class UserRequest: Request {
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
+                self.semaphore.signal()
                 return
             }
             guard let data = data else {
+                self.semaphore.signal()
                 return
             }
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     res = User(json: json)
-                    self.semaphore.signal()
                 }
+                self.semaphore.signal()
             } catch let error {
                 print(error.localizedDescription)
                 self.semaphore.signal()
@@ -120,9 +125,11 @@ class UserRequest: Request {
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
+                self.semaphore.signal()
                 return
             }
             guard let data = data else {
+                self.semaphore.signal()
                 return
             }
             do {
@@ -130,8 +137,8 @@ class UserRequest: Request {
                     for item in json {
                         resArray.append(User(json: item))
                     }
-                    self.semaphore.signal()
                 }
+                self.semaphore.signal()
             } catch let error {
                 print(error.localizedDescription)
                 self.semaphore.signal()

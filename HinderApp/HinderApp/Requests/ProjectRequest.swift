@@ -26,7 +26,9 @@ class ProjectRequest: Request {
      
      - returns: void, async
      */
-    func createProject(project: Project) {
+    func createProject(project: Project) -> String {
+        var res: String?
+        
         let requestData: [String: Any] = project.toDict()
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
@@ -39,22 +41,26 @@ class ProjectRequest: Request {
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
+                self.semaphore.signal()
                 return
             }
             guard let data = data else {
+                self.semaphore.signal()
                 return
             }
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
-                    for item in json {
-                        dump(item)
-                    }
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    res = json["projectId"] as! String
                 }
+                self.semaphore.signal()
             } catch let error {
                 print(error.localizedDescription)
+                self.semaphore.signal()
             }
         })
         task.resume()
+        _ = self.semaphore.wait(timeout: .distantFuture)
+        return res!
     }
     
     /**
@@ -74,9 +80,11 @@ class ProjectRequest: Request {
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
+                self.semaphore.signal()
                 return
             }
             guard let data = data else {
+                self.semaphore.signal()
                 return
             }
             do {
@@ -85,8 +93,8 @@ class ProjectRequest: Request {
                         // TO DO: be able to access event data to actually initialize new Event object
                         res = (Project(json: item))
                     }
-                    self.semaphore.signal()
                 }
+                self.semaphore.signal()
             } catch let error {
                 print(error.localizedDescription)
                 self.semaphore.signal()
@@ -123,9 +131,11 @@ class ProjectRequest: Request {
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
+                self.semaphore.signal()
                 return
             }
             guard let data = data else {
+                self.semaphore.signal()
                 return
             }
             do {
@@ -133,8 +143,8 @@ class ProjectRequest: Request {
                     for item in json {
                         resArray.append(Project(json: item))
                     }
-                    self.semaphore.signal()
                 }
+                self.semaphore.signal()
             } catch let error {
                 print(error.localizedDescription)
                 self.semaphore.signal()

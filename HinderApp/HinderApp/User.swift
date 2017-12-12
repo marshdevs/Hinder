@@ -10,13 +10,16 @@ import UIKit
 import IGListKit
 
 class User: NSObject, ListDiffable {
-    let userId: String
-    let name: String
-    let occupation: String
-    let photo: String
-    let events: [String]
-    let projects: [String]
-    let skillset: Skillset
+    
+    static let emptyUserHandler = ["userId": "empty", "userName": "empty", "userOccupation": "empty", "userEvents": [], "userPhoto": "empty", "userProjects": [], "userSkillset": ["C++": false, "C": false, "Obj-C": false, "Swift": false, "Python": false, "Java": false, "Javascript": false, "Html": false] as Dictionary<String, Any>] as [String : Any]
+    
+    var userId: String
+    var name: String
+    var occupation: String
+    var photo: String
+    var events: [String]
+    var projects: [String]
+    var skillset: Skillset
     
     init(json: Dictionary<String, Any>) {
         self.userId = json["userId"] as! String
@@ -34,6 +37,13 @@ class User: NSObject, ListDiffable {
     
     public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         return isEqual(object)
+    }
+    
+    public func photoToImg() -> UIImage {
+        let url = URL(string: self.photo)
+        let data = try? Data(contentsOf: url!)
+        let image = UIImage(data: data!)
+        return image!
     }
     
     public func toDict() -> Dictionary<String, Any> {

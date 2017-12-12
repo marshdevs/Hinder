@@ -24,7 +24,7 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var lastName: UILabel!
     
-//    let firstName : UITextField = {
+    //    let firstName : UITextField = {
 //        let field = UITextField()
 //        field.frame = CGRect(x: 100, y: 200, width: 100, height: 200)
 //        field.borderStyle = .line
@@ -38,7 +38,6 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
 //        field.text = "Last Name"
 //        return field
 //    }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +55,8 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USWest2, identityPoolId: "us-west-2:9943a2f4-758f-40ff-b5c5-9d8ad1b8d5dc")
         let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
-        
-        
+
+
         credentialProvider.getIdentityId().continueWith(block: { (task) -> AnyObject? in
             if (task.error != nil) {
                 print("Error: " + task.error!.localizedDescription)
@@ -74,6 +73,10 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func loginButtonClicked(_ sender: UIButton)  {
+        self.performSegue(withIdentifier: "facebookLoginSegue", sender: self)
     }
 
     func pressed() {
@@ -107,14 +110,26 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
                     //The url is nested 3 layers deep into the result so it's pretty messy
                     if let imageURL = ((userInfo["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String {
 
+                        var newUser = User(json: User.emptyUserHandler)
+                        newUser.photo = imageURL
+                        newUser.name = (userInfo["first_name"] as! String) + " " + (userInfo["last_name"] as! String)
+                        let userRequest = UserRequest()
+                        let userId = userRequest.createUser(user: newUser)
+                        SessionUser.setupSharedInstance(user: userRequest.getUser(userId: userId))
+                        print(SessionUser.shared())
+                        
                         let url = URL(string: imageURL)
                         let data = try? Data(contentsOf: url!)
                         let image = UIImage(data: data!)
                         
-                        //downloadFromS3 and set image to that
+                        self.profilePic.setImage(image, for: .normal)
                         self.firstName.text = userInfo["first_name"] as? String
                         self.lastName.text = userInfo["last_name"] as? String
-                        self.profilePic.setImage(self.downloadFromS3(id: "asdfasdf"), for: .normal)
+                        
+                        //downloadFromS3 and set image to that
+//                        self.firstName.text = userInfo["first_name"] as? String
+//                        self.lastName.text = userInfo["last_name"] as? String
+//                        self.profilePic.setImage(self.downloadFromS3(id: "asdfasdf"), for: .normal)
                         
                         //uploadToS3 and set image
                         //self.profilePic.setImage(image, for: .normal)

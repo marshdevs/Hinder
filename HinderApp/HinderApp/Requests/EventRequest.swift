@@ -26,7 +26,9 @@ class EventRequest: Request {
      
      - returns: void, async
      */
-    func createEvent(event: Event) {
+    func createEvent(event: Event) -> String {
+        var res: String?
+        
         let requestData: [String: Any] = event.toDict()
         let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
         
@@ -39,22 +41,26 @@ class EventRequest: Request {
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
+                self.semaphore.signal()
                 return
             }
             guard let data = data else {
+                self.semaphore.signal()
                 return
             }
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
-                    for item in json {
-                        dump(item)
-                    }
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    res = json["eventId"] as! String
                 }
+                self.semaphore.signal()
             } catch let error {
                 print(error.localizedDescription)
+                self.semaphore.signal()
             }
         })
         task.resume()
+        _ = self.semaphore.wait(timeout: .distantFuture)
+        return res!
     }
     
     /**
@@ -73,9 +79,11 @@ class EventRequest: Request {
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
+                self.semaphore.signal()
                 return
             }
             guard let data = data else {
+                self.semaphore.signal()
                 return
             }
             do {
@@ -84,8 +92,8 @@ class EventRequest: Request {
                         // TO DO: be able to access event data to actually initialize new Event object
                         res = (Event(json: item))
                     }
-                    self.semaphore.signal()
                 }
+                self.semaphore.signal()
             } catch let error {
                 print(error.localizedDescription)
                 self.semaphore.signal()
@@ -118,9 +126,11 @@ class EventRequest: Request {
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
+                self.semaphore.signal()
                 return
             }
             guard let data = data else {
+                self.semaphore.signal()
                 return
             }
             do {
@@ -129,8 +139,8 @@ class EventRequest: Request {
                         // TO DO: be able to access event data to actually initialize new Event object
                         resArray.append(Event(json: item))
                     }
-                    self.semaphore.signal()
                 }
+                self.semaphore.signal()
             } catch let error {
                 print(error.localizedDescription)
                 self.semaphore.signal()
@@ -168,9 +178,11 @@ class EventRequest: Request {
         let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
+                self.semaphore.signal()
                 return
             }
             guard let data = data else {
+                self.semaphore.signal()
                 return
             }
             do {
@@ -178,8 +190,8 @@ class EventRequest: Request {
                     for item in json {
                         resArray.append(Event(json: item))
                     }
-                    self.semaphore.signal()
                 }
+                self.semaphore.signal()
             } catch let error {
                 print(error.localizedDescription)
                 self.semaphore.signal()
