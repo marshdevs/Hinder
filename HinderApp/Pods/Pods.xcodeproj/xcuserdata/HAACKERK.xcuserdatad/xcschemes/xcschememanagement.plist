@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
+		<key>AWSCognitoIdentityProviderASF.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
 		<key>AWSCore.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -64,6 +69,11 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>Koloda.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
 		<key>Pods-HinderApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -79,10 +89,25 @@
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
+		<key>pop.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>162CAD95CC0F402AED98F345659DC633</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F1B6F6964386DE120C0637F80E21227</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>20151774CE2F5FA6B8126D4F5ED1C5FE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,6 +147,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>742865A6D41BB4B91ED439C82CF9F56A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7838B5EBD8E9138C927BC3196182D74A</key>
 		<dict>
 			<key>primary</key>
@@ -132,12 +162,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9BDD0E42347ED8EDEA19928B85B79254</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9F7098779713B711F6C591B62A41F242</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>A7FEAA14E89971698ACA148F7F7202F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1CFDE8AE1F9201DD61FF6BD8183F5A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE0E0C30D3FA12BA0221BA4D3BFE7A93</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -153,6 +198,11 @@
 			<true/>
 		</dict>
 		<key>D448C42F9B550742F18B41A6568213ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D476D26A5177EEF9C5C6A77CC32DFD30</key>
 		<dict>
 			<key>primary</key>
 			<true/>

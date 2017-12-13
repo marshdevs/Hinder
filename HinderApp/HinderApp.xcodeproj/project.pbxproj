@@ -27,6 +27,8 @@
 		5ED2FC741FDF533800F20274 /* BackgroundAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */; };
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
 		9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */; };
+		BA8074121FE1E9160062E1EB /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8074111FE1E9160062E1EB /* UserViewController.swift */; };
+		BA8074141FE1EFA90062E1EB /* UserProjectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8074131FE1EFA90062E1EB /* UserProjectViewCell.swift */; };
 		BA907B721FDC989E005BD3E8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B711FDC989E005BD3E8 /* NavigationController.swift */; };
 		BA907B7A1FDCB152005BD3E8 /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B791FDCB152005BD3E8 /* HamburgerMenuViewController.swift */; };
 		BA907B821FDDE85E005BD3E8 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B811FDDE85E005BD3E8 /* MyEventsViewController.swift */; };
@@ -75,6 +77,8 @@
 		9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderCreateProfile.swift; sourceTree = "<group>"; };
 		9FC6A0641FBB98E000176134 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		9FC6A0651FBB98E000176134 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		BA8074111FE1E9160062E1EB /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		BA8074131FE1EFA90062E1EB /* UserProjectViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProjectViewCell.swift; sourceTree = "<group>"; };
 		BA907B711FDC989E005BD3E8 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		BA907B791FDCB152005BD3E8 /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
 		BA907B811FDDE85E005BD3E8 /* MyEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventsViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 		C555F6B91FB0EA2A009106E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA8074131FE1EFA90062E1EB /* UserProjectViewCell.swift */,
 				C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */,
 				C555F6C51FB647AF009106E8 /* FeedEventCell.swift */,
 				C555F6C71FB7C2AE009106E8 /* FeedEventCellWithHeader.swift */,
@@ -205,6 +210,7 @@
 		C555F6BA1FB0EA51009106E8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BA8074111FE1E9160062E1EB /* UserViewController.swift */,
 				310F3F251FDE6DDF009FF85C /* CreateEventPage */,
 				BA907B791FDCB152005BD3E8 /* HamburgerMenuViewController.swift */,
 				BAC0347D1FDBC4D400ED14B3 /* LoginViewController.swift */,
@@ -414,7 +420,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA8074141FE1EFA90062E1EB /* UserProjectViewCell.swift in Sources */,
 				318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */,
+				BA8074121FE1E9160062E1EB /* UserViewController.swift in Sources */,
 				313D31B71FE11A9A0036CC0B /* CreateEventViewControllerP2.swift in Sources */,
 				BA907B721FDC989E005BD3E8 /* NavigationController.swift in Sources */,
 				C557317A1FBE5BE700EBCF96 /* EditProfileViewController.swift in Sources */,
