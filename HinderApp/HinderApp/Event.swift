@@ -44,7 +44,7 @@ class Event: NSObject, ListDiffable {
     }
     
     public func toDict() -> Dictionary<String, Any> {
-        let resDict = ["name": self.name, "date": self.date, "location": self.location, "description": self.desc,
+        let resDict = ["eventId": self.eventId, "name": self.name, "date": self.date, "location": self.location, "description": self.desc,
                        "photo": self.photo, "thumbnail": self.thumbnail, "projects": self.projects, "users": self.users] as Dictionary<String, Any>
         return resDict
     }

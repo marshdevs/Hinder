@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		310F3F211FDE3DAF009FF85C /* ViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310F3F201FDE3DAF009FF85C /* ViewProfileViewController.swift */; };
-		310F3F271FDE6DF1009FF85C /* CreateEventViewControllerP2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310F3F261FDE6DF1009FF85C /* CreateEventViewControllerP2.swift */; };
+		313D31B71FE11A9A0036CC0B /* CreateEventViewControllerP2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310F3F261FDE6DF1009FF85C /* CreateEventViewControllerP2.swift */; };
+		313D31BA1FE11E8B0036CC0B /* ImageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D31B91FE11E8B0036CC0B /* ImageAction.swift */; };
 		318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B661FD66AD10054B73D /* EventRequest.swift */; };
 		318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B681FD66AE00054B73D /* ProjectRequest.swift */; };
 		318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B6A1FD66AFC0054B73D /* UserRequest.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		310F3F201FDE3DAF009FF85C /* ViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfileViewController.swift; sourceTree = "<group>"; };
 		310F3F261FDE6DF1009FF85C /* CreateEventViewControllerP2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewControllerP2.swift; sourceTree = "<group>"; };
+		313D31B91FE11E8B0036CC0B /* ImageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAction.swift; sourceTree = "<group>"; };
 		318A4B661FD66AD10054B73D /* EventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRequest.swift; sourceTree = "<group>"; };
 		318A4B681FD66AE00054B73D /* ProjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRequest.swift; sourceTree = "<group>"; };
 		318A4B6A1FD66AFC0054B73D /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 			name = CreateEventPage;
 			sourceTree = "<group>";
 		};
+		313D31B81FE11E690036CC0B /* S3Images */ = {
+			isa = PBXGroup;
+			children = (
+				313D31B91FE11E8B0036CC0B /* ImageAction.swift */,
+			);
+			path = S3Images;
+			sourceTree = "<group>";
+		};
 		318A4B651FD66AB00054B73D /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +174,7 @@
 		C520301B1FAD4760009DFCBA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				313D31B81FE11E690036CC0B /* S3Images */,
 				318A4B651FD66AB00054B73D /* Requests */,
 				C555F6BD1FB41E9D009106E8 /* Event.swift */,
 				C555F6BF1FB42D87009106E8 /* Project.swift */,
@@ -401,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */,
+				313D31B71FE11A9A0036CC0B /* CreateEventViewControllerP2.swift in Sources */,
 				BA907B721FDC989E005BD3E8 /* NavigationController.swift in Sources */,
 				C557317A1FBE5BE700EBCF96 /* EditProfileViewController.swift in Sources */,
 				31FEEA461FDDFB68007C4532 /* HostLoginViewController.swift in Sources */,
@@ -416,7 +428,6 @@
 				C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */,
 				C555F6C81FB7C2AE009106E8 /* FeedEventCellWithHeader.swift in Sources */,
 				31BE76151FBAA55100154730 /* Request.swift in Sources */,
-				310F3F271FDE6DF1009FF85C /* CreateEventViewControllerP2.swift in Sources */,
 				31BE76131FBAA31300154730 /* Mediator.swift in Sources */,
 				5ED2FC721FDF530200F20274 /* BackgroundKolodaAnimator.swift in Sources */,
 				C555F6C41FB4334D009106E8 /* Skillset.swift in Sources */,
@@ -435,6 +446,7 @@
 				318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */,
 				31FEEA481FDE118F007C4532 /* SessionUser.swift in Sources */,
 				5ED2FC741FDF533800F20274 /* BackgroundAnimationViewController.swift in Sources */,
+				313D31BA1FE11E8B0036CC0B /* ImageAction.swift in Sources */,
 				BA907B821FDDE85E005BD3E8 /* MyEventsViewController.swift in Sources */,
 				31FEEA441FDDF40C007C4532 /* UserTypeViewController.swift in Sources */,
 			);

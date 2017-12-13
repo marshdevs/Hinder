@@ -9,26 +9,32 @@
 import UIKit
 import IGListKit
 
-class EventPageViewController: UIViewController, ListAdapterDataSource {
+class EventPageViewController: UIViewController {
 
-    var event: Event;
+//    var event: Event;
+//
+//    public func setEvent(myEvent: Event) {
+//        event = myEvent;
+//    }
     
-    public func setEvent(myEvent: Event) {
-        event = myEvent;
-    }
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    @IBOutlet weak var hamburgerMenu: UIBarButtonItem!
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.setHidesBackButton(true, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func menuClicked(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "backToHomeSegue", sender: self)
+    }
 
     /*
     // MARK: - Navigation
@@ -43,20 +49,21 @@ class EventPageViewController: UIViewController, ListAdapterDataSource {
 }
 
 // MARK: - IGListAdapterDataSource
-extension EventPageViewController {
-    
-    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        var items: [ListDiffable] = [ListDiffable]();
-        var eventArray = [Event]()
-        eventArray.append(event)
-        items = eventArray as [ListDiffable]
-        return items
-    }
-    
-    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return FeedSectionController(); //placeholder to prevent compilation errors rn
-    }
-    
-    
-    func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
-}
+//extension EventPageViewController {
+//    
+//    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+//        var items: [ListDiffable] = [ListDiffable]();
+//        var eventArray = [Event]()
+//        eventArray.append(event)
+//        items = eventArray as [ListDiffable]
+//        return items
+//    }
+//
+//    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+//        return FeedSectionController(); //placeholder to prevent compilation errors rn
+//    }
+//
+//
+//    func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
+//}
+
