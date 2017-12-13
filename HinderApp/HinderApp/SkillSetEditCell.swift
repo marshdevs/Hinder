@@ -26,7 +26,7 @@ class SkillSetEditCell: UICollectionViewCell {
             
         }
         label.font = EventFeedFont()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.black
         return label
     }()
     
@@ -50,7 +50,7 @@ class SkillSetEditCell: UICollectionViewCell {
         super.init(frame: frame)
         toggleButton.addTarget(self, action:#selector(doToggle(_:)), for: .valueChanged)
         
-        contentView.backgroundColor = UIColor.gray
+        contentView.backgroundColor = UIColor.white
         contentView.configureLayout { (layout) in
             layout.isEnabled = true
             layout.flexGrow = 1.0

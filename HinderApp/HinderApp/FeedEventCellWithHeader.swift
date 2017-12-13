@@ -28,28 +28,36 @@ class FeedEventCellWithHeader: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = UIColor.gray
+        let randomIndex = Int(arc4random())%images.count
+        contentView.backgroundColor = UIColor(patternImage: UIImage(named: images[randomIndex])!)
         contentView.configureLayout { (layout) in
             layout.isEnabled = true
             layout.flexGrow = 1.0
+            //layout.alignItems = .center
+            //layout.justifyContent = .center
+            //layout.marginStart = 15
         }
         let headerView = UIView(frame: .zero)
         headerView.configureLayout { (layout) in
             layout.isEnabled = true
             layout.height = 34.0
-            layout.justifyContent = .center
         }
         headerView.backgroundColor = UIColor.black
         
         let headerLabel = UILabel()
         headerLabel.textColor = UIColor.white
         headerLabel.text = "My Enrolled Events"
-        headerLabel.font = EventFeedFont()
+        headerLabel.font = EventHeaderFont()
         headerLabel.configureLayout { (layout) in
             layout.isEnabled = true
+            layout.flexGrow = 1.0
             layout.marginStart = 15
         }
         
+        label.configureLayout { (layout) in
+            layout.isEnabled = true
+            layout.alignSelf = .center
+        }
         headerView.addSubview(headerLabel)
         contentView.addSubview(headerView)
         contentView.addSubview(label)

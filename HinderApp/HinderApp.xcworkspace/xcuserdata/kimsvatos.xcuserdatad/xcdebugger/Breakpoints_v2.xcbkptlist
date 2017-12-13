@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "menuClicked()"
-            landmarkType = "7">
+            landmarkName = "HomeViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -128,7 +128,7 @@
             startingLineNumber = "72"
             endingLineNumber = "72"
             landmarkName = "HomeViewController"
-            landmarkType = "4">
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -214,7 +214,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HinderApp/HomeViewController.swift"
@@ -287,8 +287,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
             endingLineNumber = "77"
-            landmarkName = "didUpdate(to:)"
-            landmarkType = "7">
+            landmarkName = "EditProfileSectionController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -541,6 +541,84 @@
             endingLineNumber = "70"
             landmarkName = "cellForItem(at:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HinderApp.EditProfileSectionController.cellForItem (at : Swift.Int) -&gt; __ObjC.UICollectionViewCell"
+                  moduleName = "HinderApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimsvatos/Desktop/4th_year/Fall/Hinder/HinderApp/HinderApp/EditProfileSectionController.swift"
+                  timestampString = "534880183.277937"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "325">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HinderApp.EditProfileSectionController.cellForItem (at : Swift.Int) -&gt; __ObjC.UICollectionViewCell"
+                  moduleName = "HinderApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimsvatos/Desktop/4th_year/Fall/Hinder/HinderApp/HinderApp/EditProfileSectionController.swift"
+                  timestampString = "534880183.279131"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "498">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HinderApp/FontsAndTheme.swift"
+            timestampString = "534880115.566876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_841F69EAE1FA539E20C2C5480FABA856_func0"
+                  moduleName = "HinderApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimsvatos/Desktop/4th_year/Fall/Hinder/HinderApp/HinderApp/FontsAndTheme.swift"
+                  timestampString = "534880117.708582"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HinderApp.images.unsafeMutableAddressor : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "HinderApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimsvatos/Desktop/4th_year/Fall/Hinder/HinderApp/HinderApp/FontsAndTheme.swift"
+                  timestampString = "534880117.710192"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

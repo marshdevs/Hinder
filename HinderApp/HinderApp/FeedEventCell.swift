@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YogaKit
 
 class FeedEventCell: UICollectionViewCell {
     
@@ -24,7 +25,19 @@ class FeedEventCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = UIColor.gray
+        let randomIndex = Int(arc4random())%images.count
+        contentView.backgroundColor = UIColor(patternImage: UIImage(named: images[randomIndex])!)
+        contentView.configureLayout { (layout) in
+            layout.isEnabled = true
+            layout.flexGrow = 1.0
+            layout.alignItems = .center
+            layout.justifyContent = .center
+            //layout.marginStart = 15
+        }
+        label.configureLayout { (layout) in
+            layout.isEnabled = true
+            layout.alignSelf = .center
+        }
         contentView.addSubview(label)
     }
     
@@ -34,7 +47,7 @@ class FeedEventCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        label.frame = UIEdgeInsetsInsetRect(bounds, FeedEventCell.inset)
+        contentView.yoga.applyLayout(preservingOrigin: true)
     }
     
 }

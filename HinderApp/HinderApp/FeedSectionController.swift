@@ -8,8 +8,12 @@ import IGListKit
 
 
 class FeedSectionController: ListSectionController {
-    override init() {
+    
+    var event: Event!
+    
+    init(event: Event) {
         super.init()
+        self.event = event
         inset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
     }
 
@@ -34,9 +38,9 @@ class FeedSectionController: ListSectionController {
         let cell = collectionContext!.dequeueReusableCell(of: cellClass, for: self, at: index)
         
         if let cell = cell as? FeedEventCell {
-            cell.label.text = "event cell"
+            cell.label.text =  event.name
         } else if let cell = cell as? FeedEventCellWithHeader {
-         cell.label.text = "event cell"
+         cell.label.text = event.name
         }
         return cell
     }

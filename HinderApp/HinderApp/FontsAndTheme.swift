@@ -14,6 +14,8 @@ func hinderBlue() -> UIColor {
     return  UIColor(red: 153/255, green: 206/255, blue: 230/255, alpha: 1.0)
 }
 
+let images = ["redBanner", "tealBanner", "geoBanner", "orangeBanner", "pinkBanner", "rainbowBanner", "redAndBlueBanner", "pinkAndBlueBanner", "lightBanner" ]
+
 let CommonInsets = UIEdgeInsets(top: 8, left: 15, bottom: 8, right: 15)
 
 func TitleFont(size: CGFloat = 18) -> UIFont {
@@ -22,7 +24,11 @@ func TitleFont(size: CGFloat = 18) -> UIFont {
 }
 
 func EventFeedFont(size: CGFloat = 18) -> UIFont {
-    return UIFont(name:"Arial-BoldMT", size: 20.0)!
+    return UIFont(name:"Arial-BoldMT", size: 33.0)!
+}
+
+func EventHeaderFont(size: CGFloat = 18) -> UIFont {
+    return UIFont(name:"Arial-BoldMT", size: 14.0)!
 }
 
 func SkillSetFont(size: CGFloat = 14) -> UIFont {
