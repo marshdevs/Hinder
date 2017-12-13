@@ -28,7 +28,7 @@ class EventPageViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.titleLabel.text = event.name
-        self.descriptionLabel.text = event.description
+        self.descriptionLabel.text = event.desc
         //navigationItem.setHidesBackButton(true, animated: true)
     }
 

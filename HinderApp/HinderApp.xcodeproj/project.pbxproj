@@ -10,6 +10,7 @@
 		310F3F211FDE3DAF009FF85C /* ViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310F3F201FDE3DAF009FF85C /* ViewProfileViewController.swift */; };
 		313D31B71FE11A9A0036CC0B /* CreateEventViewControllerP2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310F3F261FDE6DF1009FF85C /* CreateEventViewControllerP2.swift */; };
 		313D31BA1FE11E8B0036CC0B /* ImageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D31B91FE11E8B0036CC0B /* ImageAction.swift */; };
+		313D31BC1FE1CAD50036CC0B /* HostEventPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D31BB1FE1CAD50036CC0B /* HostEventPageViewController.swift */; };
 		318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B661FD66AD10054B73D /* EventRequest.swift */; };
 		318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B681FD66AE00054B73D /* ProjectRequest.swift */; };
 		318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B6A1FD66AFC0054B73D /* UserRequest.swift */; };
@@ -55,6 +56,7 @@
 		310F3F201FDE3DAF009FF85C /* ViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfileViewController.swift; sourceTree = "<group>"; };
 		310F3F261FDE6DF1009FF85C /* CreateEventViewControllerP2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewControllerP2.swift; sourceTree = "<group>"; };
 		313D31B91FE11E8B0036CC0B /* ImageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAction.swift; sourceTree = "<group>"; };
+		313D31BB1FE1CAD50036CC0B /* HostEventPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostEventPageViewController.swift; sourceTree = "<group>"; };
 		318A4B661FD66AD10054B73D /* EventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRequest.swift; sourceTree = "<group>"; };
 		318A4B681FD66AE00054B73D /* ProjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRequest.swift; sourceTree = "<group>"; };
 		318A4B6A1FD66AFC0054B73D /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				31FEEA491FDE338D007C4532 /* CreateEventViewControllerP1.swift */,
 				310F3F261FDE6DF1009FF85C /* CreateEventViewControllerP2.swift */,
+				313D31BB1FE1CAD50036CC0B /* HostEventPageViewController.swift */,
 			);
 			name = CreateEventPage;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				BA907B841FDDE8D3005BD3E8 /* MyGroupsViewController.swift in Sources */,
 				31FEEA4A1FDE338D007C4532 /* CreateEventViewControllerP1.swift in Sources */,
 				C557317C1FBE69E400EBCF96 /* EditProfileSectionController.swift in Sources */,
+				313D31BC1FE1CAD50036CC0B /* HostEventPageViewController.swift in Sources */,
 				C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */,
 				C55671691FAD4553009A194B /* HomeViewController.swift in Sources */,
 				C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */,
