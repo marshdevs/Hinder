@@ -20,6 +20,7 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
     static let storyboardIdentifier = "HinderCreateProfileController"
     
     @IBOutlet weak var profilePic: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var lastName: UILabel!
@@ -76,7 +77,7 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func loginButtonClicked(_ sender: UIButton)  {
-        self.performSegue(withIdentifier: "facebookLoginSegue", sender: self)
+            self.performSegue(withIdentifier: "facebookLoginSegue", sender: self)
     }
 
     func pressed() {
@@ -110,17 +111,24 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
                     //The url is nested 3 layers deep into the result so it's pretty messy
                     if let imageURL = ((userInfo["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String {
 
-                        var newUser = User(json: User.emptyUserHandler)
-                        newUser.photo = imageURL
-                        newUser.name = (userInfo["first_name"] as! String) + " " + (userInfo["last_name"] as! String)
-                        let userRequest = UserRequest()
-                        let userId = userRequest.createUser(user: newUser)
-                        SessionUser.setupSharedInstance(user: userRequest.getUser(userId: userId))
-                        print(SessionUser.shared())
-                        
                         let url = URL(string: imageURL)
                         let data = try? Data(contentsOf: url!)
                         let image = UIImage(data: data!)
+                        
+                        let userRequest = UserRequest()
+                        let userId = userRequest.getId(email: userInfo["email"] as! String)
+                        if let existingUser = userRequest.getUser(userId: userId) as? User {
+                            SessionUser.setupSharedInstance(user: userRequest.getUser(userId: userId))
+                            print(SessionUser.shared())
+                        } else {
+                            var newUser = User(json: User.emptyUserHandler)
+                            newUser.userId = userId
+                            newUser.photo = imageURL
+                            newUser.name = (userInfo["first_name"] as! String) + " " + (userInfo["last_name"] as! String)
+                            let _ = userRequest.createUser(user: newUser)
+                            SessionUser.setupSharedInstance(user: newUser)
+                            print(SessionUser.shared())
+                        }
                         
                         self.profilePic.setImage(image, for: .normal)
                         self.firstName.text = userInfo["first_name"] as? String
@@ -134,6 +142,7 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
                         //uploadToS3 and set image
                         //self.profilePic.setImage(image, for: .normal)
                         //self.uploadToS3(image: image!)
+                        self.loginButton.isEnabled = true
                     }
                 })
             }

@@ -196,11 +196,10 @@ app.post('/createUser', function(req, res){
     console.log("POST: Received a createUser request...");
 
     var user = req.body;
-    var userId = generateID();
     var params = {
         TableName: "hinder-users",
         Item: {
-            "userId": userId,
+            "userId": user.userId,
             "userName": user.name,
             "userOccupation": user.occupation,
             "userPhoto": user.photo,
@@ -212,11 +211,11 @@ app.post('/createUser', function(req, res){
     dynamoDB.put(params, function(err, data){
         if (err) {
             console.log(err);
-            console.log("POST: Error creating user: " + userId + " - " + user.name);
-            res.status(503).send({status: "Error", description: "Failed to create user with ID.", field: "userId", value: userId});
+            console.log("POST: Error creating user: " + user.userId + " - " + user.name);
+            res.status(503).send({status: "Error", description: "Failed to create user with ID.", field: "userId", value: user.userId});
         } else {
-            console.log("POST: Successfully created user: " + userId + " - " + user.name);
-            res.status(200).send({status: "Success", userId: userId, description: "Successfully created user."});
+            console.log("POST: Successfully created user: " + user.userId + " - " + user.name);
+            res.status(200).send({status: "Success", userId: user.userId, description: "Successfully created user."});
         }
     });
 });
@@ -548,6 +547,55 @@ app.put('/match/:event/:direction/:key', function(req, res){
                         res.status(200).send(false);
                     }
                 });
+            }
+        }
+    });
+});
+
+// Email operations -----------------------------------
+
+// Returns existing userId if email is in DB, if not, creates new email/userId pair and returns Id
+app.get('/getId', function(req, res){
+    console.log("PUT: Received an email request...");
+
+    var email = req.query.email;
+    var params = {
+        TableName: "hinder-emails",
+        Key: {
+            "email": email
+        }
+    };
+    dynamoDB.get(params, function(err, data){
+        if (err) {
+            console.log(err);
+            console.log("PUT: Error returning userId for email: " + email);
+            res.status(503).send({status: "Error", description: "Could not return matches for eventId. Probably does not exist yet.", field: "email", value: email});
+        } else {
+            console.log(data.Item);
+            if (data.Item == undefined) {
+                console.log("PUT: Error getting userId for email: " + email);
+                console.log("Creating emails entry for email...");
+                var userId = generateID();
+                var params = {
+                    TableName: "hinder-emails",
+                    Item: {
+                        "email": email,
+                        "userId": userId
+                    }
+                };
+                dynamoDB.put(params, function(err, data){
+                    if (err) {
+                        console.log(err);
+                        console.log("PUT: Error creating entry for email: " + email);
+                        res.status(503).send({status: "Error", description: "Could create new entry for email.", field: "email", value: email});
+                    } else {
+                        console.log("Successfully created entry for email: " + email);
+                        res.status(200).send({email: email, userId: userId});
+                    }
+                });
+            } else {
+                console.log("PUT: Found userId for email: " + email);
+                res.status(200).send(data.Item);
             }
         }
     });

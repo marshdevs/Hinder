@@ -442,7 +442,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWa-Xw-Wjz">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWa-Xw-Wjz">
                                 <rect key="frame" x="103" y="576" width="169" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -466,6 +466,7 @@
                     <connections>
                         <outlet property="firstName" destination="0E2-rF-JKZ" id="CoU-QY-OPW"/>
                         <outlet property="lastName" destination="QfK-rN-J3K" id="JXp-4K-SsP"/>
+                        <outlet property="loginButton" destination="vWa-Xw-Wjz" id="XTc-Ws-88r"/>
                         <outlet property="profilePic" destination="sgI-UJ-cnY" id="TqK-JC-Z7H"/>
                     </connections>
                 </viewController>
@@ -659,6 +660,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="sM0-BL-5fx"/>
         <segue reference="TfO-hI-t6H"/>
-        <segue reference="d6H-TY-Nxx"/>
+        <segue reference="YAp-ji-FeF"/>
     </inferredMetricsTieBreakers>
 </document>

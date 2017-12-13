@@ -13,6 +13,7 @@ class SessionUser: User {
     private static var sharedInstance: SessionUser!
     
     static var userModel: User!
+    static var setup = false
     
     private init(user: User) {
         super.init(json: SessionUser.extractModel(user: user))
@@ -31,6 +32,7 @@ class SessionUser: User {
     
     static func setupSharedInstance(user: User) {
         userModel = user
+        setup = true
     }
     
     static func extractModel(user: User) -> Dictionary<String, Any> {
