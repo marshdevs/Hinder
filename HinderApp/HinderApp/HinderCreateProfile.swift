@@ -12,14 +12,13 @@ import FacebookCore
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
-import AWSS3
-import AWSCognito
 
 class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     static let storyboardIdentifier = "HinderCreateProfileController"
     
     @IBOutlet weak var profilePic: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var lastName: UILabel!
@@ -50,24 +49,6 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
         
         //set the objects in the view
         
-        
-        //intialize Amazon cognito credentials
-        let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USWest2, identityPoolId: "us-west-2:9943a2f4-758f-40ff-b5c5-9d8ad1b8d5dc")
-        let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-        AWSServiceManager.default().defaultServiceConfiguration = configuration
-
-
-        credentialProvider.getIdentityId().continueWith(block: { (task) -> AnyObject? in
-            if (task.error != nil) {
-                print("Error: " + task.error!.localizedDescription)
-            }
-            else {
-                // the task result will contain the identity id
-                let cognitoId = task.result!
-                print("Cognito id: \(cognitoId)")
-            }
-            return task;
-        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,7 +57,7 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func loginButtonClicked(_ sender: UIButton)  {
-        self.performSegue(withIdentifier: "facebookLoginSegue", sender: self)
+            self.performSegue(withIdentifier: "facebookLoginSegue", sender: self)
     }
 
     func pressed() {
@@ -110,17 +91,24 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
                     //The url is nested 3 layers deep into the result so it's pretty messy
                     if let imageURL = ((userInfo["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String {
 
-                        var newUser = User(json: User.emptyUserHandler)
-                        newUser.photo = imageURL
-                        newUser.name = (userInfo["first_name"] as! String) + " " + (userInfo["last_name"] as! String)
-                        let userRequest = UserRequest()
-                        let userId = userRequest.createUser(user: newUser)
-                        SessionUser.setupSharedInstance(user: userRequest.getUser(userId: userId))
-                        print(SessionUser.shared())
-                        
                         let url = URL(string: imageURL)
                         let data = try? Data(contentsOf: url!)
                         let image = UIImage(data: data!)
+                        
+                        let userRequest = UserRequest()
+                        let userId = userRequest.getId(email: userInfo["email"] as! String)
+                        if let existingUser = userRequest.getUser(userId: userId) as? User {
+                            SessionUser.setupSharedInstance(user: userRequest.getUser(userId: userId))
+                            print(SessionUser.shared())
+                        } else {
+                            var newUser = User(json: User.emptyUserHandler)
+                            newUser.userId = userId
+                            newUser.photo = imageURL
+                            newUser.name = (userInfo["first_name"] as! String) + " " + (userInfo["last_name"] as! String)
+                            let _ = userRequest.createUser(user: newUser)
+                            SessionUser.setupSharedInstance(user: newUser)
+                            print(SessionUser.shared())
+                        }
                         
                         self.profilePic.setImage(image, for: .normal)
                         self.firstName.text = userInfo["first_name"] as? String
@@ -134,6 +122,7 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
                         //uploadToS3 and set image
                         //self.profilePic.setImage(image, for: .normal)
                         //self.uploadToS3(image: image!)
+                        self.loginButton.isEnabled = true
                     }
                 })
             }
@@ -144,87 +133,8 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
         })
     }
     
-    func downloadFromS3(id : String) -> UIImage {
-        
-        let transferManager = AWSS3TransferManager.default()
-
-        let downloadingFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("filenameFromS3.png")
-        
-        let downloadRequest = AWSS3TransferManagerDownloadRequest()
-        downloadRequest?.bucket = "finalhinderbucket"
-        downloadRequest?.key = "uniqueId.png"
-        downloadRequest?.downloadingFileURL = downloadingFileURL
-        
-        transferManager.download(downloadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
-            
-            if let error = task.error as NSError? {
-                if error.domain == AWSS3TransferManagerErrorDomain, let code = AWSS3TransferManagerErrorType(rawValue: error.code) {
-                    switch code {
-                    case .cancelled, .paused:
-                        break
-                    default:
-                        print("Error downloading: \(downloadRequest?.key) Error: \(error)")
-                    }
-                } else {
-                    print("Error downloading: \(downloadRequest?.key) Error: \(error)")
-                }
-                return nil
-            }
-            print("Download complete for: \(downloadRequest?.key)")
-            let downloadOutput = task.result
-            return nil
-        })
-        
-        downloadRequest?.downloadProgress = {(bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) -> Void in
-            DispatchQueue.main.async(execute: {() -> Void in
-            })
-        }
-        
-        return UIImage(contentsOfFile: downloadingFileURL.path)!
-
-    }
+    /////
     
-    func uploadToS3(image : UIImage) {
-        
-        let transferManager = AWSS3TransferManager.default()
-        let uploadRequest = AWSS3TransferManagerUploadRequest()
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fileURL = documentsURL.appendingPathComponent("filename.png")
-        
-        //save file locally
-        do{
-            if let pngImageData = UIImagePNGRepresentation(image) {
-                try pngImageData.write(to: fileURL, options: .atomic)
-            }
-        }
-        catch{}
-        
-        uploadRequest?.bucket = "finalhinderbucket"
-        uploadRequest?.key = "uniqueId.png"
-        uploadRequest?.body = fileURL
-        
-        transferManager.upload(uploadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
-            
-            if let error = task.error as NSError? {
-                if error.domain == AWSS3TransferManagerErrorDomain, let code = AWSS3TransferManagerErrorType(rawValue: error.code) {
-                    switch code {
-                    case .cancelled, .paused:
-                        break
-                    default:
-                        print("Error uploading: \(String(describing: uploadRequest?.key)) Error: \(error)")
-                    }
-                } else {
-                    print("Error uploading: \(String(describing: uploadRequest?.key)) Error: \(error)")
-                }
-                return nil
-            }
-            
-            _ = task.result
-            print("Upload complete for: \(String(describing: uploadRequest?.key))")
-            return nil
-        })
-        
-    }
 }
     
 

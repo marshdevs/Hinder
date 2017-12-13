@@ -75,6 +75,46 @@
             </objects>
             <point key="canvasLocation" x="-1746" y="640"/>
         </scene>
+        <!--Event Page View Controller-->
+        <scene sceneID="PMv-yN-dnY">
+            <objects>
+                <viewController id="xxI-N1-0XS" customClass="EventPageViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O22-gx-NzM"/>
+                        <viewControllerLayoutGuide type="bottom" id="EGP-Lc-kdZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qGo-Td-0Sw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View Event Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ia-dg-Syz">
+                                <rect key="frame" x="124" y="219" width="127" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="fWP-W5-PET" userLabel="Navigation Item">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="hamburger" width="50" id="27z-l8-fm2">
+                            <connections>
+                                <action selector="menuClicked:" destination="xxI-N1-0XS" id="oHy-iF-Fy7"/>
+                                <segue destination="vXN-qA-QQl" kind="show" identifier="backToHomeSegue" id="ujL-Z7-Zze"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="hamburgerMenu" destination="27z-l8-fm2" id="0k3-Nl-H1L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DD3-oi-2vx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2090" y="1591"/>
+        </scene>
         <!--Host Login View Controller-->
         <scene sceneID="UQc-wK-ly9">
             <objects>
@@ -110,6 +150,7 @@
                                 </state>
                                 <connections>
                                     <action selector="userLogin:" destination="IJj-IM-rXh" eventType="touchUpInside" id="hP0-dX-l5O"/>
+                                    <segue destination="xxI-N1-0XS" kind="show" id="FMC-TX-DVe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibw-tp-sBd">
@@ -173,14 +214,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQH-DE-q0P">
-                                <rect key="frame" x="16" y="351" width="165" height="30"/>
+                                <rect key="frame" x="16" y="370" width="165" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Event Name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HjM-d1-cVt">
-                                <rect key="frame" x="189" y="351" width="178" height="30"/>
+                                <rect key="frame" x="189" y="370" width="178" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -224,6 +265,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78p-2z-Fhj">
+                                <rect key="frame" x="147" y="332" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Load Image"/>
+                                <connections>
+                                    <action selector="loadImageButtonTapped:" destination="ZOT-0F-Cwv" eventType="touchUpInside" id="ZtQ-lW-Usf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -240,13 +289,14 @@
                     <barButtonItem key="rightBarButtonItem" title="Next" id="qDD-4q-DNh" userLabel="Next Button">
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <connections>
-                            <segue destination="kv1-CX-i0Q" kind="show" id="yu2-sr-bPb"/>
+                            <action selector="nextPage:" destination="ZOT-0F-Cwv" id="Ry4-KN-xYk"/>
+                            <segue destination="kv1-CX-i0Q" kind="show" identifier="nextCreateEventSegue" id="j66-bU-sbX"/>
                         </connections>
                     </barButtonItem>
                 </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KPh-bv-fDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-610" y="2331"/>
+            <point key="canvasLocation" x="-610.39999999999998" y="2330.2848575712146"/>
         </scene>
         <!--Create Event View ControllerP2-->
         <scene sceneID="XVI-cQ-7cJ">
@@ -289,6 +339,10 @@
                                 <state key="normal" title="Confirm" backgroundImage="rounded-button">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmButtonTapped:" destination="kv1-CX-i0Q" eventType="touchUpInside" id="BNa-bF-jg0"/>
+                                    <segue destination="xxI-N1-0XS" kind="show" id="bW0-i0-wwY"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thumbnail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kx-RT-vEp">
                                 <rect key="frame" x="60" y="496" width="140" height="21"/>
@@ -297,11 +351,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNI-cV-wIg">
+                                <rect key="frame" x="42" y="629" width="129" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose Thumbnail"/>
+                                <connections>
+                                    <action selector="loadImageButtonTapped:" destination="kv1-CX-i0Q" eventType="touchUpInside" id="NYa-qz-ZdO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <outlet property="confirmButton" destination="0aa-Iy-k67" id="nru-sN-6CK"/>
+                        <outlet property="confirmButton" destination="0aa-Iy-k67" id="Bpp-F0-ekd"/>
                         <outlet property="eventDescription" destination="04i-uE-peO" id="cBL-fO-SXk"/>
                         <outlet property="eventPhoto" destination="sHf-bs-N9L" id="Qwn-Ep-JSq"/>
                         <outlet property="eventThumbnail" destination="RJ9-69-Lfh" id="j46-91-V2E"/>
@@ -442,7 +504,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWa-Xw-Wjz">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWa-Xw-Wjz">
                                 <rect key="frame" x="103" y="576" width="169" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -466,6 +528,7 @@
                     <connections>
                         <outlet property="firstName" destination="0E2-rF-JKZ" id="CoU-QY-OPW"/>
                         <outlet property="lastName" destination="QfK-rN-J3K" id="JXp-4K-SsP"/>
+                        <outlet property="loginButton" destination="vWa-Xw-Wjz" id="XTc-Ws-88r"/>
                         <outlet property="profilePic" destination="sgI-UJ-cnY" id="TqK-JC-Z7H"/>
                     </connections>
                 </viewController>
@@ -652,6 +715,7 @@
         <image name="Hinder" width="224" height="196"/>
         <image name="facebook" width="300" height="300"/>
         <image name="group" width="132" height="123"/>
+        <image name="hamburger" width="30" height="30"/>
         <image name="laptop" width="86" height="87"/>
         <image name="placeholder" width="1280" height="960"/>
         <image name="rounded-button" width="196" height="62"/>
@@ -659,6 +723,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="sM0-BL-5fx"/>
         <segue reference="TfO-hI-t6H"/>
-        <segue reference="d6H-TY-Nxx"/>
+        <segue reference="YAp-ji-FeF"/>
+        <segue reference="FMC-TX-DVe"/>
     </inferredMetricsTieBreakers>
 </document>

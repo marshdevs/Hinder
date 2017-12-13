@@ -224,4 +224,42 @@ class UserRequest: Request {
         })
         task.resume()
     }
+    
+    /**
+     Get the userId for a particular email
+     
+     - parameter email: email address from Facebook
+     
+     - returns: The requested userId
+     */
+    func getId(email: String) -> String {
+        var res: String?
+        
+        self.endpoint = "getId?email="
+        self.url = URL(string: super.root + self.endpoint + email)!
+        self.request = URLRequest(url: self.url)
+        let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                self.semaphore.signal()
+                return
+            }
+            guard let data = data else {
+                self.semaphore.signal()
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    res = json["userId"] as! String
+                }
+                self.semaphore.signal()
+            } catch let error {
+                print(error.localizedDescription)
+                self.semaphore.signal()
+            }
+        })
+        task.resume()
+        _ = self.semaphore.wait(timeout: .distantFuture)
+        return res!
+    }
 }

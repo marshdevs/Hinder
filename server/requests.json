@@ -221,3 +221,10 @@
 /* INPUT: Three parameters in the url, eventId, direction {'left' or 'right'}, key {userId&projectId} */
 /* ex: http://localhost:8080/match/<eventId>/left/<userId>&<projectId> */
 /* OUTPUT: Boolean */
+
+/* Email requests */
+
+/* GET: /getId?email=<email> */
+/* INPUT: email address in the query parameter */
+/* ex http://localhost:8080/getId?email=jeff@amazon.com */
+/* OUTPUT: userId */

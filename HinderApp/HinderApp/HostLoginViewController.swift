@@ -16,8 +16,6 @@ class HostLoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        email.delegate = self
-        password.delegate = self
         
         // Do any additional setup after loading the view.
         
