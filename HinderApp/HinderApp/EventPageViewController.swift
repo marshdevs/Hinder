@@ -24,8 +24,8 @@ class EventPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.setHidesBackButton(true, animated: true)
+        self.view.backgroundColor = .white
+        //navigationItem.setHidesBackButton(true, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

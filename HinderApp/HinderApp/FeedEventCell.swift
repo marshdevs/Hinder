@@ -13,7 +13,8 @@ class FeedEventCell: UICollectionViewCell {
     
     static let font = EventFeedFont()
     static let inset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
-
+    var event : Event!
+    
     let label: UILabel = {
         let label = UILabel()
         label.backgroundColor = UIColor.clear
@@ -39,6 +40,10 @@ class FeedEventCell: UICollectionViewCell {
             layout.alignSelf = .center
         }
         contentView.addSubview(label)
+    }
+    
+    func setEvent(event:Event) {
+        self.event = event
     }
     
     required init?(coder aDecoder: NSCoder) {

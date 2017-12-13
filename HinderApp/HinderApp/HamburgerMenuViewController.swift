@@ -14,7 +14,7 @@ class HamburgerMenuViewController: UITableViewController {
         super.viewDidLoad()
         let hamburgerMenu = UIBarButtonItem(image:UIImage(named: "hamburger"), style: .plain, target: self, action: #selector(HamburgerMenuViewController.menuClicked))
         navigationItem.rightBarButtonItem = hamburgerMenu
-        navigationItem.setHidesBackButton(true, animated: true)
+        //navigationItem.setHidesBackButton(true, animated: true)
         
     }
     

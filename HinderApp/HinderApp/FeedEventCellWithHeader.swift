@@ -11,6 +11,7 @@ class FeedEventCellWithHeader: UICollectionViewCell {
     
     static let font = EventFeedFont()
     static let inset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+    var event : Event!
     
     let label: UILabel = {
         let label = UILabel()
@@ -25,6 +26,10 @@ class FeedEventCellWithHeader: UICollectionViewCell {
         label.textColor = UIColor.white
         return label
     }()
+    
+    func setEvent(event:Event) {
+        self.event = event
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -10,10 +10,12 @@ import IGListKit
 class FeedSectionController: ListSectionController {
     
     var event: Event!
+    var delegate: EventClickedDelegate
     
-    init(event: Event) {
-        super.init()
+    init(event: Event, delegate: EventClickedDelegate) {
         self.event = event
+        self.delegate = delegate
+        super.init()
         inset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
     }
 
@@ -39,8 +41,10 @@ class FeedSectionController: ListSectionController {
         
         if let cell = cell as? FeedEventCell {
             cell.label.text =  event.name
+            cell.setEvent(event: event)
         } else if let cell = cell as? FeedEventCellWithHeader {
          cell.label.text = event.name
+            cell.setEvent(event: event)
         }
         return cell
     }
@@ -50,9 +54,8 @@ class FeedSectionController: ListSectionController {
     }
     
     override func didSelectItem(at index: Int) {
-       //self.section is the index of our click, starting at 0
-    // need to populate new view controller, event view, with this info
-        //TODO: have EventPageViewController present with Event we clicked on
+        let newViewController = EventPageViewController()
+        delegate.changeToVC(vc: newViewController)
     }
 }
 

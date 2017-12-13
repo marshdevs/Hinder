@@ -10,11 +10,14 @@ import UIKit
 import IGListKit
 import Foundation
 
+protocol EventClickedDelegate: class {
+    func changeToVC(vc: UIViewController)
+}
 
-class HomeViewController: UIViewController,ListAdapterDataSource {
+class HomeViewController: UIViewController,ListAdapterDataSource, EventClickedDelegate {
     
     var sessionUser: User?
-
+    
     let collectionView: UICollectionView = {
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.backgroundColor = UIColor.white
@@ -69,6 +72,9 @@ class HomeViewController: UIViewController,ListAdapterDataSource {
         // Dispose of any resources that can be recreated.
     }
     
+    func changeToVC(vc: UIViewController) {
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - IGListAdapterDataSource
@@ -107,7 +113,7 @@ extension HomeViewController {
          else if object is TypeOfObject {....
          TODO:
         }*/
-        return FeedSectionController(event: object as! Event); //placeholder to prevent compilation errors rn
+        return FeedSectionController(event: object as! Event, delegate: self); //placeholder to prevent compilation errors rn
     }
     func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
 }
