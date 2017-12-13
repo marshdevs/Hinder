@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HinderApp/EventPageViewController.swift"
-            timestampString = "532301734.044365"
+            timestampString = "534886036.56122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "EventPageViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -534,7 +534,7 @@
                   moduleName = "HinderApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kimsvatos/Desktop/4th_year/Fall/Hinder/HinderApp/HinderApp/EditProfileSectionController.swift"
-                  timestampString = "534880183.277937"
+                  timestampString = "534886037.678363"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "70"
@@ -549,7 +549,7 @@
                   moduleName = "HinderApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kimsvatos/Desktop/4th_year/Fall/Hinder/HinderApp/HinderApp/EditProfileSectionController.swift"
-                  timestampString = "534880183.279131"
+                  timestampString = "534886037.679766"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "70"
@@ -603,6 +603,54 @@
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HinderApp/EventPageViewController.swift"
+            timestampString = "534886036.56122"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "EventPageViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HinderApp/EventPageViewController.swift"
+            timestampString = "534884762.818057"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "EventPageViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HinderApp/EventPageViewController.swift"
+            timestampString = "534886036.56122"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

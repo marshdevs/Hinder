@@ -577,6 +577,44 @@
             </objects>
             <point key="canvasLocation" x="2145" y="852"/>
         </scene>
+        <!--Event Page View Controller-->
+        <scene sceneID="SAn-6Y-Gwf">
+            <objects>
+                <viewController storyboardIdentifier="EventPageViewController" id="ALy-jR-a9T" customClass="EventPageViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A3C-kR-OiV"/>
+                        <viewControllerLayoutGuide type="bottom" id="ljj-xh-mtU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XaH-C9-P89">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cuk-6H-cyD">
+                                <rect key="frame" x="-0.32460732980780449" y="105" width="374.99999999999955" height="66.000000000000114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyG-2T-2vA" userLabel="Description Label">
+                                <rect key="frame" x="47" y="200" width="281" height="154"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="MyG-2T-2vA" id="wMN-tY-q51"/>
+                        <outlet property="titleLabel" destination="Cuk-6H-cyD" id="haz-6r-jTv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hpI-hQ-tXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3138.4000000000001" y="865.81709145427294"/>
+        </scene>
         <!--Hamburger Menu View Controller-->
         <scene sceneID="JVt-Qd-bUc">
             <objects>
@@ -721,9 +759,9 @@
         <image name="rounded-button" width="196" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sM0-BL-5fx"/>
-        <segue reference="TfO-hI-t6H"/>
-        <segue reference="YAp-ji-FeF"/>
         <segue reference="FMC-TX-DVe"/>
+        <segue reference="YAp-ji-FeF"/>
+        <segue reference="2Q0-a5-iaK"/>
+        <segue reference="Hg2-mL-tVP"/>
     </inferredMetricsTieBreakers>
 </document>

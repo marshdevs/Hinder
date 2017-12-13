@@ -11,7 +11,7 @@ import IGListKit
 
 class EventPageViewController: UIViewController {
 
-//    var event: Event;
+    var event: Event!
 //
 //    public func setEvent(myEvent: Event) {
 //        event = myEvent;
@@ -21,10 +21,14 @@ class EventPageViewController: UIViewController {
 //        fatalError("init(coder:) has not been implemented")
 //    }
     @IBOutlet weak var hamburgerMenu: UIBarButtonItem!
+    @IBOutlet weak var titleLabel : UILabel!
+    @IBOutlet weak var descriptionLabel : UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.titleLabel.text = event.name
+        self.descriptionLabel.text = event.description
         //navigationItem.setHidesBackButton(true, animated: true)
     }
 
@@ -36,6 +40,9 @@ class EventPageViewController: UIViewController {
         self.performSegue(withIdentifier: "backToHomeSegue", sender: self)
     }
 
+    func setEvent(event: Event){
+        self.event = event
+    }
     /*
     // MARK: - Navigation
 

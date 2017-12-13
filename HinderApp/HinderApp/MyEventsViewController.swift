@@ -11,6 +11,7 @@ import UIKit
 class MyEventsViewController: UIViewController {
 
     var sessionUser: User?
+    let user = SessionUser.shared()
     
     override func viewDidLoad() {
         super.viewDidLoad()

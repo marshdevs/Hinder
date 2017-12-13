@@ -54,8 +54,9 @@ class FeedSectionController: ListSectionController {
     }
     
     override func didSelectItem(at index: Int) {
-        let newViewController = EventPageViewController()
-        delegate.changeToVC(vc: newViewController)
+        let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "EventPageViewController") as! EventPageViewController
+        vc.setEvent(event: event)
+        delegate.changeToVC(vc: vc)
     }
 }
 
