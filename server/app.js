@@ -578,7 +578,7 @@ app.get('/getId', function(req, res){
                 console.log("Creating emails entry for email...");
                 var userId = generateID();
                 var params = {
-                    TableName: "hinder-emails",
+                    TableName: "hinder-users",
                     Item: {
                         "email": email,
                         "userId": userId
