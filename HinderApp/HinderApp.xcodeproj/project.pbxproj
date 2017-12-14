@@ -27,6 +27,8 @@
 		5ED2FC701FDF473400F20274 /* SwipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC6F1FDF473400F20274 /* SwipeCardView.swift */; };
 		5ED2FC721FDF530200F20274 /* BackgroundKolodaAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC711FDF530200F20274 /* BackgroundKolodaAnimator.swift */; };
 		5ED2FC741FDF533800F20274 /* BackgroundAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */; };
+		68211A401FE30374000C2A45 /* MyProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */; };
+		68211A421FE310C2000C2A45 /* CreateProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68211A411FE310C2000C2A45 /* CreateProjectViewController.swift */; };
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
 		9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */; };
 		BA8074121FE1E9160062E1EB /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8074111FE1E9160062E1EB /* UserViewController.swift */; };
@@ -78,6 +80,8 @@
 		5ED2FC6F1FDF473400F20274 /* SwipeCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardView.swift; sourceTree = "<group>"; };
 		5ED2FC711FDF530200F20274 /* BackgroundKolodaAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundKolodaAnimator.swift; sourceTree = "<group>"; };
 		5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAnimationViewController.swift; sourceTree = "<group>"; };
+		68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProjectsTableViewController.swift; sourceTree = "<group>"; };
+		68211A411FE310C2000C2A45 /* CreateProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProjectViewController.swift; sourceTree = "<group>"; };
 		9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderCreateProfile.swift; sourceTree = "<group>"; };
 		9FC6A0641FBB98E000176134 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		9FC6A0651FBB98E000176134 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -216,6 +220,7 @@
 		C555F6BA1FB0EA51009106E8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				68211A411FE310C2000C2A45 /* CreateProjectViewController.swift */,
 				BA8074111FE1E9160062E1EB /* UserViewController.swift */,
 				310F3F251FDE6DDF009FF85C /* CreateEventPage */,
 				BA907B791FDCB152005BD3E8 /* HamburgerMenuViewController.swift */,
@@ -231,6 +236,7 @@
 				310F3F201FDE3DAF009FF85C /* ViewProfileViewController.swift */,
 				5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */,
 				5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */,
+				68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -453,6 +459,7 @@
 				5ED2FC701FDF473400F20274 /* SwipeCardView.swift in Sources */,
 				9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */,
 				C555F6C21FB43293009106E8 /* User.swift in Sources */,
+				68211A421FE310C2000C2A45 /* CreateProjectViewController.swift in Sources */,
 				C557317E1FBE6D1900EBCF96 /* SkillSetEditCell.swift in Sources */,
 				5ED2FC6E1FDF433A00F20274 /* MyKolodaViewController.swift in Sources */,
 				C555F6C61FB647AF009106E8 /* FeedEventCell.swift in Sources */,
@@ -467,6 +474,7 @@
 				5ED2FC741FDF533800F20274 /* BackgroundAnimationViewController.swift in Sources */,
 				313D31BA1FE11E8B0036CC0B /* ImageAction.swift in Sources */,
 				BA907B821FDDE85E005BD3E8 /* MyEventsViewController.swift in Sources */,
+				68211A401FE30374000C2A45 /* MyProjectsTableViewController.swift in Sources */,
 				31FEEA441FDDF40C007C4532 /* UserTypeViewController.swift in Sources */,
 				3129515C1FE21C95004109FF /* SessionHost.swift in Sources */,
 			);
