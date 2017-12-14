@@ -60,7 +60,7 @@ class HostLoginViewController: UIViewController, UITextFieldDelegate {
         print("Host register")
         let eventRequest = EventRequest()
         if (isValidEmail(testStr: self.email.text!)) {
-            if ((self.password.text?.count)! >= 8) {
+            if ((self.password.text?.characters.count)! >= 8) {
                 let host = eventRequest.authenticateHost(email: self.email.text!, password: self.password.text!)
                 if (host["authenticated"] as! Bool == true) {
                     SessionHost.setupSharedInstance(host: ["email": self.email.text!, "events": host["events"]])
