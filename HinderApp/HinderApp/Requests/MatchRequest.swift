@@ -9,7 +9,7 @@
 import Foundation
 
 /**
- Handle Match requests to backend.
+ Handle Match requests (between users and projects) to backend.
  */
 class MatchRequest: Request {
     
@@ -27,7 +27,7 @@ class MatchRequest: Request {
      represented by a pair matching IDs and returns
      the result.
      
-     - parameters:
+     Parameters:
      - approve: swipe direction
      - key: The corresponding ID
      - eventId: The ID to identify the swiper

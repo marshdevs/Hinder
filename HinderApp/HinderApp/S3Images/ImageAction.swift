@@ -9,8 +9,17 @@
 import AWSS3
 import AWSCognito
 
+/**
+ Methods to access and manage images stored in AWS S3.
+ */
 class ImageAction {
     
+    /**
+     Setup Amazon credentials for subsequent image access.
+     
+     - important: Correct Amazon credentials must be provided at initialization
+     - returns: `void` on success
+    */
     init() {
         //intialize Amazon cognito credentials
         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USWest2, identityPoolId: "us-west-2:9943a2f4-758f-40ff-b5c5-9d8ad1b8d5dc")
@@ -31,6 +40,12 @@ class ImageAction {
         })
     }
     
+    /**
+     Retrieve a stored image.
+     
+     - parameter filename: URL string of requested image
+     - returns: `UIImage` view for the requested image
+    */
     func downloadFromS3(filename : String) -> UIImage {
         
         let transferManager = AWSS3TransferManager.default()
@@ -71,6 +86,14 @@ class ImageAction {
         
     }
     
+    /**
+     Upload an image to AWS.
+     
+     - parameter image: `UIImage` view for the image we want to store
+     - parameter filename: Desired file name for stored image
+     
+     - returns: `void` on success. Indicates error if uploading fails.
+    */
     func uploadToS3(image : UIImage, filename: String) {
         
         let transferManager = AWSS3TransferManager.default()

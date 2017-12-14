@@ -9,7 +9,7 @@
 import Foundation
 
 /**
- Handle requests to backend.
+ Handle requests (e.g, EventRequest, ProjectRequest, UserRequest, MatchRequest) to backend.
  */
 class Request {
     var url: URL
@@ -20,6 +20,11 @@ class Request {
     let session: URLSession
     let semaphore: DispatchSemaphore
     
+    /**
+    Initialze the URL request to backend.
+    
+    - returns: Void.
+    */
     init() {
         self.endpoint = ""
         self.url = URL(string: root + endpoint)!
@@ -28,6 +33,9 @@ class Request {
         self.semaphore = DispatchSemaphore(value: 0)
     }
     
+    /**
+     Gives an `Error` in the event that a request fails.
+    */
     enum RequestResult {
         case success([Any]), failure(Error)
     }
