@@ -20,9 +20,9 @@ class ProjectRequest: Request {
     }
 
     /**
-     Create a Project
+     Send a request to create a new `Project`.
      
-     - parameter project: Project object
+     - parameter project: `Project` object to be created in backend
      
      - returns: void, async
      */
@@ -64,11 +64,11 @@ class ProjectRequest: Request {
     }
     
     /**
-     Get a single Project
+     Retrieve an existing `Project`
      
      - parameter projectId: Project identifier
      
-     - returns: The requested Project object
+     - returns: If found, the requested `Project` object with identifier `projectId`. Otherwise, void.
      */
     func getProject(projectId: String) -> Project {
         var res = Project(json: self.emptyProjectHandler)
@@ -106,15 +106,15 @@ class ProjectRequest: Request {
     }
     
     /**
-     Get Projects request.
+     Get projects request.
      
      This function is called any time to
-     lookup a list of Projects in the server database
+     lookup a list of projects in the server database
      given a list of string indentifiers.
      
      - parameter projectIds: List of projectIds to return information for
      
-     - returns: A instance of resArray containing the Projects
+     - returns: A instance of resArray containing the projects
      */
     func batchGetProjects(projectIds: [String]) -> [Project] {
         var resArray = [Project]()
@@ -156,9 +156,9 @@ class ProjectRequest: Request {
     }
     
     /**
-     Update a Project
+     Update fields of an existing `Project`
      
-     - parameter project: The updated Project object
+     - parameter project: The `Project` object to be updated
      
      - returns: void, async
      */
@@ -194,9 +194,9 @@ class ProjectRequest: Request {
     }
     
     /**
-     Delete a Project
+     Delete a `Project`
      
-     - parameter projectId: Project identifier
+     - parameter projectId: `Project` identifier
      
      - returns: void, async
      */

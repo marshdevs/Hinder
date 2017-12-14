@@ -18,9 +18,9 @@ class UserRequest: Request {
     }
     
     /**
-     Create a User
+     Send request to create a new `User` object
      
-     - parameter user: User object
+     - parameter user: `User` object to be created in backend
      
      - returns: void, async
      */
@@ -62,11 +62,11 @@ class UserRequest: Request {
     }
     
     /**
-     Get a single User
+     Retrieve an existing `User`
      
      - parameter userId: User identifier
      
-     - returns: The requested User object
+     - returns: If found, the requested `User` object with identifier `userId`. Otherwise, void.
      */
     func getUser(userId: String) -> User {
         var res = User(json: User.emptyUserHandler)
@@ -100,15 +100,15 @@ class UserRequest: Request {
     }
     
     /**
-     Batched get Users request.
+     Batched get users request.
      
      This function is called any time to
-     lookup a list of Users in the server database
+     lookup a list of users in the server database
      by a list of string indentifiers.
      
      - parameter userIds: List of String userIds
      
-     - returns: A instance of resArray containing the Users
+     - returns: A instance of resArray containing the users
      */
     func batchGetUsers(userIds: [String]) -> [User] {
         var resArray = [User]()
@@ -150,9 +150,9 @@ class UserRequest: Request {
     }
     
     /**
-     Update a User
+     Update fields of an existing `User`
      
-     - parameter user: The updated User object
+     - parameter user: The `User` object to be updated
      
      - returns: void, async
      */
@@ -188,9 +188,9 @@ class UserRequest: Request {
     }
     
     /**
-     Delete a User
+     Delete a `User`
      
-     - parameter userId: User identifier
+     - parameter userId: `User` identifier
      
      - returns: void, async
      */
@@ -226,11 +226,11 @@ class UserRequest: Request {
     }
     
     /**
-     Get the userId for a particular email
+     Get the `userId` for a particular email
      
      - parameter email: email address from Facebook
      
-     - returns: The requested userId
+     - returns: The requested `userId`
      */
     func getId(email: String) -> String {
         var res: String?

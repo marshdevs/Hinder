@@ -34,10 +34,17 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
+        
         var newEventModel = ["eventId": "none", "eventName": eventName, "eventDate": eventDate.toString(dateFormat: "yyyy-MM-dd HH:mm"), "eventLocation": eventLocation, "eventDescription": eventDescription.text, "eventPhoto": "photoURLStillToDo", "eventThumbnail": "photoURLStillToDo", "eventProjects": [], "eventUsers": []] as Dictionary<String, Any>
+        
         let eventRequest = EventRequest()
         let eventId = eventRequest.createEvent(event: Event(json: newEventModel))
+        
         print(eventId)
+        var hostEvents = SessionHost.shared().events
+        hostEvents.append(eventId)
+        eventRequest.updateHost(email: SessionHost.shared().email, events: hostEvents)
+        
         
         let imageAction = ImageAction()
         imageAction.uploadToS3(image: eventPhotoFromPrev, filename: eventId + "Photo")

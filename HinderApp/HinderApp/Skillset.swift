@@ -9,6 +9,18 @@
 import UIKit
 import IGListKit
 
+/**
+ Stores information about the various languages, technologies that a User is proficient in.
+ Maps language names (e.g., `cpp`) to a boolean indicate whether the user knows (true) the language or not (false).
+ * `cpp` (Bool)
+ * `c` (Bool)
+ * `objc` (Bool)
+ * `swift` (Bool)
+ * `python` (Bool)
+ * `java` (Bool)
+ * `javascript` (Bool)
+ * `html` (Bool)
+ */
 class Skillset: NSObject, ListDiffable {
     let numSkills = 8
     var skillNames: [String]
@@ -49,6 +61,23 @@ class Skillset: NSObject, ListDiffable {
 //        super.init()
 //    }
     
+    /**
+     Create a Skillset object.
+     
+     - parameter json: Dictionary that indicates whether certain languages are known (or not) by the User.
+     
+     - important: Input parameter 'json' must be formatted with the following key-value entries:
+     * "C++": Bool
+     * "C": Bool
+     * "Obj-C": Bool
+     * "Swift": Bool
+     * "Python": Bool
+     * "Java": Bool
+     * "Javascript": Bool
+     * "Html": Bool
+     
+     - returns: Void. On success, correctly initializes all fields for the Skillset object
+    */
     init(json: Dictionary<String, Bool>) {
         //TODO
         
@@ -94,7 +123,22 @@ class Skillset: NSObject, ListDiffable {
     public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         return isEqual(object)
     }
-    
+
+    /**
+     Composes Skillset information in format Dictionary<String, Any>
+     
+     - important: Return value will be formatted with the following key-value entries.
+     * "C++": Bool
+     * "C": Bool
+     * "Obj-C": Bool
+     * "Swift": Bool
+     * "Python": Bool
+     * "Java": Bool
+     * "Javascript": Bool
+     * "Html": Bool
+     
+     - returns: A Dictionary<String, Any> that indicates the languages known (and the languages not known) by the User.
+     */
     public func toDict() -> Dictionary<String, Any> {
         var resDict = Dictionary<String, Any>()
         

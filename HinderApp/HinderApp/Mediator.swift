@@ -9,7 +9,7 @@
 import Foundation
 
 /**
- The app matchmaker.
+ The app matchmaker. Helps users match to projects, and projects find more group members.
  */
 class Mediator: NSObject {
     

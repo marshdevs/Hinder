@@ -20,9 +20,9 @@ class EventRequest: Request {
     }
     
     /**
-     Create an Event
+     Send a request to create a new `Event`.
      
-     - parameter event: Event object
+     - parameter event: Event object to be created in backend.
      
      - returns: void, async
      */
@@ -64,11 +64,11 @@ class EventRequest: Request {
     }
     
     /**
-     Get a single Event
+     Retrieve an existing Event.
      
      - parameter eventId: Event identifier
 
-     - returns: The requested event object
+     - returns: If found, the requested `Event` object with identifier `eventId`. Otherwise, void.
      */
     func getEvent(eventId: String) -> Event {
         var res = Event(json: self.emptyEventHandler)
@@ -106,16 +106,16 @@ class EventRequest: Request {
     
     //Get/Query events request: Synchronous version (maybe switch to Async later)
     /**
-     Query all Events to populate CollectionView.
+     Query all existing events to populate a CollectionView.
      
-     This function is called int the
+     This function is called in the
      HomeViewController to lookup all
-     relevant Events and populate the
-     HomeView with all Events.
+     relevant events and populate the
+     HomeView with all events.
      
      - parameter params: Event identifier
      
-     - returns: A instance of resArray containing the User
+     - returns: A instance of resArray containing the list of events
      */
     func queryEvents(params: String) -> [Event] {
         var resArray = [Event]()
@@ -152,15 +152,15 @@ class EventRequest: Request {
     }
     
     /**
-     Batch get Events request.
+     Batch get events request.
      
      This function is called any time to
-     lookup a list of Events in the server database
+     lookup a list of events in the server database
      given a list of string indentifiers.
      
-     - parameter eventIds: List of eventIds to return information for
+     - parameter eventIds: List of event identifiers (`eventId`) to return information for
      
-     - returns: A instance of resArray containing the Events
+     - returns: A instance of resArray containing the events retrieved
      */
     func batchGetEvents(eventIds: [String]) -> [Event] {
         var resArray = [Event]()
@@ -203,9 +203,9 @@ class EventRequest: Request {
     }
     
     /**
-     Update fields of an Event
+     Update fields of an existing `Event`
      
-     - parameter event: Updated event object
+     - parameter event: The `Event` object to be updated
      
      - returns: void, async
      */
@@ -241,9 +241,9 @@ class EventRequest: Request {
     }
     
     /**
-     Delete an event
+     Delete an `Event`
      
-     - parameter eventId: Event identifier
+     - parameter eventId: `Event` identifier
      
      - returns: void, async
      */
@@ -277,4 +277,129 @@ class EventRequest: Request {
         })
         task.resume()
     }
+    
+    /**
+     Authenticate host email and password, or create a new entry
+     
+     - parameter email: Host email address
+     - parameter password: Host provided password
+     
+     - returns: JSON object
+     */
+    func authenticateHost(email: String, password: String) -> Dictionary<String, Any> {
+        var res: Dictionary<String, Any>?
+        
+        let requestData: [String: Any] = ["email": email, "password": password]
+        let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
+        
+        self.endpoint = "authenticateHost/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
+        self.request.httpMethod = "POST"
+        self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                self.semaphore.signal()
+                return
+            }
+            guard let data = data else {
+                self.semaphore.signal()
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    print(json)
+                    res = json
+                }
+                self.semaphore.signal()
+            } catch let error {
+                print(error.localizedDescription)
+                self.semaphore.signal()
+            }
+        })
+        task.resume()
+        _ = self.semaphore.wait(timeout: .distantFuture)
+        return res!
+    }
+    
+    /**
+     Get host events
+     
+     - parameter email: Host email address
+     
+     - returns: JSON object
+     */
+    func getHostEvents(email: String) -> Dictionary<String, Any> {
+        var res: Dictionary<String, Any>?
+        
+        self.endpoint = "getHostEvents?email=" + email
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
+        let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                self.semaphore.signal()
+                return
+            }
+            guard let data = data else {
+                self.semaphore.signal()
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    print(json)
+                    res = json
+                }
+                self.semaphore.signal()
+            } catch let error {
+                print(error.localizedDescription)
+                self.semaphore.signal()
+            }
+        })
+        task.resume()
+        _ = self.semaphore.wait(timeout: .distantFuture)
+        return res!
+    }
+    
+    /**
+     Update the host's event list
+     
+     - parameter email: host email
+     - parameter events: Updated event list [String]
+     
+     - returns: void, async
+     */
+    func updateHost(email: String, events: [String]) {
+        let requestData: [String: Any] = ["email": email, "events": events]
+        let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
+        
+        self.endpoint = "updateHost/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
+        self.request.httpMethod = "PUT"
+        self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            guard let data = data else {
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
+                    for item in json {
+                        dump(item)
+                    }
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        })
+        task.resume()
+    }
 }
+
