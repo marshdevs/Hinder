@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>User Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/User" class="dashAnchor"></a>
+    <a title="User Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p>Hinder App</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        User Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+
+              <li class="nav-group-task">
+                <a href="Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="EventRequest.html">EventRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="ImageAction.html">ImageAction</a>
+              <li class="nav-group-task">
+                <a href="MatchRequest.html">MatchRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Mediator.html">Mediator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Project.html">Project</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="ProjectRequest.html">ProjectRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="SessionUser.html">SessionUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Skillset.html">Skillset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="UserRequest.html">UserRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp12CommonInsetsVSC12UIEdgeInsets">CommonInsets</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp14FeedCellHeightV12CoreGraphics7CGFloat">FeedCellHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp16ProfilePicHeightV12CoreGraphics7CGFloat">ProfilePicHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp12ToggleHeightV12CoreGraphics7CGFloat">ToggleHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp40backgroundCardHorizontalMarginMultiplierV12CoreGraphics7CGFloat">backgroundCardHorizontalMarginMultiplier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp26backgroundCardScalePercentV12CoreGraphics7CGFloat">backgroundCardScalePercent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp18defaultHeightRatioV12CoreGraphics7CGFloat">defaultHeightRatio</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp23defaultHorizontalOffsetV12CoreGraphics7CGFloat">defaultHorizontalOffset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp16defaultTopOffsetV12CoreGraphics7CGFloat">defaultTopOffset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp6imagesGSaSS_">images</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp13EventFeedFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">EventFeedFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp15EventHeaderFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">EventHeaderFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp12SkillSetFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">SkillSetFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp9TitleFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">TitleFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp10hinderBlueFT_CSo7UIColor">hinderBlue()</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>User</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">ListDiffable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Store information for a user, such as their name, skillset, events they are attending, etc.</p>
+
+<ul>
+<li><code>userId</code> (String): User ID</li>
+<li><code>name</code> (String): User&rsquo;s full name</li>
+<li><code>occupation</code> (String): User&rsquo;s occupation (e.g., student, software engineer, etc.)</li>
+<li><code>photo</code> (String): Photo of the user</li>
+<li><code>events</code> ([String]): List of events (event IDs) the user is attending</li>
+<li><code>projects</code> ([String]): List of projects (project IDs) the user is contributing to</li>
+<li><code>skillSet</code> (Skillset): The user&rsquo;s skillset</li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZvC9HinderApp4User16emptyUserHandlerGVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Variable/emptyUserHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvC9HinderApp4User16emptyUserHandlerGVs10DictionarySSP__">emptyUserHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handles an empty (non-existent) <code>User</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">emptyUserHandler</span> <span class="o">=</span> <span class="p">[</span><span class="s">"userId"</span><span class="p">:</span> <span class="s">"empty"</span><span class="p">,</span> <span class="s">"userName"</span><span class="p">:</span> <span class="s">"empty"</span><span class="p">,</span> <span class="s">"userOccupation"</span><span class="p">:</span> <span class="s">"empty"</span><span class="p">,</span> <span class="s">"userEvents"</span><span class="p">:</span> <span class="p">[],</span> <span class="s">"userPhoto"</span><span class="p">:</span> <span class="s">"empty"</span><span class="p">,</span> <span class="s">"userProjects"</span><span class="p">:</span> <span class="p">[],</span> <span class="s">"userSkillset"</span><span class="p">:</span> <span class="p">[</span><span class="s">"C++"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s">"C"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s">"Obj-C"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s">"Swift"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s">"Python"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s">"Java"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s">"Javascript"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s">"Html"</span><span class="p">:</span> <span class="kc">false</span><span class="p">]</span> <span class="k">as</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Any</span><span class="o">&gt;</span><span class="p">]</span> <span class="k">as</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp4User6userIdSS"></a>
+                    <a name="//apple_ref/swift/Property/userId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp4User6userIdSS">userId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>User identifier</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp4User4nameSS"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp4User4nameSS">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>User's full name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp4User10occupationSS"></a>
+                    <a name="//apple_ref/swift/Property/occupation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp4User10occupationSS">occupation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>User's occupation (e.g., student, software engineer, etc.)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">occupation</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp4User5photoSS"></a>
+                    <a name="//apple_ref/swift/Property/photo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp4User5photoSS">photo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Photo of the user</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">photo</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp4User6eventsGSaSS_"></a>
+                    <a name="//apple_ref/swift/Property/events" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp4User6eventsGSaSS_">events</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of events (event IDs) the user is attending</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">events</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp4User8projectsGSaSS_"></a>
+                    <a name="//apple_ref/swift/Property/projects" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp4User8projectsGSaSS_">projects</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of projects (project IDs) the user is contributing to</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">projects</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp4User8skillsetCS_8Skillset"></a>
+                    <a name="//apple_ref/swift/Property/skillset" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp4User8skillsetCS_8Skillset">skillset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The user's skillset</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">skillset</span><span class="p">:</span> <span class="kt"><a href="../Classes/Skillset.html">Skillset</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp4UsercFT4jsonGVs10DictionarySSP___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(json:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp4UsercFT4jsonGVs10DictionarySSP___S0_">init(json:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a User object based on the data returned by a UserRequest method.</p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    <p>Input parameter &lsquo;json&rsquo; must be formatted with the following key-value entries:</p>
+
+</div>
+<li><p><q>userId</q>: String</p></li>
+<li><p><q>userName</q>: String</p></li>
+<li><p><q>userOccupation</q>: String</p></li>
+<li><p><q>userPhoto</q>: String (URL)</p></li>
+<li><p><q>userEvents</q>: [String]</p></li>
+<li><p><q>userProjects</q>: [String]</p></li>
+<li><p><q>userSkillset</q>: Dictionary<String, Bool></p></li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Any</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>json</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Dictionary that maps User field names to their respective values.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Void. On success, correctly initializes all fields for the Project object</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp4User14diffIdentifierFT_PSo16NSObjectProtocol_"></a>
+                    <a name="//apple_ref/swift/Method/diffIdentifier()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp4User14diffIdentifierFT_PSo16NSObjectProtocol_">diffIdentifier()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">diffIdentifier</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp4User7isEqualERR"></a>
+                    <a name="//apple_ref/swift/Method/isEqual(toDiffableObject:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp4User7isEqualERR">isEqual(toDiffableObject:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isEqual</span><span class="p">(</span><span class="n">toDiffableObject</span> <span class="nv">object</span><span class="p">:</span> <span class="kt">ListDiffable</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp4User10photoToImgFT_CSo7UIImage"></a>
+                    <a name="//apple_ref/swift/Method/photoToImg()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp4User10photoToImgFT_CSo7UIImage">photoToImg()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a view of type <code>UIImage</code> from the URL stored by member field <code><a href="../Classes/User.html#/s:vC9HinderApp4User5photoSS">User.photo</a></code></p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    <p>URL value stored in <code><a href="../Classes/User.html#/s:vC9HinderApp4User5photoSS">User.photo</a></code> must be valid</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">photoToImg</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIImage</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>On success, returns a <code>UIImage</code> for the given URL.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp4User6toDictFT_GVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Method/toDict()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp4User6toDictFT_GVs10DictionarySSP__">toDict()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Composes User information in format Dictionary<String, Any></p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    Return value will be formatted with the following key-value entries.
+
+</div>
+<li><q>userId</q>: String</li>
+<li><q>name</q>: String</li>
+<li><q>occupation</q>: String</li>
+<li><q>events</q>: <a href="an%20array%20of%20event%20IDs">String</a></li>
+<li><q>projects</q>: <a href="an%20array%20of%20project%20IDs">String</a></li>
+<li><q>photo</q>: String (URL)</li>
+<li><p><q>skillset</q>: Dictionary<String, Any></p></li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">toDict</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Any</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A Dictionary<String, Any> that maps the User field names to their respective values.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
