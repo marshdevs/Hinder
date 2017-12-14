@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var AWS = require('aws-sdk');
 var Hashids = require('hashids');
+var bcrypt = require('bcrypt-nodejs');
 
 var app = express();
 app.use(bodyParser.json());
@@ -556,11 +557,11 @@ app.put('/match/:event/:direction/:key', function(req, res){
 
 // Returns existing userId if email is in DB, if not, creates new email/userId pair and returns Id
 app.get('/getId', function(req, res){
-    console.log("PUT: Received an email request...");
+    console.log("GET: Received an email request...");
 
     var email = req.query.email;
     var params = {
-        TableName: "hinder-emails",
+        TableName: "hinder-hackers",
         Key: {
             "email": email
         }
@@ -569,11 +570,11 @@ app.get('/getId', function(req, res){
         if (err) {
             console.log(err);
             console.log("PUT: Error returning userId for email: " + email);
-            res.status(503).send({status: "Error", description: "Could not return matches for eventId. Probably does not exist yet.", field: "email", value: email});
+            res.status(503).send({status: "Error", description: "Could not return matches for email. Probably does not exist yet.", field: "email", value: email});
         } else {
             console.log(data.Item);
             if (data.Item == undefined) {
-                console.log("PUT: Error getting userId for email: " + email);
+                console.log("GET: Error getting userId for email: " + email);
                 console.log("Creating emails entry for email...");
                 var userId = generateID();
                 var params = {
@@ -586,7 +587,7 @@ app.get('/getId', function(req, res){
                 dynamoDB.put(params, function(err, data){
                     if (err) {
                         console.log(err);
-                        console.log("PUT: Error creating entry for email: " + email);
+                        console.log("GET: Error creating entry for email: " + email);
                         res.status(503).send({status: "Error", description: "Could create new entry for email.", field: "email", value: email});
                     } else {
                         console.log("Successfully created entry for email: " + email);
@@ -594,9 +595,119 @@ app.get('/getId', function(req, res){
                     }
                 });
             } else {
-                console.log("PUT: Found userId for email: " + email);
+                console.log("GET: Found userId for email: " + email);
                 res.status(200).send(data.Item);
             }
+        }
+    });
+});
+
+// Signs in hosts with email and password
+app.post('/authenticateHost', function(req, res){
+    console.log("POST: Received a host authentication request...");
+
+    var email = req.body.email
+    var password = req.body.password
+    var events = []
+    var params = {
+        TableName: "hinder-hosts",
+        Key: {
+            "email": email
+        }
+    };
+    dynamoDB.get(params, function(err, data){
+        if (err) {
+            console.log(err);
+            console.log("PUT: Error returning userId for email: " + email);
+            res.status(503).send({status: "Error", description: "Invalid Key.", field: "email", value: email});
+        } else {
+            console.log(data.Item);
+            if (data.Item == undefined) {
+                console.log("GET: Error getting password for email: " + email);
+                console.log("Creating emails entry for email...");
+                var encryptedPassword = bcrypt.hashSync(password);
+                var params = {
+                    TableName: "hinder-hosts",
+                    Item: {
+                        "email": email,
+                        "password": encryptedPassword,
+                        "events": events
+                    }
+                };
+                dynamoDB.put(params, function(err, data){
+                    if (err) {
+                        console.log(err);
+                        console.log("POST: Error creating entry for host email: " + email);
+                        res.status(503).send({status: "Error", description: "Could create new entry for host email.", field: "email", value: email});
+                    } else {
+                        console.log("Successfully created entry for host email: " + email);
+                        res.status(200).send({email: email, status: "Host authenticated,", authenticated: true, events: events});
+                    }
+                });
+            } else {
+                console.log("POST: Found host login details for email: " + email);
+                if (bcrypt.compareSync(password, data.Item.password)) {
+                    console.log("Successfully authenticated host email: " + email);
+                    res.status(200).send({email: email, description: "Host authenticated,", authenticated: true, events: data.Item.events});
+                } else {
+                    console.log("POST: Error authenticating host email: " + email + ". Incorrect password.");
+                    res.status(503).send({status: "Error", description: "Password does not match host email.", authenticated: false});
+                }
+            }
+        }
+    });
+});
+
+// Update host events
+
+app.put('/updateHost', function(req, res){
+    console.log("PUT: Received an updateHost request...");
+
+    var email = req.body.email;
+    var params = {
+        TableName: "hinder-hosts",
+        Key: {
+            "email": email
+        },
+        UpdateExpression: "set events = :e",
+        ExpressionAttributeValues: {
+            ":e": req.body.events
+        },
+        ReturnValues: "UPDATED_NEW"
+    };
+    dynamoDB.update(params, function(err, data){
+        if (err) {
+            console.log(err);
+            console.log("PUT: Error updating host: " + email);
+            res.status(404).send({status: "Error", description: "Failed to update host.", field: "email", value: email});
+        } else {
+            console.log("PUT: Successfully updated host: " + email);
+            res.status(200).send({status: "Success", email: email, description: "Successfully updated host."});
+        }
+    });
+});
+
+// Get host events
+
+app.get('/getHostEvents', function(req, res){
+    console.log("POST: Received a host authentication request...");
+
+    var email = req.query.email
+    var events = []
+    var params = {
+        TableName: "hinder-hosts",
+        Key: {
+            "email": email
+        }
+    };
+    dynamoDB.get(params, function(err, data){
+        if (err) {
+            console.log(err);
+            console.log("PUT: Error returning events for email: " + email);
+            res.status(503).send({status: "Error", description: "Invalid Key.", field: "email", value: email});
+        } else {
+            console.log("POST: Found events for email: " + email);
+            res.status(200).send({email: email, description: "Host events found.,", authenticated: true, events: data.Item.events});
         }
     });
 });

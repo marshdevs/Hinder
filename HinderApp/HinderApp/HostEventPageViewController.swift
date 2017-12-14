@@ -20,6 +20,7 @@ class HostEventPageViewController: UIViewController {
     //    }
     
     @IBOutlet weak var hamburgerMenu: UIBarButtonItem!
+    @IBOutlet weak var createEventButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,16 @@ class HostEventPageViewController: UIViewController {
     @IBAction func menuClicked(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "backToHomeSegue", sender: self)
     }
+    
+    @IBAction func createEventClicked(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "createNewEventSegue", sender: self)
+    }
+    
+//    override func didSelectItem(at index: Int) {
+//        let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "EventPageViewController") as! EventPageViewController
+//        vc.setEvent(event: event)
+//        delegate.changeToVC(vc: vc)
+//    }
     
     /*
      // MARK: - Navigation

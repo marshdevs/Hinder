@@ -82,7 +82,7 @@ class Project: NSObject, ListDiffable {
      - returns: A Dictionary<String, Any> that maps the Project field names to their respective values.
      */
     public func toDict() -> Dictionary<String, Any> {
-        let resDict = ["name": self.name, "eventId": self.eventId, "description": self.desc, "size": self.size, "photo": self.photo, "skillset": self.skillset, "users": self.users] as! Dictionary<String, Any>
+        let resDict = ["name": self.name, "eventId": self.eventId, "description": self.desc, "size": self.size, "photo": self.photo, "skillset": self.skillset.toDict(), "users": self.users] as! Dictionary<String, Any>
         return resDict
     }
     
