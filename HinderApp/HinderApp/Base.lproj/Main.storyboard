@@ -79,7 +79,7 @@
         <scene sceneID="no2-V9-ONc">
             <objects>
                 <tableViewController id="4fH-Ct-1vr" customClass="HostEventTableViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Tuc-3d-F1Q">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Tuc-3d-F1Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -597,8 +597,8 @@
                         <segue destination="siA-bE-SIP" kind="show" id="LlD-aT-yTP"/>
                         <segue destination="bQV-sp-h6v" kind="relationship" relationship="rootViewController" id="bPE-Zp-8Ds"/>
                         <segue destination="haD-zw-LcH" kind="show" id="TfO-hI-t6H"/>
-                        <segue destination="Huu-Y3-PQu" kind="show" id="sM0-BL-5fx"/>
                         <segue destination="lxO-2g-R1e" kind="show" id="euz-w4-owM"/>
+                        <segue destination="KXs-AU-2Bq" kind="show" id="gqZ-G9-Uww"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swd-3j-Rvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -725,7 +725,7 @@
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
                                         <connections>
-                                            <segue destination="Huu-Y3-PQu" kind="show" id="Hg2-mL-tVP"/>
+                                            <segue destination="KXs-AU-2Bq" kind="show" id="Qb7-kz-A9h"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -758,7 +758,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKs-nT-iTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2170" y="1675"/>
+            <point key="canvasLocation" x="2303" y="1620"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="Pju-VC-GNR">
@@ -904,26 +904,39 @@
             </objects>
             <point key="canvasLocation" x="3096.8000000000002" y="1680.8095952023989"/>
         </scene>
-        <!--My Groups View Controller-->
-        <scene sceneID="FA2-w1-JpI">
+        <!--My Projects Table View Controller-->
+        <scene sceneID="CEm-la-yKv">
             <objects>
-                <viewController id="Huu-Y3-PQu" customClass="MyGroupsViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dZK-uP-N1L"/>
-                        <viewControllerLayoutGuide type="bottom" id="LdV-1K-8na"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fp5-BZ-XZX">
+                <tableViewController id="KXs-AU-2Bq" customClass="MyProjectsTableViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Yjr-IH-lT5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="My Projects" id="LfV-H0-O4Q">
+                                <cells/>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="KXs-AU-2Bq" id="2uw-Iy-vVY"/>
+                            <outlet property="delegate" destination="KXs-AU-2Bq" id="IW7-UD-Sbj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZZ8-9Z-MlS">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="0M5-Ou-edc">
+                            <connections>
+                                <action selector="createProjectClicked:" destination="KXs-AU-2Bq" id="rcE-W3-vEa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="F5S-QK-iNS" kind="show" identifier="createNew" id="Bb3-UI-0bN"/>
+                        <outlet property="createNew" destination="0M5-Ou-edc" id="cI1-Hh-Rlk"/>
+                        <segue destination="F5S-QK-iNS" kind="show" identifier="createNewProject" id="KAu-Ao-0fV"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4X6-Ti-mPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U3F-oo-H8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="2438"/>
+            <point key="canvasLocation" x="1465" y="2436"/>
         </scene>
         <!--Create Project View Controller-->
         <scene sceneID="aaM-JK-r4C">
@@ -1125,9 +1138,5 @@
         <image name="rounded-button" width="196" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sM0-BL-5fx"/>
-        <segue reference="TfO-hI-t6H"/>
-        <segue reference="YAp-ji-FeF"/>
-        <segue reference="0D1-7g-DlI"/>
     </inferredMetricsTieBreakers>
 </document>
