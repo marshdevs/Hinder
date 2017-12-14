@@ -75,20 +75,59 @@
             </objects>
             <point key="canvasLocation" x="-1746" y="640"/>
         </scene>
-        <!--Host Event Page View Controller-->
-        <scene sceneID="PMv-yN-dnY">
+        <!--Host Event Table View Controller-->
+        <scene sceneID="no2-V9-ONc">
             <objects>
-                <viewController id="xxI-N1-0XS" customClass="HostEventPageViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4fH-Ct-1vr" customClass="HostEventTableViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Tuc-3d-F1Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="4fH-Ct-1vr" id="sJE-kf-1uN"/>
+                            <outlet property="delegate" destination="4fH-Ct-1vr" id="hWv-JP-VQd"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="35x-FL-mlZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="wJJ-5W-ppp" userLabel="Create Event Button">
+                            <connections>
+                                <action selector="createEventClicked:" destination="4fH-Ct-1vr" id="rUj-gc-6io"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="hamburger" width="50" id="O2k-Js-IxM" userLabel="Hamburger Menu">
+                            <connections>
+                                <action selector="menuClicked:" destination="4fH-Ct-1vr" id="L76-gN-mvE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="createEventButton" destination="wJJ-5W-ppp" id="4bN-2p-0sm"/>
+                        <outlet property="hamburgerMenu" destination="O2k-Js-IxM" id="YAU-yX-lMA"/>
+                        <segue destination="vXN-qA-QQl" kind="show" identifier="backToHomeSegue" id="2jo-Ap-sZp"/>
+                        <segue destination="ZOT-0F-Cwv" kind="show" identifier="createNewEventSegue" id="VHc-LI-tT1"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7c9-a4-Whh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1746" y="2236"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VJg-3t-kWg">
+            <objects>
+                <viewController id="cBb-Kj-VhQ" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="O22-gx-NzM"/>
-                        <viewControllerLayoutGuide type="bottom" id="EGP-Lc-kdZ"/>
+                        <viewControllerLayoutGuide type="top" id="Oiv-iC-dWM"/>
+                        <viewControllerLayoutGuide type="bottom" id="ij3-hF-YqT"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qGo-Td-0Sw">
+                    <view key="view" contentMode="scaleToFill" id="PTe-d8-Fhm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View Event Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ia-dg-Syz">
-                                <rect key="frame" x="124" y="219" width="127" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dummy Event Landing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNc-NC-Cln">
+                                <rect key="frame" x="101" y="125" width="172" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -97,23 +136,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="fWP-W5-PET" userLabel="Navigation Item">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="hamburger" width="50" id="27z-l8-fm2">
-                            <connections>
-                                <action selector="menuClicked:" destination="xxI-N1-0XS" id="oHy-iF-Fy7"/>
-                                <segue destination="vXN-qA-QQl" kind="show" identifier="backToHomeSegue" id="ujL-Z7-Zze"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="hamburgerMenu" destination="27z-l8-fm2" id="0k3-Nl-H1L"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DD3-oi-2vx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WDd-qx-g6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2090" y="1591"/>
+            <point key="canvasLocation" x="-2650" y="2864"/>
         </scene>
         <!--Host Login View Controller-->
         <scene sceneID="UQc-wK-ly9">
@@ -150,7 +176,6 @@
                                 </state>
                                 <connections>
                                     <action selector="userLogin:" destination="IJj-IM-rXh" eventType="touchUpInside" id="hP0-dX-l5O"/>
-                                    <segue destination="xxI-N1-0XS" kind="show" id="FMC-TX-DVe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibw-tp-sBd">
@@ -162,7 +187,6 @@
                                 </state>
                                 <connections>
                                     <action selector="userRegister:" destination="IJj-IM-rXh" eventType="touchUpInside" id="3z2-KD-lDp"/>
-                                    <segue destination="ZOT-0F-Cwv" kind="show" id="w3y-IT-of6"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Snb-Lj-gIf">
@@ -182,6 +206,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register = AUTHENTICATE ROUTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXs-lE-zeC">
+                                <rect key="frame" x="63" y="606" width="267" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login = DEFAULT HOST ROUTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqm-kt-BYT">
+                                <rect key="frame" x="63" y="467" width="244" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4j-X4-OSR">
+                                <rect key="frame" x="27" y="403" width="319" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.8620263924870466" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwm-6z-x7z">
+                                <rect key="frame" x="318" y="269" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Table"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -190,12 +240,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="email" destination="Snb-Lj-gIf" id="rR0-rc-acM"/>
+                        <outlet property="loginErrorLabel" destination="W4j-X4-OSR" id="Oec-zb-7jX"/>
                         <outlet property="password" destination="9Ci-aS-K4o" id="5PJ-zE-9f4"/>
+                        <segue destination="4fH-Ct-1vr" kind="show" identifier="hostAuthenticatedSegue" id="0D1-7g-DlI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRt-dM-pWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-609" y="1591"/>
+            <point key="canvasLocation" x="-1746.4000000000001" y="1428.9355322338831"/>
         </scene>
         <!--Create Event View ControllerP1-->
         <scene sceneID="4jw-h4-mmz">
@@ -296,7 +348,7 @@
                 </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KPh-bv-fDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-610.39999999999998" y="2330.2848575712146"/>
+            <point key="canvasLocation" x="-610" y="2319"/>
         </scene>
         <!--Create Event View ControllerP2-->
         <scene sceneID="XVI-cQ-7cJ">
@@ -341,7 +393,7 @@
                                 </state>
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="kv1-CX-i0Q" eventType="touchUpInside" id="BNa-bF-jg0"/>
-                                    <segue destination="xxI-N1-0XS" kind="show" id="bW0-i0-wwY"/>
+                                    <segue destination="4fH-Ct-1vr" kind="show" id="WwP-Ah-cqx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thumbnail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kx-RT-vEp">
@@ -371,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZk-zs-1BG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439.19999999999999" y="3055.3223388305851"/>
+            <point key="canvasLocation" x="-610" y="3035"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ZM0-QF-nEu">
@@ -1078,9 +1130,5 @@
         <image name="rounded-button" width="196" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YAp-ji-FeF"/>
-        <segue reference="FMC-TX-DVe"/>
-        <segue reference="HGP-Ot-W0b"/>
-        <segue reference="Hg2-mL-tVP"/>
     </inferredMetricsTieBreakers>
 </document>

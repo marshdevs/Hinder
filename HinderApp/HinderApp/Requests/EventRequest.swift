@@ -277,4 +277,129 @@ class EventRequest: Request {
         })
         task.resume()
     }
+    
+    /**
+     Authenticate host email and password, or create a new entry
+     
+     - parameter email: Host email address
+     - parameter password: Host provided password
+     
+     - returns: JSON object
+     */
+    func authenticateHost(email: String, password: String) -> Dictionary<String, Any> {
+        var res: Dictionary<String, Any>?
+        
+        let requestData: [String: Any] = ["email": email, "password": password]
+        let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
+        
+        self.endpoint = "authenticateHost/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
+        self.request.httpMethod = "POST"
+        self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                self.semaphore.signal()
+                return
+            }
+            guard let data = data else {
+                self.semaphore.signal()
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    print(json)
+                    res = json
+                }
+                self.semaphore.signal()
+            } catch let error {
+                print(error.localizedDescription)
+                self.semaphore.signal()
+            }
+        })
+        task.resume()
+        _ = self.semaphore.wait(timeout: .distantFuture)
+        return res!
+    }
+    
+    /**
+     Get host events
+     
+     - parameter email: Host email address
+     
+     - returns: JSON object
+     */
+    func getHostEvents(email: String) -> Dictionary<String, Any> {
+        var res: Dictionary<String, Any>?
+        
+        self.endpoint = "getHostEvents?email=" + email
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
+        let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                self.semaphore.signal()
+                return
+            }
+            guard let data = data else {
+                self.semaphore.signal()
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    print(json)
+                    res = json
+                }
+                self.semaphore.signal()
+            } catch let error {
+                print(error.localizedDescription)
+                self.semaphore.signal()
+            }
+        })
+        task.resume()
+        _ = self.semaphore.wait(timeout: .distantFuture)
+        return res!
+    }
+    
+    /**
+     Update the host's event list
+     
+     - parameter email: host email
+     - parameter events: Updated event list [String]
+     
+     - returns: void, async
+     */
+    func updateHost(email: String, events: [String]) {
+        let requestData: [String: Any] = ["email": email, "events": events]
+        let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
+        
+        self.endpoint = "updateHost/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
+        self.request.httpMethod = "PUT"
+        self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            guard let data = data else {
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
+                    for item in json {
+                        dump(item)
+                    }
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        })
+        task.resume()
+    }
 }
+
