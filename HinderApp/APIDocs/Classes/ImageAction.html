@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Request Class Reference</title>
+    <title>ImageAction Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/Request" class="dashAnchor"></a>
-    <a title="Request Class Reference"></a>
+    <a name="//apple_ref/swift/Class/ImageAction" class="dashAnchor"></a>
+    <a title="ImageAction Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p>Hinder App</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Request Class Reference
+        ImageAction Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -128,14 +128,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Request</h1>
+            <h1>ImageAction</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Request</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ImageAction</span></code></pre>
 
                 </div>
               </div>
-            <p>Handle requests (e.g, EventRequest, ProjectRequest, UserRequest, MatchRequest) to backend.</p>
+            <p>Methods to access and manage images stored in AWS S3.</p>
 
           </section>
           <section class="section task-group-section">
@@ -144,171 +144,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC9HinderApp7Request3urlV10Foundation3URL"></a>
-                    <a name="//apple_ref/swift/Property/url" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request3urlV10Foundation3URL">url</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Request path</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC9HinderApp7Request7requestV10Foundation10URLRequest"></a>
-                    <a name="//apple_ref/swift/Property/request" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request7requestV10Foundation10URLRequest">request</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>URLRequest object for making requests to backend</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC9HinderApp7Request8endpointSS"></a>
-                    <a name="//apple_ref/swift/Property/endpoint" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request8endpointSS">endpoint</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Request endpoint</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC9HinderApp7Request4rootSS"></a>
-                    <a name="//apple_ref/swift/Property/root" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request4rootSS">root</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Server path</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">root</span> <span class="o">=</span> <span class="s">"http://ec2-184-72-191-21.compute-1.amazonaws.com:8080/"</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC9HinderApp7Request7sessionCSo10URLSession"></a>
-                    <a name="//apple_ref/swift/Property/session" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request7sessionCSo10URLSession">session</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>URL session</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">URLSession</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC9HinderApp7Request9semaphoreCSo17DispatchSemaphore"></a>
-                    <a name="//apple_ref/swift/Property/semaphore" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request9semaphoreCSo17DispatchSemaphore">semaphore</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">semaphore</span><span class="p">:</span> <span class="kt">DispatchSemaphore</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC9HinderApp7RequestcFT_S0_"></a>
+                    <a name="/s:FC9HinderApp11ImageActioncFT_S0_"></a>
                     <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC9HinderApp7RequestcFT_S0_">init()</a>
+                    <a class="token" href="#/s:FC9HinderApp11ImageActioncFT_S0_">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -316,7 +154,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialze the URL request to backend.</p>
+                        <p>Setup Amazon credentials for subsequent image access.</p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    Correct Amazon credentials must be provided at initialization
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -329,7 +172,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Void.</p>
+                        <p><code>void</code> on success</p>
                       </div>
                     </section>
                   </div>
@@ -337,9 +180,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OC9HinderApp7Request13RequestResult"></a>
-                    <a name="//apple_ref/swift/Enum/RequestResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC9HinderApp7Request13RequestResult">RequestResult</a>
+                    <a name="/s:FC9HinderApp11ImageAction14downloadFromS3ERR"></a>
+                    <a name="//apple_ref/swift/Method/downloadFromS3(filename:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp11ImageAction14downloadFromS3ERR">downloadFromS3(filename:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -347,17 +190,101 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gives an <code>Error</code> in the event that a request fails.</p>
+                        <p>Retrieve a stored image.</p>
 
-                        <a href="../Classes/Request/RequestResult.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">RequestResult</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">downloadFromS3</span><span class="p">(</span><span class="nv">filename</span> <span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIImage</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filename</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>URL string of requested image</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>UIImage</code> view for the requested image</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp11ImageAction10uploadToS3ERR"></a>
+                    <a name="//apple_ref/swift/Method/uploadToS3(image:filename:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp11ImageAction10uploadToS3ERR">uploadToS3(image:filename:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Upload an image to AWS.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">uploadToS3</span><span class="p">(</span><span class="nv">image</span> <span class="p">:</span> <span class="kt">UIImage</span><span class="p">,</span> <span class="nv">filename</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>image</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>UIImage</code> view for the image we want to store</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filename</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Desired file name for stored image</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>void</code> on success. Indicates error if uploading fails.</p>
                       </div>
                     </section>
                   </div>

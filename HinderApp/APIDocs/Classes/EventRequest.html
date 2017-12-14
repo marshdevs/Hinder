@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EventRequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/EventRequest" class="dashAnchor"></a>
+    <a title="EventRequest Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p>Hinder App</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        EventRequest Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+
+              <li class="nav-group-task">
+                <a href="Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="EventRequest.html">EventRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="ImageAction.html">ImageAction</a>
+              <li class="nav-group-task">
+                <a href="MatchRequest.html">MatchRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Mediator.html">Mediator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Project.html">Project</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="ProjectRequest.html">ProjectRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="SessionUser.html">SessionUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Skillset.html">Skillset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="UserRequest.html">UserRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp12CommonInsetsVSC12UIEdgeInsets">CommonInsets</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp14FeedCellHeightV12CoreGraphics7CGFloat">FeedCellHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp16ProfilePicHeightV12CoreGraphics7CGFloat">ProfilePicHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp12ToggleHeightV12CoreGraphics7CGFloat">ToggleHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp40backgroundCardHorizontalMarginMultiplierV12CoreGraphics7CGFloat">backgroundCardHorizontalMarginMultiplier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp26backgroundCardScalePercentV12CoreGraphics7CGFloat">backgroundCardScalePercent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp18defaultHeightRatioV12CoreGraphics7CGFloat">defaultHeightRatio</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp23defaultHorizontalOffsetV12CoreGraphics7CGFloat">defaultHorizontalOffset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp16defaultTopOffsetV12CoreGraphics7CGFloat">defaultTopOffset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp6imagesGSaSS_">images</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp13EventFeedFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">EventFeedFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp15EventHeaderFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">EventHeaderFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp12SkillSetFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">SkillSetFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp9TitleFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">TitleFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp10hinderBlueFT_CSo7UIColor">hinderBlue()</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>EventRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">EventRequest</span><span class="p">:</span> <span class="kt"><a href="../Classes/Request.html">Request</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Handle Event requests to backend.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp12EventRequest17emptyEventHandlerGVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Property/emptyEventHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp12EventRequest17emptyEventHandlerGVs10DictionarySSP__">emptyEventHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handles an empty (non-existent) <code>Event</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">emptyEventHandler</span> <span class="o">=</span> <span class="p">[</span><span class="s">"eventName"</span><span class="p">:</span> <span class="s">"empty"</span><span class="p">,</span> <span class="s">"eventDate"</span><span class="p">:</span> <span class="s">"00/00/0000"</span><span class="p">,</span> <span class="s">"eventLocation"</span><span class="p">:</span> <span class="s">"empty"</span><span class="p">,</span> <span class="s">"eventDescription"</span><span class="p">:</span> <span class="s">"If you're seeing this, something went wrong."</span><span class="p">,</span> <span class="s">"eventPhoto"</span><span class="p">:</span> <span class="s">"empty"</span><span class="p">,</span> <span class="s">"eventThumbnail"</span><span class="p">:</span> <span class="s">"empty"</span><span class="p">,</span> <span class="s">"eventProjects"</span><span class="p">:</span> <span class="p">[</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">],</span> <span class="s">"eventUsers"</span><span class="p">:</span> <span class="p">[</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">]]</span> <span class="k">as</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp12EventRequestcFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp12EventRequestcFT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp12EventRequest11createEventFT5eventCS_5Event_SS"></a>
+                    <a name="//apple_ref/swift/Method/createEvent(event:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp12EventRequest11createEventFT5eventCS_5Event_SS">createEvent(event:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send a request to create a new <code><a href="../Classes/Event.html">Event</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createEvent</span><span class="p">(</span><span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Classes/Event.html">Event</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Event object to be created in backend.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void, async</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp12EventRequest8getEventFT7eventIdSS_CS_5Event"></a>
+                    <a name="//apple_ref/swift/Method/getEvent(eventId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp12EventRequest8getEventFT7eventIdSS_CS_5Event">getEvent(eventId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieve an existing Event.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getEvent</span><span class="p">(</span><span class="nv">eventId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Event.html">Event</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>eventId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Event identifier</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>If found, the requested <code><a href="../Classes/Event.html">Event</a></code> object with identifier <code>eventId</code>. Otherwise, void.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp12EventRequest11queryEventsFT6paramsSS_GSaCS_5Event_"></a>
+                    <a name="//apple_ref/swift/Method/queryEvents(params:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp12EventRequest11queryEventsFT6paramsSS_GSaCS_5Event_">queryEvents(params:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Query all existing events to populate a CollectionView.</p>
+
+<p>This function is called in the
+HomeViewController to lookup all
+relevant events and populate the
+HomeView with all events.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">queryEvents</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/Event.html">Event</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>params</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Event identifier</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of resArray containing the list of events</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp12EventRequest14batchGetEventsFT8eventIdsGSaSS__GSaCS_5Event_"></a>
+                    <a name="//apple_ref/swift/Method/batchGetEvents(eventIds:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp12EventRequest14batchGetEventsFT8eventIdsGSaSS__GSaCS_5Event_">batchGetEvents(eventIds:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Batch get events request.</p>
+
+<p>This function is called any time to
+lookup a list of events in the server database
+given a list of string indentifiers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">batchGetEvents</span><span class="p">(</span><span class="nv">eventIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/Event.html">Event</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>eventIds</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>List of event identifiers (<code>eventId</code>) to return information for</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of resArray containing the events retrieved</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp12EventRequest11updateEventFT5eventCS_5Event_T_"></a>
+                    <a name="//apple_ref/swift/Method/updateEvent(event:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp12EventRequest11updateEventFT5eventCS_5Event_T_">updateEvent(event:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update fields of an existing <code><a href="../Classes/Event.html">Event</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateEvent</span><span class="p">(</span><span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Classes/Event.html">Event</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Classes/Event.html">Event</a></code> object to be updated</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void, async</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp12EventRequest11deleteEventFT7eventIdSS_T_"></a>
+                    <a name="//apple_ref/swift/Method/deleteEvent(eventId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp12EventRequest11deleteEventFT7eventIdSS_T_">deleteEvent(eventId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete an <code><a href="../Classes/Event.html">Event</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">deleteEvent</span><span class="p">(</span><span class="nv">eventId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>eventId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Event.html">Event</a></code> identifier</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void, async</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

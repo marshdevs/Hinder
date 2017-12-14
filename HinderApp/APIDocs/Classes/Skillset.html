@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Skillset Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Skillset" class="dashAnchor"></a>
+    <a title="Skillset Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p>Hinder App</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Skillset Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+
+              <li class="nav-group-task">
+                <a href="Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="EventRequest.html">EventRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="ImageAction.html">ImageAction</a>
+              <li class="nav-group-task">
+                <a href="MatchRequest.html">MatchRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Mediator.html">Mediator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Project.html">Project</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="ProjectRequest.html">ProjectRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="SessionUser.html">SessionUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Skillset.html">Skillset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="UserRequest.html">UserRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp12CommonInsetsVSC12UIEdgeInsets">CommonInsets</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp14FeedCellHeightV12CoreGraphics7CGFloat">FeedCellHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp16ProfilePicHeightV12CoreGraphics7CGFloat">ProfilePicHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp12ToggleHeightV12CoreGraphics7CGFloat">ToggleHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp40backgroundCardHorizontalMarginMultiplierV12CoreGraphics7CGFloat">backgroundCardHorizontalMarginMultiplier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp26backgroundCardScalePercentV12CoreGraphics7CGFloat">backgroundCardScalePercent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp18defaultHeightRatioV12CoreGraphics7CGFloat">defaultHeightRatio</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp23defaultHorizontalOffsetV12CoreGraphics7CGFloat">defaultHorizontalOffset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp16defaultTopOffsetV12CoreGraphics7CGFloat">defaultTopOffset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v9HinderApp6imagesGSaSS_">images</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp13EventFeedFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">EventFeedFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp15EventHeaderFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">EventHeaderFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp12SkillSetFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">SkillSetFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp9TitleFontFT4sizeV12CoreGraphics7CGFloat_CSo6UIFont">TitleFont(size:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F9HinderApp10hinderBlueFT_CSo7UIColor">hinderBlue()</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Skillset</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Skillset</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">ListDiffable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Stores information about the various languages, technologies that a User is proficient in.
+Maps language names (e.g., <code>cpp</code>) to a boolean indicate whether the user knows (true) the language or not (false).</p>
+
+<ul>
+<li><code>cpp</code> (Bool)</li>
+<li><code>c</code> (Bool)</li>
+<li><code>objc</code> (Bool)</li>
+<li><code>swift</code> (Bool)</li>
+<li><code>python</code> (Bool)</li>
+<li><code>java</code> (Bool)</li>
+<li><code>javascript</code> (Bool)</li>
+<li><code>html</code> (Bool)</li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset9numSkillsSi"></a>
+                    <a name="//apple_ref/swift/Property/numSkills" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset9numSkillsSi">numSkills</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of skills that are tracked for each user</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">numSkills</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset10skillNamesGSaSS_"></a>
+                    <a name="//apple_ref/swift/Property/skillNames" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset10skillNamesGSaSS_">skillNames</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Skill names (e.g., C++, C, etc.)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">skillNames</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset11arraySkillsGSaSb_"></a>
+                    <a name="//apple_ref/swift/Property/arraySkills" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset11arraySkillsGSaSb_">arraySkills</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tracks the skills known by the user</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">arraySkills</span><span class="p">:</span> <span class="p">[</span><span class="kt">Bool</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset15namesOfIntegersGVs10DictionarySiSS_"></a>
+                    <a name="//apple_ref/swift/Property/namesOfIntegers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset15namesOfIntegersGVs10DictionarySiSS_">namesOfIntegers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Maps integers to skill names</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">namesOfIntegers</span> <span class="o">=</span> <span class="p">[</span><span class="kt">Int</span><span class="p">:</span> <span class="kt">String</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset3cppSb"></a>
+                    <a name="//apple_ref/swift/Property/cpp" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset3cppSb">cpp</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>C++ skill</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">cpp</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset1cSb"></a>
+                    <a name="//apple_ref/swift/Property/c" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset1cSb">c</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>C skill</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset4objcSb"></a>
+                    <a name="//apple_ref/swift/Property/objc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset4objcSb">objc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Objective-C skill</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">objc</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset5swiftSb"></a>
+                    <a name="//apple_ref/swift/Property/swift" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset5swiftSb">swift</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Swift skill</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">swift</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset6pythonSb"></a>
+                    <a name="//apple_ref/swift/Property/python" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset6pythonSb">python</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Python skill</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">python</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset4javaSb"></a>
+                    <a name="//apple_ref/swift/Property/java" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset4javaSb">java</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Java skill</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">java</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset10javascriptSb"></a>
+                    <a name="//apple_ref/swift/Property/javascript" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset10javascriptSb">javascript</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Javascript skill</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">javascript</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9HinderApp8Skillset4htmlSb"></a>
+                    <a name="//apple_ref/swift/Property/html" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9HinderApp8Skillset4htmlSb">html</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>HTML skill</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">html</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp8SkillsetcFT4jsonGVs10DictionarySSSb__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(json:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp8SkillsetcFT4jsonGVs10DictionarySSSb__S0_">init(json:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a Skillset object.</p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    <p>Input parameter &lsquo;json&rsquo; must be formatted with the following key-value entries:</p>
+
+</div>
+<li><p><q>C++</q>: Bool</p></li>
+<li><p><q>C</q>: Bool</p></li>
+<li><p><q>Obj-C</q>: Bool</p></li>
+<li><p><q>Swift</q>: Bool</p></li>
+<li><p><q>Python</q>: Bool</p></li>
+<li><p><q>Java</q>: Bool</p></li>
+<li><p><q>Javascript</q>: Bool</p></li>
+<li><p><q>Html</q>: Bool</p></li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>json</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Dictionary that indicates whether certain languages are known (or not) by the User.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Void. On success, correctly initializes all fields for the Skillset object</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp8Skillset14diffIdentifierFT_PSo16NSObjectProtocol_"></a>
+                    <a name="//apple_ref/swift/Method/diffIdentifier()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp8Skillset14diffIdentifierFT_PSo16NSObjectProtocol_">diffIdentifier()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">diffIdentifier</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp8Skillset7isEqualERR"></a>
+                    <a name="//apple_ref/swift/Method/isEqual(toDiffableObject:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp8Skillset7isEqualERR">isEqual(toDiffableObject:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isEqual</span><span class="p">(</span><span class="n">toDiffableObject</span> <span class="nv">object</span><span class="p">:</span> <span class="kt">ListDiffable</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9HinderApp8Skillset6toDictFT_GVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Method/toDict()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9HinderApp8Skillset6toDictFT_GVs10DictionarySSP__">toDict()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Composes Skillset information in format Dictionary<String, Any></p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    Return value will be formatted with the following key-value entries.
+
+</div>
+<li><q>C++</q>: Bool</li>
+<li><q>C</q>: Bool</li>
+<li><q>Obj-C</q>: Bool</li>
+<li><q>Swift</q>: Bool</li>
+<li><q>Python</q>: Bool</li>
+<li><q>Java</q>: Bool</li>
+<li><q>Javascript</q>: Bool</li>
+<li><p><q>Html</q>: Bool</p></li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">toDict</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Any</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A Dictionary<String, Any> that indicates the languages known (and the languages not known) by the User.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Request Class Reference</title>
+    <title>SessionUser Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/Request" class="dashAnchor"></a>
-    <a title="Request Class Reference"></a>
+    <a name="//apple_ref/swift/Class/SessionUser" class="dashAnchor"></a>
+    <a title="SessionUser Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p>Hinder App</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Request Class Reference
+        SessionUser Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -128,14 +128,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Request</h1>
+            <h1>SessionUser</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Request</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SessionUser</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Handle requests (e.g, EventRequest, ProjectRequest, UserRequest, MatchRequest) to backend.</p>
+            <p>Singleton object that represents the current logged-in User.</p>
+
+<ul>
+<li><code>sharedInstance</code> (SessionUser): The single, shared, globally accessible instance of <code>SessionUser</code></li>
+<li><code>userModel</code> (User): The User that the <code>SessionUser</code> represents</li>
+<li><code>setup</code> (Bool): Indicates whether <code>sharedInstance</code> has already been set up</li>
+</ul>
 
           </section>
           <section class="section task-group-section">
@@ -144,9 +150,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC9HinderApp7Request3urlV10Foundation3URL"></a>
-                    <a name="//apple_ref/swift/Property/url" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request3urlV10Foundation3URL">url</a>
+                    <a name="/s:ZvC9HinderApp11SessionUser9userModelGSQCS_4User_"></a>
+                    <a name="//apple_ref/swift/Variable/userModel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvC9HinderApp11SessionUser9userModelGSQCS_4User_">userModel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -154,14 +160,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Request path</p>
+                        <p>The <code>User</code> that the <code>SessionUser</code> represents</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">userModel</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -171,9 +177,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC9HinderApp7Request7requestV10Foundation10URLRequest"></a>
-                    <a name="//apple_ref/swift/Property/request" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request7requestV10Foundation10URLRequest">request</a>
+                    <a name="/s:ZvC9HinderApp11SessionUser5setupSb"></a>
+                    <a name="//apple_ref/swift/Variable/setup" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvC9HinderApp11SessionUser5setupSb">setup</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -181,14 +187,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>URLRequest object for making requests to backend</p>
+                        <p>Indicates whether <code>sharedInstance</code> has already been set up</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">setup</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
 
                         </div>
                       </div>
@@ -198,9 +204,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC9HinderApp7Request8endpointSS"></a>
-                    <a name="//apple_ref/swift/Property/endpoint" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request8endpointSS">endpoint</a>
+                    <a name="/s:ZFC9HinderApp11SessionUser6sharedFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/shared()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9HinderApp11SessionUser6sharedFT_S0_">shared()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -208,14 +214,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Request endpoint</p>
+                        <p>Accessor method for the single <code>SessionUser</code> instance. Returns the instance if it already exists, or creates the instance.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">shared</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">SessionUser</span></code></pre>
 
                         </div>
                       </div>
@@ -225,9 +231,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC9HinderApp7Request4rootSS"></a>
-                    <a name="//apple_ref/swift/Property/root" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request4rootSS">root</a>
+                    <a name="/s:ZFC9HinderApp11SessionUser19setupSharedInstanceFT4userCS_4User_T_"></a>
+                    <a name="//apple_ref/swift/Method/setupSharedInstance(user:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9HinderApp11SessionUser19setupSharedInstanceFT4userCS_4User_T_">setupSharedInstance(user:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -235,101 +241,35 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Server path</p>
+                        <p>Setup method for creating the <code>SessionUser</code> instance.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">root</span> <span class="o">=</span> <span class="s">"http://ec2-184-72-191-21.compute-1.amazonaws.com:8080/"</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC9HinderApp7Request7sessionCSo10URLSession"></a>
-                    <a name="//apple_ref/swift/Property/session" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request7sessionCSo10URLSession">session</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>URL session</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">URLSession</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC9HinderApp7Request9semaphoreCSo17DispatchSemaphore"></a>
-                    <a name="//apple_ref/swift/Property/semaphore" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC9HinderApp7Request9semaphoreCSo17DispatchSemaphore">semaphore</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">semaphore</span><span class="p">:</span> <span class="kt">DispatchSemaphore</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC9HinderApp7RequestcFT_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC9HinderApp7RequestcFT_S0_">init()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Initialze the URL request to backend.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">setupSharedInstance</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div>
-                        <h4>Return Value</h4>
-                        <p>Void.</p>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>user</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The User object to be represented by <code>SessionUser</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -337,9 +277,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OC9HinderApp7Request13RequestResult"></a>
-                    <a name="//apple_ref/swift/Enum/RequestResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC9HinderApp7Request13RequestResult">RequestResult</a>
+                    <a name="/s:ZFC9HinderApp11SessionUser12extractModelFT4userCS_4User_GVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Method/extractModel(user:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9HinderApp11SessionUser12extractModelFT4userCS_4User_GVs10DictionarySSP__">extractModel(user:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -347,17 +287,51 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gives an <code>Error</code> in the event that a request fails.</p>
+                        <p>Parses information of a User object into a Dictionary.</p>
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    Return value will be formatted with the following key-value entries.
 
-                        <a href="../Classes/Request/RequestResult.html" class="slightly-smaller">See more</a>
+</div>
+<li><q>userId</q>: String</li>
+<li><q>userName</q>: String</li>
+<li><q>userOccupation</q>: String</li>
+<li><q>userEvents</q>: <a href="an%20array%20of%20event%20IDs">String</a></li>
+<li><q>userProjects</q>: <a href="an%20array%20of%20project%20IDs">String</a></li>
+<li><q>userPhoto</q>: String (URL)</li>
+<li><p><q>userSkillset</q>: Dictionary<String, Any></p></li>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">RequestResult</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">extractModel</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Any</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>user</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The User object that information will be parsed from</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A Dictionary<String, Any> that maps the User field names to their respective values.</p>
                       </div>
                     </section>
                   </div>
