@@ -6,6 +6,7 @@ var request = require('request');
 var AWS = require('aws-sdk');
 var Hashids = require('hashids');
 var bcrypt = require('bcrypt-nodejs');
+require('log-timestamp');
 
 var app = express();
 app.use(bodyParser.json());
@@ -578,7 +579,7 @@ app.get('/getId', function(req, res){
                 console.log("Creating emails entry for email...");
                 var userId = generateID();
                 var params = {
-                    TableName: "hinder-users",
+                    TableName: "hinder-hackers",
                     Item: {
                         "email": email,
                         "userId": userId
