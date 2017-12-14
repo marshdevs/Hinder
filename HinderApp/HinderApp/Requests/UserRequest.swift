@@ -86,7 +86,10 @@ class UserRequest: Request {
             }
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    res = User(json: json)
+                    if var _ = json["status"] {
+                    } else {
+                        res = User(json: json)
+                    }
                 }
                 self.semaphore.signal()
             } catch let error {

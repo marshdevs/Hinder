@@ -50,7 +50,7 @@ class ImageAction {
         
         let transferManager = AWSS3TransferManager.default()
         
-        let downloadingFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(filename + ".png")
+        let downloadingFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(filename)
         
         let downloadRequest = AWSS3TransferManagerDownloadRequest()
         downloadRequest?.bucket = "finalhinderbucket"
@@ -99,7 +99,7 @@ class ImageAction {
         let transferManager = AWSS3TransferManager.default()
         let uploadRequest = AWSS3TransferManagerUploadRequest()
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fileURL = documentsURL.appendingPathComponent(filename + ".png")
+        let fileURL = documentsURL.appendingPathComponent(filename)
         
         //save file locally
         do{
