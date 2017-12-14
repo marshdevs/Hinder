@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import PhotosUI
 
-class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     let imagePicker = UIImagePickerController()
     
@@ -30,6 +30,10 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
         super.viewDidLoad()
         imagePicker.delegate = self
         
+        eventDescription.delegate = self
+        eventDescription.text = "Placeholder event description..."
+        eventDescription.textColor = UIColor.lightGray
+        
         self.eventPhoto.image = eventPhotoFromPrev
     }
     
@@ -47,8 +51,8 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
         
         
         let imageAction = ImageAction()
-        imageAction.uploadToS3(image: eventPhotoFromPrev, filename: eventId + "Photo")
-        imageAction.uploadToS3(image: eventThumbnail.image!, filename: eventId + "Thumb")
+        imageAction.uploadToS3(image: eventPhotoFromPrev, filename: eventId + "Photo.png")
+        imageAction.uploadToS3(image: eventThumbnail.image!, filename: eventId + "Thumb.png")
         
         newEventModel["eventId"] = eventId
         newEventModel["eventPhoto"] = eventId + "Photo"
@@ -97,6 +101,20 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if self.eventDescription.textColor == UIColor.lightGray {
+            self.eventDescription.text = ""
+            self.eventDescription.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if self.eventDescription.text == "" {
+            self.eventDescription.text = "Placeholder event description..."
+            self.eventDescription.textColor = UIColor.lightGray
+        }
     }
     
 }

@@ -87,10 +87,10 @@ class EventRequest: Request {
                 return
             }
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
-                    for item in json {
-                        // TO DO: be able to access event data to actually initialize new Event object
-                        res = (Event(json: item))
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    if var _ = json["status"] {
+                    } else {
+                        res = Event(json: json)
                     }
                 }
                 self.semaphore.signal()
