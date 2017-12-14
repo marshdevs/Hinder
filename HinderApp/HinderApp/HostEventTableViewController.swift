@@ -17,8 +17,9 @@ class HostEventTableViewController: UITableViewController {
         super.viewDidLoad()
         
         let eventRequest = EventRequest()
-
+        print(SessionHost.shared().events)
         SessionHost.shared().events = eventRequest.getHostEvents(email: SessionHost.shared().email)["events"] as! [String]
+        print(SessionHost.shared().events)
         SessionHost.shared().populatedEvents = eventRequest.batchGetEvents(eventIds: SessionHost.shared().events)
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "HostEventCell")

@@ -30,6 +30,9 @@ class User: NSObject, ListDiffable {
     var events: [String]
     var projects: [String]
     var skillset: Skillset
+    
+    // Populated projects, used to get the actual project objects associated with id
+    var populatedProjects: [Any]
 
     /**
      Create a User object based on the data returned by a UserRequest method.
@@ -55,6 +58,7 @@ class User: NSObject, ListDiffable {
         self.events = json["userEvents"] as! [String]
         self.projects = json["userProjects"] as! [String]
         self.skillset = Skillset(json: json["userSkillset"] as! Dictionary<String, Bool>)
+        self.populatedProjects = [] as! [Any]
     }
     
     public func diffIdentifier() -> NSObjectProtocol {

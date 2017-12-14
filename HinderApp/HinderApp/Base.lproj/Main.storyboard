@@ -917,23 +917,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="My Projects" id="LfV-H0-O4Q">
-                                <cells/>
-                            </tableViewSection>
-                        </sections>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="KXs-AU-2Bq" id="2uw-Iy-vVY"/>
                             <outlet property="delegate" destination="KXs-AU-2Bq" id="IW7-UD-Sbj"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="ZZ8-9Z-MlS">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="1ts-Yz-muA">
+                            <connections>
+                                <segue destination="siA-bE-SIP" kind="show" id="JOP-Si-XP9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="0M5-Ou-edc">
                             <connections>
                                 <action selector="createProjectClicked:" destination="KXs-AU-2Bq" id="rcE-W3-vEa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="createNew" destination="0M5-Ou-edc" id="cI1-Hh-Rlk"/>
                         <segue destination="F5S-QK-iNS" kind="show" identifier="createNewProject" id="KAu-Ao-0fV"/>
@@ -1108,6 +1111,7 @@
                         <outlet property="projectSize" destination="huR-gP-r5I" id="fvs-Qu-mrK"/>
                         <outlet property="python" destination="Ft3-Df-arS" id="p61-cU-Cw2"/>
                         <outlet property="swift" destination="p3r-2f-oZg" id="PB2-xz-eY5"/>
+                        <segue destination="KXs-AU-2Bq" kind="show" identifier="backtoMain" id="lzK-Ak-zin"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vr0-6S-OfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1143,9 +1147,10 @@
         <image name="rounded-button" width="196" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qb7-kz-A9h"/>
-        <segue reference="d6H-TY-Nxx"/>
+        <segue reference="lzK-Ak-zin"/>
+        <segue reference="JOP-Si-XP9"/>
         <segue reference="WwP-Ah-cqx"/>
-        <segue reference="HGP-Ot-W0b"/>
+        <segue reference="d6H-TY-Nxx"/>
+        <segue reference="TfO-hI-t6H"/>
     </inferredMetricsTieBreakers>
 </document>
