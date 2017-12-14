@@ -97,6 +97,11 @@ app.get('/getEvent', function(req, res){
             console.log("GET: Error getting event by ID: " + req.query.eventId);
             res.status(404).send({status: "Error", description: "Failed to retrieve event by ID.", field: "eventId", value: req.query.eventId});
         } else {
+            if (data.Item === undefined) {
+                console.log("GET: Error getting event by ID: " + req.query.eventId);
+                res.status(404).send({status: "Error", description: "Failed to get event by ID.", field: "eventId", value: req.query.eventId});
+                return;
+            }
             console.log("GET: Successfully queried event by ID: " + req.query.eventId);
             res.status(200).send(data.Item);
         }
@@ -237,6 +242,11 @@ app.get('/getUser', function(req, res){
             console.log("GET: Error getting user by ID: " + req.query.userId);
             res.status(404).send({status: "Error", description: "Failed to get user by ID.", field: "userId", value: req.query.userId});
         } else {
+            if (data.Item === undefined) {
+                console.log("GET: Error getting user by ID: " + req.query.userId);
+                res.status(404).send({status: "Error", description: "Failed to get user by ID.", field: "userId", value: req.query.userId});
+                return;
+            }
             console.log("GET: Successfully queried user by ID: " + req.query.userId);
             res.status(200).send(data.Item);
         }
@@ -297,10 +307,10 @@ app.put('/updateUser', function(req, res){
     dynamoDB.update(params, function(err, data){
         if (err) {
             console.log(err);
-            console.log("PUT: Error updating event: " + user.userId + " - " + user.name);
-            res.status(404).send({status: "Error", description: "Failed to update event by ID.", field: "userId", value: user.userId});
+            console.log("PUT: Error updating user: " + user.userId + " - " + user.name);
+            res.status(404).send({status: "Error", description: "Failed to update user by ID.", field: "userId", value: user.userId});
         } else {
-            console.log("PUT: Successfully updated event: " + user.userId);
+            console.log("PUT: Successfully updated user: " + user.userId);
             res.status(200).send({status: "Success", userId: user.userId, description: "Successfully updated user."});
         }
     });
@@ -375,6 +385,11 @@ app.get('/getProject', function(req, res){
             console.log("GET: Error getting project by ID: " + req.query.projectId);
             res.status(404).send({status: "Error", description: "Failed to get project by ID.", field: "projectId", value: req.query.projectId});
         } else {
+            if (data.Item === undefined) {
+                console.log("GET: Error getting project by ID: " + req.query.projectId);
+                res.status(404).send({status: "Error", description: "Failed to get project by ID.", field: "projectId", value: req.query.projectId});
+                return;
+            }
             console.log("GET: Successfully queried project by ID: " + req.query.projectId);
             res.status(200).send(data.Item);
         }
