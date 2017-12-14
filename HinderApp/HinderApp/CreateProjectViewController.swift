@@ -58,18 +58,22 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate {
     
     func save() {
         // Create project
-        print(projectName.text)
-        print(Int(projectSize.text!))
-        print(projectDescription.text)
-        print(cplusplus.isOn)
-        print(c.isOn)
-        print(objc.isOn)
-        print(swift.isOn)
-        print(python.isOn)
-        print(java.isOn)
-        print(js.isOn)
-        print(html.isOn)
-        
+        let _name: String! = projectName.text!
+        let size : Int! = Int(projectSize.text!)
+        var newProjectModel = ["projectId": "none", "eventId":"none", "projectName": _name,
+                            "projectDescription": projectDescription.text, "projectSize": [size],
+                            "projectPhoto": "nophotoyet", "projectUsers": [],
+                            "projectSkillset": ["C++":cplusplus.isOn,
+                                                "C": c.isOn,
+                                                "Obj-C": objc.isOn,
+                                                "Swift":swift.isOn,
+                                                "Python":python.isOn,
+                                                "Java":java.isOn,
+                                                "Javascript":js.isOn,
+                                                "Html":html.isOn]] as Dictionary<String,Any>
+        let projectRequest = ProjectRequest()
+        let projectId = projectRequest.createProject(project: Project(json: newProjectModel))
+        print(projectId)
         navigationController?.popViewController(animated: true)
     }
     

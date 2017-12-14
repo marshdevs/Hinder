@@ -51,6 +51,12 @@ class Skillset: NSObject, ListDiffable {
     
     init(json: Dictionary<String, Bool>) {
         //TODO
+        
+        // arraySkills is an array with the values of whether the specific skill is in the skillset
+        // [false, true, true, true, ...etc]
+        // skillNames is an array with the names of the skills
+        // ["C++", "C", "Obj-C", "Swift", "Python", "Java", "Javascript", "Html"]
+        
         arraySkills = [Bool]()
         skillNames = [String]()
 
@@ -62,11 +68,11 @@ class Skillset: NSObject, ListDiffable {
         skillNames.append("Java");
         skillNames.append("Javascript");
         skillNames.append("Html");
-        
+
         for index in 0...7 {
             arraySkills.append(json[skillNames[index]]!)
         }
-        
+
         cpp = arraySkills[0]
         c = arraySkills[1]
         objc = arraySkills[2]
