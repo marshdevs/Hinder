@@ -1,9 +1,9 @@
 //
-//  SwipeCardView.swift
-//  HinderApp
+//  CustomKolodaView.swift
+//  Koloda
 //
-//  Created by George Archbold on 12/11/17.
-//  Copyright © 2017 TBD. All rights reserved.
+//  Created by Eugene Andreyev on 7/11/15.
+//  Copyright (c) 2015 CocoaPods. All rights reserved.
 //
 
 import UIKit
@@ -15,8 +15,8 @@ let defaultHeightRatio: CGFloat = 1.25
 let backgroundCardHorizontalMarginMultiplier: CGFloat = 0.25
 let backgroundCardScalePercent: CGFloat = 1.5
 
-class SwipeCardView: KolodaView {
-    
+class CustomKolodaView: KolodaView {
+
     override func frameForCard(at index: Int) -> CGRect {
         if index == 0 {
             let topOffset: CGFloat = defaultTopOffset
@@ -35,5 +35,5 @@ class SwipeCardView: KolodaView {
         }
         return CGRect.zero
     }
-    
+
 }

@@ -1,9 +1,9 @@
 //
 //  BackgroundKolodaAnimator.swift
-//  HinderApp
+//  Koloda
 //
-//  Created by George Archbold on 12/11/17.
-//  Copyright © 2017 TBD. All rights reserved.
+//  Created by Eugene Andreyev on 4/2/16.
+//  Copyright © 2016 CocoaPods. All rights reserved.
 //
 
 import Foundation

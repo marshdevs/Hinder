@@ -19,6 +19,10 @@ class EventRequest: Request {
         super.init()
     }
     
+    static func getEmptyEventHandler() -> [String : Any] {
+        return ["eventId": "none", "eventName": "empty", "eventDate": "00/00/0000", "eventLocation": "empty", "eventDescription": "If you're seeing this, something went wrong.", "eventPhoto": "empty", "eventThumbnail": "empty", "eventProjects": ["a", "b", "c"], "eventUsers": ["a", "b", "c"]] as [String : Any]
+    }
+    
     /**
      Send a request to create a new `Event`.
      

@@ -1,9 +1,9 @@
 //
-//  MyKolodaViewController.swift
-//  HinderApp
+//  ViewController.swift
+//  Koloda
 //
-//  Created by George Archbold on 12/11/17.
-//  Copyright © 2017 TBD. All rights reserved.
+//  Created by Eugene Andreyev on 4/23/15.
+//  Copyright (c) 2015 Eugene Andreyev. All rights reserved.
 //
 
 import UIKit
@@ -11,21 +11,23 @@ import Koloda
 
 private var numberOfCards: Int = 5
 
-class MyKoladaViewController: UIViewController {
+class ViewController: UIViewController {
     
     @IBOutlet weak var kolodaView: KolodaView!
     
+    
     fileprivate var dataSource: [UIImage] = {
-        var array: [UIImage] = []
+                var array: [UIImage] = []
         for index in 0..<numberOfCards {
-              array.append(UIImage(named: "Card_like_\(index + 1)")!)
-            //array.append(request-project-images)
+            let image_test = UIImage(named: "laptop")!
+            array.append(image_test)
         }
         
         return array
     }()
     
     // MARK: Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,7 @@ class MyKoladaViewController: UIViewController {
     
     
     // MARK: IBActions
+
     @IBAction func leftButtonTapped() {
         kolodaView?.swipe(.left)
     }
@@ -51,24 +54,26 @@ class MyKoladaViewController: UIViewController {
 }
 
 // MARK: KolodaViewDelegate
-extension MyKoladaViewController: KolodaViewDelegate {
+
+extension ViewController: KolodaViewDelegate {
     
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         let position = kolodaView.currentCardIndex
         for i in 1...4 {
-            dataSource.append(UIImage(named: "Card_like_\(i)")!)
+          dataSource.append(UIImage(named: "Card_like_\(i)")!)
         }
         kolodaView.insertCardAtIndexRange(position..<position + 4, animated: true)
     }
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        UIApplication.shared.openURL(URL(string: "https://yalantis.com/")!)
+        //UIApplication.shared.openURL(URL(string: "https://yalantis.com/")!)
     }
-    
+
 }
 
 // MARK: KolodaViewDataSource
-extension MyKoladaViewController: KolodaViewDataSource {
+
+extension ViewController: KolodaViewDataSource {
     
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
         return dataSource.count
@@ -86,3 +91,4 @@ extension MyKoladaViewController: KolodaViewDataSource {
         return Bundle.main.loadNibNamed("OverlayView", owner: self, options: nil)?[0] as? OverlayView
     }
 }
+

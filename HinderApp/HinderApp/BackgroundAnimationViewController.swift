@@ -1,9 +1,9 @@
 //
 //  BackgroundAnimationViewController.swift
-//  HinderApp
+//  Koloda
 //
-//  Created by George Archbold on 12/11/17.
-//  Copyright © 2017 TBD. All rights reserved.
+//  Created by Eugene Andreyev on 7/11/15.
+//  Copyright (c) 2015 CocoaPods. All rights reserved.
 //
 
 import UIKit
@@ -17,8 +17,8 @@ private let kolodaCountOfVisibleCards = 2
 private let kolodaAlphaValueSemiTransparent: CGFloat = 0.1
 
 class BackgroundAnimationViewController: UIViewController {
-    
-    @IBOutlet weak var kolodaView: SwipeCardView!
+
+    @IBOutlet weak var kolodaView: CustomKolodaView!
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -55,7 +55,7 @@ extension BackgroundAnimationViewController: KolodaViewDelegate {
     }
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        UIApplication.shared.openURL(URL(string: "https://yalantis.com/")!)
+        //UIApplication.shared.openURL(URL(string: "https://yalantis.com/")!)
     }
     
     func kolodaShouldApplyAppearAnimation(_ koloda: KolodaView) -> Bool {
@@ -90,7 +90,7 @@ extension BackgroundAnimationViewController: KolodaViewDataSource {
     }
     
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-        return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
+        return UIImageView(image: UIImage(named: "Card_like_\(index + 1)"))
     }
     
     func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
