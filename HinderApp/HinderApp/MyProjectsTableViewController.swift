@@ -19,8 +19,9 @@ class MyProjectsTableViewController : UITableViewController {
         // Button to create a new project
         
         let projectRequest = ProjectRequest()
+        let userRequest = UserRequest()
         
-        
+        SessionUser.shared().projects = userRequest.getUser(userId: SessionUser.shared().userId).projects
         SessionUser.shared().populatedProjects = projectRequest.batchGetProjects(projectIds: SessionUser.shared().projects)
 
         self.tableView.register(UITableViewCell.self,forCellReuseIdentifier: "UserProjectCell")
