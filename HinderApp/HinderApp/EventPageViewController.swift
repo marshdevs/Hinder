@@ -48,7 +48,7 @@ class EventPageViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         } else if buttonLabel.text == "Search Groups" { // GO TO SWIPE INTERFACE GEORGE
             // go to george's swipe interface
-            let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "KoladaVC") as! HomeViewController
+            let vc = UIStoryboard(name: "Swipe", bundle: nil) .instantiateViewController(withIdentifier: "BackgroundAnimationViewController") as! BackgroundAnimationViewController
             
             self.navigationController?.pushViewController(vc, animated: true)
         } else if buttonLabel.text == "Join Event" { // IDK ADD SELF TO EVENT AND THEN GO TO SWIPE??
@@ -81,7 +81,7 @@ class EventPageViewController: UIViewController {
                 }
             }
             if assignedLabel == false {
-                buttonLabel.text = "Search Groups"
+                buttonLabel.text = "Search Projects"
             }
         } else {
             buttonLabel.text = "Join Event"
