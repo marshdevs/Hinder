@@ -69,8 +69,10 @@ class EventPageViewController: UIViewController {
         } else {
             buttonLabel.text = "Join Event"
         }
-        //buttonLabel.text = "i love u"
-        //navigationItem.setHidesBackButton(true, animated: true)
+        
+        let listener = ImageListener(imageView: eventImage)
+        let path = ImageAction.downloadFromS3(filename: eventId + "Photo" + ".png", listener: listener)
+        listener.setPath(path: path)
     }
     
     override func didReceiveMemoryWarning() {
