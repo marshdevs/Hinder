@@ -14,6 +14,7 @@
 		313D31BA1FE11E8B0036CC0B /* ImageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D31B91FE11E8B0036CC0B /* ImageAction.swift */; };
 		315C5FB51FE3A960005DC9EA /* HinderAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315C5FB41FE3A960005DC9EA /* HinderAppTests.swift */; };
 		315C5FBC1FE3A96A005DC9EA /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315C5FAA1FE3A0D8005DC9EA /* NetworkTests.swift */; };
+		315C5FBD1FE3AD67005DC9EA /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315C5FBE1FE3AD67005DC9EA /* IGListKit.framework */; };
 		318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B661FD66AD10054B73D /* EventRequest.swift */; };
 		318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B681FD66AE00054B73D /* ProjectRequest.swift */; };
 		318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B6A1FD66AFC0054B73D /* UserRequest.swift */; };
@@ -89,6 +90,7 @@
 		315C5FB21FE3A960005DC9EA /* HinderAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HinderAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		315C5FB41FE3A960005DC9EA /* HinderAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderAppTests.swift; sourceTree = "<group>"; };
 		315C5FB61FE3A960005DC9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		315C5FBE1FE3AD67005DC9EA /* IGListKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IGListKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		318A4B661FD66AD10054B73D /* EventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRequest.swift; sourceTree = "<group>"; };
 		318A4B681FD66AE00054B73D /* ProjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRequest.swift; sourceTree = "<group>"; };
 		318A4B6A1FD66AFC0054B73D /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA3AF0111FE3ADCC0064EFBF /* IGListKit.framework in Frameworks */,
+				315C5FBD1FE3AD67005DC9EA /* IGListKit.framework in Frameworks */,
 				710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				BA3AF0101FE3ADCC0064EFBF /* IGListKit.framework */,
+				315C5FBE1FE3AD67005DC9EA /* IGListKit.framework */,
 				315C5FAC1FE3A79B005DC9EA /* XCTest.framework */,
 				9FC6A0651FBB98E000176134 /* Photos.framework */,
 				9FC6A0641FBB98E000176134 /* PhotosUI.framework */,
