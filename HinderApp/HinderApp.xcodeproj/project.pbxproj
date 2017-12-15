@@ -12,7 +12,6 @@
 		3129515C1FE21C95004109FF /* SessionHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129515B1FE21C95004109FF /* SessionHost.swift */; };
 		313D31B71FE11A9A0036CC0B /* CreateEventViewControllerP2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310F3F261FDE6DF1009FF85C /* CreateEventViewControllerP2.swift */; };
 		313D31BA1FE11E8B0036CC0B /* ImageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D31B91FE11E8B0036CC0B /* ImageAction.swift */; };
-		315C5FAD1FE3A79B005DC9EA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315C5FAC1FE3A79B005DC9EA /* XCTest.framework */; };
 		315C5FB51FE3A960005DC9EA /* HinderAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315C5FB41FE3A960005DC9EA /* HinderAppTests.swift */; };
 		315C5FBC1FE3A96A005DC9EA /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315C5FAA1FE3A0D8005DC9EA /* NetworkTests.swift */; };
 		318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B661FD66AD10054B73D /* EventRequest.swift */; };
@@ -33,6 +32,7 @@
 		5EBFC03F1FE37A0800C86405 /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBFC0381FE37A0800C86405 /* ExampleOverlayView.swift */; };
 		5EBFC0401FE37A0800C86405 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBFC0391FE37A0800C86405 /* ViewController.swift */; };
 		5EBFC0441FE385D800C86405 /* Swipe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EBFC0431FE385D800C86405 /* Swipe.storyboard */; };
+		5EBFC0461FE3AD9100C86405 /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBFC0451FE3AD9100C86405 /* IGListKit.framework */; };
 		68211A401FE30374000C2A45 /* MyProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */; };
 		68211A421FE310C2000C2A45 /* CreateProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68211A411FE310C2000C2A45 /* CreateProjectViewController.swift */; };
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
@@ -108,6 +108,7 @@
 		5EBFC0381FE37A0800C86405 /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
 		5EBFC0391FE37A0800C86405 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5EBFC0431FE385D800C86405 /* Swipe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Swipe.storyboard; sourceTree = "<group>"; };
+		5EBFC0451FE3AD9100C86405 /* IGListKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListKit.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/HinderApp-fxthhhbgpkbjtigfmqkttzxetlxa/Build/Products/Debug-iphoneos/IGListKit/IGListKit.framework"; sourceTree = "<group>"; };
 		68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProjectsTableViewController.swift; sourceTree = "<group>"; };
 		68211A411FE310C2000C2A45 /* CreateProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProjectViewController.swift; sourceTree = "<group>"; };
 		9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderCreateProfile.swift; sourceTree = "<group>"; };
@@ -160,7 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				315C5FAD1FE3A79B005DC9EA /* XCTest.framework in Frameworks */,
+				5EBFC0461FE3AD9100C86405 /* IGListKit.framework in Frameworks */,
 				710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +172,7 @@
 		23ACEF23AFA11B2176F7C8AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5EBFC0451FE3AD9100C86405 /* IGListKit.framework */,
 				315C5FAC1FE3A79B005DC9EA /* XCTest.framework */,
 				9FC6A0651FBB98E000176134 /* Photos.framework */,
 				9FC6A0641FBB98E000176134 /* PhotosUI.framework */,
@@ -302,9 +304,6 @@
 				C55731791FBE5BE700EBCF96 /* EditProfileViewController.swift */,
 				31FEEA431FDDF40C007C4532 /* UserTypeViewController.swift */,
 				31FEEA451FDDFB68007C4532 /* HostLoginViewController.swift */,
-				5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */,
-				5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */,
-				310F3F201FDE3DAF009FF85C /* ViewProfileViewController.swift */,
 				68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -557,12 +556,10 @@
 				C557317A1FBE5BE700EBCF96 /* EditProfileViewController.swift in Sources */,
 				31FEEA461FDDFB68007C4532 /* HostLoginViewController.swift in Sources */,
 				C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */,
-				310F3F211FDE3DAF009FF85C /* ViewProfileViewController.swift in Sources */,
 				5EBFC03A1FE37A0800C86405 /* BackgroundAnimationViewController.swift in Sources */,
 				BAC0347E1FDBC4D400ED14B3 /* LoginViewController.swift in Sources */,
 				BA3AF00F1FE38AA70064EFBF /* MemberViewCell.swift in Sources */,
 				318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */,
-				BA907B841FDDE8D3005BD3E8 /* MyGroupsViewController.swift in Sources */,
 				BA3AF00B1FE371C70064EFBF /* ProjectViewController.swift in Sources */,
 				31FEEA4A1FDE338D007C4532 /* CreateEventViewControllerP1.swift in Sources */,
 				BA3AF00D1FE38A370064EFBF /* UserTableViewCell.swift in Sources */,
