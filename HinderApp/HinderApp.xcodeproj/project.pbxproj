@@ -11,7 +11,6 @@
 		311A62BB1FE3491500E41AE3 /* ImageListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A62BA1FE3491500E41AE3 /* ImageListener.swift */; };
 		3129515A1FE21804004109FF /* HostEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312951591FE21804004109FF /* HostEventTableViewController.swift */; };
 		3129515C1FE21C95004109FF /* SessionHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129515B1FE21C95004109FF /* SessionHost.swift */; };
-		3129515E1FE226A5004109FF /* HostEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129515D1FE226A5004109FF /* HostEventTableViewCell.swift */; };
 		313D31B71FE11A9A0036CC0B /* CreateEventViewControllerP2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310F3F261FDE6DF1009FF85C /* CreateEventViewControllerP2.swift */; };
 		313D31BA1FE11E8B0036CC0B /* ImageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D31B91FE11E8B0036CC0B /* ImageAction.swift */; };
 		318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B661FD66AD10054B73D /* EventRequest.swift */; };
@@ -74,7 +73,6 @@
 		311A62BA1FE3491500E41AE3 /* ImageListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListener.swift; sourceTree = "<group>"; };
 		312951591FE21804004109FF /* HostEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostEventTableViewController.swift; sourceTree = "<group>"; };
 		3129515B1FE21C95004109FF /* SessionHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHost.swift; sourceTree = "<group>"; };
-		3129515D1FE226A5004109FF /* HostEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostEventTableViewCell.swift; sourceTree = "<group>"; };
 		313D31B91FE11E8B0036CC0B /* ImageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAction.swift; sourceTree = "<group>"; };
 		318A4B661FD66AD10054B73D /* EventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRequest.swift; sourceTree = "<group>"; };
 		318A4B681FD66AE00054B73D /* ProjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRequest.swift; sourceTree = "<group>"; };
@@ -87,14 +85,6 @@
 		31FEEA471FDE118F007C4532 /* SessionUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUser.swift; sourceTree = "<group>"; };
 		31FEEA491FDE338D007C4532 /* CreateEventViewControllerP1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewControllerP1.swift; sourceTree = "<group>"; };
 		391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.debug.xcconfig"; sourceTree = "<group>"; };
-		5EBFC0331FE37A0800C86405 /* BackgroundAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundAnimationViewController.swift; path = ../../../../Koloda/Example/Koloda/BackgroundAnimationViewController.swift; sourceTree = "<group>"; };
-		5EBFC0341FE37A0800C86405 /* BackgroundKolodaAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundKolodaAnimator.swift; path = ../../../../Koloda/Example/Koloda/BackgroundKolodaAnimator.swift; sourceTree = "<group>"; };
-		5EBFC0351FE37A0800C86405 /* CustomKolodaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomKolodaView.swift; path = ../../../../Koloda/Example/Koloda/CustomKolodaView.swift; sourceTree = "<group>"; };
-		5EBFC0361FE37A0800C86405 /* CustomOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomOverlayView.swift; path = ../../../../Koloda/Example/Koloda/CustomOverlayView.swift; sourceTree = "<group>"; };
-		5EBFC0371FE37A0800C86405 /* CustomOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomOverlayView.xib; path = ../../../../Koloda/Example/Koloda/CustomOverlayView.xib; sourceTree = "<group>"; };
-		5EBFC0381FE37A0800C86405 /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExampleOverlayView.swift; path = "/Users/HAACKERK/OneDrive/Documents/School/SeniorYear/CS 130/ProjC8/Hinder/HinderApp/HinderApp/../../../../Koloda/Example/Koloda/ExampleOverlayView.swift"; sourceTree = "<absolute>"; };
-		5EBFC0391FE37A0800C86405 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../../Koloda/Example/Koloda/ViewController.swift; sourceTree = "<group>"; };
-		5EBFC0431FE385D800C86405 /* Swipe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Swipe.storyboard; path = ../../../../../../Downloads/Swipe.storyboard; sourceTree = "<group>"; };
 		5EBFC0331FE37A0800C86405 /* BackgroundAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAnimationViewController.swift; sourceTree = "<group>"; };
 		5EBFC0341FE37A0800C86405 /* BackgroundKolodaAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundKolodaAnimator.swift; sourceTree = "<group>"; };
 		5EBFC0351FE37A0800C86405 /* CustomKolodaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKolodaView.swift; sourceTree = "<group>"; };
@@ -172,7 +162,6 @@
 				31FEEA491FDE338D007C4532 /* CreateEventViewControllerP1.swift */,
 				310F3F261FDE6DF1009FF85C /* CreateEventViewControllerP2.swift */,
 				312951591FE21804004109FF /* HostEventTableViewController.swift */,
-				3129515D1FE226A5004109FF /* HostEventTableViewCell.swift */,
 			);
 			name = CreateEventPage;
 			sourceTree = "<group>";
@@ -509,7 +498,6 @@
 				5EBFC03B1FE37A0800C86405 /* BackgroundKolodaAnimator.swift in Sources */,
 				31BE76131FBAA31300154730 /* Mediator.swift in Sources */,
 				3129515A1FE21804004109FF /* HostEventTableViewController.swift in Sources */,
-				3129515E1FE226A5004109FF /* HostEventTableViewCell.swift in Sources */,
 				C555F6C41FB4334D009106E8 /* Skillset.swift in Sources */,
 				9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */,
 				5EBFC03D1FE37A0800C86405 /* CustomOverlayView.swift in Sources */,
