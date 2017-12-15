@@ -34,5 +34,5 @@ Once a user is matched to a group/project, they will want to be able to view the
 
 
 ## API Documentation
+A selection of classes with API functions are SessionUser (Singleton, provides shared, global access to signed-in user), ImageListener (Observer pattern, for asynchronous image download), and the User/Event/Project/MediatorRequest classes for making requests in the backend. A more complete, detailed discussion of our APIs is included in the part C report. We used XCode markup language (documentation in the Apple Developer docs). We then used jazzy (command "jazzy --min-acl internal") to generate the HTML documentation for our APIs. Complete API documentation can be found in this repository, in the directory "APIDocs/".
 
-Postman HTTP Request Tests: https://www.getpostman.com/collections/b88d74dfe952adef47fc
