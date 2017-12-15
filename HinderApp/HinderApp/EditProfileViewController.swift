@@ -79,17 +79,18 @@ extension EditProfileViewController {
         
         //get a user's Skillset here
         var items: [ListDiffable] = [ListDiffable]();
-        var holderArray = [Skillset]()
+        var holderArray = [ListDiffable]()
+        holderArray.append((SessionUser.shared()))
         holderArray.append((SessionUser.shared().skillset))
-        //todo, make this a skillset
         items = holderArray as [ListDiffable]
         return items
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return EditProfileSectionController(); //placeholder to prevent compilation errors rn
+            return EditProfileSectionController();
+        
+       
     }
-    
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
 }

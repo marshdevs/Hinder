@@ -39,6 +39,8 @@
 		BA907B841FDDE8D3005BD3E8 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B831FDDE8D3005BD3E8 /* MyGroupsViewController.swift */; };
 		BAC034741FDBB12D00ED14B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC034731FDBB12D00ED14B3 /* Assets.xcassets */; };
 		BAC0347E1FDBC4D400ED14B3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC0347D1FDBC4D400ED14B3 /* LoginViewController.swift */; };
+		C522DC6E1FE31954001D634A /* ProfileUserInfoSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522DC6D1FE31954001D634A /* ProfileUserInfoSectionController.swift */; };
+		C522DC701FE319C9001D634A /* ProfileUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522DC6F1FE319C9001D634A /* ProfileUserInfoCell.swift */; };
 		C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */; };
 		C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */; };
 		C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */; };
@@ -93,6 +95,8 @@
 		BA907B831FDDE8D3005BD3E8 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		BAC034731FDBB12D00ED14B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAC0347D1FDBC4D400ED14B3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C522DC6D1FE31954001D634A /* ProfileUserInfoSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoSectionController.swift; sourceTree = "<group>"; };
+		C522DC6F1FE319C9001D634A /* ProfileUserInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoCell.swift; sourceTree = "<group>"; };
 		C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HinderNavigationBar.swift; sourceTree = "<group>"; };
 		C555F6B71FB0D0B8009106E8 /* FontsAndTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsAndTheme.swift; sourceTree = "<group>"; };
 		C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSectionController.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				C555F6BB1FB0EFC2009106E8 /* FeedSectionController.swift */,
+				C522DC6D1FE31954001D634A /* ProfileUserInfoSectionController.swift */,
 				C557317B1FBE69E400EBCF96 /* EditProfileSectionController.swift */,
 			);
 			name = SectionControllers;
@@ -209,6 +214,7 @@
 				BA8074131FE1EFA90062E1EB /* UserProjectViewCell.swift */,
 				C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */,
 				C555F6C51FB647AF009106E8 /* FeedEventCell.swift */,
+				C522DC6F1FE319C9001D634A /* ProfileUserInfoCell.swift */,
 				C555F6C71FB7C2AE009106E8 /* FeedEventCellWithHeader.swift */,
 				9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */,
 				C557317D1FBE6D1900EBCF96 /* SkillSetEditCell.swift */,
@@ -460,6 +466,7 @@
 				9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */,
 				C555F6C21FB43293009106E8 /* User.swift in Sources */,
 				68211A421FE310C2000C2A45 /* CreateProjectViewController.swift in Sources */,
+				C522DC6E1FE31954001D634A /* ProfileUserInfoSectionController.swift in Sources */,
 				C557317E1FBE6D1900EBCF96 /* SkillSetEditCell.swift in Sources */,
 				5ED2FC6E1FDF433A00F20274 /* MyKolodaViewController.swift in Sources */,
 				C555F6C61FB647AF009106E8 /* FeedEventCell.swift in Sources */,
@@ -476,6 +483,7 @@
 				BA907B821FDDE85E005BD3E8 /* MyEventsViewController.swift in Sources */,
 				68211A401FE30374000C2A45 /* MyProjectsTableViewController.swift in Sources */,
 				31FEEA441FDDF40C007C4532 /* UserTypeViewController.swift in Sources */,
+				C522DC701FE319C9001D634A /* ProfileUserInfoCell.swift in Sources */,
 				3129515C1FE21C95004109FF /* SessionHost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
