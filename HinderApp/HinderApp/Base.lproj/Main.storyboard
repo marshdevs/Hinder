@@ -654,7 +654,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plj-Eb-rCR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plj-Eb-rCR" userLabel="Event Date">
                                 <rect key="frame" x="47" y="344" width="141" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -703,7 +703,7 @@
                     <connections>
                         <outlet property="button" destination="qoB-2o-StD" id="lgA-ho-FcT"/>
                         <outlet property="buttonLabel" destination="JVz-rt-UZw" id="jrD-rS-HDA"/>
-                        <outlet property="dateLabel" destination="Plj-Eb-rCR" id="KSF-Ct-mlE"/>
+                        <outlet property="dateLabel" destination="4zl-vs-jj2" id="W5q-3O-Rxy"/>
                         <outlet property="descriptionLabel" destination="MyG-2T-2vA" id="wMN-tY-q51"/>
                         <outlet property="eventImage" destination="Yxe-Ow-23X" id="DAS-ik-Jtc"/>
                         <outlet property="locationLabel" destination="mmt-VZ-uaU" id="Shj-09-0A9"/>
