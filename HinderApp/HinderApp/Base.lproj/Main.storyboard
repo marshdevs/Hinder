@@ -733,7 +733,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4za-ur-Shj">
                                 <rect key="frame" x="88" y="548" width="195" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create Group" backgroundImage="rounded-button"/>
+                                <state key="normal" title="Create Project" backgroundImage="rounded-button"/>
                                 <connections>
                                     <action selector="createGroupPressed:" destination="ALy-jR-a9T" eventType="touchUpInside" id="y2W-v7-cty"/>
                                 </connections>
