@@ -29,12 +29,8 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: Load user information
-        // TODO: Fix segues
         if user == nil {
             user = SessionUser.shared()
-            //user = UserRequest().getUser(userId: "xR1KLg9gN")
-            //user = UserRequest().getUser(userId: "z7zyN9b2r")
         }
         
         let userInfo = SessionUser.extractModel(user: user)
@@ -110,12 +106,12 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.projectTitle?.text = project.name
         cell.projectEvent?.text = event.name
         
-        // TODO: Get project photo
-        /*let listener = ImageListener(imageView: cell.projectImage)
+        // Get project photo
+        let listener = ImageListener(imageView: cell.projectImage)
         let path = ImageAction.downloadFromS3(filename: project.projectId + ".png", listener: listener)
-        listener.setPath(path: path)*/
-        let randomIndex = Int(arc4random_uniform(UInt32(images.count)))
-        cell.projectImage.image = UIImage(named: images[randomIndex])
+        listener.setPath(path: path)
+        /*let randomIndex = Int(arc4random_uniform(UInt32(images.count)))
+        cell.projectImage.image = UIImage(named: images[randomIndex])*/
         
         return cell
     }
@@ -128,7 +124,17 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let projId = (tableRows[indexPath.row] as String!)
+        let proj = ProjectRequest().getProject(projectId: projId!)
+        let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
+        vc.setProject(project: projId!)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+
     /*
      // MARK: - Navigation
      

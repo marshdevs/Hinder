@@ -36,15 +36,15 @@ class EventPageViewController: UIViewController {
         for proj in SessionUser.shared().projects {
             for eventProject in event.projects {
                 if eventProject == proj {
-                    projectId = proj //@kyle i'm PRETTY SURE this is the projectID that you then want to request
+                    projectId = proj //@KYLE this is project ID
                 }
             }
         }
-        //KYLE ADD REQUESTS BELOW
+        //KYLE: ADD REQUESTS BELOW
         if buttonLabel.text == "View Group" { //GO TO MY PROJECT
-    
-            // KYLE KYLE KYLE KYLE KYLE TODO
-          
+            let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
+            vc.setProject(project: projectId)
+            self.navigationController?.pushViewController(vc, animated: true)
         } else if buttonLabel.text == "Search Groups" { // GO TO SWIPE INTERFACE GEORGE
             // go to george's swipe interface
             let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "KoladaVC") as! HomeViewController
