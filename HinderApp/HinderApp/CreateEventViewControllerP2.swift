@@ -21,34 +21,103 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
     
     @IBOutlet weak var confirmButton: UIButton!
     
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
     var eventName = "empty"
     var eventLocation = "empty"
     var eventDate = Date()
     var eventPhotoFromPrev = UIImage()
+    var segueDescription : String = "Placeholder event description..."
+    var thumbnailImage : UIImage = #imageLiteral(resourceName: "placeholder")
+    var thumbnailString = ""
+    var eventEditing : Int = 0
+    var segueEvent: Event = Event(json: EventRequest.getEmptyEventHandler())
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         
+        self.navigationItem.rightBarButtonItem = cancelButton
+        self.navigationItem.leftBarButtonItem = backButton
+        
         eventDescription.delegate = self
-        eventDescription.text = "Placeholder event description..."
+        eventDescription.text = segueDescription
         eventDescription.textColor = UIColor.lightGray
         
         self.eventPhoto.image = eventPhotoFromPrev
+        
+        if(eventEditing == 1) {
+            let listener = ImageListener(imageView: eventThumbnail)
+            let path = ImageAction.downloadFromS3(filename: thumbnailString + ".png", listener: listener)
+            listener.setPath(path: path)
+        }
+        
+        if(thumbnailImage != #imageLiteral(resourceName: "placeholder")) {
+            eventThumbnail.image = thumbnailImage
+        }
     }
+    
+    func preSetValue(event : Event) {
+        
+        segueDescription = event.desc
+        thumbnailString = event.thumbnail
+        eventEditing = 1
+        segueEvent = event
+    }
+    
+    func preSetNonExistingValue(event : Event) {
+        
+        segueDescription = event.desc
+        thumbnailString = event.thumbnail
+        eventEditing = 0
+        segueEvent = event
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backToFirstCreateViewController" {
+            if let destination = segue.destination as? CreateEventViewControllerP1 {
+                destination.segueImage = eventPhotoFromPrev
+                destination.nextThumbNail = eventThumbnail.image!
+                if eventEditing == 1 {
+                    let newEventModel = ["eventId": segueEvent.eventId, "eventName": eventName, "eventDate": eventDate.toString(dateFormat: "yyyy-MM-dd HH:mm"), "eventLocation": eventLocation, "eventDescription": eventDescription.text, "eventPhoto": "photoURLStillToDo", "eventThumbnail": "photoURLStillToDo", "eventProjects": segueEvent.projects, "eventUsers": segueEvent.users] as Dictionary<String, Any>
+                    
+                    destination.preSetValue(event: Event(json: newEventModel))
+                }
+                
+                else {
+                    let newEventModel = ["eventId": "none", "eventName": eventName, "eventDate": eventDate.toString(dateFormat: "yyyy-MM-dd HH:mm"), "eventLocation": eventLocation, "eventDescription": eventDescription.text, "eventPhoto": "photoURLStillToDo", "eventThumbnail": "photoURLStillToDo", "eventProjects": [], "eventUsers": []] as Dictionary<String, Any>
+                    destination.preSetNonexistingEvent(event: Event(json: newEventModel))
+                }
+            }
+        }
+    }
+    
+    
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
         
         var newEventModel = ["eventId": "none", "eventName": eventName, "eventDate": eventDate.toString(dateFormat: "yyyy-MM-dd HH:mm"), "eventLocation": eventLocation, "eventDescription": eventDescription.text, "eventPhoto": "photoURLStillToDo", "eventThumbnail": "photoURLStillToDo", "eventProjects": [], "eventUsers": []] as Dictionary<String, Any>
         
         let eventRequest = EventRequest()
-        let eventId = eventRequest.createEvent(event: Event(json: newEventModel))
+        
+        var eventId : String = ""
+        
+        if eventEditing == 0 {
+            eventId = eventRequest.createEvent(event: Event(json: newEventModel))
+            var hostEvents = SessionHost.shared().events
+            hostEvents.append(eventId)
+            eventRequest.updateHost(email: SessionHost.shared().email, events: hostEvents)
+
+        }
+        
+        else {
+            eventRequest.updateEvent(event: segueEvent)
+            eventId = segueEvent.eventId
+        }
         
         print(eventId)
-        var hostEvents = SessionHost.shared().events
-        hostEvents.append(eventId)
-        eventRequest.updateHost(email: SessionHost.shared().email, events: hostEvents)
-        
         
         ImageAction.uploadToS3(image: eventPhotoFromPrev, filename: eventId + "Photo.png")
         ImageAction.uploadToS3(image: eventThumbnail.image!, filename: eventId + "Thumb.png")

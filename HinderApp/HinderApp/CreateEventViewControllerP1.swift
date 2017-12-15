@@ -21,12 +21,66 @@ class CreateEventViewControllerP1: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var eventDate: UIDatePicker!
     
     @IBOutlet weak var nextButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    
+    
+//    var segueEventPhoto: UIImageView = UIImageView(image : #imageLiteral(resourceName: "placeholder"))
+    var segueEventName: String = ""
+    var segueEventLocation: String = ""
+    var segueEventDate: Date = Date()
+    var eventEditing : Int = 0
+    var segueImage : UIImage = #imageLiteral(resourceName: "placeholder")
+    var nextThumbNail : UIImage = #imageLiteral(resourceName: "placeholder")
+    
+    var segueEvent: Event = Event(json: EventRequest.getEmptyEventHandler())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        let listener = ImageListener(imageView: eventPhoto)
+        if(eventEditing == 1) {
+            let listener = ImageListener(imageView: eventPhoto)
+            let path = ImageAction.downloadFromS3(filename: segueEvent.photo + ".png", listener: listener)
+            listener.setPath(path: path)
+        }
+        
+        if(segueImage != #imageLiteral(resourceName: "placeholder")) {
+            eventPhoto.image = segueImage
+        }
+        
+        eventName.text = segueEventName
+        eventLocation.text = segueEventLocation
+        eventDate.date = segueEventDate
         
         self.navigationItem.rightBarButtonItem = nextButton
+        self.navigationItem.leftBarButtonItem = cancelButton
+    }
+    
+    func preSetValue(event : Event) {
+        
+        segueEventName = event.name
+        segueEventLocation = event.location
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "yyyy-MM-dd HH:mm"
+        let date = dateFormatter.date(from: event.date)
+        segueEventDate = date!
+        segueEvent = event
+        eventEditing = 1
+    }
+    
+    func preSetNonexistingEvent(event : Event) {
+        
+        segueEventName = event.name
+        segueEventLocation = event.location
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "yyyy-MM-dd HH:mm"
+        let date = dateFormatter.date(from: event.date)
+        segueEventDate = date!
+        segueEvent = event
+        eventEditing = 2
     }
     
     @IBAction func nextPage(_ sender: UIBarButtonItem) {
@@ -79,10 +133,19 @@ class CreateEventViewControllerP1: UIViewController, UIImagePickerControllerDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "nextCreateEventSegue" {
             if let destination = segue.destination as? CreateEventViewControllerP2 {
+                destination.thumbnailImage = nextThumbNail
                 destination.eventName = eventName.text!
                 destination.eventLocation = eventLocation.text!
                 destination.eventDate = eventDate.date
                 destination.eventPhotoFromPrev = eventPhoto.image!
+                
+                if(eventEditing == 1) {
+                    destination.preSetValue(event: segueEvent)
+                }
+                
+                if(eventEditing == 2) {
+                    destination.preSetNonExistingValue(event: segueEvent)
+                }
             }
         }
     }

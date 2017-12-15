@@ -30,13 +30,13 @@ class HostEventTableViewController: UITableViewController {
     
     // MARK: - UITableViewDataSource
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+    @IBAction func editEvent() {
+        self.performSegue(withIdentifier: "createNewEventSegue", sender: self)
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
-            // handle delete (by removing the data from your array and updating the tableview)
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             let eventRequest = EventRequest()
             let event = SessionHost.shared().populatedEvents[indexPath.row] as! Event
             eventRequest.deleteEvent(eventId: event.eventId)
@@ -46,6 +46,22 @@ class HostEventTableViewController: UITableViewController {
             
             tableView.reloadData()
         }
+        delete.backgroundColor = UIColor.red
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+            self.performSegue(withIdentifier: "createNewEventSegue", sender: SessionHost.shared().populatedEvents[indexPath.row] as! Event)
+        }
+        edit.backgroundColor = UIColor.blue
+        
+        return [delete, edit]
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,8 +88,12 @@ class HostEventTableViewController: UITableViewController {
         self.performSegue(withIdentifier: "backToHomeSegue", sender: self)
     }
     
-    @IBAction func createEventClicked(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "createNewEventSegue", sender: self)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if(segue.identifier == "createNewEventSegue") {
+            let createEventPage1:CreateEventViewControllerP1 = segue.destination as! CreateEventViewControllerP1
+            createEventPage1.preSetValue(event : sender as! Event)
+        }
     }
     
     // Maybe for later
