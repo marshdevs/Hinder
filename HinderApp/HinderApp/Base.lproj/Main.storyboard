@@ -607,7 +607,7 @@
         <!--Home View Controller-->
         <scene sceneID="T7F-CR-3Gm">
             <objects>
-                <viewController id="bQV-sp-h6v" customClass="HomeViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="bQV-sp-h6v" customClass="HomeViewController" customModule="HinderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YXf-57-fR1"/>
                         <viewControllerLayoutGuide type="bottom" id="tmI-G6-40M"/>

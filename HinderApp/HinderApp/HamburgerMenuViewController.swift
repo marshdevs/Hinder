@@ -19,6 +19,7 @@ class HamburgerMenuViewController: UITableViewController {
         navigationItem.leftBarButtonItem = barButton
         
         
+        
         //navigationItem.setHidesBackButton(true, animated: true)
         
     }
@@ -28,8 +29,9 @@ class HamburgerMenuViewController: UITableViewController {
     }
     
     func barButtonClicked() {
-        self.navigationController?.popViewController(animated: true)
+        let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 
