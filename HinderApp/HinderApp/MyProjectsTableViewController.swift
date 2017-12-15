@@ -14,6 +14,8 @@ class MyProjectsTableViewController : UITableViewController {
     
     @IBOutlet weak var backtoMain: UIBarButtonItem!
     
+    var tableRows: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Button to create a new project
@@ -24,6 +26,8 @@ class MyProjectsTableViewController : UITableViewController {
         SessionUser.shared().projects = userRequest.getUser(userId: SessionUser.shared().userId).projects
         SessionUser.shared().populatedProjects = projectRequest.batchGetProjects(projectIds: SessionUser.shared().projects)
 
+        tableRows = SessionUser.shared().projects
+        
         self.tableView.register(UITableViewCell.self,forCellReuseIdentifier: "UserProjectCell")
         tableView.reloadData()
         
@@ -52,6 +56,14 @@ class MyProjectsTableViewController : UITableViewController {
         cell.textLabel?.text = project.name
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let projId = (tableRows[indexPath.row] as String!)
+        let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
+        vc.setProject(project: projId!)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
