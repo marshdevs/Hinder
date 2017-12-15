@@ -28,15 +28,18 @@ class ProfileUserInfoCell: UICollectionViewCell, UITextViewDelegate {
     
     let profPic: UIImage = {
         let prof = UIImage(named: "facebook")
+        // let listener = ImageListener(imageView: )
         
+        //prof.backgroundColor = UIColor.gray
         return prof!
     }()
     
     let iView : UIImageView = {
-        let iView = UIImageView(image: UIImage(named: "facebook"))
+        let iView = UIImageView(image: UIImage(named: "facebook")) //image: UIImage(named: "facebook"))
+        iView.backgroundColor = UIColor.gray
         iView.configureLayout { (layout) in
             layout.isEnabled = true
-            layout.width = 120.0
+            layout.width = 200.0
             layout.height = 120.0
             layout.alignSelf = .center
         }
@@ -46,21 +49,21 @@ class ProfileUserInfoCell: UICollectionViewCell, UITextViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-       
+        
     }
     
     let occText : UITextView = {
-    //occText.delegate = self
+        //occText.delegate = self
         let occText = UITextView()
-    occText.configureLayout{ (layout) in
-    layout.isEnabled = true
-    layout.paddingTop = 14.0
-    layout.alignSelf = .flexStart
-    layout.flexGrow = 1.0
-    }
-    occText.font = .systemFont(ofSize: 15.0)
-    occText.text = SessionUser.shared().occupation
-    return occText
+        occText.configureLayout{ (layout) in
+            layout.isEnabled = true
+            layout.paddingTop = 14.0
+            layout.alignSelf = .flexStart
+            layout.flexGrow = 1.0
+        }
+        occText.font = .systemFont(ofSize: 15.0)
+        occText.text = SessionUser.shared().occupation
+        return occText
     }()
     
     let descriptionView : UIView = {
@@ -84,14 +87,14 @@ class ProfileUserInfoCell: UICollectionViewCell, UITextViewDelegate {
         occLabel.text = "Occupation: "
         view.addSubview(occLabel)
         
-       // let occText = UITextView()
-      //  occText.delegate = self.delegate
-       // occText.configureLayout{ (layout) in
+        // let occText = UITextView()
+        //  occText.delegate = self.delegate
+        // occText.configureLayout{ (layout) in
         //    layout.isEnabled = true
-         //   layout.paddingTop = 14.0
-          //  layout.alignSelf = .flexStart
-           // layout.flexGrow = 1.0
-       // }
+        //   layout.paddingTop = 14.0
+        //  layout.alignSelf = .flexStart
+        // layout.flexGrow = 1.0
+        // }
         //occText.font = .systemFont(ofSize: 15.0)
         //o/ccText.text = SessionUser.shared().occupation
         //view.addSubview(occText)
@@ -104,7 +107,7 @@ class ProfileUserInfoCell: UICollectionViewCell, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
         SessionUser.shared().occupation = textView.text
-       // print(textView.text); //the textView parameter is the textView where text was changed
+        // print(textView.text); //the textView parameter is the textView where text was changed
     }
     
     override func layoutSubviews() {
@@ -124,6 +127,12 @@ class ProfileUserInfoCell: UICollectionViewCell, UITextViewDelegate {
             layout.paddingTop = 23.0
             layout.alignSelf = .center
         }
+        
+        let prof = UIImage(named: "facebook")
+        let listener = ImageListener(imageView: iView)
+        let path = ImageAction.downloadFromS3(filename: SessionUser.shared().userId + ".png", listener: listener)
+        listener.setPath(path: path)
+        
         contentView.addSubview(userName)
         contentView.addSubview(iView)
         occText.delegate = self
@@ -133,3 +142,4 @@ class ProfileUserInfoCell: UICollectionViewCell, UITextViewDelegate {
     }
     
 }
+

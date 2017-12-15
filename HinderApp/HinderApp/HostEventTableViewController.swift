@@ -30,6 +30,24 @@ class HostEventTableViewController: UITableViewController {
     
     // MARK: - UITableViewDataSource
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            let eventRequest = EventRequest()
+            let event = SessionHost.shared().populatedEvents[indexPath.row] as! Event
+            eventRequest.deleteEvent(eventId: event.eventId)
+            SessionHost.shared().populatedEvents.remove(at: indexPath.row)
+            SessionHost.shared().events.remove(at: indexPath.row)
+            eventRequest.updateHost(email: SessionHost.shared().email, events: SessionHost.shared().events)
+            
+            tableView.reloadData()
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SessionHost.shared().events.count
     }
