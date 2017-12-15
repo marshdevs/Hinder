@@ -10,28 +10,69 @@ import UIKit
 import IGListKit
 
 class EventPageViewController: UIViewController {
-
-    var event: Event!
-//
-//    public func setEvent(myEvent: Event) {
-//        event = myEvent;
-//    }
     
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    var event: Event!
+    //
+    //    public func setEvent(myEvent: Event) {
+    //        event = myEvent;
+    //    }
+    
+    //    required init?(coder aDecoder: NSCoder) {
+    //        fatalError("init(coder:) has not been implemented")
+    //    }
     @IBOutlet weak var hamburgerMenu: UIBarButtonItem!
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var descriptionLabel : UILabel!
+    @IBOutlet weak var eventImage : UIImageView!
+    
+    @IBOutlet weak var dateLabel : UILabel!
+    @IBOutlet weak var locationLabel : UILabel!
+    
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var buttonLabel: UILabel!
+    
+    @IBAction func buttonPressed(_ sender: Any) {
+        if buttonLabel.text == "View Group" {
+            // view kyle/apurva's group page???
+            // self.performSegue(withIdentifier: "blah", sender: self)
+        } else if buttonLabel.text == "Search Groups" {
+            // go to george's swipe interface
+            // self.performSegue(withIdentifier: "blah", sender: self)
+        } else if buttonLabel.text == "Join Event" {
+            // insert user into event
+            // self.performSegue(withIdentifier: "blah", sender: self)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.titleLabel.text = event.name
+        self.eventImage.image = UIImage(named: "redBanner")
         self.descriptionLabel.text = event.desc
+        dateLabel.text = event.date
+        locationLabel.text = event.location
+        
+        var assignedLabel = false
+        var eventId = event.eventId
+        if SessionUser.shared().events.contains(eventId) {
+            for proj in SessionUser.shared().projects {
+                if eventId == proj {
+                    buttonLabel.text = "View Group"
+                    assignedLabel = true
+                }
+            }
+            if assignedLabel == false {
+                buttonLabel.text = "Search Groups"
+            }
+        } else {
+            buttonLabel.text = "Join Event"
+        }
+        //buttonLabel.text = "i love u"
         //navigationItem.setHidesBackButton(true, animated: true)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -39,26 +80,26 @@ class EventPageViewController: UIViewController {
     @IBAction func menuClicked(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "backToHomeSegue", sender: self)
     }
-
+    
     func setEvent(event: Event){
         self.event = event
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 // MARK: - IGListAdapterDataSource
 
 //extension EventPageViewController {
-//    
+//
 //    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
 //        var items: [ListDiffable] = [ListDiffable]();
 //        var eventArray = [Event]()
@@ -74,5 +115,4 @@ class EventPageViewController: UIViewController {
 //
 //    func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
 //}
-
 
