@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Photos
+import PhotosUI
 
-class CreateProjectViewController: UIViewController, UITextFieldDelegate {
+class CreateProjectViewController: UIViewController, UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
+    
+    let imagePicker = UIImagePickerController()
     
     // internal let projectId: String
     
@@ -30,6 +34,8 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var projectSize: UITextField!
 
+    @IBOutlet weak var projectPhoto: UIImageView!
+    
     // Skillset
     
     @IBOutlet weak var cplusplus: UISwitch!
@@ -43,7 +49,7 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        imagePicker.delegate = self
         
         // Do any additional setup after loading the view.
         
@@ -62,7 +68,7 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate {
         let size : Int! = Int(projectSize.text!)
         var newProjectModel = ["projectId": "none", "eventId":"none", "projectName": _name,
                             "projectDescription": projectDescription.text, "projectSize": [size],
-                            "projectPhoto": "nophotoyet", "projectUsers": [],
+                            "projectPhoto": "photoURLStillToDo", "projectUsers": [],
                             "projectSkillset": ["C++":cplusplus.isOn,
                                                 "C": c.isOn,
                                                 "Obj-C": objc.isOn,
@@ -81,10 +87,12 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate {
         print(SessionUser.shared().projects)
         userRequest.updateUser(user: SessionUser.shared())
         
+        ImageAction.uploadToS3(image: projectPhoto.image!, filename: projectId + ".png")
+        
         newProjectModel["projectId"] = projectId
+        newProjectModel["projectPhoto"] = projectId + ".png"
         projectRequest.updateProject(project: Project(json: newProjectModel))
 
-        //navigationController?.popViewController(animated: true)
         performSegue(withIdentifier: "backtoMain", sender: self)
         
     }
@@ -96,6 +104,51 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Image Picker Methods
+    
+    @IBAction func loadImageButtonTapped(_ sender: UIButton) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        switch photoAuthorizationStatus {
+        case .authorized:
+            if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                self.projectPhoto.contentMode = .scaleAspectFit
+                self.projectPhoto.image = pickedImage
+            }
+            print("Access is granted by user")
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({
+                (newStatus) in
+                print("status is \(newStatus)")
+                if newStatus ==  PHAuthorizationStatus.authorized {
+                    if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                        self.projectPhoto.contentMode = .scaleAspectFit
+                        self.projectPhoto.image = pickedImage
+                    }
+                    print("success")
+                }
+            })
+            print("It is not determined until now")
+        case .restricted:
+            print("User do not have access to photo album.")
+        case .denied:
+            print("User has denied the permission.")
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
 }
