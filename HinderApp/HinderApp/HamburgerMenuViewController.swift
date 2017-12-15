@@ -14,6 +14,11 @@ class HamburgerMenuViewController: UITableViewController {
         super.viewDidLoad()
         let hamburgerMenu = UIBarButtonItem(image:UIImage(named: "hamburger"), style: .plain, target: self, action: #selector(HamburgerMenuViewController.menuClicked))
         navigationItem.rightBarButtonItem = hamburgerMenu
+        
+        let barButton = UIBarButtonItem(image:UIImage(named: "home"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HamburgerMenuViewController.barButtonClicked))
+        navigationItem.leftBarButtonItem = barButton
+        
+        
         //navigationItem.setHidesBackButton(true, animated: true)
         
     }
@@ -21,6 +26,13 @@ class HamburgerMenuViewController: UITableViewController {
     func menuClicked() {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func barButtonClicked() {
+        self.navigationController?.popViewController(animated: true)
+        
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

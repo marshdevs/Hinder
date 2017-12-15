@@ -18,7 +18,8 @@ class MyKoladaViewController: UIViewController {
     fileprivate var dataSource: [UIImage] = {
         var array: [UIImage] = []
         for index in 0..<numberOfCards {
-            array.append(UIImage(named: "Card_like_\(index + 1)")!)
+              array.append(UIImage(named: "Card_like_\(index + 1)")!)
+            //array.append(request-project-images)
         }
         
         return array
