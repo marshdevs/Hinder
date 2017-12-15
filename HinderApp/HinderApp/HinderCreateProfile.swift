@@ -98,16 +98,22 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
                         let userRequest = UserRequest()
                         let userId = userRequest.getId(email: userInfo["email"] as! String)
                         if let existingUser = userRequest.getUser(userId: userId) as? User {
-                            SessionUser.setupSharedInstance(user: userRequest.getUser(userId: userId))
-                            print(SessionUser.shared())
-                        } else {
-                            var newUser = User(json: User.emptyUserHandler)
-                            newUser.userId = userId
-                            newUser.photo = imageURL
-                            newUser.name = (userInfo["first_name"] as! String) + " " + (userInfo["last_name"] as! String)
-                            let _ = userRequest.createUser(user: newUser)
-                            SessionUser.setupSharedInstance(user: newUser)
-                            print(SessionUser.shared())
+                            if (existingUser.userId != "empty") {
+                                SessionUser.setupSharedInstance(user: userRequest.getUser(userId: userId))
+                                print(SessionUser.shared())
+                            } else {
+                                var newUser = User(json: User.emptyUserHandler)
+                                newUser.userId = userId
+                                newUser.photo = userId + ".png"
+                                newUser.name = (userInfo["first_name"] as! String) + " " + (userInfo["last_name"] as! String)
+                                
+                                let imageAction = ImageAction()
+                                imageAction.uploadToS3(image: image!, filename: userId + ".png")
+                                
+                                let _ = userRequest.createUser(user: newUser)
+                                SessionUser.setupSharedInstance(user: newUser)
+                                print(SessionUser.shared())
+                            }
                         }
                         
                         self.profilePic.setImage(image, for: .normal)

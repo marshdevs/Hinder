@@ -88,10 +88,10 @@ class ProjectRequest: Request {
                 return
             }
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
-                    for item in json {
-                        // TO DO: be able to access event data to actually initialize new Event object
-                        res = (Project(json: item))
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    if var _ = json["status"] {
+                    } else {
+                        res = Project(json: json)
                     }
                 }
                 self.semaphore.signal()
@@ -229,5 +229,44 @@ class ProjectRequest: Request {
             }
         })
         task.resume()
+    }
+    
+    /**
+     Update a user with new project
+     
+     - parameter: Updated list of projects [String]
+     
+     - returns: void, async
+     */
+    func updateUser(projects: [String]) {
+        let requestData: [String: Any] = ["projects": projects]
+        let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
+        
+        self.endpoint = "updateUser/"
+        self.url = URL(string: super.root + self.endpoint)!
+        self.request = URLRequest(url: self.url)
+        self.request.httpMethod = "PUT"
+        self.request.httpBody = requestJsonData
+        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            guard let data = data else {
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
+                    for item in json {
+                        dump(item)
+                    }
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        })
+        task.resume()
+        
     }
 }

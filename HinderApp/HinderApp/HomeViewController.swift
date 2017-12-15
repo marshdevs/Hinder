@@ -97,12 +97,13 @@ extension HomeViewController {
         
         Need some way to grab user's location, if we're querying events by location
          */
-        let request = EventRequest()
-        let eventArray = request.batchGetEvents(eventIds: SessionUser.shared().events)
-        items += eventArray as [ListDiffable]
-        print("Dumping items")
-        dump(items)
-
+        if (SessionUser.shared().events.count > 0) {
+            let request = EventRequest()
+            let eventArray = request.batchGetEvents(eventIds: SessionUser.shared().events)
+            items += eventArray as [ListDiffable]
+            print("Dumping items")
+            dump(items)
+        }
         return items
     }
     

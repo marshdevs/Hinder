@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXN-qA-QQl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXN-qA-QQl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -227,11 +227,6 @@
                                 <color key="textColor" red="0.8620263924870466" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwm-6z-x7z">
-                                <rect key="frame" x="318" y="269" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Table"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -373,11 +368,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="04i-uE-peO">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="04i-uE-peO">
                                 <rect key="frame" x="16" y="369" width="343" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -687,14 +681,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JdC-V0-VSi">
-                                                    <rect key="frame" x="73" y="0.0" width="287" height="43.5"/>
+                                                    <rect key="frame" x="74" y="0.0" width="285" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="laptop" id="au8-WA-DjA">
-                                                    <rect key="frame" x="15" y="0.0" width="43" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="43" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -714,14 +708,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5DV-HZ-lL4">
-                                                    <rect key="frame" x="77" y="0.0" width="283" height="43.5"/>
+                                                    <rect key="frame" x="78" y="0.0" width="281" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="group" id="fVD-sf-BU0">
-                                                    <rect key="frame" x="15" y="0.0" width="47" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="47" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -917,23 +911,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="My Projects" id="LfV-H0-O4Q">
-                                <cells/>
-                            </tableViewSection>
-                        </sections>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="KXs-AU-2Bq" id="2uw-Iy-vVY"/>
                             <outlet property="delegate" destination="KXs-AU-2Bq" id="IW7-UD-Sbj"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="ZZ8-9Z-MlS">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="1ts-Yz-muA">
+                            <connections>
+                                <segue destination="siA-bE-SIP" kind="show" id="JOP-Si-XP9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="0M5-Ou-edc">
                             <connections>
                                 <action selector="createProjectClicked:" destination="KXs-AU-2Bq" id="rcE-W3-vEa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="createNew" destination="0M5-Ou-edc" id="cI1-Hh-Rlk"/>
                         <segue destination="F5S-QK-iNS" kind="show" identifier="createNewProject" id="KAu-Ao-0fV"/>
@@ -1108,6 +1105,7 @@
                         <outlet property="projectSize" destination="huR-gP-r5I" id="fvs-Qu-mrK"/>
                         <outlet property="python" destination="Ft3-Df-arS" id="p61-cU-Cw2"/>
                         <outlet property="swift" destination="p3r-2f-oZg" id="PB2-xz-eY5"/>
+                        <segue destination="KXs-AU-2Bq" kind="show" identifier="backtoMain" id="lzK-Ak-zin"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vr0-6S-OfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1143,9 +1141,5 @@
         <image name="rounded-button" width="196" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qb7-kz-A9h"/>
-        <segue reference="d6H-TY-Nxx"/>
-        <segue reference="WwP-Ah-cqx"/>
-        <segue reference="HGP-Ot-W0b"/>
     </inferredMetricsTieBreakers>
 </document>
