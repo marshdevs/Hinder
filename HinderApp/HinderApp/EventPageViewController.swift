@@ -41,14 +41,16 @@ class EventPageViewController: UIViewController {
             }
         }
         //KYLE ADD REQUESTS BELOW
-        if buttonLabel.text == "View Group" {
-            // view kyle/apurva's group page???
+        if buttonLabel.text == "View Group" { //GO TO MY PROJECT
+    
             // KYLE KYLE KYLE KYLE KYLE TODO
-            // self.performSegue(withIdentifier: "blah", sender: self)
-        } else if buttonLabel.text == "Search Groups" {
+          
+        } else if buttonLabel.text == "Search Groups" { // GO TO SWIPE INTERFACE GEORGE
             // go to george's swipe interface
-            // self.performSegue(withIdentifier: "blah", sender: self)
-        } else if buttonLabel.text == "Join Event" {
+            let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "KoladaVC") as! HomeViewController
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if buttonLabel.text == "Join Event" { // IDK ADD SELF TO EVENT AND THEN GO TO SWIPE??
             // insert user into event
             // self.performSegue(withIdentifier: "blah", sender: self)
         }
