@@ -14,6 +14,7 @@
 		313D31BA1FE11E8B0036CC0B /* ImageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D31B91FE11E8B0036CC0B /* ImageAction.swift */; };
 		315C5FB51FE3A960005DC9EA /* HinderAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315C5FB41FE3A960005DC9EA /* HinderAppTests.swift */; };
 		315C5FBC1FE3A96A005DC9EA /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315C5FAA1FE3A0D8005DC9EA /* NetworkTests.swift */; };
+		315C5FBD1FE3AD67005DC9EA /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315C5FBE1FE3AD67005DC9EA /* IGListKit.framework */; };
 		318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B661FD66AD10054B73D /* EventRequest.swift */; };
 		318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B681FD66AE00054B73D /* ProjectRequest.swift */; };
 		318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A4B6A1FD66AFC0054B73D /* UserRequest.swift */; };
@@ -40,6 +41,7 @@
 		BA3AF00B1FE371C70064EFBF /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3AF00A1FE371C70064EFBF /* ProjectViewController.swift */; };
 		BA3AF00D1FE38A370064EFBF /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3AF00C1FE38A370064EFBF /* UserTableViewCell.swift */; };
 		BA3AF00F1FE38AA70064EFBF /* MemberViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3AF00E1FE38AA70064EFBF /* MemberViewCell.swift */; };
+		BA3AF0111FE3ADCC0064EFBF /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3AF0101FE3ADCC0064EFBF /* IGListKit.framework */; };
 		BA8074121FE1E9160062E1EB /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8074111FE1E9160062E1EB /* UserViewController.swift */; };
 		BA8074141FE1EFA90062E1EB /* UserProjectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8074131FE1EFA90062E1EB /* UserProjectViewCell.swift */; };
 		BA907B721FDC989E005BD3E8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B711FDC989E005BD3E8 /* NavigationController.swift */; };
@@ -89,6 +91,7 @@
 		315C5FB21FE3A960005DC9EA /* HinderAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HinderAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		315C5FB41FE3A960005DC9EA /* HinderAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderAppTests.swift; sourceTree = "<group>"; };
 		315C5FB61FE3A960005DC9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		315C5FBE1FE3AD67005DC9EA /* IGListKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IGListKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		318A4B661FD66AD10054B73D /* EventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRequest.swift; sourceTree = "<group>"; };
 		318A4B681FD66AE00054B73D /* ProjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRequest.swift; sourceTree = "<group>"; };
 		318A4B6A1FD66AFC0054B73D /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 		BA3AF00A1FE371C70064EFBF /* ProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		BA3AF00C1FE38A370064EFBF /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		BA3AF00E1FE38AA70064EFBF /* MemberViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewCell.swift; sourceTree = "<group>"; };
+		BA3AF0101FE3ADCC0064EFBF /* IGListKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListKit.framework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/HinderApp-dtbayonmajhqxzemogzvecwisqds/Build/Products/Debug-iphonesimulator/IGListKit/IGListKit.framework"; sourceTree = "<group>"; };
 		BA8074111FE1E9160062E1EB /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		BA8074131FE1EFA90062E1EB /* UserProjectViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProjectViewCell.swift; sourceTree = "<group>"; };
 		BA907B711FDC989E005BD3E8 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EBFC0461FE3AD9100C86405 /* IGListKit.framework in Frameworks */,
+				BA3AF0111FE3ADCC0064EFBF /* IGListKit.framework in Frameworks */,
+				315C5FBD1FE3AD67005DC9EA /* IGListKit.framework in Frameworks */,
 				710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				5EBFC0451FE3AD9100C86405 /* IGListKit.framework */,
+				BA3AF0101FE3ADCC0064EFBF /* IGListKit.framework */,
+				315C5FBE1FE3AD67005DC9EA /* IGListKit.framework */,
 				315C5FAC1FE3A79B005DC9EA /* XCTest.framework */,
 				9FC6A0651FBB98E000176134 /* Photos.framework */,
 				9FC6A0641FBB98E000176134 /* PhotosUI.framework */,
