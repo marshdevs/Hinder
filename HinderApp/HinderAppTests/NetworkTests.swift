@@ -65,8 +65,8 @@ class NetworkTests: XCTestCase {
         let newUser = ["userId": "asdfasdf", "userName": "empty", "userOccupation": "empty", "userEvents": [], "userPhoto": "empty", "userProjects": [], "userSkillset": ["C++": false, "C": false, "Obj-C": false, "Swift": false, "Python": false, "Java": false, "Javascript": false, "Html": false] as Dictionary<String, Any>] as [String : Any]
         let userId = userRequest.createUser(user: User(json: newUser))
         
-        let newProject = ["projectId": "empty", "projectName": "empty", "eventId": "empty", "projectDescription": "empty", "projectSize": [1, 1], "projectPhoto": "empty", "projectSkillset": ["C++": true, "C": true, "Html": true, "Java": true, "Javascript": true, "Obj-C": true, "Python": true, "Swift": true] as Dictionary<String, Any>, "projectUsers": []] as [String : Any]
-        
+        let newProject = ["projectId": "projectid", "projectName": "empty", "eventId": "empty", "projectDescription": "empty", "projectSize": [1, 1], "projectPhoto": "empty", "projectSkillset": ["C++": true, "C": true, "Html": true, "Java": true, "Javascript": true, "Obj-C": true, "Python": true, "Swift": true] as Dictionary<String, Any>, "projectUsers": []] as [String : Any]
+        let projectId = projectRequest.createProject(project: Project(json: newProject))
         
     }
     

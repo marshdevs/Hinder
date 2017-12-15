@@ -58,6 +58,14 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
         if(thumbnailImage != #imageLiteral(resourceName: "placeholder")) {
             eventThumbnail.image = thumbnailImage
         }
+        
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateEventViewControllerP2.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     func preSetValue(event : Event) {

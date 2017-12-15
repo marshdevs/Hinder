@@ -55,6 +55,14 @@ class CreateEventViewControllerP1: UIViewController, UIImagePickerControllerDele
         
         self.navigationItem.rightBarButtonItem = nextButton
         self.navigationItem.leftBarButtonItem = cancelButton
+        
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateEventViewControllerP1.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     func preSetValue(event : Event) {

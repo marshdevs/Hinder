@@ -24,12 +24,22 @@ class HostLoginViewController: UIViewController, UITextFieldDelegate {
         let backItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(LoginViewController.back(sender:)))
         self.navigationItem.backBarButtonItem = backItem
         navigationItem.setHidesBackButton(false, animated: true)
+        
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HostLoginViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     // MARK: Actions
     
