@@ -13,14 +13,15 @@ class MyGroupsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Button to create a new project
-        let addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MyGroupsViewController.newProject))
-        self.navigationItem.rightBarButtonItem = addBarButtonItem
+//        let addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MyGroupsViewController.newProject))
+//        self.navigationItem.rightBarButtonItem = addBarButtonItem
         // Do any additional setup after loading the view.
     }
 
-    func newProject () {
-        performSegue(withIdentifier: "createNew", sender: nil)
-    }
+    // newProject moved to View Event Page
+//    func newProject () {
+//        performSegue(withIdentifier: "createNew", sender: nil)
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

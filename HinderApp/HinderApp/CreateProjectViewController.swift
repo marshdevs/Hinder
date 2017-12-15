@@ -49,6 +49,8 @@ class CreateProjectViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var js: UISwitch!
     @IBOutlet weak var html: UISwitch!
     
+    var eventId = "none"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
@@ -89,7 +91,7 @@ class CreateProjectViewController: UIViewController, UIImagePickerControllerDele
         let _name: String! = projectName.text!
         let size : Int! = Int(projectSize.text!)
         
-        var newProjectModel = ["projectId": "none", "eventId":"none", "projectName": _name,
+        var newProjectModel = ["projectId": self.eventId, "eventId":"none", "projectName": _name,
                             "projectDescription": projectDescription.text, "projectSize": [1, size],
                             "projectPhoto": "photoURLStillToDo", "projectUsers": [],
                             "projectSkillset": ["C++":cplusplus.isOn,
@@ -102,6 +104,8 @@ class CreateProjectViewController: UIViewController, UIImagePickerControllerDele
                                                 "Html":html.isOn]] as Dictionary<String,Any>
         let projectRequest = ProjectRequest()
         let userRequest = UserRequest()
+        let eventRequest = EventRequest()
+        
         let projectId = projectRequest.createProject(project: Project(json: newProjectModel))
         print(projectId)
         
@@ -115,6 +119,10 @@ class CreateProjectViewController: UIViewController, UIImagePickerControllerDele
         newProjectModel["projectId"] = projectId
         newProjectModel["projectPhoto"] = projectId + ".png"
         projectRequest.updateProject(project: Project(json: newProjectModel))
+        
+        let thisEvent = eventRequest.getEvent(eventId: eventId)
+        thisEvent.projects.append(projectId)
+        eventRequest.updateEvent(event: thisEvent)
 
         performSegue(withIdentifier: "backtoMain", sender: self)
         
