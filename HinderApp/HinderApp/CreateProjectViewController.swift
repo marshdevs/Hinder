@@ -72,14 +72,14 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate {
                                                 "Javascript":js.isOn,
                                                 "Html":html.isOn]] as Dictionary<String,Any>
         let projectRequest = ProjectRequest()
+        let userRequest = UserRequest()
         let projectId = projectRequest.createProject(project: Project(json: newProjectModel))
         print(projectId)
         
         print(SessionUser.shared().projects)
-        //var userProjects = SessionUser.shared().projects
         SessionUser.shared().projects.append(projectId)
         print(SessionUser.shared().projects)
-        projectRequest.updateUser(projects: SessionUser.shared().projects)
+        userRequest.updateUser(user: SessionUser.shared())
         
         newProjectModel["projectId"] = projectId
         projectRequest.updateProject(project: Project(json: newProjectModel))
