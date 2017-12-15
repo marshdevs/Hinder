@@ -15,8 +15,6 @@ protocol editDelegate: class {
 
 class EditProfileSectionController: ListSectionController, editDelegate {
     
-    var skills: Skillset!
-    
     override init() {
         super.init()
         inset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
@@ -47,36 +45,43 @@ class EditProfileSectionController: ListSectionController, editDelegate {
         }
     }
     override func numberOfItems() -> Int {
-        return 8
+        if self.section == 0 {
+            return 1
+        } else {
+            return 8
+        }
+       // return 8
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
         guard let context = collectionContext else { return .zero }
         if self.section == 0 {
-            return CGSize(width: context.containerSize.width, height: ToggleHeight)
+            return CGSize(width: context.containerSize.width, height: 250)
         }
         else {
-            return CGSize(width: context.containerSize.width, height: 20)
+            return CGSize(width: context.containerSize.width, height: ToggleHeight)
         }
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         // TODO: if first section, add "My Events" header
-        let cellClass: AnyClass = SkillSetEditCell.self
+        let cellClass: AnyClass = self.section == 0 ? ProfileUserInfoCell.self : SkillSetEditCell.self
         
         
         let cell = collectionContext!.dequeueReusableCell(of: cellClass, for: self, at: index)
-        
+        if let cell = cell as? ProfileUserInfoCell {
+
+        }
         if let cell = cell as? SkillSetEditCell {
             cell.delegate = self
-            cell.toggleButton.setOn(skills.arraySkills[index], animated: false)
-            cell.label.text = skills.skillNames[index]//"event cell"
+            cell.toggleButton.setOn(SessionUser.shared().skillset.arraySkills[index], animated: false)
+            cell.label.text = SessionUser.shared().skillset.skillNames[index]//"event cell"
         }
         return cell
     }
     
     override func didUpdate(to object: Any) {
-        skills = object as? Skillset
+     //   skills = object as? Skillset
     }
     
     override func didSelectItem(at index: Int) {

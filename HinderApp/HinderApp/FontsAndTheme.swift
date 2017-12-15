@@ -38,5 +38,4 @@ func SkillSetFont(size: CGFloat = 14) -> UIFont {
 let FeedCellHeight = CGFloat(integerLiteral: 140)
 
 let ProfilePicHeight = CGFloat(integerLiteral: 140)
-
 let ToggleHeight = CGFloat(integerLiteral: 60)

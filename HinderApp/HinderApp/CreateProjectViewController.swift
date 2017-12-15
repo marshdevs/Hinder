@@ -74,7 +74,19 @@ class CreateProjectViewController: UIViewController, UITextFieldDelegate {
         let projectRequest = ProjectRequest()
         let projectId = projectRequest.createProject(project: Project(json: newProjectModel))
         print(projectId)
-        navigationController?.popViewController(animated: true)
+        
+        print(SessionUser.shared().projects)
+        //var userProjects = SessionUser.shared().projects
+        SessionUser.shared().projects.append(projectId)
+        print(SessionUser.shared().projects)
+        projectRequest.updateUser(projects: SessionUser.shared().projects)
+        
+        newProjectModel["projectId"] = projectId
+        projectRequest.updateProject(project: Project(json: newProjectModel))
+
+        //navigationController?.popViewController(animated: true)
+        performSegue(withIdentifier: "backtoMain", sender: self)
+        
     }
     
     func cancel () {
