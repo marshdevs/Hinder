@@ -107,8 +107,7 @@ class HinderCreateProfile : UIViewController, UIImagePickerControllerDelegate, U
                                 newUser.photo = userId + ".png"
                                 newUser.name = (userInfo["first_name"] as! String) + " " + (userInfo["last_name"] as! String)
                                 
-                                let imageAction = ImageAction()
-                                imageAction.uploadToS3(image: image!, filename: userId + ".png")
+                                ImageAction.uploadToS3(image: image!, filename: userId + ".png")
                                 
                                 let _ = userRequest.createUser(user: newUser)
                                 SessionUser.setupSharedInstance(user: newUser)
