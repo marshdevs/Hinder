@@ -48,7 +48,7 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
         eventDescription.textColor = UIColor.lightGray
         
         self.eventPhoto.image = eventPhotoFromPrev
-        
+        eventThumbnail.image = thumbnailImage
         if(eventEditing == 1) {
             let listener = ImageListener(imageView: eventThumbnail)
             let path = ImageAction.downloadFromS3(filename: thumbnailString + ".png", listener: listener)
