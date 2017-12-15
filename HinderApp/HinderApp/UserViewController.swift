@@ -23,15 +23,17 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    
     var tableRows: [String] = []
+    var user: User! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load user information
-        let currentUser = SessionUser.shared()
-        let userInfo = SessionUser.extractModel(user: currentUser)
+        if user == nil {
+            user = SessionUser.shared()
+        }
+        
+        let userInfo = SessionUser.extractModel(user: user)
         let userSkills = userInfo["userSkillset"] as? Dictionary<String, Bool>
         tableRows = userInfo["userProjects"] as! [String]
         
@@ -55,8 +57,6 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.layer.borderColor = UIColor.gray.cgColor
         tableView.layer.borderWidth = 1.0
         
-        // TODO: Set table view background
-        
         // Obtain user skills
         var count = 0
         var skillString = "No skills...yet!"
@@ -79,42 +79,70 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         skillsData.text = skillString
         projectsHeader.text = "Current Projects"
         
-        // TODO: Get user photo?
-        
+        // Get user photo
+        let listener = ImageListener(imageView: userPhoto)
+        let path = ImageAction.downloadFromS3(filename: user.userId + ".png", listener: listener)
+        listener.setPath(path: path)
     }
-
+    
+    func setImage (asset: UIImage, cell: UIImageView) {
+        cell.image = asset
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableRows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // Set up cell formatting
         let cell = tableView.dequeueReusableCell(withIdentifier: "userProjectCell", for: indexPath) as! UserProjectViewCell
         cell.projectTitle?.font = UIFont.boldSystemFont(ofSize: 17.0)
-        
-        // TODO: Get project information
-        cell.projectTitle?.text = tableRows[indexPath.row]
-        cell.projectEvent?.text = "Event Name Here"
-        let randomIndex = Int(arc4random_uniform(UInt32(images.count)))
-        cell.projectImage.image = UIImage(named: images[randomIndex])
         cell.backgroundColor = UIColor(red:135/255, green:206/255, blue:250/255, alpha:1.0)
+        
+        // Get user project and event it is for
+        let project = ProjectRequest().getProject(projectId: tableRows[indexPath.row])
+        let event = EventRequest().getEvent(eventId: project.eventId)
+        cell.projectTitle?.text = project.name
+        cell.projectEvent?.text = event.name
+        
+        // Get project photo
+        let listener = ImageListener(imageView: cell.projectImage)
+        let path = ImageAction.downloadFromS3(filename: project.projectId + ".png", listener: listener)
+        listener.setPath(path: path)
+        /*let randomIndex = Int(arc4random_uniform(UInt32(images.count)))
+        cell.projectImage.image = UIImage(named: images[randomIndex])*/
+        
         return cell
     }
-
+    
+    func setUser(user: User){
+        self.user = user
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let projId = (tableRows[indexPath.row] as String!)
+        let proj = ProjectRequest().getProject(projectId: projId!)
+        let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
+        vc.setProject(project: projId!)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
 
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

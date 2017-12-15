@@ -13,7 +13,7 @@ import Foundation
  */
 class ProjectRequest: Request {
     
-    let emptyProjectHandler = ["projectName": "empty", "eventId": "empty", "projectDescription": "If you're seeing this, something went wrong.", "projectSize": [1, 1], "projectPhoto": "empty", "projectSkillset": ["empty": true] as Dictionary<String, Any>, "projectUsers": []] as [String : Any]
+    let emptyProjectHandler = ["projectId": "empty", "projectName": "empty", "eventId": "empty", "projectDescription": "empty", "projectSize": [1, 1], "projectPhoto": "empty", "projectSkillset": ["C++": true, "C": true, "Html": true, "Java": true, "Javascript": true, "Obj-C": true, "Python": true, "Swift": true] as Dictionary<String, Any>, "projectUsers": []] as [String : Any]
     
     override init() {
         super.init()
@@ -181,7 +181,7 @@ class ProjectRequest: Request {
                 return
             }
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     for item in json {
                         dump(item)
                     }
@@ -231,42 +231,5 @@ class ProjectRequest: Request {
         task.resume()
     }
     
-    /**
-     Update a user with new project
-     
-     - parameter: Updated list of projects [String]
-     
-     - returns: void, async
-     */
-    func updateUser(projects: [String]) {
-        let requestData: [String: Any] = ["projects": projects]
-        let requestJsonData = try? JSONSerialization.data(withJSONObject: requestData)
-        
-        self.endpoint = "updateUser/"
-        self.url = URL(string: super.root + self.endpoint)!
-        self.request = URLRequest(url: self.url)
-        self.request.httpMethod = "PUT"
-        self.request.httpBody = requestJsonData
-        self.request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        let task = self.session.dataTask(with: self.request as URLRequest, completionHandler: { data, response, error in
-            
-            guard error == nil else {
-                return
-            }
-            guard let data = data else {
-                return
-            }
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
-                    for item in json {
-                        dump(item)
-                    }
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        })
-        task.resume()
-        
-    }
+    
 }

@@ -24,14 +24,21 @@
 		31FEEA461FDDFB68007C4532 /* HostLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA451FDDFB68007C4532 /* HostLoginViewController.swift */; };
 		31FEEA481FDE118F007C4532 /* SessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA471FDE118F007C4532 /* SessionUser.swift */; };
 		31FEEA4A1FDE338D007C4532 /* CreateEventViewControllerP1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA491FDE338D007C4532 /* CreateEventViewControllerP1.swift */; };
-		5ED2FC6E1FDF433A00F20274 /* MyKolodaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */; };
-		5ED2FC701FDF473400F20274 /* SwipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC6F1FDF473400F20274 /* SwipeCardView.swift */; };
-		5ED2FC721FDF530200F20274 /* BackgroundKolodaAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC711FDF530200F20274 /* BackgroundKolodaAnimator.swift */; };
-		5ED2FC741FDF533800F20274 /* BackgroundAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */; };
+		5EBFC03A1FE37A0800C86405 /* BackgroundAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBFC0331FE37A0800C86405 /* BackgroundAnimationViewController.swift */; };
+		5EBFC03B1FE37A0800C86405 /* BackgroundKolodaAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBFC0341FE37A0800C86405 /* BackgroundKolodaAnimator.swift */; };
+		5EBFC03C1FE37A0800C86405 /* CustomKolodaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBFC0351FE37A0800C86405 /* CustomKolodaView.swift */; };
+		5EBFC03D1FE37A0800C86405 /* CustomOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBFC0361FE37A0800C86405 /* CustomOverlayView.swift */; };
+		5EBFC03E1FE37A0800C86405 /* CustomOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBFC0371FE37A0800C86405 /* CustomOverlayView.xib */; };
+		5EBFC03F1FE37A0800C86405 /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBFC0381FE37A0800C86405 /* ExampleOverlayView.swift */; };
+		5EBFC0401FE37A0800C86405 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBFC0391FE37A0800C86405 /* ViewController.swift */; };
+		5EBFC0441FE385D800C86405 /* Swipe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EBFC0431FE385D800C86405 /* Swipe.storyboard */; };
 		68211A401FE30374000C2A45 /* MyProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */; };
 		68211A421FE310C2000C2A45 /* CreateProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68211A411FE310C2000C2A45 /* CreateProjectViewController.swift */; };
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
 		9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */; };
+		BA3AF00B1FE371C70064EFBF /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3AF00A1FE371C70064EFBF /* ProjectViewController.swift */; };
+		BA3AF00D1FE38A370064EFBF /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3AF00C1FE38A370064EFBF /* UserTableViewCell.swift */; };
+		BA3AF00F1FE38AA70064EFBF /* MemberViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3AF00E1FE38AA70064EFBF /* MemberViewCell.swift */; };
 		BA8074121FE1E9160062E1EB /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8074111FE1E9160062E1EB /* UserViewController.swift */; };
 		BA8074141FE1EFA90062E1EB /* UserProjectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8074131FE1EFA90062E1EB /* UserProjectViewCell.swift */; };
 		BA907B721FDC989E005BD3E8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA907B711FDC989E005BD3E8 /* NavigationController.swift */; };
@@ -80,15 +87,30 @@
 		31FEEA471FDE118F007C4532 /* SessionUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUser.swift; sourceTree = "<group>"; };
 		31FEEA491FDE338D007C4532 /* CreateEventViewControllerP1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewControllerP1.swift; sourceTree = "<group>"; };
 		391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.debug.xcconfig"; sourceTree = "<group>"; };
-		5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKolodaViewController.swift; sourceTree = "<group>"; };
-		5ED2FC6F1FDF473400F20274 /* SwipeCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardView.swift; sourceTree = "<group>"; };
-		5ED2FC711FDF530200F20274 /* BackgroundKolodaAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundKolodaAnimator.swift; sourceTree = "<group>"; };
-		5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAnimationViewController.swift; sourceTree = "<group>"; };
+		5EBFC0331FE37A0800C86405 /* BackgroundAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundAnimationViewController.swift; path = ../../../../Koloda/Example/Koloda/BackgroundAnimationViewController.swift; sourceTree = "<group>"; };
+		5EBFC0341FE37A0800C86405 /* BackgroundKolodaAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundKolodaAnimator.swift; path = ../../../../Koloda/Example/Koloda/BackgroundKolodaAnimator.swift; sourceTree = "<group>"; };
+		5EBFC0351FE37A0800C86405 /* CustomKolodaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomKolodaView.swift; path = ../../../../Koloda/Example/Koloda/CustomKolodaView.swift; sourceTree = "<group>"; };
+		5EBFC0361FE37A0800C86405 /* CustomOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomOverlayView.swift; path = ../../../../Koloda/Example/Koloda/CustomOverlayView.swift; sourceTree = "<group>"; };
+		5EBFC0371FE37A0800C86405 /* CustomOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomOverlayView.xib; path = ../../../../Koloda/Example/Koloda/CustomOverlayView.xib; sourceTree = "<group>"; };
+		5EBFC0381FE37A0800C86405 /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExampleOverlayView.swift; path = "/Users/HAACKERK/OneDrive/Documents/School/SeniorYear/CS 130/ProjC8/Hinder/HinderApp/HinderApp/../../../../Koloda/Example/Koloda/ExampleOverlayView.swift"; sourceTree = "<absolute>"; };
+		5EBFC0391FE37A0800C86405 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../../Koloda/Example/Koloda/ViewController.swift; sourceTree = "<group>"; };
+		5EBFC0431FE385D800C86405 /* Swipe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Swipe.storyboard; path = ../../../../../../Downloads/Swipe.storyboard; sourceTree = "<group>"; };
+		5EBFC0331FE37A0800C86405 /* BackgroundAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAnimationViewController.swift; sourceTree = "<group>"; };
+		5EBFC0341FE37A0800C86405 /* BackgroundKolodaAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundKolodaAnimator.swift; sourceTree = "<group>"; };
+		5EBFC0351FE37A0800C86405 /* CustomKolodaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKolodaView.swift; sourceTree = "<group>"; };
+		5EBFC0361FE37A0800C86405 /* CustomOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOverlayView.swift; sourceTree = "<group>"; };
+		5EBFC0371FE37A0800C86405 /* CustomOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOverlayView.xib; sourceTree = "<group>"; };
+		5EBFC0381FE37A0800C86405 /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
+		5EBFC0391FE37A0800C86405 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5EBFC0431FE385D800C86405 /* Swipe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Swipe.storyboard; sourceTree = "<group>"; };
 		68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProjectsTableViewController.swift; sourceTree = "<group>"; };
 		68211A411FE310C2000C2A45 /* CreateProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProjectViewController.swift; sourceTree = "<group>"; };
 		9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderCreateProfile.swift; sourceTree = "<group>"; };
 		9FC6A0641FBB98E000176134 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		9FC6A0651FBB98E000176134 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		BA3AF00A1FE371C70064EFBF /* ProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		BA3AF00C1FE38A370064EFBF /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		BA3AF00E1FE38AA70064EFBF /* MemberViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewCell.swift; sourceTree = "<group>"; };
 		BA8074111FE1E9160062E1EB /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		BA8074131FE1EFA90062E1EB /* UserProjectViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProjectViewCell.swift; sourceTree = "<group>"; };
 		BA907B711FDC989E005BD3E8 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -176,6 +198,21 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
+		5EBFC0321FE379F700C86405 /* Kolada */ = {
+			isa = PBXGroup;
+			children = (
+				5EBFC0331FE37A0800C86405 /* BackgroundAnimationViewController.swift */,
+				5EBFC0341FE37A0800C86405 /* BackgroundKolodaAnimator.swift */,
+				5EBFC0351FE37A0800C86405 /* CustomKolodaView.swift */,
+				5EBFC0361FE37A0800C86405 /* CustomOverlayView.swift */,
+				5EBFC0371FE37A0800C86405 /* CustomOverlayView.xib */,
+				5EBFC0381FE37A0800C86405 /* ExampleOverlayView.swift */,
+				5EBFC0391FE37A0800C86405 /* ViewController.swift */,
+			);
+			name = Kolada;
+			path = HinderApp;
+			sourceTree = SOURCE_ROOT;
+		};
 		A1569A637C58B1FCE043482E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +251,8 @@
 		C555F6B91FB0EA2A009106E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA3AF00E1FE38AA70064EFBF /* MemberViewCell.swift */,
+				BA3AF00C1FE38A370064EFBF /* UserTableViewCell.swift */,
 				BA8074131FE1EFA90062E1EB /* UserProjectViewCell.swift */,
 				C555F6B51FB0D023009106E8 /* HinderNavigationBar.swift */,
 				C555F6C51FB647AF009106E8 /* FeedEventCell.swift */,
@@ -221,7 +260,6 @@
 				C555F6C71FB7C2AE009106E8 /* FeedEventCellWithHeader.swift */,
 				9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */,
 				C557317D1FBE6D1900EBCF96 /* SkillSetEditCell.swift */,
-				5ED2FC6F1FDF473400F20274 /* SwipeCardView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -229,6 +267,7 @@
 		C555F6BA1FB0EA51009106E8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BA3AF00A1FE371C70064EFBF /* ProjectViewController.swift */,
 				68211A411FE310C2000C2A45 /* CreateProjectViewController.swift */,
 				BA8074111FE1E9160062E1EB /* UserViewController.swift */,
 				310F3F251FDE6DDF009FF85C /* CreateEventPage */,
@@ -243,8 +282,6 @@
 				31FEEA431FDDF40C007C4532 /* UserTypeViewController.swift */,
 				31FEEA451FDDFB68007C4532 /* HostLoginViewController.swift */,
 				310F3F201FDE3DAF009FF85C /* ViewProfileViewController.swift */,
-				5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */,
-				5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */,
 				68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -271,13 +308,14 @@
 		C55671651FAD4553009A194B /* HinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				5EBFC0321FE379F700C86405 /* Kolada */,
 				C555F6BA1FB0EA51009106E8 /* ViewControllers */,
 				C555F6B91FB0EA2A009106E8 /* Views */,
 				C520301B1FAD4760009DFCBA /* Models */,
 				C55671661FAD4553009A194B /* AppDelegate.swift */,
-				5ED2FC711FDF530200F20274 /* BackgroundKolodaAnimator.swift */,
 				C52030191FAD4732009DFCBA /* SectionControllers */,
 				C556716A1FAD4553009A194B /* Main.storyboard */,
+				5EBFC0431FE385D800C86405 /* Swipe.storyboard */,
 				BAC034731FDBB12D00ED14B3 /* Assets.xcassets */,
 				C556716F1FAD4553009A194B /* LaunchScreen.storyboard */,
 				C55671721FAD4553009A194B /* Info.plist */,
@@ -320,7 +358,7 @@
 				TargetAttributes = {
 					C55671621FAD4553009A194B = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = Y49WCSRGQP;
+						DevelopmentTeam = HCUH5BENYG;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -350,7 +388,9 @@
 			files = (
 				C55671711FAD4553009A194B /* LaunchScreen.storyboard in Resources */,
 				BAC034741FDBB12D00ED14B3 /* Assets.xcassets in Resources */,
+				5EBFC03E1FE37A0800C86405 /* CustomOverlayView.xib in Resources */,
 				C556716C1FAD4553009A194B /* Main.storyboard in Resources */,
+				5EBFC0441FE385D800C86405 /* Swipe.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +481,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EBFC0401FE37A0800C86405 /* ViewController.swift in Sources */,
 				BA8074141FE1EFA90062E1EB /* UserProjectViewCell.swift in Sources */,
+				5EBFC03F1FE37A0800C86405 /* ExampleOverlayView.swift in Sources */,
 				318A4B671FD66AD10054B73D /* EventRequest.swift in Sources */,
 				BA8074121FE1E9160062E1EB /* UserViewController.swift in Sources */,
 				313D31B71FE11A9A0036CC0B /* CreateEventViewControllerP2.swift in Sources */,
@@ -450,28 +492,31 @@
 				31FEEA461FDDFB68007C4532 /* HostLoginViewController.swift in Sources */,
 				C555F6B61FB0D023009106E8 /* HinderNavigationBar.swift in Sources */,
 				310F3F211FDE3DAF009FF85C /* ViewProfileViewController.swift in Sources */,
+				5EBFC03A1FE37A0800C86405 /* BackgroundAnimationViewController.swift in Sources */,
 				BAC0347E1FDBC4D400ED14B3 /* LoginViewController.swift in Sources */,
+				BA3AF00F1FE38AA70064EFBF /* MemberViewCell.swift in Sources */,
 				318A4B691FD66AE00054B73D /* ProjectRequest.swift in Sources */,
 				BA907B841FDDE8D3005BD3E8 /* MyGroupsViewController.swift in Sources */,
+				BA3AF00B1FE371C70064EFBF /* ProjectViewController.swift in Sources */,
 				31FEEA4A1FDE338D007C4532 /* CreateEventViewControllerP1.swift in Sources */,
+				BA3AF00D1FE38A370064EFBF /* UserTableViewCell.swift in Sources */,
 				C557317C1FBE69E400EBCF96 /* EditProfileSectionController.swift in Sources */,
 				C555F6BC1FB0EFC2009106E8 /* FeedSectionController.swift in Sources */,
 				C55671691FAD4553009A194B /* HomeViewController.swift in Sources */,
 				C555F6B81FB0D0B8009106E8 /* FontsAndTheme.swift in Sources */,
 				C555F6C81FB7C2AE009106E8 /* FeedEventCellWithHeader.swift in Sources */,
 				31BE76151FBAA55100154730 /* Request.swift in Sources */,
+				5EBFC03B1FE37A0800C86405 /* BackgroundKolodaAnimator.swift in Sources */,
 				31BE76131FBAA31300154730 /* Mediator.swift in Sources */,
-				5ED2FC721FDF530200F20274 /* BackgroundKolodaAnimator.swift in Sources */,
 				3129515A1FE21804004109FF /* HostEventTableViewController.swift in Sources */,
 				3129515E1FE226A5004109FF /* HostEventTableViewCell.swift in Sources */,
 				C555F6C41FB4334D009106E8 /* Skillset.swift in Sources */,
-				5ED2FC701FDF473400F20274 /* SwipeCardView.swift in Sources */,
 				9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */,
+				5EBFC03D1FE37A0800C86405 /* CustomOverlayView.swift in Sources */,
 				C555F6C21FB43293009106E8 /* User.swift in Sources */,
 				68211A421FE310C2000C2A45 /* CreateProjectViewController.swift in Sources */,
 				C522DC6E1FE31954001D634A /* ProfileUserInfoSectionController.swift in Sources */,
 				C557317E1FBE6D1900EBCF96 /* SkillSetEditCell.swift in Sources */,
-				5ED2FC6E1FDF433A00F20274 /* MyKolodaViewController.swift in Sources */,
 				C555F6C61FB647AF009106E8 /* FeedEventCell.swift in Sources */,
 				311A62BB1FE3491500E41AE3 /* ImageListener.swift in Sources */,
 				BA907B7A1FDCB152005BD3E8 /* HamburgerMenuViewController.swift in Sources */,
@@ -481,8 +526,8 @@
 				C555F6CA1FBA44E7009106E8 /* EventPageViewController.swift in Sources */,
 				C55671671FAD4553009A194B /* AppDelegate.swift in Sources */,
 				318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */,
+				5EBFC03C1FE37A0800C86405 /* CustomKolodaView.swift in Sources */,
 				31FEEA481FDE118F007C4532 /* SessionUser.swift in Sources */,
-				5ED2FC741FDF533800F20274 /* BackgroundAnimationViewController.swift in Sources */,
 				313D31BA1FE11E8B0036CC0B /* ImageAction.swift in Sources */,
 				BA907B821FDDE85E005BD3E8 /* MyEventsViewController.swift in Sources */,
 				68211A401FE30374000C2A45 /* MyProjectsTableViewController.swift in Sources */,
@@ -619,11 +664,11 @@
 			baseConfigurationReference = 391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y49WCSRGQP;
+				DEVELOPMENT_TEAM = HCUH5BENYG;
 				INFOPLIST_FILE = HinderApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TBD.HinderApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "-30.App.Hinder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -634,11 +679,11 @@
 			baseConfigurationReference = DB0788E19595C0B9866F5DE3 /* Pods-HinderApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y49WCSRGQP;
+				DEVELOPMENT_TEAM = HCUH5BENYG;
 				INFOPLIST_FILE = HinderApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TBD.HinderApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "-30.App.Hinder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
