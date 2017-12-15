@@ -320,7 +320,7 @@
 				TargetAttributes = {
 					C55671621FAD4553009A194B = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = Y49WCSRGQP;
+						DevelopmentTeam = HCUH5BENYG;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -619,11 +619,11 @@
 			baseConfigurationReference = 391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y49WCSRGQP;
+				DEVELOPMENT_TEAM = HCUH5BENYG;
 				INFOPLIST_FILE = HinderApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TBD.HinderApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "-30.App.Hinder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -634,11 +634,11 @@
 			baseConfigurationReference = DB0788E19595C0B9866F5DE3 /* Pods-HinderApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y49WCSRGQP;
+				DEVELOPMENT_TEAM = HCUH5BENYG;
 				INFOPLIST_FILE = HinderApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TBD.HinderApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "-30.App.Hinder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
