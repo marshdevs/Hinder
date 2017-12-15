@@ -46,7 +46,7 @@ class EventPageViewController: UIViewController {
             let vc = UIStoryboard(name: "Main", bundle: nil) .instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
             vc.setProject(project: projectId)
             self.navigationController?.pushViewController(vc, animated: true)
-        } else if buttonLabel.text == "Search Groups" { // GO TO SWIPE INTERFACE GEORGE
+        } else if buttonLabel.text == "Search Projects" { // GO TO SWIPE INTERFACE GEORGE
             // go to george's swipe interface
             let vc = UIStoryboard(name: "Swipe", bundle: nil) .instantiateViewController(withIdentifier: "BackgroundAnimationViewController") as! BackgroundAnimationViewController
             

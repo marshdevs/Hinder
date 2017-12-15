@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16G1114" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXN-qA-QQl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXN-qA-QQl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,7 +63,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="VBZ-xY-nPc" kind="show" id="2m6-3c-Le8"/>
+                                    <segue destination="Z6Z-54-YSN" kind="show" id="JRU-9i-YMP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -93,7 +93,7 @@
                     <navigationItem key="navigationItem" id="35x-FL-mlZ">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="wJJ-5W-ppp" userLabel="Create Event Button">
                             <connections>
-                                <action selector="createEventClicked:" destination="4fH-Ct-1vr" id="rUj-gc-6io"/>
+                                <segue destination="ZOT-0F-Cwv" kind="show" id="2gc-3z-Gel"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="hamburger" width="50" id="O2k-Js-IxM" userLabel="Hamburger Menu">
@@ -104,7 +104,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="createEventButton" destination="wJJ-5W-ppp" id="4bN-2p-0sm"/>
+                        <outlet property="createEventButton" destination="wJJ-5W-ppp" id="Syt-KU-jhj"/>
                         <outlet property="hamburgerMenu" destination="O2k-Js-IxM" id="YAU-yX-lMA"/>
                         <segue destination="vXN-qA-QQl" kind="show" identifier="backToHomeSegue" id="2jo-Ap-sZp"/>
                         <segue destination="ZOT-0F-Cwv" kind="show" identifier="createNewEventSegue" id="VHc-LI-tT1"/>
@@ -206,14 +206,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register = AUTHENTICATE ROUTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXs-lE-zeC">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register = AUTHENTICATE ROUTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXs-lE-zeC">
                                 <rect key="frame" x="63" y="606" width="267" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login = DEFAULT HOST ROUTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqm-kt-BYT">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login = DEFAULT HOST ROUTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqm-kt-BYT">
                                 <rect key="frame" x="63" y="467" width="244" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -324,6 +324,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="e99-eW-pEr" id="sdu-XF-ODN"/>
                         <outlet property="eventDate" destination="8ja-Hg-fBB" id="cai-5e-cb5"/>
                         <outlet property="eventLocation" destination="41f-w8-hCn" id="4fI-gx-4bI"/>
                         <outlet property="eventName" destination="HjM-d1-cVt" id="blj-H0-jVh"/>
@@ -332,7 +333,12 @@
                     </connections>
                 </viewController>
                 <navigationItem id="UFB-n3-xQm">
-                    <barButtonItem key="backBarButtonItem" title="Back" id="oAF-NV-Sxx"/>
+                    <barButtonItem key="leftBarButtonItem" title="Cancel" id="e99-eW-pEr" userLabel="Cancel Button">
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <connections>
+                            <segue destination="4fH-Ct-1vr" kind="show" id="TU6-bn-Gb7"/>
+                        </connections>
+                    </barButtonItem>
                     <barButtonItem key="rightBarButtonItem" title="Next" id="qDD-4q-DNh" userLabel="Next Button">
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <connections>
@@ -415,6 +421,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="h0q-cL-dhr" id="6ZT-hb-8h5"/>
+                        <outlet property="cancelButton" destination="pci-YC-cwl" id="uCN-cy-p4O"/>
                         <outlet property="confirmButton" destination="0aa-Iy-k67" id="Bpp-F0-ekd"/>
                         <outlet property="errorLabel" destination="sww-QH-sTi" id="Al7-SR-xPO"/>
                         <outlet property="eventDescription" destination="04i-uE-peO" id="cBL-fO-SXk"/>
@@ -423,8 +431,24 @@
                         <segue destination="4fH-Ct-1vr" kind="show" identifier="eventCreatedSegue" id="wWk-qV-3yb"/>
                     </connections>
                 </viewController>
+                <navigationItem id="VcN-QM-XY7">
+                    <barButtonItem key="leftBarButtonItem" title="Back" id="h0q-cL-dhr" userLabel="Back Button">
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <connections>
+                            <segue destination="ZOT-0F-Cwv" kind="show" identifier="backToFirstCreateViewController" id="7F8-Hc-RSV"/>
+                        </connections>
+                    </barButtonItem>
+                    <barButtonItem key="rightBarButtonItem" title="Cancel" id="pci-YC-cwl" userLabel="Cancel Button">
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <connections>
+                            <action selector="nextPage:" destination="ZOT-0F-Cwv" id="Fxd-rv-T7J"/>
+                            <segue destination="4fH-Ct-1vr" kind="show" id="Qen-6G-HbV"/>
+                        </connections>
+                    </barButtonItem>
+                </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZk-zs-1BG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+
             <point key="canvasLocation" x="-610.39999999999998" y="3034.6326836581711"/>
         </scene>
         <!--Login View Controller-->
@@ -474,7 +498,6 @@
                                 </state>
                                 <connections>
                                     <action selector="userRegister:" destination="VBZ-xY-nPc" eventType="touchUpInside" id="53A-t9-9LF"/>
-                                    <segue destination="Z6Z-54-YSN" kind="show" id="nK9-MZ-hee"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t9Q-mA-5Mc">
@@ -686,7 +709,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVz-rt-UZw" userLabel="buttonLabel">
-                                <rect key="frame" x="133" y="467" width="109" height="21"/>
+                                <rect key="frame" x="88" y="467" width="195" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" red="0.99949087326091413" green="1" blue="0.95631457921194107" alpha="1" colorSpace="calibratedRGB"/>
@@ -709,7 +732,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4za-ur-Shj">
                                 <rect key="frame" x="88" y="548" width="195" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create Group" backgroundImage="rounded-button"/>
+                                <state key="normal" title="Create Project" backgroundImage="rounded-button"/>
                                 <connections>
                                     <action selector="createGroupPressed:" destination="ALy-jR-a9T" eventType="touchUpInside" id="y2W-v7-cty"/>
                                 </connections>
@@ -752,14 +775,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JdC-V0-VSi">
-                                                    <rect key="frame" x="52" y="0.0" width="308" height="43.5"/>
+                                                    <rect key="frame" x="53" y="0.0" width="307" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="list" id="au8-WA-DjA">
-                                                    <rect key="frame" x="15" y="9" width="22" height="24"/>
+                                                    <rect key="frame" x="16" y="9" width="22" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -778,15 +801,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5DV-HZ-lL4">
-                                                    <rect key="frame" x="54" y="0.0" width="306" height="43.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5DV-HZ-lL4">
+                                                    <rect key="frame" x="55" y="0.0" width="305" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="group" id="fVD-sf-BU0">
-                                                    <rect key="frame" x="15" y="11" width="24" height="21"/>
+                                                    <rect key="frame" x="16" y="11" width="24" height="21"/>
+
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
