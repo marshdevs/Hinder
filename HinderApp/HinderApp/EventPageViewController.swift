@@ -68,9 +68,11 @@ class EventPageViewController: UIViewController {
         var eventId = event.eventId
         if SessionUser.shared().events.contains(eventId) {
             for proj in SessionUser.shared().projects {
-                if eventId == proj {
-                    buttonLabel.text = "View Group"
-                    assignedLabel = true
+                for eventProject in event.projects {
+                    if eventProject == proj {
+                        buttonLabel.text = "View Group"
+                        assignedLabel = true
+                    }
                 }
             }
             if assignedLabel == false {
