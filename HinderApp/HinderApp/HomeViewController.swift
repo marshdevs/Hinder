@@ -18,6 +18,8 @@ class HomeViewController: UIViewController,ListAdapterDataSource, EventClickedDe
     
     var sessionUser: User?
     
+    @IBOutlet weak var image: UIImageView!
+    
     let collectionView: UICollectionView = {
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.backgroundColor = UIColor.white
@@ -40,6 +42,7 @@ class HomeViewController: UIViewController,ListAdapterDataSource, EventClickedDe
         view.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.dataSource = self
+
     }
     
     // When the settings icon is selected

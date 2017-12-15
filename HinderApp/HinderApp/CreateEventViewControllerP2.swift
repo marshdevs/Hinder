@@ -50,9 +50,8 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
         eventRequest.updateHost(email: SessionHost.shared().email, events: hostEvents)
         
         
-        let imageAction = ImageAction()
-        imageAction.uploadToS3(image: eventPhotoFromPrev, filename: eventId + "Photo.png")
-        imageAction.uploadToS3(image: eventThumbnail.image!, filename: eventId + "Thumb.png")
+        ImageAction.uploadToS3(image: eventPhotoFromPrev, filename: eventId + "Photo.png")
+        ImageAction.uploadToS3(image: eventThumbnail.image!, filename: eventId + "Thumb.png")
         
         newEventModel["eventId"] = eventId
         newEventModel["eventPhoto"] = eventId + "Photo"

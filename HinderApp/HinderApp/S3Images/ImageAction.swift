@@ -46,7 +46,8 @@ class ImageAction {
      - parameter filename: URL string of requested image
      - returns: `UIImage` view for the requested image
     */
-    func downloadFromS3(filename : String) -> UIImage {
+    static func downloadFromS3(filename : String, listener: ImageListener) -> String {
+        let _ = ImageAction()
         
         let transferManager = AWSS3TransferManager.default()
         
@@ -79,10 +80,14 @@ class ImageAction {
         
         downloadRequest?.downloadProgress = {(bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) -> Void in
             DispatchQueue.main.async(execute: {() -> Void in
+                print(String(totalBytesSent) + " / " + String(totalBytesExpectedToSend))
+                if (totalBytesSent == totalBytesExpectedToSend) {
+                    listener.notify()
+                }
             })
         }
         
-        return UIImage(contentsOfFile: downloadingFileURL.path)!
+        return downloadingFileURL.path
         
     }
     
@@ -94,7 +99,8 @@ class ImageAction {
      
      - returns: `void` on success. Indicates error if uploading fails.
     */
-    func uploadToS3(image : UIImage, filename: String) {
+    static func uploadToS3(image : UIImage, filename: String) {
+        let _ = ImageAction()
         
         let transferManager = AWSS3TransferManager.default()
         let uploadRequest = AWSS3TransferManagerUploadRequest()
