@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import PhotosUI
 
-class CreateProjectViewController: UIViewController, UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
+class CreateProjectViewController: UIViewController, UIImagePickerControllerDelegate, UITextFieldDelegate, UITextViewDelegate, UINavigationControllerDelegate {
     
     let imagePicker = UIImagePickerController()
     
@@ -36,6 +36,8 @@ class CreateProjectViewController: UIViewController, UIImagePickerControllerDele
 
     @IBOutlet weak var projectPhoto: UIImageView!
     
+    @IBOutlet weak var errorLabel: UILabel!
+    
     // Skillset
     
     @IBOutlet weak var cplusplus: UISwitch!
@@ -51,6 +53,10 @@ class CreateProjectViewController: UIViewController, UIImagePickerControllerDele
         super.viewDidLoad()
         imagePicker.delegate = self
         
+        projectDescription.delegate = self
+        projectDescription.text = "Placeholder project description..."
+        projectDescription.textColor = UIColor.lightGray
+        
         // Do any additional setup after loading the view.
         
         // Buttons to save and cancel during project creation
@@ -64,10 +70,27 @@ class CreateProjectViewController: UIViewController, UIImagePickerControllerDele
     
     func save() {
         // Create project
+        if (self.projectName.text?.characters.count == 0) {
+            self.errorLabel.text = "Project name must be greater than 0 chars."
+            self.errorLabel.isHidden = false
+            return
+        }
+        if (self.projectDescription.text?.characters.count == 0) {
+            self.errorLabel.text = "Project description must be greater than 0 chars."
+            self.errorLabel.isHidden = false
+            return
+        }
+        if (Int((self.projectSize?.text)!) == nil) {
+            self.errorLabel.text = "Project size must be a single integer."
+            self.errorLabel.isHidden = false
+            return
+        }
+        
         let _name: String! = projectName.text!
         let size : Int! = Int(projectSize.text!)
+        
         var newProjectModel = ["projectId": "none", "eventId":"none", "projectName": _name,
-                            "projectDescription": projectDescription.text, "projectSize": [size],
+                            "projectDescription": projectDescription.text, "projectSize": [1, size],
                             "projectPhoto": "photoURLStillToDo", "projectUsers": [],
                             "projectSkillset": ["C++":cplusplus.isOn,
                                                 "C": c.isOn,
@@ -105,6 +128,23 @@ class CreateProjectViewController: UIViewController, UIImagePickerControllerDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // Placeholder text view methods
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if self.projectDescription.textColor == UIColor.lightGray {
+            self.projectDescription.text = ""
+            self.projectDescription.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if self.projectDescription.text == "" {
+            self.projectDescription.text = "Placeholder event description..."
+            self.projectDescription.textColor = UIColor.lightGray
+        }
+    }
+    
     
     // Image Picker Methods
     

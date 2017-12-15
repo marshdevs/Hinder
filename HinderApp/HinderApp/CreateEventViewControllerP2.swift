@@ -20,6 +20,7 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var eventThumbnail: UIImageView!
     
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     var eventName = "empty"
     var eventLocation = "empty"
@@ -38,6 +39,21 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
+        if (self.eventName.characters.count == 0) {
+            self.errorLabel.text = "Event name must be greater than 0 chars."
+            self.errorLabel.isHidden = false
+            return
+        }
+        if (self.eventLocation.characters.count == 0) {
+            self.errorLabel.text = "Event location must be greater than 0 chars."
+            self.errorLabel.isHidden = false
+            return
+        }
+        if(self.eventDescription.text.characters.count == 0) {
+            self.errorLabel.text = "Event description must be more than 0 chars."
+            self.errorLabel.isHidden = false;
+            return
+        }
         
         var newEventModel = ["eventId": "none", "eventName": eventName, "eventDate": eventDate.toString(dateFormat: "yyyy-MM-dd HH:mm"), "eventLocation": eventLocation, "eventDescription": eventDescription.text, "eventPhoto": "photoURLStillToDo", "eventThumbnail": "photoURLStillToDo", "eventProjects": [], "eventUsers": []] as Dictionary<String, Any>
         
@@ -57,6 +73,8 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
         newEventModel["eventPhoto"] = eventId + "Photo"
         newEventModel["eventThumbnail"] = eventId + "Thumb"
         eventRequest.updateEvent(event: Event(json: newEventModel))
+        
+        self.performSegue(withIdentifier: "eventCreatedSegue", sender: self)
     }
     
     @IBAction func loadImageButtonTapped(_ sender: UIButton) {
@@ -101,6 +119,8 @@ class CreateEventViewControllerP2: UIViewController, UIImagePickerControllerDele
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    // Placeholder text view methods
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if self.eventDescription.textColor == UIColor.lightGray {
