@@ -24,7 +24,7 @@ class Event: NSObject, ListDiffable {
     let desc: String
     let photo: String
     let thumbnail: String
-    let projects: [String]
+    var projects: [String]
     let users: [String]
 
     /**

@@ -24,10 +24,6 @@
 		31FEEA461FDDFB68007C4532 /* HostLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA451FDDFB68007C4532 /* HostLoginViewController.swift */; };
 		31FEEA481FDE118F007C4532 /* SessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA471FDE118F007C4532 /* SessionUser.swift */; };
 		31FEEA4A1FDE338D007C4532 /* CreateEventViewControllerP1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEEA491FDE338D007C4532 /* CreateEventViewControllerP1.swift */; };
-		5ED2FC6E1FDF433A00F20274 /* MyKolodaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */; };
-		5ED2FC701FDF473400F20274 /* SwipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC6F1FDF473400F20274 /* SwipeCardView.swift */; };
-		5ED2FC721FDF530200F20274 /* BackgroundKolodaAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC711FDF530200F20274 /* BackgroundKolodaAnimator.swift */; };
-		5ED2FC741FDF533800F20274 /* BackgroundAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */; };
 		68211A401FE30374000C2A45 /* MyProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */; };
 		68211A421FE310C2000C2A45 /* CreateProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68211A411FE310C2000C2A45 /* CreateProjectViewController.swift */; };
 		710D9E332BD09436D14BC3E0 /* Pods_HinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACBE7B492A7D12BA50D3CFC /* Pods_HinderApp.framework */; };
@@ -83,10 +79,6 @@
 		31FEEA471FDE118F007C4532 /* SessionUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUser.swift; sourceTree = "<group>"; };
 		31FEEA491FDE338D007C4532 /* CreateEventViewControllerP1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewControllerP1.swift; sourceTree = "<group>"; };
 		391325CDC24D8F558572A104 /* Pods-HinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HinderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HinderApp/Pods-HinderApp.debug.xcconfig"; sourceTree = "<group>"; };
-		5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKolodaViewController.swift; sourceTree = "<group>"; };
-		5ED2FC6F1FDF473400F20274 /* SwipeCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardView.swift; sourceTree = "<group>"; };
-		5ED2FC711FDF530200F20274 /* BackgroundKolodaAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundKolodaAnimator.swift; sourceTree = "<group>"; };
-		5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAnimationViewController.swift; sourceTree = "<group>"; };
 		68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProjectsTableViewController.swift; sourceTree = "<group>"; };
 		68211A411FE310C2000C2A45 /* CreateProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProjectViewController.swift; sourceTree = "<group>"; };
 		9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HinderCreateProfile.swift; sourceTree = "<group>"; };
@@ -229,7 +221,6 @@
 				C555F6C71FB7C2AE009106E8 /* FeedEventCellWithHeader.swift */,
 				9FC6A0621FB9168A00176134 /* HinderCreateProfile.swift */,
 				C557317D1FBE6D1900EBCF96 /* SkillSetEditCell.swift */,
-				5ED2FC6F1FDF473400F20274 /* SwipeCardView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -252,8 +243,6 @@
 				31FEEA431FDDF40C007C4532 /* UserTypeViewController.swift */,
 				31FEEA451FDDFB68007C4532 /* HostLoginViewController.swift */,
 				310F3F201FDE3DAF009FF85C /* ViewProfileViewController.swift */,
-				5ED2FC6D1FDF433A00F20274 /* MyKolodaViewController.swift */,
-				5ED2FC731FDF533800F20274 /* BackgroundAnimationViewController.swift */,
 				68211A3F1FE30374000C2A45 /* MyProjectsTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -284,7 +273,6 @@
 				C555F6B91FB0EA2A009106E8 /* Views */,
 				C520301B1FAD4760009DFCBA /* Models */,
 				C55671661FAD4553009A194B /* AppDelegate.swift */,
-				5ED2FC711FDF530200F20274 /* BackgroundKolodaAnimator.swift */,
 				C52030191FAD4732009DFCBA /* SectionControllers */,
 				C556716A1FAD4553009A194B /* Main.storyboard */,
 				BAC034731FDBB12D00ED14B3 /* Assets.xcassets */,
@@ -473,17 +461,14 @@
 				C555F6C81FB7C2AE009106E8 /* FeedEventCellWithHeader.swift in Sources */,
 				31BE76151FBAA55100154730 /* Request.swift in Sources */,
 				31BE76131FBAA31300154730 /* Mediator.swift in Sources */,
-				5ED2FC721FDF530200F20274 /* BackgroundKolodaAnimator.swift in Sources */,
 				3129515A1FE21804004109FF /* HostEventTableViewController.swift in Sources */,
 				3129515E1FE226A5004109FF /* HostEventTableViewCell.swift in Sources */,
 				C555F6C41FB4334D009106E8 /* Skillset.swift in Sources */,
-				5ED2FC701FDF473400F20274 /* SwipeCardView.swift in Sources */,
 				9FC6A0631FB9168A00176134 /* HinderCreateProfile.swift in Sources */,
 				C555F6C21FB43293009106E8 /* User.swift in Sources */,
 				68211A421FE310C2000C2A45 /* CreateProjectViewController.swift in Sources */,
 				C522DC6E1FE31954001D634A /* ProfileUserInfoSectionController.swift in Sources */,
 				C557317E1FBE6D1900EBCF96 /* SkillSetEditCell.swift in Sources */,
-				5ED2FC6E1FDF433A00F20274 /* MyKolodaViewController.swift in Sources */,
 				C555F6C61FB647AF009106E8 /* FeedEventCell.swift in Sources */,
 				311A62BB1FE3491500E41AE3 /* ImageListener.swift in Sources */,
 				BA907B7A1FDCB152005BD3E8 /* HamburgerMenuViewController.swift in Sources */,
@@ -494,7 +479,6 @@
 				C55671671FAD4553009A194B /* AppDelegate.swift in Sources */,
 				318A4B6B1FD66AFC0054B73D /* UserRequest.swift in Sources */,
 				31FEEA481FDE118F007C4532 /* SessionUser.swift in Sources */,
-				5ED2FC741FDF533800F20274 /* BackgroundAnimationViewController.swift in Sources */,
 				313D31BA1FE11E8B0036CC0B /* ImageAction.swift in Sources */,
 				BA907B821FDDE85E005BD3E8 /* MyEventsViewController.swift in Sources */,
 				68211A401FE30374000C2A45 /* MyProjectsTableViewController.swift in Sources */,

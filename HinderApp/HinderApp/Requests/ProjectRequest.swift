@@ -181,7 +181,7 @@ class ProjectRequest: Request {
                 return
             }
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     for item in json {
                         dump(item)
                     }

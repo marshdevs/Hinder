@@ -30,8 +30,9 @@ class EventPageViewController: UIViewController {
     
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var buttonLabel: UILabel!
+    @IBOutlet weak var createGroupButton: UIButton!
     
-    @IBAction func buttonPressed(_ sender: Any) {
+    @IBAction func buttonPressed(_ sender: UIButton) {
         var projectId = "filler"
         for proj in SessionUser.shared().projects {
             for eventProject in event.projects {
@@ -74,6 +75,8 @@ class EventPageViewController: UIViewController {
                     if eventProject == proj {
                         buttonLabel.text = "View Group"
                         assignedLabel = true
+                        createGroupButton.isEnabled = false
+                        createGroupButton.isHidden = true
                     }
                 }
             }
@@ -96,10 +99,22 @@ class EventPageViewController: UIViewController {
     @IBAction func menuClicked(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "backToHomeSegue", sender: self)
     }
+    @IBAction func createGroupPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "createProjectSegue", sender: self)
+    }
     
     func setEvent(event: Event){
         self.event = event
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createProjectSegue" {
+            if let destination = segue.destination as? CreateProjectViewController {
+                destination.eventId = event.eventId
+            }
+        }
+    }
+    
     /*
      // MARK: - Navigation
      
