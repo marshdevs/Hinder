@@ -32,8 +32,18 @@ class EventPageViewController: UIViewController {
     @IBOutlet weak var buttonLabel: UILabel!
     
     @IBAction func buttonPressed(_ sender: Any) {
+        var projectId = "filler"
+        for proj in SessionUser.shared().projects {
+            for eventProject in event.projects {
+                if eventProject == proj {
+                    projectId = proj //@kyle i'm PRETTY SURE this is the projectID that you then want to request
+                }
+            }
+        }
+        //KYLE ADD REQUESTS BELOW
         if buttonLabel.text == "View Group" {
             // view kyle/apurva's group page???
+            // KYLE KYLE KYLE KYLE KYLE TODO
             // self.performSegue(withIdentifier: "blah", sender: self)
         } else if buttonLabel.text == "Search Groups" {
             // go to george's swipe interface
