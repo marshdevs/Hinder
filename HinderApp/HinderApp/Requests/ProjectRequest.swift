@@ -13,7 +13,7 @@ import Foundation
  */
 class ProjectRequest: Request {
     
-    let emptyProjectHandler = ["projectName": "empty", "eventId": "empty", "projectDescription": "If you're seeing this, something went wrong.", "projectSize": [1, 1], "projectPhoto": "empty", "projectSkillset": ["empty": true] as Dictionary<String, Any>, "projectUsers": []] as [String : Any]
+    let emptyProjectHandler = ["projectId": "empty", "projectName": "empty", "eventId": "empty", "projectDescription": "empty", "projectSize": [1, 1], "projectPhoto": "empty", "projectSkillset": ["C++": true, "C": true, "Html": true, "Java": true, "Javascript": true, "Obj-C": true, "Python": true, "Swift": true] as Dictionary<String, Any>, "projectUsers": []] as [String : Any]
     
     override init() {
         super.init()
