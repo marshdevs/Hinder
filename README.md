@@ -24,7 +24,7 @@ When it comes to group based projects where the groups are expected to be formed
 ## Feature Description 
 # Project Matching
 The main interface of the project, the majority of the code for Project Matching occurs in MyKoladaViewController.swift
-# Profile Editting
+# Profile Editing
 This is how a user edits what projects will see on them when swiping for potential team members. This is all editable by the user, and the majority of the code is in EditProfileViewController.swift
 # Project Creation
 If a user signs up for an event and already has an existing project idea, and only wants to find more teammates, their use case will be to create a project. This occurs in CreateProjectViewController.swift
