@@ -12,9 +12,9 @@ var app = express();
 app.use(bodyParser.json());
 
 var region = "us-west-1";
-var accessKeyId = "AKIAJ266NZR4QF75FE3A";
-var secretAccessKey = "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";
-var secretHashSalt = "voBxXOCwSmjtGHYk6mVVzFI2Yr9gbf";
+var accessKeyId = "xxxxxxxxxxxxxx";
+var secretAccessKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+var secretHashSalt = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
 AWS.config.update({
     region: region,
